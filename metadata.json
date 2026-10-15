@@ -1,0 +1,7 @@
+{
+  "name": "Unbanz — Instagram & Facebook Bans and Unbans",
+  "description": "Instagram and Facebook account recovery, ad account unbans, ban requests, and Instagram username claims.",
+  "permissions": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

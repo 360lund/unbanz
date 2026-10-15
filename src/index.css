@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --primary-navy: #18334a;
+  --secondary-navy: #254b6d;
+  --brand-blue: #599fe0;
+  --brand-blue-hover: #458ecc;
+  --sky-tint: #ebf4fb;
+  --ice-bg: #f5f9fc;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--ice-bg);
+  color: var(--primary-navy);
+}
+
+/* Custom smooth scroll and transitions */
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #599fe0;
+  color: #ffffff;
+}
