@@ -314,3 +314,29 @@ svg { display: block; }
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
 }
+
+.service-rows h2{font-size:32px;line-height:1.16;letter-spacing:-.04em}
+.guide-meta{font-size:14px;color:#e0f0fc;margin-top:-6px}
+.guide-body{max-width:760px;padding:45px 0 40px}
+.guide-body h2{font-size:30px;letter-spacing:-.03em;line-height:1.2;margin:44px 0 16px;scroll-margin-top:24px}
+.guide-body h3{font-size:21px;letter-spacing:-.02em;margin:26px 0 10px}
+.guide-body p,.guide-body li{font-size:17px;line-height:1.8;color:var(--muted)}
+.guide-body p+p{margin-top:14px}
+.guide-body ul,.guide-body ol{margin:14px 0 14px 22px;display:grid;gap:8px}
+.guide-body ul{list-style:disc}.guide-body ol{list-style:decimal}
+.guide-body a{text-decoration:underline}
+.guide-body strong{color:inherit;font-weight:700}
+.guide-toc{background:#e6eff6;border-radius:24px;padding:24px 28px;margin-bottom:10px}
+.guide-toc p{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#658398;margin-bottom:10px}
+.guide-toc ol{margin:0 0 0 20px;gap:6px}
+.guide-toc li{font-size:16px;line-height:1.5}
+.guide-sources{margin-top:44px;padding-top:24px;border-top:1px solid #d7e3ec}
+.guide-sources h2{margin-top:0;font-size:22px}
+.guide-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:60px 0 40px}
+.guide-cards article{background:#fff;border-radius:24px;padding:30px}
+.guide-cards h2{font-size:24px;line-height:1.2;letter-spacing:-.03em;margin-bottom:12px}
+.guide-cards p{font-size:16px;line-height:1.7;color:var(--muted);margin-bottom:14px}
+.guide-cards a{text-decoration:underline}
+.guide-links{padding:0 0 10px}
+.guide-links h2{font-size:22px;letter-spacing:-.02em;margin-bottom:14px}
+@media (max-width:760px){.guide-cards{grid-template-columns:1fr;padding-top:40px}.guide-body h2{font-size:26px}.guide-body p,.guide-body li{font-size:16px}.service-rows h2{font-size:27px}}
