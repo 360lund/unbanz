@@ -1,11 +1,11 @@
-# Unbanz — Firebase handoff
+# Preserve Unbanz exactly
 
-Preserve the current page layouts, typography, local images, colors, rounded surfaces, animation timing and mobile behavior. Do not regenerate the design. The frontend is in dist/. The routes are /, /unban/, /username/, /ban/, /apply/ and /admin/.
+This is a complete static HTML/CSS/JavaScript website. Use the extracted files directly. Do not recreate it in React or generate a new design from its text. Preserve the HTML, CSS, local fonts, embedded hero logos, assets and routes.
 
-The application at /apply/ should submit on this website. It collects service, account, context, name, email and optional phone. Replace the endpoint /api/application with a validated Firebase callable function or server endpoint. Store leads in Firestore with a server timestamp and status New, and send an email notification to team@unbanz.com server-side if configured. Never store API secrets in frontend code. Preserve data in the form on errors and only show success after persistence succeeds.
+The ZIP root contains the real index.html. Vercel: Other framework, no build command, output directory . and repository root as Root Directory. Keep vercel.json. Do not deploy a React root pointing at /src/main.tsx.
 
-/admin is a design-only preview with password preview and fictional example.com records. Replace this with Firebase Authentication and an admin role check. Enforce permissions with backend rules, not route visibility or a hardcoded browser password. Unauthenticated visitors must not read any leads. Do not replace demo data with real leads until those controls are tested.
+No backend is wanted. No Firebase. No lead database. No admin area. Contact is direct WhatsApp and email. Buttons must open the supplied wa.me links or mailto:team@unbanz.com. Do not replace these with a fake submission confirmation.
 
-Keep search, filters, lead detail panel, status updates and private notes. Wire them to authenticated database operations. Use App Check and suitable rate limits for the public application endpoint. Review the README. Keep a backup branch and compare mobile/desktop rendering before and after integration.
+Main offer: Instagram and Facebook bans/unbans and Meta ad account unbans. Ban requests cover genuine violations. Instagram username claims are secondary and Instagram-only. No verification or followers services. Pricing is a free initial case check and custom quote, pending supplier costs. Retain the 3–14-day estimate and case-by-case qualification without turning it into a guaranteed result.
 
-The newest application has its own apply.css and apply.js. Keep the desktop two-column form and mobile two-step layout. Main app.js only handles site navigation, accordions and information dialogs now.
+Canonical host is https://unbanz.com. Keep page titles, descriptions, sitemap, structured data and share-preview metadata. Connect the domain in Vercel when ready. Keep source typography sans-serif; no decorative italic or serif replacement.

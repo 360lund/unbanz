@@ -1,3 +1,3 @@
-# Unbanz launch artwork
+# Unbanz artwork
 
-Primary offer: Instagram and Facebook bans and unbans. Three launch posts focus on Instagram recovery, Facebook recovery and impersonation ban requests. Large type, minimal copy, white/sky blue/navy backgrounds, hero logo references. No verification services. Instagram-only username claims remain secondary on the website.
+Upright Swiss sans-serif typography, sky blue/white/navy and the hero glass logo references. Main topics: Instagram recovery, Facebook recovery and legitimate ban requests. No serif or italic display type.

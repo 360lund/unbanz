@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "",
-  "outputDirectory": "dist",
+  "outputDirectory": ".",
   "headers": [
     {
       "source": "/(.*)",
@@ -16,6 +16,19 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
+    }
+  ],
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/apply",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/apply/",
+      "destination": "/contact/",
+      "permanent": true
     }
   ]
 }
