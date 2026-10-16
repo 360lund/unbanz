@@ -391,5 +391,5 @@ svg { display: block; }
 
 .hero-cta { display: flex; flex-direction: column; align-items: flex-start; width: fit-content; max-width: 100%; }
 #home .hero-cta, .closing-content .hero-cta { margin-inline: auto; }
-.hero-cta .hero-email { display: inline-block; margin: 12px 0 0; padding: 4px 0; font-size: 14px; }
+.hero-cta .hero-email { display: inline-block; margin: 12px 0 0 20px; padding: 4px 0; font-size: 14px; }
 #home .hero-email { animation: hero-fade-up .8s cubic-bezier(.22,1,.36,1) .25s backwards; }
