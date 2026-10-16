@@ -158,7 +158,7 @@
 (() => {
   const WA = 'https://wa.me/19342012490', MAIL = 'team@unbanz.com';
   const services = [['unban', 'Unban my account'], ['ban', 'Ban an account'], ['username', 'Username claim'], ['ad', 'Ad account'], ['other', 'Other']];
-  const platforms = ['Instagram', 'Facebook', 'WhatsApp', 'Threads'];
+  const platforms = ['Instagram', 'Facebook'];
   const p = new URLSearchParams(location.search);
   const campaign = ['utm_source', 'utm_campaign'].map(k => p.get(k)?.replace(/[\r\n]/g, ' ').slice(0, 100)).filter(Boolean).join(' / ');
   let modal, lastFocus, state = { service: 'unban', platform: 'Instagram' };
