@@ -45,3 +45,6 @@ AI_STUDIO_HANDOFF.md tells an agent how to preserve the site.
 ## Launch status
 
 The ChatGPT preview is private. This ZIP has not been pushed to the user's GitHub or unbanz-red Vercel project. No Search Console verification, analytics, Meta Pixel or ads were configured. Prices are quoted per case until supplier costs and refund terms are confirmed. Backend and former admin files have been removed.
+
+## Assets
+Never delete old hashed files in assets/ (site.*.css / site.*.js). Session replays (Clarity) and cached pages still request them.
