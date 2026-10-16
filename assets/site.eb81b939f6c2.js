@@ -223,8 +223,8 @@
     update();
     modal.hidden = false;
     document.documentElement.classList.add('cm-lock');
-    requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('is-open')));
-    modal.querySelector('.cm-pill[aria-pressed="true"]').focus();
+    void modal.offsetWidth; modal.classList.add('is-open');
+    modal.querySelector('.cm-dialog').focus();
   };
   const close = () => {
     if (!modal || modal.hidden) return;
