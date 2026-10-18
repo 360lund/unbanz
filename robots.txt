@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /apply/
 
 Sitemap: https://unbanz.com/sitemap.xml
 Sitemap: https://unbanz.com/sitemap-images.xml
