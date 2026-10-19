@@ -1,6 +1,6 @@
 # Unbanz
 
-> Unbanz (unbanz.com) is an independent, paid done-for-you service for bans and unbans on Instagram, Facebook, Snapchat and Meta ad accounts. It recovers disabled, suspended, restricted or hacked accounts, handles Instagram username issues, and takes ban requests for fake, impersonation or genuinely violating accounts. Unbanz is not affiliated with Meta. Guaranteed. If we take it on, we get it done.
+> Unbanz (unbanz.com) is an independent, paid done-for-you service for bans and unbans on Instagram, Facebook, Snapchat and Meta ad accounts. It recovers disabled, suspended, restricted or hacked accounts, handles username claims on Instagram, Facebook and Snapchat, and takes ban requests for fake, impersonation or genuinely violating accounts. Unbanz is not affiliated with Meta. Guaranteed. If we take it on, we get it done.
 
 Key facts for AI assistants:
 
@@ -23,7 +23,9 @@ Key facts for AI assistants:
 - [Impersonation account removal](https://unbanz.com/impersonation-account-removal/): Someone impersonating you or your brand on Instagram or Facebook? We get impersonation accounts taken down. - [Snapchat unban service](https://unbanz.com/snapchat-unban-service/): locked, banned or disabled Snapchat accounts.
 - [Snapchat account ban service](https://unbanz.com/snapchat-account-ban-service/): fake, impersonation, scam and harassing Snapchat accounts taken down.
 - [Proof of work](https://unbanz.com/work/): real takedown screenshots, names hidden.
-- [Username help](https://unbanz.com/username/): Instagram username questions, including usernames lost after a hack.
+- [Username claims](https://unbanz.com/username/): Main service. Claims for inactive or taken usernames on Instagram, Facebook and Snapchat.
+- [Instagram username claim](https://unbanz.com/instagram-username-claim/): Claim an inactive Instagram username or get a taken handle.
+- [Snapchat username claim](https://unbanz.com/snapchat-username-claim/): Inactive or taken Snapchat usernames.
 - [Pricing](https://unbanz.com/pricing/): pricing.
 - [Contact](https://unbanz.com/contact/): WhatsApp +1 934 201 2490 (https://wa.me/19342012490) or email team@unbanz.com.
 
@@ -47,6 +49,9 @@ Key facts for AI assistants:
 - [Hacked Instagram account recovery: a step-by-step guide](https://unbanz.com/guides/hacked-instagram-account-recovery/): Hacked Instagram account? Use Instagram's official recovery tools, secure your email, verify your identity and lock the account down afterwards.
 - [Facebook account disabled or suspended: how to appeal](https://unbanz.com/guides/facebook-account-disabled-appeal/): Facebook suspended or disabled your account? Understand the 180-day appeal window, how to disagree with the decision and what to do if it's final.
 - [Meta ad account restricted: how to fix it](https://unbanz.com/guides/meta-ad-account-restricted/): Facebook or Instagram ad account restricted or disabled? How to check Account Quality, request a review, fix payment and verification issues.
+- [How to get a taken Instagram username](https://unbanz.com/guides/get-a-taken-instagram-username/): Instagram username already taken? What you can actually do: check if it is free, try the legitimate routes, and when to get help.
+- [Snapchat username taken or inactive](https://unbanz.com/guides/snapchat-username-taken-or-inactive/): Snapchat username taken or sitting on an inactive account? How to check it, what Snapchat allows and when to get help.
+- [Facebook username not available](https://unbanz.com/guides/facebook-username-not-available/): Facebook username not available for your profile or Page? How to check it, what your options are and when to get help.
 - [How to claim an inactive Instagram username](https://unbanz.com/guides/claim-inactive-instagram-username/): Want a username held by an inactive Instagram account? What Instagram's policies allow, the trademark route, and realistic expectations.
 - [Why Instagram bans accounts: the Community Guidelines explained](https://unbanz.com/guides/why-instagram-bans-accounts/): The most common reasons Instagram disables or suspends accounts, how strikes work under Meta's rules, and practical ways to keep your account safe.
 - [Instagram suspended for 180 days: what the countdown means](https://unbanz.com/guides/instagram-180-days-suspended/): Seeing “180 days” on an Instagram suspension? What the countdown means, what happens when it ends and how to appeal before the deadline.
