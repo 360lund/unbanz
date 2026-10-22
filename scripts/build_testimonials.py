@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""Single source for video testimonials. Edit scripts/testimonials.json (+ add poster at
+assets/testimonials/<id>.jpg), then run: python3 scripts/build_testimonials.py
+Rebuilds the homepage section (first 3) and /testimonials/ (all), with VideoObject schema."""
+import json, re, hashlib, os, html
+R = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(R)
+V = json.load(open('scripts/testimonials.json'))
+css, js = open('scripts/testimonials.css').read(), open('scripts/testimonials.js').read()
+h = hashlib.md5((css + js).encode()).hexdigest()[:10]
+for ext, src in (('css', css), ('js', js)):
+    p = f'assets/testimonials.{h}.{ext}'
+    if not os.path.exists(p): open(p, 'w').write(src)
+ASSETS = f'<link rel="stylesheet" href="/assets/testimonials.{h}.css"><script src="/assets/testimonials.{h}.js" defer></script>'
+PLAY = '<svg width="16" height="18" viewBox="0 0 18 20" aria-hidden="true"><path d="M17 10 1 19V1z" fill="currentColor"/></svg>'
+e = lambda s: html.escape(s, quote=True)
+def card(v):
+    p = f"/assets/testimonials/{v['id']}.jpg"
+    return (f'<li class="vt-card" data-src="{e(v["src"])}"><div class="vt-media"><img src="{p}" width="540" height="960" alt="{e(v["name"])}" loading="lazy" decoding="async">'
+            f'<button class="vt-play" type="button" aria-label="Play video: {e(v["name"])}"><b>{e(v["label"])}</b><i>{PLAY}</i></button></div>'
+            f'<details class="vt-tr"><summary>Transcript</summary><div class="vt-body"><p>{e(v["transcript"])}</p></div></details></li>')
+def vo(v, page):
+    return {"@type": "VideoObject", "@id": f"{page}#video-{v['id']}", "name": v["name"], "description": v["description"],
+            "thumbnailUrl": [f"https://unbanz.com/assets/testimonials/{v['id']}.jpg"], "uploadDate": v["uploadDate"], "duration": v["duration"],
+            "contentUrl": v["src"], "transcript": v["transcript"], "inLanguage": "en", "publisher": {"@id": "https://unbanz.com/#organization"}}
+LD = lambda g: '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": g}, ensure_ascii=False, separators=(",", ":")) + '</script>'
+# homepage
+s = open('index.html').read()
+sec = ('<section class="vt container" id="testimonials" aria-labelledby="vt-title"><div class="vt-head"><div><p class="eyebrow">CLIENTS</p><h2 id="vt-title">In their words.</h2></div>'
+       '<a class="text-button" href="/testimonials/">See all <span aria-hidden="true">↗︎</span></a></div><ul class="vt-track">' + ''.join(card(v) for v in V[:3]) + '</ul></section>')
+s = re.sub(r'<section class="vt container".*?</ul></section>', lambda m: sec, s, count=1, flags=re.S)
+s = re.sub(r'<link rel="stylesheet" href="/assets/testimonials\.\w+\.css"><script src="/assets/testimonials\.\w+\.js" defer></script><script type="application/ld\+json">[^<]*VideoObject[^<]*</script>',
+           lambda m: ASSETS + LD([vo(v, "https://unbanz.com/") for v in V[:3]]), s, count=1)
+open('index.html', 'w').write(s)
+# /testimonials/ built from the /work/ page shell (same header, menu, footer)
+t = open('work/index.html').read()
+U = "https://unbanz.com/testimonials/"
+TITLE = "Video Testimonials: Clients on Working With Unbanz | Unbanz"
+DESC = "Short videos from Unbanz clients about unbans, ad accounts, account removals and username claims, with full transcripts."
+t = re.sub(r'<title>.*?</title>', f'<title>{TITLE}</title>', t, count=1)
+t = re.sub(r'(<meta (?:name|property)="(?:og:|twitter:)?title" content=")[^"]*', lambda m: m.group(1) + TITLE.replace('&', '&amp;'), t)
+t = re.sub(r'(<meta (?:name|property)="(?:og:|twitter:)?description" content=")[^"]*', lambda m: m.group(1) + DESC, t)
+t = t.replace('https://unbanz.com/work/"', U + '"')
+t = re.sub(r'<script type="application/ld\+json">.*?</script>', '', t, flags=re.S)
+org = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', open('work/index.html').read(), re.S).group(1))["@graph"][0]
+graph = [org, {"@type": "WebPage", "@id": U + "#webpage", "url": U, "name": TITLE, "description": DESC, "isPartOf": {"@id": "https://unbanz.com/#website"}, "inLanguage": "en"},
+         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://unbanz.com/"}, {"@type": "ListItem", "position": 2, "name": "Testimonials", "item": U}]}] + [vo(v, U) for v in V]
+t = t.replace('</head>', LD(graph) + ASSETS + '</head>', 1)
+main = ('<main id="content"><section class="service-hero"><div class="container"><a class="crumb" href="/">Home / Testimonials</a><h1>Testimonials</h1><p>Clients, in their own words.</p>'
+        '<div class="hero-cta"><a class="button button-light" href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account">Get a quote on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="hero-email" href="mailto:team@unbanz.com?subject=Account%20help">Prefer email? ↗︎</a></div></div></section>'
+        '<section class="vt vt-page container" aria-label="Video testimonials"><ul class="vt-track">' + ''.join(card(v) for v in V) + '</ul></section></main>')
+t = re.sub(r'<main id="content">.*?</main>', lambda m: main, t, count=1, flags=re.S)
+t = re.sub(r'<div class="lightbox" id="lightbox".*?</div></div>', '', t, count=1, flags=re.S)
+t = t.replace('<a href="/testimonials/">Testimonials</a>', '<a href="/testimonials/" aria-current="page">Testimonials</a>')
+os.makedirs('testimonials', exist_ok=True); open('testimonials/index.html', 'w').write(t)
+print('built', len(V), 'videos; assets', h)
