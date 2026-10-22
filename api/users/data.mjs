@@ -1,9 +1,11 @@
 import { json } from "../_lib/auth.mjs";
+import { gated, sessionEmail } from "../_lib/gauth.mjs";
 import { sql } from "../_lib/db.mjs";
 const TZ = "Asia/Karachi";
 const day = (s) => (/^\d{4}-\d{2}-\d{2}$/.test(s || "") ? s : null);
 export default async function handler(req, res) {
   if (req.method !== "GET") return json(res, 405, { error: "method_not_allowed" });
+  if (gated() && !sessionEmail(req)) return json(res, 401, { error: "unauthorized" });
   const q = new URL(req.url, "http://x").searchParams;
   const range = q.get("range") || "7d";
   // date window in Karachi local days: [from, to] inclusive
