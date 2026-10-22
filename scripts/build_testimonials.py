@@ -35,7 +35,7 @@ open('index.html', 'w').write(s)
 # /testimonials/ built from the /work/ page shell (same header, menu, footer)
 t = open('work/index.html').read()
 U = "https://unbanz.com/testimonials/"
-TITLE = "Unbanz Reviews & Client Testimonials (Video) | Unbanz"
+TITLE = "Unbanz Reviews: Video Reviews from Clients | Unbanz"
 DESC = "Unbanz reviews from real clients: short videos about Instagram and Facebook unbans, ad accounts, account removals and username claims, with full transcripts."
 t = re.sub(r'<title>.*?</title>', f'<title>{TITLE}</title>', t, count=1)
 t = re.sub(r'(<meta (?:name|property)="(?:og:|twitter:)?title" content=")[^"]*', lambda m: m.group(1) + TITLE.replace('&', '&amp;'), t)
@@ -47,14 +47,14 @@ org = dict(org, subjectOf=[{"@id": U + "#video-" + v["id"]} for v in V] + [{"@id
 ilist = {"@type": "ItemList", "@id": U + "#videos", "name": "Unbanz client video testimonials", "numberOfItems": len(V),
          "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@id": U + "#video-" + v["id"]}} for i, v in enumerate(V)]}
 graph = [org, {"@type": "WebPage", "@id": U + "#webpage", "url": U, "name": TITLE, "description": DESC, "isPartOf": {"@id": "https://unbanz.com/#website"}, "about": {"@id": "https://unbanz.com/#organization"}, "mainEntity": {"@id": U + "#videos"}, "breadcrumb": {"@id": U + "#breadcrumb"}, "inLanguage": "en"},
-         {"@type": "BreadcrumbList", "@id": U + "#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://unbanz.com/"}, {"@type": "ListItem", "position": 2, "name": "Testimonials", "item": U}]}] + [ilist] + [vo(v, U) for v in V]
+         {"@type": "BreadcrumbList", "@id": U + "#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://unbanz.com/"}, {"@type": "ListItem", "position": 2, "name": "Unbanz reviews", "item": U}]}] + [ilist] + [vo(v, U) for v in V]
 t = t.replace('</head>', LD(graph) + ASSETS + '</head>', 1)
-main = ('<main id="content"><section class="service-hero"><div class="container"><a class="crumb" href="/">Home / Testimonials</a><h1>Unbanz reviews &amp; client testimonials</h1><p>On-camera videos from Unbanz clients: an agency owner who has used Unbanz for 3 months for unbans, account removals and username claims, and an advertiser whose restricted Facebook ad account was restored within a week. Full transcripts sit below each video.</p>'
+main = ('<main id="content"><section class="service-hero"><div class="container"><a class="crumb" href="/">Home / Reviews</a><h1>Unbanz reviews</h1><p>On-camera videos from Unbanz clients: an agency owner who has used Unbanz for 3 months for unbans, account removals and username claims, and an advertiser whose restricted Facebook ad account was restored within a week. Full transcripts sit below each video.</p>'
         '<div class="hero-cta"><a class="button button-light" href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account">Get a quote on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="hero-email" href="mailto:team@unbanz.com?subject=Account%20help">Prefer email? ↗︎</a></div></div></section>'
         '<section class="vt vt-page container" aria-label="Video testimonials"><ul class="vt-track">' + ''.join(card(v, True) for v in V) + '</ul></section></main>')
 t = re.sub(r'<main id="content">.*?</main>', lambda m: main, t, count=1, flags=re.S)
 t = re.sub(r'<div class="lightbox" id="lightbox".*?</div></div>', '', t, count=1, flags=re.S)
-t = t.replace('<a href="/testimonials/">Testimonials</a>', '<a href="/testimonials/" aria-current="page">Testimonials</a>')
+t = t.replace('<a href="/testimonials/">Reviews</a>', '<a href="/testimonials/" aria-current="page">Reviews</a>')
 t = re.sub(r"<script>\(function\(\)\{var lb=document\.getElementById\('lightbox'\).*?</script>", '', t, flags=re.S)
 os.makedirs('testimonials', exist_ok=True); open('testimonials/index.html', 'w').write(t)
 print('built', len(V), 'videos; assets', h)

@@ -82,6 +82,26 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/review/",
+      "destination": "/testimonials/",
+      "statusCode": 301
+    },
+    {
+      "source": "/review",
+      "destination": "/testimonials/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reviews/",
+      "destination": "/testimonials/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reviews",
+      "destination": "/testimonials/",
+      "statusCode": 301
+    },
+    {
       "source": "/apply",
       "destination": "/contact/",
       "permanent": true
