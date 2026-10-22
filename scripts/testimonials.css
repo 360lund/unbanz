@@ -56,3 +56,5 @@
 .vt-card.is-ended .vt-play b::after{content:" · Replay";font-weight:400;opacity:.8}
 .vt-media:fullscreen video{object-fit:contain;background:#000}
 @media (prefers-reduced-motion:reduce){.vt-ctl,.vt-center,.vt-spin,.vt-ctl button{transition:none!important}.vt-pp svg path{transition:none}}
+
+.vt-q{margin:14px 4px 0}.vt-q b{display:block;font-size:13px;font-weight:600;margin-bottom:6px}.vt-q blockquote{margin:0}.vt-q p{margin:0;font-size:14px;line-height:1.55;opacity:.78}
