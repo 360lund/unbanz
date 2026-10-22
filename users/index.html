@@ -42,7 +42,7 @@ input[type=date],select{background:var(--card);border:1px solid var(--line);bord
 .card h2{font-size:15px;font-weight:700;margin:0 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .card h2 span{color:var(--mut);font-weight:400;font-size:12px}
 .daily{display:flex;align-items:flex-end;gap:3px;height:120px}
-.daily div{flex:1;min-width:2px;background:linear-gradient(var(--acc),var(--acc2));border-radius:4px 4px 1px 1px;position:relative;transition:height .5s}
+.daily{justify-content:center}.daily div{flex:1;min-width:2px;max-width:28px;background:linear-gradient(var(--acc),var(--acc2));border-radius:4px 4px 1px 1px;position:relative;transition:height .5s}
 .daily div i{position:absolute;left:0;right:0;bottom:0;background:var(--ok);border-radius:4px 4px 1px 1px}
 .legend{display:flex;gap:14px;color:var(--mut);font-size:12px;margin-top:8px}.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
 .grp{border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px;background:var(--card2)}
@@ -163,12 +163,17 @@ input[type=date],select{background:var(--card);border:1px solid var(--line);bord
     const sel = $('#srcsel'), cur = st.source;
     sel.innerHTML = '<option value="">All sources</option>' + GROUPS.filter((g) => by[g]).map((g) => `<optgroup label="${g}">${by[g].items.map((x) => `<option ${x.s === cur ? 'selected' : ''}>${esc(x.s)}</option>`).join('')}</optgroup>`).join('');
     $('#srcnote').textContent = tot ? `${fmt(tot)} visits` : '';
-    $('#sources').innerHTML = tot ? GROUPS.filter((g) => by[g]).map((g) => { const G = by[g]; return `<div class="grp ${g === 'AI' ? 'ai' : ''}"><div class="gh"><i class="d" style="width:9px;height:9px;border-radius:50%;background:${GC[g]}"></i>${g}${g === 'AI' ? ' <span class="pill" style="border-color:rgba(183,148,255,.6);color:#d9c8ff">AI</span>' : ''}<span class="n">${fmt(G.n)} · ${((G.n / tot) * 100).toFixed(0)}%${G.c ? ` · <span style="color:var(--ok)">${G.c} clicked</span>` : ''}</span></div>
+    $('#sources').innerHTML = tot ? GROUPS.filter((g) => by[g]).map((g) => { const G = by[g]; return `<div class="grp ${g === 'AI' ? 'ai' : ''}"><div class="gh"><i class="d" style="width:9px;height:9px;border-radius:50%;background:${GC[g]}"></i>${g}${g === 'AI' ? ' <span style="color:#d9c8ff;font-weight:400;font-size:12px">AI assistants</span>' : ''}<span class="n">${fmt(G.n)} · ${((G.n / tot) * 100).toFixed(0)}%${G.c ? ` · <span style="color:var(--ok)">${G.c} clicked</span>` : ''}</span></div>
       <div class="stack">${G.items.map((x) => `<i style="width:${(x.n / G.n) * 100}%;background:${col(x.s, g)}" title="${esc(x.s)}"></i>`).join('')}</div>
       ${G.items.map((x) => `<div class="src" data-s="${esc(x.s)}">${icon(x.s, g)}<span class="nm">${esc(x.s)}${g === 'Other' && x.domains ? ` <span style="color:var(--mut)">${esc(x.domains.slice(0, 3).join(', '))}</span>` : ''}</span><span class="n">${fmt(x.n)}${x.c ? ` · <span style="color:var(--ok)">${x.c}</span>` : ''}</span></div>`).join('')}</div>`; }).join('') : '<div class="empty">No visits in this range yet.</div>';
     // daily
+    const days = []; const map = Object.fromEntries(d.daily.map((x) => [x.d, x]));
+    const end = st.range === 'custom' ? ($('#to').value || $('#from').value) : today;
+    const n = st.range === 'custom' ? Math.min(366, Math.round((new Date(end) - new Date($('#from').value)) / 864e5) + 1) : ({ today: 1, '7d': 7, '30d': 30, '90d': 90 }[st.range] || 7);
+    for (let i = n - 1; i >= 0; i--) { const k = new Date(new Date(end).getTime() - i * 864e5).toISOString().slice(0, 10); days.push(map[k] || { d: k, n: 0, c: 0 }); }
+    d.daily = days;
     const max = Math.max(1, ...d.daily.map((x) => x.n));
-    $('#daily').innerHTML = d.daily.map((x) => `<div style="height:${(x.n / max) * 100}%" title="${x.d}: ${x.n} visitors, ${x.c} clicked"><i style="height:${x.n ? (x.c / x.n) * 100 : 0}%"></i></div>`).join('') || '<div class="empty" style="background:none">No data yet.</div>';
+    $('#daily').innerHTML = d.daily.map((x) => `<div style="height:${Math.max(x.n ? 3 : 1, (x.n / max) * 100)}%;${x.n ? '' : 'opacity:.25'}" title="${x.d}: ${x.n} visitors, ${x.c} clicked"><i style="height:${x.n ? (x.c / x.n) * 100 : 0}%"></i></div>`).join('') || '<div class="empty" style="background:none">No data yet.</div>';
     $('#dsum').textContent = `${fmt(R.visitors)} visitors · ${Number(R.pages).toFixed(1)} pages each`;
     rows('#landing', d.landing); rows('#countries', d.countries.map((x) => ({ ...x, k: x.k === '??' ? 'Unknown' : x.k }))); rows('#devices', d.devices.map((x) => ({ ...x, k: x.k || 'Unknown' })));
     $('#rcount').textContent = d.recent.length ? `latest ${d.recent.length}` : '';
