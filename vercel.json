@@ -40,7 +40,7 @@
       ]
     },
     {
-      "source": "/(sitemap.xml|sitemap-images.xml|robots.txt|llms.txt)",
+      "source": "/(sitemap.xml|sitemap-images.xml|robots.txt|llms.txt|llms-full.txt)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -59,6 +59,206 @@
     {
       "source": "/apply/",
       "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/whatsapp-account-banned",
+      "destination": "/unban/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/whatsapp-account-banned/",
+      "destination": "/unban/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/whatsapp-business-account-banned",
+      "destination": "/unban/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/whatsapp-business-account-banned/",
+      "destination": "/unban/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/threads-account-suspended",
+      "destination": "/instagram-unban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/threads-account-suspended/",
+      "destination": "/instagram-unban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-shadowban-check",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-shadowban-check/",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-live-feature-restrictions",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-live-feature-restrictions/",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-action-blocked",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-action-blocked/",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-copyright-removal-strikes",
+      "destination": "/guides/instagram-community-guidelines-strikes/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-copyright-removal-strikes/",
+      "destination": "/guides/instagram-community-guidelines-strikes/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-account-memorialized-by-mistake",
+      "destination": "/facebook-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-account-memorialized-by-mistake/",
+      "destination": "/facebook-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-marketplace-ban",
+      "destination": "/facebook-unban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-marketplace-ban/",
+      "destination": "/facebook-unban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-group-disabled-admin",
+      "destination": "/facebook-unban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-group-disabled-admin/",
+      "destination": "/facebook-unban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-account-restricted-features",
+      "destination": "/guides/facebook-account-disabled-appeal/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-account-restricted-features/",
+      "destination": "/guides/facebook-account-disabled-appeal/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/meta-verified-support",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/meta-verified-support/",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-recovery-scams",
+      "destination": "/is-unbanz-legit/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-recovery-scams/",
+      "destination": "/is-unbanz-legit/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/get-instagram-account-back",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/get-instagram-account-back/",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-180-days-suspended",
+      "destination": "/guides/instagram-account-suspended-appeal/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-180-days-suspended/",
+      "destination": "/guides/instagram-account-suspended-appeal/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/meta-ad-rejected-vs-ad-account-disabled",
+      "destination": "/guides/meta-ad-account-restricted/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/meta-ad-rejected-vs-ad-account-disabled/",
+      "destination": "/guides/meta-ad-account-restricted/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-business-account-facebook-page-removed",
+      "destination": "/guides/facebook-page-restricted/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-business-account-facebook-page-removed/",
+      "destination": "/guides/facebook-page-restricted/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-hacked-email-changed",
+      "destination": "/guides/hacked-instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-hacked-email-changed/",
+      "destination": "/guides/hacked-instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-username-changed-by-hacker",
+      "destination": "/guides/hacked-instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/instagram-username-changed-by-hacker/",
+      "destination": "/guides/hacked-instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/meta-two-factor-locked-out",
+      "destination": "/guides/hacked-instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/meta-two-factor-locked-out/",
+      "destination": "/guides/hacked-instagram-account-recovery/",
       "permanent": true
     }
   ]
