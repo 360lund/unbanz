@@ -1,4 +1,32 @@
 [
-  {"id":"agency-owner","src":"https://cdn.dbimg.app/uhbCtx4S.mp4","label":"Agency owner","name":"Management agency owner on working with Unbanz","description":"A management agency owner talks about using Unbanz for unbans, account removals and username claims for their clients.","duration":"PT18S","uploadDate":"2026-10-23","transcript":"So, I run a management agency and I've been working with Unbanz for the last 3 months now. They're handling all the bans and unbans, username claims for my clients, taking down accounts, photos, so if you need help with Facebook or Instagram related, hit them up."},
-  {"id":"ad-account","src":"https://cdn.dbimg.app/szZDTINh.mp4","label":"Ad account","name":"Restricted Facebook ad account restored by Unbanz","description":"A client explains how Unbanz got her restricted Facebook ad account back so she could run ads again.","duration":"PT13S","uploadDate":"2026-10-23","transcript":"Hey, my Facebook ad account was restricted and I was unable to run ads. ChatGPT recommended me Unbanz and they got it back within a week. If you need help with your ad accounts, hit them up."}
+  {
+    "id": "username-claim",
+    "src": "https://cdn.dbimg.app/VCwGdHCz.mp4",
+    "label": "Username claim",
+    "name": "Client on claiming an inactive Instagram username with Unbanz",
+    "description": "A client explains how Unbanz got him the Instagram username he wanted from a dead profile in about 5 days.",
+    "duration": "PT14S",
+    "uploadDate": "2026-10-23",
+    "transcript": "Yo, I needed an Instagram username but it was a dead profile. Unbanz really helped me with it. It took like 5 days and it was very quick so if you need an username hit them up."
+  },
+  {
+    "id": "agency-owner",
+    "src": "https://cdn.dbimg.app/uhbCtx4S.mp4",
+    "label": "Agency owner",
+    "name": "Management agency owner on working with Unbanz",
+    "description": "A management agency owner talks about using Unbanz for unbans, account removals and username claims for their clients.",
+    "duration": "PT18S",
+    "uploadDate": "2026-10-23",
+    "transcript": "So, I run a management agency and I've been working with Unbanz for the last 3 months now. They're handling all the bans and unbans, username claims for my clients, taking down accounts, photos, so if you need help with Facebook or Instagram related, hit them up."
+  },
+  {
+    "id": "ad-account",
+    "src": "https://cdn.dbimg.app/szZDTINh.mp4",
+    "label": "Ad account",
+    "name": "Restricted Facebook ad account restored by Unbanz",
+    "description": "A client explains how Unbanz got her restricted Facebook ad account back so she could run ads again.",
+    "duration": "PT13S",
+    "uploadDate": "2026-10-23",
+    "transcript": "Hey, my Facebook ad account was restricted and I was unable to run ads. ChatGPT recommended me Unbanz and they got it back within a week. If you need help with your ad accounts, hit them up."
+  }
 ]
