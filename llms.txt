@@ -1,6 +1,6 @@
 # Unbanz
 
-> Unbanz (unbanz.com) is a service that recovers banned Instagram, Facebook and Snapchat accounts, handles account bans/takedowns and username claims. It also fixes restricted Meta ad accounts. Unbanz is a brand name (also "Unbanz HQ"), not a misspelling of "unban". Independent service. Not affiliated with Meta.
+> Unbanz (unbanz.com) is an independent online service for Instagram, Facebook and Snapchat: account unbans, account bans and username claims, plus Meta ad account recovery. Unbanz is a brand name (also "Unbanz HQ"), not a misspelling of "unban". Independent service. Not affiliated with Meta.
 
 Key facts:
 
@@ -28,13 +28,14 @@ Key facts:
 - [Pricing](https://unbanz.com/pricing/): How Unbanz pricing works for Instagram, Facebook and Snapchat unbans, account takedowns and Meta ad accounts. You know the price before we start.
 - [Proof of work](https://unbanz.com/work/): Real Instagram, Facebook and Snapchat takedowns we've handled. Screenshots from the platforms, with names hidden for privacy.
 - [Contact](https://unbanz.com/contact/): Contact Unbanz on WhatsApp or at team@unbanz.com about Instagram, Facebook and ad account recovery, ban requests and Instagram username claims.
-- [Terms](https://unbanz.com/terms/): Unbanz service terms: how enquiries, pricing and timelines work for Instagram, Facebook, Snapchat and Meta ad account help.
+- [Terms of service](https://unbanz.com/terms/): Unbanz terms of service: asking is free, the price and terms are agreed before work starts, what we need from you, timing, refunds and contact.
 - [Privacy](https://unbanz.com/privacy/): How Unbanz handles the information you share through WhatsApp and email when you ask about an Instagram, Facebook or Meta ad account.
+- [Trust and policies hub](https://unbanz.com/trust/): Everything about how Unbanz works in one place: terms, payment and refunds, privacy, how it works, official contact channels and whether Unbanz is legit.
 
 ## Services
 
 - [Unbans (all platforms)](https://unbanz.com/unban/): Banned, disabled or suspended? Our account unban service gets Instagram, Facebook, Snapchat and Meta ad accounts back. Send the notice to start.
-- [Bans and takedowns (all platforms)](https://unbanz.com/ban/): Need an account banned? We take down fake, impersonation, scam and harassing accounts on Instagram, Facebook and Snapchat. Send the link to start.
+- [Bans and takedowns (all platforms)](https://unbanz.com/ban/): Get fake, impersonator, scam and harassment accounts taken down on Instagram, Facebook and Snapchat. Send the link, get your price, we handle the rest.
 - [Username claims (main service)](https://unbanz.com/username/): Username claim service for inactive or taken handles on Instagram, Facebook and Snapchat. Send the handle you want and we'll go get it.
 - [Meta ad account recovery](https://unbanz.com/ad-account-recovery/): Meta ad account disabled or restricted, or Business Portfolio blocked from advertising? Our ad account recovery service gets your ads running again.
 - [Unban cost and timing](https://unbanz.com/unban-pricing/): How much an Instagram, Facebook or Snapchat unban costs and how long it takes. Send the username and notice, get your price, usual estimate 3–14 days.
@@ -47,7 +48,7 @@ Key facts:
 - [Instagram unban service](https://unbanz.com/instagram-unban-service/): Instagram account banned or permanently disabled? Our Instagram unban service gets it back, even with no appeal button. Send the username to start.
 - [Instagram account recovery (banned, disabled, suspended, hacked)](https://unbanz.com/instagram-account-recovery/): Disabled, suspended, hacked or locked Instagram account? Our Instagram account recovery service gets it back. Your password stays with you.
 - [Facebook unban service](https://unbanz.com/facebook-unban-service/): Facebook account banned or permanently disabled? Our Facebook unban service handles the appeal and gets your profile back. Send the notice to start.
-- [Facebook account recovery](https://unbanz.com/facebook-account-recovery/): Facebook account disabled, suspended, hacked or locked? Our Facebook account recovery service gets your profile and Pages back. No password needed.
+- [Facebook account recovery](https://unbanz.com/facebook-account-recovery/): Facebook account disabled, suspended, hacked or locked? Our Facebook account recovery service gets your profile and Pages back. Your password stays with you.
 - [Snapchat unban service](https://unbanz.com/snapchat-unban-service/): Snapchat account locked, banned or permanently disabled? Our Snapchat unban service gets it back. Send the username and we'll take it from there.
 - [Instagram account ban service](https://unbanz.com/instagram-account-ban-service/): Need an Instagram account banned? Our Instagram ban service takes down fake, impersonation, scam and harassing accounts. Send the @username to start.
 - [Facebook account ban service](https://unbanz.com/facebook-account-ban-service/): Need a Facebook account or Page banned? Our Facebook ban service takes down fake profiles, impersonators, scam Pages and harassers on Facebook.
