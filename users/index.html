@@ -85,7 +85,7 @@ input[type=date],select{background:var(--card);border:1px solid var(--line);bord
 </head>
 <body>
 <div class="login" id="login" hidden>
-  <form id="lf" method="post" action="/api/users-login" autocomplete="on">
+  <form id="lf" method="post" action="/api/users-login/" autocomplete="on">
     <div class="wm">unbanz<i>.</i></div>
     <h1>Visitors dashboard</h1>
     <label for="u">Username</label><input id="u" name="username" autocomplete="username" autocapitalize="characters" required>
@@ -139,7 +139,7 @@ input[type=date],select{background:var(--card);border:1px solid var(--line);bord
     if (st.range === 'custom') { p.set('from', $('#from').value); p.set('to', $('#to').value || $('#from').value); }
     if (st.group) p.set('group', st.group); if (st.source) p.set('source', st.source); if (st.clicked) p.set('clicked', '1');
     try {
-      const r = await fetch('/api/users/data?' + p, { credentials: 'same-origin', cache: 'no-store' });
+      const r = await fetch('/api/users/data/?' + p, { credentials: 'same-origin', cache: 'no-store' });
       if (r.status === 401) return showLogin();
       if (!r.ok) throw 0;
       lastData = await r.json(); render(lastData); $('#live').style.opacity = 1;
@@ -187,14 +187,14 @@ input[type=date],select{background:var(--card);border:1px solid var(--line);bord
   $('#srcsel').addEventListener('change', (e) => { st.source = e.target.value; load(); });
   $('#sources').addEventListener('click', (e) => { const s = e.target.closest('.src'); if (!s) return; st.source = st.source === s.dataset.s ? '' : s.dataset.s; load(); });
   $('#clk').addEventListener('click', (e) => { st.clicked = !st.clicked; e.currentTarget.setAttribute('aria-pressed', String(st.clicked)); load(); });
-  $('#out').addEventListener('click', async () => { await fetch('/api/users-logout', { method: 'POST', credentials: 'same-origin' }).catch(() => {}); showLogin(); });
+  $('#out').addEventListener('click', async () => { await fetch('/api/users-logout/', { method: 'POST', credentials: 'same-origin' }).catch(() => {}); showLogin(); });
 
   function showLogin() { clearInterval(timer); $('#app').hidden = true; $('#login').hidden = false; $('#u').focus(); }
   function showApp() { $('#login').hidden = true; $('#app').hidden = false; clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(true); }, 15000); }
   $('#lf').addEventListener('submit', async (e) => {
     e.preventDefault(); const btn = e.target.querySelector('button'); btn.disabled = true; $('#lerr').textContent = '';
     try {
-      const r = await fetch('/api/users-login', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: $('#u').value, password: $('#pw').value }) });
+      const r = await fetch('/api/users-login/', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: $('#u').value, password: $('#pw').value }) });
       if (r.ok) {
         try { if (window.PasswordCredential) navigator.credentials.store(new PasswordCredential({ id: $('#u').value, password: $('#pw').value, name: 'Unbanz' })); } catch {}
         $('#pw').value = ''; showApp(); load();
@@ -205,7 +205,7 @@ input[type=date],select{background:var(--card);border:1px solid var(--line);bord
   document.addEventListener('visibilitychange', () => { if (!document.hidden && !$('#app').hidden) load(true); });
   addEventListener('pageshow', (e) => { if (e.persisted && !$('#app').hidden) load(true); });
   (async () => {
-    try { const r = await fetch('/api/users/data?range=7d', { credentials: 'same-origin', cache: 'no-store' }); if (r.ok) { showApp(); lastData = await r.json(); render(lastData); } else showLogin(); }
+    try { const r = await fetch('/api/users/data/?range=7d', { credentials: 'same-origin', cache: 'no-store' }); if (r.ok) { showApp(); lastData = await r.json(); render(lastData); } else showLogin(); }
     catch { showLogin(); }
   })();
 })();

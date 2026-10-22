@@ -15,7 +15,8 @@ export default async function handler(req, res) {
   if (/bot|crawl|spider|slurp|preview|headless|lighthouse/i.test(req.headers["user-agent"] || "")) { res.statusCode = 204; return res.end(); }
   let b;
   try {
-    if (req.body && typeof req.body === "object") b = req.body;
+    if (req.body && typeof req.body === "object" && !Buffer.isBuffer(req.body)) { b = req.body; if (!b.id) { const k = Object.keys(b)[0]; if (k && k.startsWith("{")) b = JSON.parse(k); } }
+    else if (Buffer.isBuffer(req.body)) b = JSON.parse(req.body.toString("utf8") || "{}");
     else { let s = typeof req.body === "string" ? req.body : ""; if (!s) { for await (const c of req) { s += c; if (s.length > 4000) break; } } b = JSON.parse(s || "{}"); }
   } catch { res.statusCode = 400; return res.end(); }
   const id = S(b.id, 40);
