@@ -19,7 +19,7 @@ export const config = {
 // Known AI assistants and search crawlers: their fetchers can sit in (or be geolocated to)
 // blocked regions, so they are never geo-blocked. Human visitors are unaffected.
 const BOT_UA = /(ChatGPT-User|OAI-SearchBot|GPTBot|PerplexityBot|Perplexity-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|Google-Extended|Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|bingbot|BingPreview|msnbot|adidxbot|Applebot|DuckDuckBot|DuckAssistBot|YandexBot|Amazonbot|meta-externalagent|meta-externalfetcher|facebookexternalhit|MistralAI-User|cohere-ai|YouBot|PhindBot|xAI|Grok|Bravebot|CCBot|Diffbot)/i;
-const SHORT = { '/reviews': '/testimonials/', '/review': '/testimonials/' };
+const SHORT = { '/testimonials': '/reviews/', '/review': '/reviews/' };
 
 export default function middleware(request) {
   const path = new URL(request.url).pathname.replace(/\/+$/, '') || '/';

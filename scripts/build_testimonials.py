@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Single source for video testimonials. Edit scripts/testimonials.json (+ add poster at
 assets/testimonials/<id>.jpg), then run: python3 scripts/build_testimonials.py
-Rebuilds the homepage section (first 3) and /testimonials/ (all), with VideoObject schema."""
+Rebuilds the homepage section (first 3) and /reviews/ (all), with VideoObject schema."""
 import json, re, hashlib, os, html
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(R)
 V = json.load(open('scripts/testimonials.json'))
@@ -32,9 +32,9 @@ s = re.sub(r'<section class="vt container".*?</ul></section>', lambda m: sec, s,
 s = re.sub(r'(?:<link rel="preconnect" href="https://cdn.dbimg.app">)?<link rel="stylesheet" href="/assets/testimonials\.\w+\.css"><script src="/assets/testimonials\.\w+\.js" defer></script><script type="application/ld\+json">[^<]*VideoObject[^<]*</script>',
            lambda m: ASSETS + LD([vo(v, "https://unbanz.com/") for v in V[:3]]), s, count=1)
 open('index.html', 'w').write(s)
-# /testimonials/ built from the /work/ page shell (same header, menu, footer)
+# /reviews/ built from the /work/ page shell (same header, menu, footer)
 t = open('work/index.html').read()
-U = "https://unbanz.com/testimonials/"
+U = "https://unbanz.com/reviews/"
 TITLE = "Unbanz Reviews: Video Reviews from Clients | Unbanz"
 DESC = "Unbanz reviews from real clients: short videos about Instagram and Facebook unbans, ad accounts, account removals and username claims, with full transcripts."
 t = re.sub(r'<title>.*?</title>', f'<title>{TITLE}</title>', t, count=1)
@@ -54,7 +54,7 @@ main = ('<main id="content"><section class="service-hero"><div class="container"
         '<section class="vt vt-page container" aria-label="Video testimonials"><ul class="vt-track">' + ''.join(card(v, True) for v in V) + '</ul></section></main>')
 t = re.sub(r'<main id="content">.*?</main>', lambda m: main, t, count=1, flags=re.S)
 t = re.sub(r'<div class="lightbox" id="lightbox".*?</div></div>', '', t, count=1, flags=re.S)
-t = t.replace('<a href="/testimonials/">Reviews</a>', '<a href="/testimonials/" aria-current="page">Reviews</a>')
+t = t.replace('<a href="/reviews/">Reviews</a>', '<a href="/reviews/" aria-current="page">Reviews</a>')
 t = re.sub(r"<script>\(function\(\)\{var lb=document\.getElementById\('lightbox'\).*?</script>", '', t, flags=re.S)
-os.makedirs('testimonials', exist_ok=True); open('testimonials/index.html', 'w').write(t)
+os.makedirs('reviews', exist_ok=True); open('reviews/index.html', 'w').write(t)
 print('built', len(V), 'videos; assets', h)

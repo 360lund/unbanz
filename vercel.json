@@ -83,22 +83,22 @@
   "redirects": [
     {
       "source": "/review/",
-      "destination": "/testimonials/",
+      "destination": "/reviews/",
       "statusCode": 301
     },
     {
       "source": "/review",
-      "destination": "/testimonials/",
+      "destination": "/reviews/",
       "statusCode": 301
     },
     {
-      "source": "/reviews/",
-      "destination": "/testimonials/",
+      "source": "/testimonials/",
+      "destination": "/reviews/",
       "statusCode": 301
     },
     {
-      "source": "/reviews",
-      "destination": "/testimonials/",
+      "source": "/testimonials",
+      "destination": "/reviews/",
       "statusCode": 301
     },
     {
