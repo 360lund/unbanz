@@ -1,5 +1,5 @@
 // Vercel Routing Middleware (no framework, Web API only).
-// Blocks visitors whose edge-geolocated country is in BLOCKED_COUNTRIES
+// GEO-BLOCK DISABLED (constants kept for reference, unused). Previously blocked visitors whose edge-geolocated country is in BLOCKED_COUNTRIES
 // with a small self-contained 403 page. Every other request (including
 // requests with no country header) passes through untouched, so static
 // files, vercel.json headers, redirects and the 404 page behave as before.
@@ -26,20 +26,6 @@ export default function middleware(request) {
   if (SHORT[path]) {
     return new Response(null, { status: 301, headers: { Location: new URL(SHORT[path], request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
   }
-  if (BOT_UA.test(request.headers.get('user-agent') || '')) return;
-  const country = (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
-  if (!country || !BLOCKED_COUNTRIES.has(country)) {
-    return; // continue to the static site unchanged
-  }
-  if (country === OWNER_COUNTRY && OWNER_PATHS.test(new URL(request.url).pathname)) return;
-  return new Response(BLOCK_PAGE, {
-    status: 403,
-    headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': 'private, no-store',
-      'X-Robots-Tag': 'noindex',
-      'X-Content-Type-Options': 'nosniff',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-    },
-  });
+  // Geo-block disabled 2026-10-23: all countries and paths pass through.
+  return;
 }
