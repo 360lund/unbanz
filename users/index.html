@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b1420">
+<title>Visitors | Unbanz</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:U;src:url(/assets/unbanz-sans-latin.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:U;src:url(/assets/unbanz-sans-bold-latin.woff) format("woff");font-weight:700;font-display:swap}
+:root{--bg:#0b1420;--card:#111d2c;--card2:#152438;--line:#1f3149;--tx:#e8f1fb;--mut:#8aa3bd;--acc:#73b7f3;--acc2:#589dd8;--ok:#4ade80;--ai:#b794ff}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 U,'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.wm{font-weight:700;font-size:24px;letter-spacing:-.04em}.wm i{color:var(--acc);font-style:normal}
+.title{color:var(--mut);font-size:14px}.live{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mut);margin-left:auto}
+.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:p 2s infinite}
+@keyframes p{70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.btn{background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:background .2s}
+.btn:hover{background:#1b2d45}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px;overflow-x:auto;max-width:100%;scrollbar-width:none}
+.seg button{border:0;background:none;padding:6px 12px;border-radius:999px;cursor:pointer;color:var(--mut);white-space:nowrap;transition:all .2s}
+.seg button[aria-pressed=true]{background:var(--acc2);color:#fff}
+.custom{display:none;gap:6px;align-items:center}.custom.on{display:inline-flex}
+input[type=date],select{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px;color-scheme:dark}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;cursor:pointer;color:var(--mut);white-space:nowrap;display:inline-flex;gap:6px;align-items:center;transition:all .2s}
+.chip[aria-pressed=true]{color:#fff;border-color:var(--acc);background:#16304d}
+.chip .d{width:8px;height:8px;border-radius:50%}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0}
+.k{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.k p{margin:0;color:var(--mut);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.k b{display:block;font-size:30px;letter-spacing:-.03em;margin-top:4px;font-weight:700}
+.k small{color:var(--mut);font-size:12px}
+.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;min-width:0}
+.card h2{font-size:15px;font-weight:700;margin:0 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h2 span{color:var(--mut);font-weight:400;font-size:12px}
+.daily{display:flex;align-items:flex-end;gap:3px;height:120px}
+.daily div{flex:1;min-width:2px;background:linear-gradient(var(--acc),var(--acc2));border-radius:4px 4px 1px 1px;position:relative;transition:height .5s}
+.daily div i{position:absolute;left:0;right:0;bottom:0;background:var(--ok);border-radius:4px 4px 1px 1px}
+.legend{display:flex;gap:14px;color:var(--mut);font-size:12px;margin-top:8px}.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
+.grp{border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px;background:var(--card2)}
+.grp.ai{border-color:rgba(183,148,255,.55);background:linear-gradient(135deg,rgba(183,148,255,.14),rgba(115,183,243,.06));box-shadow:0 0 24px -8px rgba(183,148,255,.45)}
+.gh{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px}.gh .n{margin-left:auto;color:var(--mut);font-weight:400}
+.stack{display:flex;height:8px;border-radius:99px;overflow:hidden;background:#0d1826;margin:8px 0}
+.stack i{display:block;height:100%;transition:width .5s}
+.src{display:flex;align-items:center;gap:8px;font-size:13px;padding:3px 0;cursor:pointer}
+.src:hover .nm{color:#fff}.src .nm{color:#cfe0f2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.src .n{margin-left:auto;color:var(--mut);white-space:nowrap}
+.ic{flex:none;width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.rows .r{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--line);font-size:13px}
+.rows .r:first-child{border-top:0}.rows .r .l{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rows .r .m{position:relative;width:38%;height:6px;border-radius:9px;background:#0d1826;overflow:hidden}.rows .r .m i{position:absolute;inset:0 auto 0 0;background:var(--acc2);border-radius:9px}
+.rows .r .v{width:64px;text-align:right;color:var(--mut)}
+.list{display:flex;flex-direction:column;gap:8px;max-height:720px;overflow:auto;padding-right:2px}
+.v1{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:10px 12px;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(4px)}}
+.v1 .t{display:flex;align-items:center;gap:8px;font-size:13px;flex-wrap:wrap}
+.v1 .t b{font-weight:700}.v1 .t .when{margin-left:auto;color:var(--mut);font-size:12px}
+.v1 .meta{color:var(--mut);font-size:12px;margin-top:4px;display:flex;gap:10px;flex-wrap:wrap}
+.v1 .path{font-size:12px;color:#b9cde2;margin-top:6px;overflow-wrap:anywhere}
+.pill{font-size:11px;border-radius:99px;padding:2px 8px;border:1px solid var(--line);color:var(--mut)}
+.pill.wa{color:#062b14;background:var(--ok);border-color:var(--ok);font-weight:700}.pill.em{color:#0b1420;background:var(--acc);border-color:var(--acc);font-weight:700}
+.note{color:var(--mut);font-size:12px;margin-top:16px}
+.empty{color:var(--mut);font-size:13px;padding:10px 0}
+.span2{grid-column:1/-1}
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:20px}
+.login form{width:100%;max-width:360px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
+.login h1{font-size:22px;margin:6px 0 18px;font-weight:400;letter-spacing:-.02em}
+.login label{display:block;font-size:12px;color:var(--mut);margin:12px 0 6px}
+.login input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px}
+.login input:focus,select:focus,input[type=date]:focus{outline:2px solid var(--acc2);outline-offset:1px}
+.login button{width:100%;margin-top:18px;background:var(--acc2);border:0;color:#fff;border-radius:999px;padding:12px;font-weight:700;cursor:pointer}
+.err{color:#fca5a5;font-size:13px;min-height:18px;margin-top:10px}
+[hidden]{display:none!important}
+@media (max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}}
+@media (max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}.kpis .k:last-child{grid-column:1/-1}.k b{font-size:26px}.wrap{padding:16px 12px 48px}.rows .r .m{width:28%}}
+</style>
+</head>
+<body>
+<div class="login" id="login" hidden>
+  <form id="lf" method="post" action="/api/users-login" autocomplete="on">
+    <div class="wm">unbanz<i>.</i></div>
+    <h1>Visitors dashboard</h1>
+    <label for="u">Username</label><input id="u" name="username" autocomplete="username" autocapitalize="characters" required>
+    <label for="pw">Password</label><input id="pw" name="password" type="password" autocomplete="current-password" required>
+    <button type="submit">Log in</button>
+    <div class="err" id="lerr" role="alert"></div>
+  </form>
+</div>
+<div class="wrap" id="app" hidden>
+  <header><div class="wm">unbanz<i>.</i></div><span class="title">Visitors</span><span class="live" id="live">Live</span><button class="btn" id="out">Log out</button></header>
+  <div class="bar">
+    <div class="seg" id="range"><button data-r="today">Today</button><button data-r="7d" aria-pressed="true">7 days</button><button data-r="30d">30 days</button><button data-r="90d">90 days</button><button data-r="custom">Custom</button></div>
+    <span class="custom" id="custom"><input type="date" id="from" aria-label="From"><input type="date" id="to" aria-label="To"></span>
+    <select id="srcsel" aria-label="Source"><option value="">All sources</option></select>
+    <button class="chip" id="clk" aria-pressed="false">Clicked only</button>
+  </div>
+  <div class="chips" id="groups"></div>
+  <section class="kpis" id="kpis"></section>
+  <div class="grid">
+    <section class="card"><h2>Sources <span id="srcnote"></span></h2><div id="sources"></div></section>
+    <section class="card"><h2>Visitors per day <span id="dsum"></span></h2><div class="daily" id="daily"></div><div class="legend"><span><i style="background:var(--acc)"></i>Visitors</span><span><i style="background:var(--ok)"></i>Clicked WhatsApp/email</span></div>
+      <h2 style="margin-top:22px">Top landing pages</h2><div class="rows" id="landing"></div></section>
+    <section class="card"><h2>Recent visitors <span id="rcount"></span></h2><div class="list" id="recent"></div></section>
+    <section class="card"><h2>Top countries</h2><div class="rows" id="countries"></div><h2 style="margin-top:22px">Devices</h2><div class="rows" id="devices"></div></section>
+  </div>
+  <p class="note">Shows where people came from and what they did here. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them (Google usually doesn’t). No IPs or personal data are stored.</p>
+</div>
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const GROUPS = ['AI', 'Search', 'Social', 'Ads', 'Messaging', 'Direct', 'Other'];
+  const GC = { AI: '#b794ff', Search: '#73b7f3', Social: '#f472b6', Ads: '#fbbf24', Messaging: '#4ade80', Direct: '#94a3b8', Other: '#64748b' };
+  const SC = { ChatGPT: ['#10a37f', 'GPT'], Perplexity: ['#20808d', 'Px'], Gemini: ['#4f7cff', 'Ge'], Claude: ['#d97757', 'Cl'], Copilot: ['#0c8de0', 'Co'], 'Meta AI': ['#0866ff', 'MA'], Grok: ['#2b2b2b', 'Gk'], DeepSeek: ['#4d6bfe', 'DS'], 'You.com': ['#7c3aed', 'You'], Phind: ['#6d28d9', 'Ph'],
+    Google: ['#4285f4', 'G'], Bing: ['#00897b', 'B'], DuckDuckGo: ['#de5833', 'DD'], Yahoo: ['#6001d2', 'Y!'], Yandex: ['#fc3f1d', 'Ya'], Ecosia: ['#36a74b', 'Ec'], 'Brave Search': ['#fb542b', 'Br'], Baidu: ['#2932e1', 'Bd'],
+    Instagram: ['#e1306c', 'IG'], Facebook: ['#1877f2', 'f'], Threads: ['#333', '@'], Reddit: ['#ff4500', 'r/'], TikTok: ['#111', 'TT'], YouTube: ['#ff0000', 'YT'], X: ['#222', 'X'], Snapchat: ['#e6d800', 'Sc'], LinkedIn: ['#0a66c2', 'in'], Pinterest: ['#e60023', 'P'], Quora: ['#b92b27', 'Q'],
+    'Google Ads': ['#fbbc04', 'GA'], 'Bing Ads': ['#00a4ef', 'BA'], 'Meta Ads': ['#0866ff', 'MA'], 'Instagram Ads': ['#c13584', 'IA'], 'Facebook Ads': ['#1877f2', 'FA'], 'TikTok Ads': ['#25f4ee', 'TA'], 'Snapchat Ads': ['#fffc00', 'SA'], 'LinkedIn Ads': ['#0a66c2', 'LA'],
+    WhatsApp: ['#25d366', 'WA'], Telegram: ['#229ed9', 'Tg'], Discord: ['#5865f2', 'Dc'], Email: ['#64748b', '@'], Direct: ['#475569', '→'] };
+  const icon = (s, g) => { const [c, t] = SC[s] || [GC[g] || '#475569', (s || '?').replace(/^www\./, '').slice(0, 2)]; const dark = ['#e6d800', '#fffc00', '#25f4ee', '#fbbc04'].includes(c); return `<span class="ic" style="background:${c};${dark ? 'color:#111' : ''}" title="${esc(s)}">${esc(t)}</span>`; };
+  const col = (s, g) => (SC[s] || [GC[g]])[0];
+  const st = { range: '7d', group: '', source: '', clicked: false, from: '', to: '' };
+  let timer, busy = false, lastData;
+
+  $('#groups').innerHTML = ['', ...GROUPS].map((g) => `<button class="chip" data-g="${g}" aria-pressed="${g === ''}">${g ? `<i class="d" style="background:${GC[g]}"></i>` : ''}${g || 'All'}</button>`).join('');
+  const today = new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);
+  $('#from').value = $('#to').value = today;
+
+  async function load(quiet) {
+    if (busy) return; busy = true;
+    const p = new URLSearchParams({ range: st.range });
+    if (st.range === 'custom') { p.set('from', $('#from').value); p.set('to', $('#to').value || $('#from').value); }
+    if (st.group) p.set('group', st.group); if (st.source) p.set('source', st.source); if (st.clicked) p.set('clicked', '1');
+    try {
+      const r = await fetch('/api/users/data?' + p, { credentials: 'same-origin', cache: 'no-store' });
+      if (r.status === 401) return showLogin();
+      if (!r.ok) throw 0;
+      lastData = await r.json(); render(lastData); $('#live').style.opacity = 1;
+    } catch { $('#live').style.opacity = .4; }
+    finally { busy = false; }
+  }
+  const fmt = (n) => Number(n || 0).toLocaleString();
+  const ago = (t) => { const s = (Date.now() - new Date(t)) / 1e3; return s < 60 ? 'just now' : s < 3600 ? Math.floor(s / 60) + 'm ago' : s < 86400 ? Math.floor(s / 3600) + 'h ago' : new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'Asia/Karachi' }); };
+  const clock = (t) => new Date(t).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Karachi' });
+  function rows(el, items, total) {
+    const max = Math.max(1, ...items.map((x) => x.n));
+    $(el).innerHTML = items.length ? items.map((x) => `<div class="r"><span class="l" title="${esc(x.k)}">${esc(x.k)}</span><span class="m"><i style="width:${(x.n / max) * 100}%"></i></span><span class="v">${fmt(x.n)}${x.c ? ` · <span style="color:var(--ok)">${x.c}</span>` : ''}</span></div>`).join('') : '<div class="empty">No data yet.</div>';
+  }
+  function render(d) {
+    const R = d.range, conv = R.visitors > 0 ? (R.converted / R.visitors) * 100 : 0;
+    $('#kpis').innerHTML = [['Today', d.kpi.today, 'visitors'], ['7 days', d.kpi.d7, 'visitors'], ['30 days', d.kpi.d30, 'visitors'], ['WhatsApp clicks', R.wa, `${fmt(R.email)} email · ${fmt(R.popup)} popup`], ['Conversion', conv.toFixed(1) + '%', `${fmt(R.converted)} of ${fmt(R.visitors)} in range`]]
+      .map(([a, b, c]) => `<div class="k"><p>${a}</p><b>${typeof b === 'string' ? b : fmt(b)}</b><small>${c}</small></div>`).join('');
+    // sources grouped
+    const by = {}; let tot = 0;
+    d.sources.forEach((x) => { (by[x.g] ||= { n: 0, c: 0, items: [] }); by[x.g].n += x.n; by[x.g].c += x.c; by[x.g].items.push(x); tot += x.n; });
+    const sel = $('#srcsel'), cur = st.source;
+    sel.innerHTML = '<option value="">All sources</option>' + GROUPS.filter((g) => by[g]).map((g) => `<optgroup label="${g}">${by[g].items.map((x) => `<option ${x.s === cur ? 'selected' : ''}>${esc(x.s)}</option>`).join('')}</optgroup>`).join('');
+    $('#srcnote').textContent = tot ? `${fmt(tot)} visits` : '';
+    $('#sources').innerHTML = tot ? GROUPS.filter((g) => by[g]).map((g) => { const G = by[g]; return `<div class="grp ${g === 'AI' ? 'ai' : ''}"><div class="gh"><i class="d" style="width:9px;height:9px;border-radius:50%;background:${GC[g]}"></i>${g}${g === 'AI' ? ' <span class="pill" style="border-color:rgba(183,148,255,.6);color:#d9c8ff">AI</span>' : ''}<span class="n">${fmt(G.n)} · ${((G.n / tot) * 100).toFixed(0)}%${G.c ? ` · <span style="color:var(--ok)">${G.c} clicked</span>` : ''}</span></div>
+      <div class="stack">${G.items.map((x) => `<i style="width:${(x.n / G.n) * 100}%;background:${col(x.s, g)}" title="${esc(x.s)}"></i>`).join('')}</div>
+      ${G.items.map((x) => `<div class="src" data-s="${esc(x.s)}">${icon(x.s, g)}<span class="nm">${esc(x.s)}${g === 'Other' && x.domains ? ` <span style="color:var(--mut)">${esc(x.domains.slice(0, 3).join(', '))}</span>` : ''}</span><span class="n">${fmt(x.n)}${x.c ? ` · <span style="color:var(--ok)">${x.c}</span>` : ''}</span></div>`).join('')}</div>`; }).join('') : '<div class="empty">No visits in this range yet.</div>';
+    // daily
+    const max = Math.max(1, ...d.daily.map((x) => x.n));
+    $('#daily').innerHTML = d.daily.map((x) => `<div style="height:${(x.n / max) * 100}%" title="${x.d}: ${x.n} visitors, ${x.c} clicked"><i style="height:${x.n ? (x.c / x.n) * 100 : 0}%"></i></div>`).join('') || '<div class="empty" style="background:none">No data yet.</div>';
+    $('#dsum').textContent = `${fmt(R.visitors)} visitors · ${Number(R.pages).toFixed(1)} pages each`;
+    rows('#landing', d.landing); rows('#countries', d.countries.map((x) => ({ ...x, k: x.k === '??' ? 'Unknown' : x.k }))); rows('#devices', d.devices.map((x) => ({ ...x, k: x.k || 'Unknown' })));
+    $('#rcount').textContent = d.recent.length ? `latest ${d.recent.length}` : '';
+    $('#recent').innerHTML = d.recent.length ? d.recent.map((v) => {
+      const done = v.clicked_whatsapp ? '<span class="pill wa">WhatsApp</span>' : v.clicked_email ? '<span class="pill em">Email</span>' : v.opened_popup ? '<span class="pill">Opened popup</span>' : '<span class="pill">No click</span>';
+      const pages = (v.pages || []); const pick = [v.platform, v.service].filter(Boolean).join(' · ');
+      return `<div class="v1"><div class="t">${icon(v.source, v.g)}<b>${esc(v.source)}</b><span class="pill">${esc(v.g)}</span>${done}${pick ? `<span class="pill">${esc(pick)}</span>` : ''}<span class="when" title="${esc(new Date(v.started_at).toLocaleString('en-GB', { timeZone: 'Asia/Karachi' }))} PKT">${ago(v.started_at)} · ${clock(v.started_at)}</span></div>
+        <div class="meta"><span>${esc([v.city, v.country].filter(Boolean).join(', ') || 'Unknown location')}</span><span>${esc([v.device, v.browser, v.os].filter(Boolean).join(' · '))}</span>${v.ref_domain && v.g === 'Other' ? `<span>${esc(v.ref_domain)}</span>` : ''}${v.utm_campaign ? `<span>campaign: ${esc(v.utm_campaign)}</span>` : ''}${v.search_term ? `<span>search: “${esc(v.search_term)}”</span>` : ''}</div>
+        <div class="path">${pages.map(esc).join(' → ')}${pages.length < v.page_count ? ' …' : ''}</div></div>`;
+    }).join('') : '<div class="empty">No visitors match these filters.</div>';
+  }
+  const setPressed = (wrap, el) => wrap.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === el)));
+  $('#range').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; st.range = b.dataset.r; setPressed($('#range'), b); $('#custom').classList.toggle('on', st.range === 'custom'); load(); });
+  $('#from').addEventListener('change', load); $('#to').addEventListener('change', load);
+  $('#groups').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; st.group = b.dataset.g; st.source = ''; setPressed($('#groups'), b); load(); });
+  $('#srcsel').addEventListener('change', (e) => { st.source = e.target.value; load(); });
+  $('#sources').addEventListener('click', (e) => { const s = e.target.closest('.src'); if (!s) return; st.source = st.source === s.dataset.s ? '' : s.dataset.s; load(); });
+  $('#clk').addEventListener('click', (e) => { st.clicked = !st.clicked; e.currentTarget.setAttribute('aria-pressed', String(st.clicked)); load(); });
+  $('#out').addEventListener('click', async () => { await fetch('/api/users-logout', { method: 'POST', credentials: 'same-origin' }).catch(() => {}); showLogin(); });
+
+  function showLogin() { clearInterval(timer); $('#app').hidden = true; $('#login').hidden = false; $('#u').focus(); }
+  function showApp() { $('#login').hidden = true; $('#app').hidden = false; clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(true); }, 15000); }
+  $('#lf').addEventListener('submit', async (e) => {
+    e.preventDefault(); const btn = e.target.querySelector('button'); btn.disabled = true; $('#lerr').textContent = '';
+    try {
+      const r = await fetch('/api/users-login', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: $('#u').value, password: $('#pw').value }) });
+      if (r.ok) {
+        try { if (window.PasswordCredential) navigator.credentials.store(new PasswordCredential({ id: $('#u').value, password: $('#pw').value, name: 'Unbanz' })); } catch {}
+        $('#pw').value = ''; showApp(); load();
+      } else $('#lerr').textContent = r.status === 401 ? 'Wrong username or password.' : r.status === 429 ? 'Too many tries. Wait a few minutes.' : 'Login is unavailable right now. Try again.';
+    } catch { $('#lerr').textContent = 'No connection. Try again.'; }
+    btn.disabled = false;
+  });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && !$('#app').hidden) load(true); });
+  addEventListener('pageshow', (e) => { if (e.persisted && !$('#app').hidden) load(true); });
+  (async () => {
+    try { const r = await fetch('/api/users/data?range=7d', { credentials: 'same-origin', cache: 'no-store' }); if (r.ok) { showApp(); lastData = await r.json(); render(lastData); } else showLogin(); }
+    catch { showLogin(); }
+  })();
+})();
+</script>
+</body>
+</html>
