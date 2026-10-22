@@ -17,7 +17,7 @@ Unbanz is a brand name, not a typo for “unban”. We also go by Unbanz HQ, and
 
 - Unbans. Banned, disabled, suspended or hacked Instagram, Facebook and Snapchat accounts.
  - Bans. Fake accounts, impersonators, scammers and harassers taken down on Instagram, Facebook and Snapchat.
- - Username claims. Inactive or taken handles on Instagram, Facebook and Snapchat.
+ - Username claims. Inactive, taken and OG handles on Instagram, Facebook and Snapchat. How claims work.
  - Ad accounts. Restricted Meta ad accounts and Business Portfolios.
 Our focus is Instagram, Facebook, Snapchat and Meta ad accounts.
 
@@ -68,6 +68,10 @@ You know exactly what you’re paying for before you pay. We confirm the scope, 
  - A screenshot of the notice.
  - When it happened.
 That’s it. Your password and login codes stay with you.
+
+### Are username claims safe?
+
+Yes. The handle goes on your own profile, your password stays with you, and no accounts change hands. More on whether a username claim is safe.
 
 ### Is there a guarantee?
 
@@ -393,11 +397,23 @@ Often, yes. Inactive or taken handles on Instagram, Facebook and Snapchat. We te
 
 ### How much does a username claim cost?
 
-It depends on the handle. You get a price before we start. (Source: https://unbanz.com/username/)
+It depends on the handle. You get a price before we start. See [username claim pricing](/username-claim-pricing/). (Source: https://unbanz.com/username/)
 
 ### Can Unbanz claim an inactive Instagram username?
 
-Often, yes. Send the handle you want and we tell you if it’s doable before you pay. (Source: https://unbanz.com/instagram-username-claim/)
+Often, yes. See [inactive Instagram usernames](/inactive-instagram-username/). (Source: https://unbanz.com/username/)
+
+### Can you get OG usernames?
+
+Often, yes, when they sit on inactive or squatted accounts. See [OG usernames](/og-username/). (Source: https://unbanz.com/username/)
+
+### Can Unbanz claim a Facebook username or Page name?
+
+Yes. See [Facebook username claims](/facebook-username-claim/). (Source: https://unbanz.com/username/)
+
+### Is a username claim safe?
+
+Yes. The handle goes on your own profile and your password stays with you. See [is a username claim safe](/is-a-username-claim-safe/). (Source: https://unbanz.com/username/)
 
 ### Can Unbanz get a taken Snapchat username?
 
@@ -424,6 +440,12 @@ Yes. Restricted or disabled Meta ad accounts and Business Portfolios. Send the a
 - Fake account takedown: https://unbanz.com/fake-account-takedown/ — Remove fake Instagram and Facebook accounts: clones, catfish, scam profiles and fake giveaway pages. Our fake account takedown is done for you.
 - Impersonation account removal: https://unbanz.com/impersonation-account-removal/ — Someone impersonating you or your brand on Instagram or Facebook? Our impersonation account removal service gets fake accounts taken down for you.
 - Instagram username claim: https://unbanz.com/instagram-username-claim/ — Instagram username claim service. Claim an inactive Instagram username or get a taken handle. Send the name you want and we take it from there.
+- Claim an inactive Instagram username: https://unbanz.com/inactive-instagram-username/ — The Instagram username you want is on an inactive account? Unbanz claims inactive Instagram handles for you. Price before we start, password stays with you.
+- Get a taken Instagram username: https://unbanz.com/taken-instagram-username/ — Instagram username taken? Unbanz goes after taken handles held by squatters, copycats or inactive accounts. You get a price before we start.
+- OG usernames (short and rare handles): https://unbanz.com/og-username/ — Want an OG username: a short, rare or one-word Instagram handle? Unbanz claims OG usernames held by inactive or squatted accounts. Price before we start.
+- Facebook username and Page name claims: https://unbanz.com/facebook-username-claim/ — Facebook username or Page name taken? Unbanz claims Facebook usernames and Page names held by inactive, fake or squatted profiles and Pages.
+- Username claim pricing and process: https://unbanz.com/username-claim-pricing/ — How much a username claim costs and how it works: send the handle, we check it and quote, then we claim it onto your profile. Price before we start.
+- Is a username claim safe?: https://unbanz.com/is-a-username-claim-safe/ — Is a username claim safe? How claiming a handle differs from buying an account, why claims keep your profile secure, and how Unbanz does it.
 - Snapchat username claim: https://unbanz.com/snapchat-username-claim/ — Snapchat username claim service. Want an inactive or taken Snapchat username? Send the name you want and we take it from there.
 - All services: https://unbanz.com/services/ — Every Unbanz service in one place: Instagram, Facebook and Snapchat unbans, account takedowns, impersonation removal, Meta ad accounts and usernames.
 
