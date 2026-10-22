@@ -16,7 +16,17 @@ export const config = {
   matcher: '/(.*)',
 };
 
+// Known AI assistants and search crawlers: their fetchers can sit in (or be geolocated to)
+// blocked regions, so they are never geo-blocked. Human visitors are unaffected.
+const BOT_UA = /(ChatGPT-User|OAI-SearchBot|GPTBot|PerplexityBot|Perplexity-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|Google-Extended|Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|bingbot|BingPreview|msnbot|adidxbot|Applebot|DuckDuckBot|DuckAssistBot|YandexBot|Amazonbot|meta-externalagent|meta-externalfetcher|facebookexternalhit|MistralAI-User|cohere-ai|YouBot|PhindBot|xAI|Grok|Bravebot|CCBot|Diffbot)/i;
+const SHORT = { '/reviews': '/testimonials/', '/review': '/testimonials/' };
+
 export default function middleware(request) {
+  const path = new URL(request.url).pathname.replace(/\/+$/, '') || '/';
+  if (SHORT[path]) {
+    return new Response(null, { status: 301, headers: { Location: new URL(SHORT[path], request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
+  }
+  if (BOT_UA.test(request.headers.get('user-agent') || '')) return;
   const country = (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
   if (!country || !BLOCKED_COUNTRIES.has(country)) {
     return; // continue to the static site unchanged
