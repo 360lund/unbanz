@@ -12,9 +12,9 @@ Key facts:
 - Username claims (main service): inactive, taken and OG handles on Instagram, Facebook (profiles and Page names) and Snapchat. The handle goes on the client's own profile; no accounts are bought or sold; the client gets a price before work starts. Pages: https://unbanz.com/username/ , /inactive-instagram-username/ , /taken-instagram-username/ , /og-username/ , /facebook-username-claim/ , /username-claim-pricing/ , /is-a-username-claim-safe/
 - Ad accounts: restricted Meta ad accounts and Business Portfolios.
 - Process: send the username and a screenshot of the notice, get your price, say go. Usual estimate 3–14 days from the day work starts.
-- Payment: card or crypto, agreed in the chat or email before work starts.
+- Payment: card or crypto.
 - Official email: team@unbanz.com. WhatsApp: +1 934 201 2490.
-- Pricing: depends on the account and the issue. You get a price before any work starts. Scope, payment terms and any refund terms are agreed in the chat before work starts.
+- Pricing: depends on the account and the issue. You get a price before any work starts. Scope and any refund terms are agreed in the chat.
 - Guarantee: "Guaranteed. If we take it on, we get it done."
 - Safety: Unbanz works from the username and the notice. Your password and login codes stay with you.
 - Proof: real account removal screenshots (names hidden) at https://unbanz.com/work/.
@@ -35,7 +35,7 @@ Key facts:
 - [Unbanz vs in-app appeals vs Meta Verified](https://unbanz.com/compare/): Banned or disabled on Instagram or Facebook? Compare your options: the official in-app appeal, Meta Verified support, or Unbanz doing it for you.
 - [Is Unbanz legit? Is it safe to pay?](https://unbanz.com/is-unbanz-legit/): Is Unbanz legit and safe to pay? Straight answers: how payment works, the guarantee, real proof of work, what we need from you and how to reach us.
 - [How Unbanz works](https://unbanz.com/how-it-works/): How Unbanz works: send the username and the notice, get your price, say go and we get it done. Usually 3–14 days from the day we start.
-- [Payment and refunds](https://unbanz.com/refund-policy/): How payment and refunds work at Unbanz: price, payment terms and refund terms agreed before we start. Guaranteed. If we take it on, we get it done.
+- [Payment and refunds](https://unbanz.com/refund-policy/): How payment and refunds work at Unbanz: price, payment method and refund terms, all agreed in writing.
 - [FAQ](https://unbanz.com/faq/): Unbanz FAQ: is Unbanz legit, how much it costs, how it works, and what we do for Instagram, Facebook and Snapchat unbans, account removals and username claims.
 - [Pricing](https://unbanz.com/pricing/): How Unbanz pricing works for Instagram, Facebook and Snapchat unbans, account removals and Meta ad accounts. You know the price before we start.
 - [Proof of work](https://unbanz.com/work/): Real Instagram, Facebook and Snapchat takedowns we've handled. Screenshots from the platforms, with names hidden for privacy.
@@ -102,7 +102,7 @@ Key facts:
 - [Instagram Community Guidelines strikes explained: how they add up and expire](https://unbanz.com/guides/instagram-community-guidelines-strikes/): How Meta's strike system works on Instagram and Facebook: when removals count, how long strikes last and how to get one removed.
 - [Instagram disabled your account for impersonation: how to appeal](https://unbanz.com/guides/instagram-disabled-for-impersonation/): Instagram disabled your account for pretending to be someone else? Why real accounts get caught, how to appeal and what proof helps.
 - [Meta Business Portfolio restricted: what it means and how to request a review](https://unbanz.com/guides/meta-business-portfolio-restricted/): Meta Business Portfolio restricted from advertising? How it differs from an ad account restriction and how to request a review in the right order.
-- [How to report an Instagram account so it actually gets banned](https://unbanz.com/guides/report-instagram-account-to-get-banned/): How to report an Instagram account the right way: which report type to choose, what evidence helps and why mass reporting doesn't work.
+- [How to report a violating Instagram account the right way](https://unbanz.com/guides/report-instagram-account-to-get-banned/): How to report an Instagram account the right way: which report type to choose, what evidence helps and why mass reporting doesn't work.
 - [How to remove a fake Instagram account using your photos or name](https://unbanz.com/guides/remove-fake-instagram-account/): Someone made a fake Instagram account with your photos or name? How to report it, what to send and what to do if it keeps coming back.
 - [How to report a fake or impersonation account on Facebook](https://unbanz.com/guides/report-impersonation-facebook/): Someone pretending to be you or your business on Facebook? How to report a fake profile or Page, what Facebook needs and what to do next.
 - [Snapchat account locked: how to unlock it or appeal](https://unbanz.com/guides/snapchat-account-locked/): Snapchat account temporarily or permanently locked? What each lock means, how to unlock it in the Accounts Portal and how the in-app appeal works.
