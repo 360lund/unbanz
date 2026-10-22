@@ -194,28 +194,10 @@ button,input,select{font:inherit;color:inherit}
 </style>
 </head>
 <body>
-<main class="login" id="login" hidden>
-  <div class="lbox">
-    <span class="wm">unbanz<i>.</i></span>
-    <form class="lcard" id="lf" method="post" action="/api/users-login/" autocomplete="on">
-      <h1>Sign in</h1>
-      <p>Analytics for unbanz.com</p>
-      <label for="u">Username</label>
-      <input id="u" name="username" autocomplete="username" autocapitalize="characters" spellcheck="false" required>
-      <label for="pw">Password</label>
-      <input id="pw" name="password" type="password" autocomplete="current-password" required>
-      <button class="lbtn" type="submit">Continue</button>
-      <div class="lerr" id="lerr" role="alert"></div>
-    </form>
-    <div class="lfoot">Private. Not indexed.</div>
-  </div>
-</main>
-
-<div class="wrap" id="app" hidden>
+<div class="wrap" id="app">
   <header class="top">
     <span class="wm">unbanz<i>.</i></span><span class="crumb">Analytics</span>
     <span class="status"><span class="dot" id="dot"></span><span id="upd">Live</span></span>
-    <button class="ghost" id="out">Log out</button>
   </header>
 
   <div class="tool">
@@ -304,7 +286,7 @@ button,input,select{font:inherit;color:inherit}
     if (st.group) p.set('group', st.group); if (st.source) p.set('source', st.source); if (st.clicked) p.set('clicked', '1');
     try {
       const r = await fetch(API + '?' + p, { credentials: 'same-origin', cache: 'no-store' });
-      if (r.status === 401) { busy = false; return showLogin(); }
+      
       if (!r.ok) throw 0;
       data = await r.json(); render(data);
       $('#dot').classList.remove('off'); $('#upd').textContent = 'Live';
@@ -424,28 +406,15 @@ button,input,select{font:inherit;color:inherit}
   $('#srcsel').addEventListener('change', (e) => { st.source = e.target.value; load(); });
   $('#sources').addEventListener('click', (e) => { const r = e.target.closest('.br'); if (!r) return; st.source = st.source === r.dataset.s ? '' : r.dataset.s; load(); });
   $('#clk').addEventListener('click', (e) => { st.clicked = !st.clicked; e.currentTarget.setAttribute('aria-pressed', String(st.clicked)); load(); });
-  $('#out').addEventListener('click', async () => { await fetch('/api/users-logout/', { method: 'POST', credentials: 'same-origin' }).catch(() => {}); showLogin(); });
 
-  function showLogin() { clearInterval(timer); $('#app').hidden = true; $('#login').hidden = false; setTimeout(() => $('#u').focus(), 0); }
-  function showApp() { $('#login').hidden = true; $('#app').hidden = false; clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(); }, 15000); }
-  $('#lf').addEventListener('submit', async (e) => {
-    e.preventDefault(); const btn = e.target.querySelector('button'); btn.disabled = true; btn.textContent = 'Signing in…'; $('#lerr').textContent = '';
-    try {
-      const r = await fetch('/api/users-login/', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: $('#u').value, password: $('#pw').value }) });
-      if (r.ok) {
-        try { if (window.PasswordCredential) navigator.credentials.store(new PasswordCredential({ id: $('#u').value, password: $('#pw').value, name: 'Unbanz' })); } catch {}
-        $('#pw').value = ''; showApp(); skeleton(); load();
-      } else $('#lerr').textContent = r.status === 401 ? 'Wrong username or password.' : r.status === 429 ? 'Too many attempts. Try again in a few minutes.' : 'Sign-in is unavailable right now.';
-    } catch { $('#lerr').textContent = 'No connection. Try again.'; }
-    btn.disabled = false; btn.textContent = 'Continue';
-  });
+  function showApp() { $('#app').hidden = false; clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(); }, 15000); }
   document.addEventListener('visibilitychange', () => { if (!document.hidden && !$('#app').hidden) load(); });
   addEventListener('pageshow', (e) => { if (e.persisted && !$('#app').hidden) load(); });
   (async () => {
     try {
       const r = await fetch(API + '?range=7d', { credentials: 'same-origin', cache: 'no-store' });
-      if (r.ok) { showApp(); skeleton(); data = await r.json(); requestAnimationFrame(() => render(data)); } else showLogin();
-    } catch { showLogin(); }
+      showApp(); skeleton(); if (r.ok) { data = await r.json(); requestAnimationFrame(() => render(data)); }
+    } catch { showApp(); }
   })();
 })();
 </script>
