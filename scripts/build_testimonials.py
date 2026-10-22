@@ -10,7 +10,7 @@ h = hashlib.md5((css + js).encode()).hexdigest()[:10]
 for ext, src in (('css', css), ('js', js)):
     p = f'assets/testimonials.{h}.{ext}'
     if not os.path.exists(p): open(p, 'w').write(src)
-ASSETS = f'<link rel="stylesheet" href="/assets/testimonials.{h}.css"><script src="/assets/testimonials.{h}.js" defer></script>'
+ASSETS = '<link rel="preconnect" href="https://cdn.dbimg.app">' + f'<link rel="stylesheet" href="/assets/testimonials.{h}.css"><script src="/assets/testimonials.{h}.js" defer></script>'
 PLAY = '<svg width="16" height="18" viewBox="0 0 18 20" aria-hidden="true"><path d="M17 10 1 19V1z" fill="currentColor"/></svg>'
 e = lambda s: html.escape(s, quote=True)
 def card(v):
@@ -28,7 +28,7 @@ s = open('index.html').read()
 sec = ('<section class="vt container" id="testimonials" aria-labelledby="vt-title"><div class="vt-head"><div><p class="eyebrow">CLIENTS</p><h2 id="vt-title">In their words.</h2></div>'
        '<a class="text-button" href="/testimonials/">See all <span aria-hidden="true">↗︎</span></a></div><ul class="vt-track">' + ''.join(card(v) for v in V[:3]) + '</ul></section>')
 s = re.sub(r'<section class="vt container".*?</ul></section>', lambda m: sec, s, count=1, flags=re.S)
-s = re.sub(r'<link rel="stylesheet" href="/assets/testimonials\.\w+\.css"><script src="/assets/testimonials\.\w+\.js" defer></script><script type="application/ld\+json">[^<]*VideoObject[^<]*</script>',
+s = re.sub(r'(?:<link rel="preconnect" href="https://cdn.dbimg.app">)?<link rel="stylesheet" href="/assets/testimonials\.\w+\.css"><script src="/assets/testimonials\.\w+\.js" defer></script><script type="application/ld\+json">[^<]*VideoObject[^<]*</script>',
            lambda m: ASSETS + LD([vo(v, "https://unbanz.com/") for v in V[:3]]), s, count=1)
 open('index.html', 'w').write(s)
 # /testimonials/ built from the /work/ page shell (same header, menu, footer)
@@ -51,5 +51,6 @@ main = ('<main id="content"><section class="service-hero"><div class="container"
 t = re.sub(r'<main id="content">.*?</main>', lambda m: main, t, count=1, flags=re.S)
 t = re.sub(r'<div class="lightbox" id="lightbox".*?</div></div>', '', t, count=1, flags=re.S)
 t = t.replace('<a href="/testimonials/">Testimonials</a>', '<a href="/testimonials/" aria-current="page">Testimonials</a>')
+t = re.sub(r"<script>\(function\(\)\{var lb=document\.getElementById\('lightbox'\).*?</script>", '', t, flags=re.S)
 os.makedirs('testimonials', exist_ok=True); open('testimonials/index.html', 'w').write(t)
 print('built', len(V), 'videos; assets', h)
