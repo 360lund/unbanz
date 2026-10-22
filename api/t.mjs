@@ -1,5 +1,9 @@
-// First-party visit tracker. One row per browser session. No IPs, no user agents, no personal data stored.
+// First-party visit tracker. One row per browser session, tagged with a persistent anonymous visitor id.
+// No raw IPs or user agents stored; old cached scripts without an id get a one-way hash of IP+UA instead.
 import { sql } from "./_lib/db.mjs";
+import crypto from "node:crypto";
+let migrated;
+const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text`).catch((e) => { migrated = null; throw e; }));
 const S = (v, n = 200) => (typeof v === "string" ? v.slice(0, n) : null);
 const GROUPS = new Set(["AI", "Search", "Social", "Ads", "Messaging", "Direct", "Other"]);
 function ua(s) {
@@ -21,19 +25,21 @@ export default async function handler(req, res) {
   } catch { res.statusCode = 400; return res.end(); }
   const id = S(b.id, 40);
   if (!id || !/^[a-z0-9]{8,40}$/i.test(id)) { res.statusCode = 400; return res.end(); }
+  const vid = /^[a-z0-9]{8,40}$/i.test(b.v || "") ? "v:" + b.v : "h:" + crypto.createHash("sha256").update("ubz|" + String(req.headers["x-forwarded-for"] || "").split(",")[0].trim() + "|" + (req.headers["user-agent"] || "")).digest("hex").slice(0, 20);
   try {
+    await migrate();
     if (b.e === "view") {
       const path = S(b.p, 300) || "/";
       const g = GROUPS.has(b.g) ? b.g : "Other";
       const u = ua(req.headers["user-agent"]);
       const city = req.headers["x-vercel-ip-city"] ? decodeURIComponent(req.headers["x-vercel-ip-city"]) : null;
       await sql(
-        `insert into visits(id, source, source_group, medium, ref_domain, utm_source, utm_medium, utm_campaign, search_term, landing, pages, country, city, device, browser, os)
-         values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,jsonb_build_array($10::text),$11,$12,$13,$14,$15)
+        `insert into visits(id, source, source_group, medium, ref_domain, utm_source, utm_medium, utm_campaign, search_term, landing, pages, country, city, device, browser, os, visitor_id)
+         values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,jsonb_build_array($10::text),$11,$12,$13,$14,$15,$16)
          on conflict (id) do update set pages = case when jsonb_array_length(visits.pages) < 60 then visits.pages || jsonb_build_array($10::text) else visits.pages end,
-           page_count = visits.page_count + 1, last_at = now()`,
+           page_count = visits.page_count + 1, last_at = now(), visitor_id = coalesce(visits.visitor_id, $16)`,
         [id, S(b.s, 40) || "Direct", g, S(b.m, 20), S(b.d, 100), S(b.us, 100), S(b.um, 60), S(b.uc, 100), S(b.q, 120), path,
-         S(req.headers["x-vercel-ip-country"], 2), S(city, 80), u.device, u.browser, u.os],
+         S(req.headers["x-vercel-ip-country"], 2), S(city, 80), u.device, u.browser, u.os, vid],
       );
     } else if (b.e === "click") {
       const k = b.k === "whatsapp" ? "clicked_whatsapp" : b.k === "email" ? "clicked_email" : b.k === "popup" ? "opened_popup" : null;

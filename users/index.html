@@ -164,6 +164,40 @@ button,input,select{font:inherit;color:inherit}
 .mi .a{display:flex;align-items:center;gap:8px;justify-content:space-between}
 .mi .b{color:var(--t3);font-size:12px;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
+
+/* visitors (grouped) */
+.vl{display:flex;flex-direction:column}
+.vr{border-top:1px solid var(--b)}.vr:first-child{border-top:0}
+.vr>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(150px,1.3fr) minmax(130px,1fr) minmax(150px,1.2fr) minmax(120px,1fr) 92px 16px;gap:16px;align-items:start;padding:12px 16px;transition:background .15s}
+.vr>summary::-webkit-details-marker{display:none}
+.vr>summary:hover{background:rgba(255,255,255,.02)}
+.vr>summary:focus-visible{outline:2px solid var(--a);outline-offset:-2px}
+.vr .k{color:var(--t3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;display:none}
+.vr .s{color:var(--t3);font-size:12px;margin-top:4px;overflow:hidden;text-overflow:ellipsis}
+.vr .loc{display:flex;align-items:center;gap:8px;min-width:0}
+.vr .loc b{font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cnt{display:inline-grid;place-items:center;min-width:28px;height:20px;padding:0 6px;border-radius:99px;background:var(--s3);border:1px solid var(--b2);color:var(--t1);font-size:11px;flex:none}
+.cnt.one{color:var(--t3);border-color:var(--b)}
+.chev{color:var(--t3);transition:transform .2s var(--ease);margin-top:3px}
+.vr[open] .chev{transform:rotate(90deg)}
+.vd{padding:0 16px 16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px}
+.vd h3{margin:0 0 8px;font-size:11px;font-weight:400;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.pgs{display:flex;flex-wrap:wrap;gap:6px}
+.pgs span{font-size:12px;color:var(--t2);background:var(--s2);border:1px solid var(--b);border-radius:6px;padding:2px 8px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid var(--b2)}
+.tl li{position:relative;padding:0 0 12px 8px;font-size:13px}
+.tl li:before{content:"";position:absolute;left:-18px;top:6px;width:7px;height:7px;border-radius:50%;background:var(--s3);box-shadow:inset 0 0 0 1px var(--b2)}
+.tl li.wa:before{background:var(--up);box-shadow:none}
+.tl .pth{color:var(--t3);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:820px){
+  .vr>summary{grid-template-columns:minmax(0,1fr) auto 16px;gap:4px 12px}
+  .vr>summary>.c-src,.vr>summary>.c-seen,.vr>summary>.c-pg{grid-column:1/3}
+  .vr>summary>.c-out{grid-column:2;grid-row:1;text-align:right}
+  .vr>summary>.chev{grid-column:3;grid-row:1}
+  .vr .k{display:inline;margin-right:6px}
+  .vd{grid-template-columns:1fr;gap:16px}
+}
+
 /* login */
 .login{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px}
 .lbox{width:100%;max-width:360px}
@@ -246,21 +280,18 @@ button,input,select{font:inherit;color:inherit}
   </div>
 
   <section class="card full">
-    <div class="ch"><h2>Recent visitors</h2><span class="sub num" id="rcount"></span></div>
+    <div class="ch"><h2>Visitors</h2><span class="sub num" id="rcount"></span></div>
     <div class="cb" style="padding:8px 0 0">
-      <div class="scroll">
-        <table class="tbl"><thead><tr><th>Time</th><th>Source</th><th>Location</th><th>Pages</th><th>Device</th><th>Outcome</th></tr></thead><tbody id="recent"></tbody></table>
-        <div class="mlist" id="mrecent"></div>
-      </div>
+      <div class="scroll"><div class="vl" id="people"></div></div>
     </div>
   </section>
 
   <section class="card full">
-    <div class="ch"><h2>Top 5 countries</h2><span class="sub">Share of visitors</span></div>
+    <div class="ch"><h2>Top 5 countries</h2><span class="sub">Share of unique visitors</span></div>
     <div class="cb"><div id="countries"></div></div>
   </section>
 
-  <p class="foot">Shows where people came from and what they did on the site. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them, which Google usually doesn’t. No IP addresses or personal data are stored.</p>
+  <p class="foot">Shows where people came from and what they did on the site. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them, which Google usually doesn’t. Each visitor appears once, grouped by a random anonymous id kept in their browser; older visits without that id are grouped approximately by location and device (marked ≈). No IP addresses or personal data are stored.</p>
 </div>
 
 <script>
@@ -291,7 +322,7 @@ button,input,select{font:inherit;color:inherit}
     $('#chart').innerHTML = '<div class="sk" style="height:100%"></div>';
     const rows = (n) => Array(n).fill('<div class="sk" style="height:20px;margin:8px 0"></div>').join('');
     $('#sources').innerHTML = rows(6); $('#landing').innerHTML = rows(6); $('#countries').innerHTML = rows(5);
-    $('#recent').innerHTML = Array(5).fill('<tr><td colspan="6"><div class="sk" style="height:16px"></div></td></tr>').join(''); $('#mrecent').innerHTML = rows(5);
+    $('#people').innerHTML = '<div style="padding:0 16px">' + rows(6) + '</div>';
   }
 
   async function load() {
@@ -337,12 +368,12 @@ button,input,select{font:inherit;color:inherit}
     const R = d.range, P = d.prev || {}, D = days(d);
     const conv = pct(R.converted, R.visitors), pconv = pct(P.converted, P.visitors);
     const cards = [
-      ['Visitors', fmt(R.visitors), delta(R.visitors, P.visitors), D.map((x) => x.n)],
-      ['WhatsApp clicks', fmt(R.wa), delta(R.wa, P.wa), D.map((x) => x.w || 0)],
-      ['Conversion', conv.toFixed(1) + '%', delta(conv, pconv), D.map((x) => (x.n ? x.c / x.n : 0))],
-      ['Pages / visit', Number(R.pages || 0).toFixed(1), `<span class="delta num">${fmt(R.email)} email · ${fmt(R.popup)} popup</span>`, D.map((x) => x.n)],
+      ['Unique visitors', fmt(R.uniques), delta(R.uniques, P.uniques), D.map((x) => x.u ?? x.n)],
+      ['Total visits', fmt(R.visitors), delta(R.visitors, P.visitors), D.map((x) => x.n)],
+      ['WhatsApp clicks', fmt(R.wa), `${delta(R.wa, P.wa)}<span class="delta num mut">${fmt(R.wa_people)} visitor${R.wa_people == 1 ? '' : 's'}</span>`, D.map((x) => x.w || 0)],
+      ['Conversion', conv.toFixed(1) + '%', `<span class="delta num">${Number(R.pages || 0).toFixed(1)} pages / visit · ${fmt(R.email)} email</span>`, D.map((x) => (x.n ? x.c / x.n : 0))],
     ];
-    $('#kpis').innerHTML = cards.map(([l, v, dl, s], i) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num">${v}</div><div class="row">${dl}${i < 3 ? spark(s) : ''}</div></div>`).join('');
+    $('#kpis').innerHTML = cards.map(([l, v, dl, s], i) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num">${v}</div><div class="row">${dl}${spark(s)}</div></div>`).join('');
     const K = d.kpi;
     $('#mini').innerHTML = `<span><b>${fmt(K.today)}</b>today ${delta(K.today, K.yesterday)}</span><span><b>${fmt(K.d7)}</b>last 7 days ${delta(K.d7, K.p7)}</span><span><b>${fmt(K.d30)}</b>last 30 days ${delta(K.d30, K.p30)}</span>`;
     $('#rlabel').textContent = 'vs previous ' + ({ today: 'day', '7d': '7 days', '30d': '30 days', '90d': '90 days', custom: 'period' }[st.range]);
@@ -367,14 +398,29 @@ button,input,select{font:inherit;color:inherit}
     const pick = (v) => [v.platform, v.service].filter(Boolean).join(' · ');
     const loc = (v) => v.country ? `${flag(v.country)} ${esc(v.city ? v.city + ', ' : '')}${esc(country(v.country))}` : '<span class="mut">Unknown</span>';
     const pill = (v) => `<span class="pill ${v.g === 'AI' ? 'ai' : ''}">${esc(v.source)}</span>`;
-    $('#rcount').textContent = d.recent.length ? `Latest ${d.recent.length}` : '';
-    if (!d.recent.length) { $('#recent').innerHTML = `<tr><td colspan="6">${EMPTY('No visitors match', 'Try a wider date range or clear the filters.')}</td></tr>`; $('#mrecent').innerHTML = EMPTY('No visitors match', 'Try a wider date range or clear the filters.'); }
-    else {
-      $('#recent').innerHTML = d.recent.map((v) => `<tr><td class="num t2" title="${fullTime(v.started_at)}">${ago(v.started_at)}</td><td>${pill(v)}${v.search_term ? `<div class="mut" style="font-size:12px;margin-top:4px">“${esc(v.search_term)}”</div>` : ''}</td><td class="t2">${loc(v)}</td><td><div class="path" title="${esc((v.pages || []).join(' → '))}">${esc(v.landing)}</div><div class="mut num" style="font-size:12px">${v.page_count} page${v.page_count == 1 ? '' : 's'}</div></td><td class="t2">${esc(v.device || '')}<div class="mut" style="font-size:12px">${esc([v.browser, v.os].filter(Boolean).join(' · '))}</div></td><td>${outc(v)}${pick(v) ? `<div class="mut" style="font-size:12px;margin-top:4px">${esc(pick(v))}</div>` : ''}</td></tr>`).join('');
-      $('#mrecent').innerHTML = d.recent.map((v) => `<div class="mi"><div class="a">${pill(v)}<span class="mut num" style="font-size:12px">${ago(v.started_at)}</span></div><div class="a" style="margin-top:8px"><span class="t2" style="font-size:13px">${loc(v)}</span>${outc(v)}</div><div class="b">${esc(v.landing)} · ${v.page_count} page${v.page_count == 1 ? '' : 's'}${pick(v) ? ' · ' + esc(pick(v)) : ''}</div></div>`).join('');
-    }
+    const P2 = d.people || [];
+    const vcount = P2.length;
+    $('#rcount').textContent = vcount ? `${fmt(vcount)}${vcount >= 100 ? '+ ' : ' '}visitor${vcount == 1 ? '' : 's'} · sorted by last seen` : '';
+    const srcPill = (s, g) => `<span class="pill ${g === 'AI' ? 'ai' : ''}">${esc(s || 'Direct')}</span>`;
+    const tlOut = (x) => x.wa ? '<span class="out wa">WhatsApp</span>' : x.em ? '<span class="out em">Email</span>' : x.pop ? '<span class="out">Opened popup</span>' : '<span class="out">Browsed</span>';
+    const chev = '<svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+    const open = new Set([...document.querySelectorAll('#people details[open]')].map((x) => x.dataset.k));
+    $('#people').innerHTML = !vcount ? EMPTY('No visitors match', 'Try a wider date range or clear the filters.') : P2.map((v) => {
+      const pages = v.pages || [], ex = [...(v.searches || []).filter(Boolean).map((q) => '“' + esc(q) + '”'), ...(v.ai || []).map((a) => 'via ' + esc(a))];
+      const same = v.first_source === v.last_source;
+      return `<details class="vr" data-k="${esc(v.vk)}" ${open.has(v.vk) ? 'open' : ''}><summary>
+        <div class="c-loc"><div class="loc"><span class="flag" aria-hidden="true">${flag(v.country)}</span><b>${v.country ? esc(country(v.country)) : '<span class="mut">Unknown</span>'}</b><span class="cnt num ${v.visits == 1 ? 'one' : ''}" title="${v.visits} visit${v.visits == 1 ? '' : 's'} in range${v.all_visits != v.visits ? ' · ' + v.all_visits + ' all time' : ''}">×${v.visits}</span></div><div class="s">${esc(v.city || '')}${v.city ? ' · ' : ''}${esc([v.device, v.browser].filter(Boolean).join(' · '))}${v.approx ? ' <span title="Older visits grouped approximately by location and device">≈</span>' : ''}</div></div>
+        <div class="c-src"><span class="k">Source</span>${srcPill(v.first_source, v.first_g)}${same ? '' : ` <span class="mut">→</span> ${srcPill(v.last_source, v.last_g)}`}<div class="s">${same ? 'First & latest' : 'First → latest'}${ex.length ? ' · ' + ex.join(', ') : ''}</div></div>
+        <div class="c-seen"><span class="k">Seen</span><span class="num t2" title="${fullTime(v.last_seen)}">Last ${ago(v.last_seen)}</span><div class="s num" title="${fullTime(v.first_ever)}">First ${ago(v.first_ever)}</div></div>
+        <div class="c-pg"><span class="k">Pages</span><span class="num t2">${pages.length} unique page${pages.length == 1 ? '' : 's'}</span><div class="s">${esc(pages.slice(0, 2).join(', '))}${pages.length > 2 ? '…' : ''}</div></div>
+        <div class="c-out">${v.wa ? `<span class="out wa">WhatsApp${v.wa > 1 ? ' ×' + v.wa : ''}</span>` : v.email ? '<span class="out em">Email</span>' : '<span class="out">No tap</span>'}</div>
+        ${chev}</summary>
+        <div class="vd"><div><h3>Pages viewed (${pages.length})</h3><div class="pgs">${pages.map((p) => `<span title="${esc(p)}">${esc(p)}</span>`).join('') || '<span>–</span>'}</div>
+          <h3 style="margin-top:16px">WhatsApp tapped</h3><div class="t2">${v.wa ? 'Yes · ' + v.wa + ' visit' + (v.wa == 1 ? '' : 's') : 'No'}${v.email ? ' · Email ' + v.email : ''}</div></div>
+          <div><h3>Visits (${v.visits})</h3><ol class="tl">${(v.timeline || []).map((x) => `<li class="${x.wa ? 'wa' : ''}"><div><span class="num t2">${fullTime(x.t)}</span> · ${srcPill(x.s, x.g)} ${tlOut(x)}</div>${x.q ? `<div class="pth">“${esc(x.q)}”</div>` : ''}<div class="pth">${esc((x.pages || []).join(' → '))}${x.pl || x.sv ? ' · ' + esc([x.pl, x.sv].filter(Boolean).join(' · ')) : ''}</div></li>`).join('')}</ol></div></div></details>`;
+    }).join('');
     // countries (top 5)
-    const ctot = R.visitors || 1;
+    const ctot = +R.uniques || R.visitors || 1;
     $('#countries').innerHTML = d.countries.length ? d.countries.slice(0, 5).map((x) => `<div class="cr"><span class="flag" aria-hidden="true">${flag(x.k)}</span><span class="nm" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(country(x.k))}</span><span class="num" style="text-align:right">${fmt(x.n)}</span><span class="track"><i style="width:${pct(x.n, ctot)}%"></i></span><span class="num mut" style="text-align:right;font-size:12px">${pct(x.n, ctot).toFixed(0)}%</span></div>`).join('') : EMPTY('No countries yet', 'Countries appear once visitors arrive.');
     first = false;
   }
