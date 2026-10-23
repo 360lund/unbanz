@@ -4,6 +4,14 @@ import { sql } from "./_lib/db.mjs";
 import crypto from "node:crypto";
 let migrated;
 const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text`).catch((e) => { migrated = null; throw e; }));
+let presenceReady;
+const presenceTable = () => (presenceReady ||= sql(`create table if not exists presence (visitor_id text primary key, last_seen timestamptz not null default now(), path text, country text)`).catch((e) => { presenceReady = null; throw e; }));
+// Live "online now": last-seen per visitor. /users views never count.
+async function touch(vid, path, country) {
+  if (!path || path.startsWith("/users")) return;
+  await presenceTable();
+  await sql(`insert into presence(visitor_id, last_seen, path, country) values($1, now(), $2, $3) on conflict (visitor_id) do update set last_seen = now(), path = excluded.path, country = coalesce(excluded.country, presence.country)`, [vid, path, country]);
+}
 const S = (v, n = 200) => (typeof v === "string" ? v.slice(0, n) : null);
 const GROUPS = new Set(["AI", "Search", "Social", "Ads", "Messaging", "Direct", "Other"]);
 function ua(s) {
@@ -27,8 +35,11 @@ export default async function handler(req, res) {
   if (!id || !/^[a-z0-9]{8,40}$/i.test(id)) { res.statusCode = 400; return res.end(); }
   const vid = /^[a-z0-9]{8,40}$/i.test(b.v || "") ? "v:" + b.v : "h:" + crypto.createHash("sha256").update("ubz|" + String(req.headers["x-forwarded-for"] || "").split(",")[0].trim() + "|" + (req.headers["user-agent"] || "")).digest("hex").slice(0, 20);
   try {
-    await migrate();
-    if (b.e === "view") {
+    if (b.e !== "hb") await migrate();
+    if (b.e === "hb") {
+      await touch(vid, S(b.p, 300), S(req.headers["x-vercel-ip-country"], 2));
+    } else if (b.e === "view") {
+      await touch(vid, S(b.p, 300) || "/", S(req.headers["x-vercel-ip-country"], 2)).catch(() => {});
       const path = S(b.p, 300) || "/";
       const g = GROUPS.has(b.g) ? b.g : "Other";
       const u = ua(req.headers["user-agent"]);

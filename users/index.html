@@ -228,6 +228,11 @@ button,input,select{font:inherit;color:inherit}
   .br{grid-template-columns:24px minmax(0,1fr) auto 40px;gap:8px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.online{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;margin:0 0 16px;padding:10px 14px;border:1px solid var(--b1,#222);border-radius:10px;background:var(--s1);font-size:13px;color:var(--t2,#aaa)}
+.online b{color:var(--t1);font-size:15px;font-variant-numeric:tabular-nums}
+.online .od{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+.online .od.z{background:#555;box-shadow:none}
+.online .ol{color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 </style>
 </head>
 <body>
@@ -248,6 +253,7 @@ button,input,select{font:inherit;color:inherit}
     <span class="wm">unbanz<i>.</i></span><span class="crumb">Analytics</span>
     <span class="status"><span class="dot" id="dot"></span><span id="upd">Live</span></span><button class="ghost out" id="out" hidden>Log out</button>
   </header>
+  <div class="online" id="online" aria-live="polite"><span class="od z" id="odot"></span><span>Online now: <b id="onum">–</b></span><span class="ol" id="opages"></span><span class="ol" id="ocountries"></span></div>
 
   <div class="tool">
     <div class="seg" id="range" role="group" aria-label="Date range">
@@ -469,7 +475,20 @@ button,input,select{font:inherit;color:inherit}
   $('#sources').addEventListener('click', (e) => { const r = e.target.closest('.br'); if (!r) return; st.source = st.source === r.dataset.s ? '' : r.dataset.s; load(); });
   $('#clk').addEventListener('click', (e) => { st.clicked = !st.clicked; e.currentTarget.setAttribute('aria-pressed', String(st.clicked)); load(); });
 
-  function showApp() { $('#app').hidden = false; clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(); }, 15000); }
+  let otimer;
+  async function online() {
+    if (document.hidden) return;
+    try {
+      const r = await fetch('/api/users/online/', { credentials: 'same-origin', cache: 'no-store' });
+      if (!r.ok) return;
+      const o = await r.json();
+      $('#onum').textContent = fmt(o.online);
+      $('#odot').classList.toggle('z', !o.online);
+      $('#opages').textContent = o.pages.length ? 'Pages: ' + o.pages.map((x) => x.k + (x.n > 1 ? ' ×' + x.n : '')).join(', ') : '';
+      $('#ocountries').innerHTML = o.countries.length ? o.countries.map((x) => `<span title="${esc(country(x.k))}">${flag(x.k)} ${esc(x.k === '??' ? '?' : x.k)}${x.n > 1 ? ' ' + x.n : ''}</span>`).join(' ') : '';
+    } catch {}
+  }
+  function showApp() { $('#app').hidden = false; clearInterval(otimer); online(); otimer = setInterval(online, 12000); clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(); }, 15000); }
   document.addEventListener('visibilitychange', () => { if (!document.hidden && !$('#app').hidden) load(); });
   addEventListener('pageshow', (e) => { if (e.persisted && !$('#app').hidden) load(); });
   const AUTH = '/api/users/auth/';

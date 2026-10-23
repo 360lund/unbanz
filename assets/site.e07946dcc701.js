@@ -65,6 +65,10 @@
   const view = () => send({ e: 'view', p: location.pathname, s: st.s, g: st.g, m: st.m, d: st.d, us: st.us, um: st.um, uc: st.uc, q: st.q });
   if (document.readyState === 'complete') setTimeout(view, 0); else addEventListener('load', () => setTimeout(view, 0), { once: true });
   addEventListener('pageshow', (e) => { if (e.persisted) view(); });
+  // Presence heartbeat for the live 'Online now' counter: every ~20s while the tab is visible.
+  const hb = () => { if (document.visibilityState === 'visible') send({ e: 'hb', p: location.pathname }); };
+  setInterval(hb, 20000);
+  document.addEventListener('visibilitychange', hb);
 
   document.addEventListener('click', (e) => {
     const a = e.target.closest && e.target.closest('a[href^="https://wa.me/"], a[href^="mailto:"]');
