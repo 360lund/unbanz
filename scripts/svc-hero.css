@@ -37,25 +37,3 @@
 .hero-svc .hero-cta .hero-email{align-self:center;margin-left:0}
 .svc-faq-more>summary{list-style:none;cursor:pointer;padding:18px 0;font-size:15px;opacity:.8}
 .svc-faq-more>summary::-webkit-details-marker{display:none}
-/* cinematic centered emblem */
-.hero-svc .hero-ornaments{display:none}
-.hero-svc{display:flex;flex-direction:column}
-.svc-emblem{position:absolute;left:50%;top:44%;width:min(520px,78vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
-.svc-emblem::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55) 0%,rgba(190,220,255,.28) 35%,rgba(120,170,240,0) 70%);filter:blur(10px);animation:svc-glow 7s ease-in-out infinite}
-.svc-emblem::after{content:"";position:absolute;inset:-60%;background:conic-gradient(from 200deg,transparent 0 20deg,rgba(255,255,255,.12) 26deg,transparent 34deg 80deg,rgba(255,255,255,.09) 88deg,transparent 98deg 150deg,rgba(255,255,255,.1) 158deg,transparent 168deg);-webkit-mask:radial-gradient(circle,#000 20%,transparent 62%);mask:radial-gradient(circle,#000 20%,transparent 62%);animation:svc-rays 40s linear infinite}
-.svc-emblem img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.42;filter:blur(1.5px) saturate(1.1) drop-shadow(0 30px 60px rgba(20,60,140,.35));animation:svc-float 9s ease-in-out infinite;z-index:1}
-.svc-emblem.duo img{width:72%;height:72%}
-.svc-emblem.duo img:first-child{inset:auto;left:-6%;top:6%;opacity:.3;animation-delay:-4s}
-.svc-emblem.duo img:last-child{inset:auto;right:-6%;top:18%}
-.hero-svc::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(18,50,110,.22) 100%);z-index:0}
-.hero-svc .hero-content{position:relative;z-index:2}
-.hero-svc .hero-content h1{text-shadow:0 2px 24px rgba(20,60,130,.25)}
-@keyframes svc-float{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-16px) rotate(3deg) scale(1.03)}}
-@keyframes svc-glow{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
-@keyframes svc-rays{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.svc-emblem img,.svc-emblem::before,.svc-emblem::after{animation:none}}
-@media (max-width:760px){
- .hero.hero-svc{min-height:0!important;padding-bottom:44px!important}
- .hero-svc .hero-content{padding-top:56px!important;padding-bottom:0!important;margin-top:0!important}
- .svc-emblem{top:46%;width:92vw}
-}
