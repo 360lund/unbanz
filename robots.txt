@@ -41,13 +41,11 @@ User-agent: Applebot-Extended
 Allow: /
 
 User-agent: Bingbot
-Allow: /
-
 User-agent: msnbot
-Allow: /
-
 User-agent: BingPreview
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: GoogleOther
 Allow: /
