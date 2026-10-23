@@ -305,6 +305,10 @@ button,input,select{font:inherit;color:inherit}
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const API = window.UNBANZ_API || '/api/users/data/';
+  // Session: HttpOnly cookie, plus a localStorage copy sent as a header if the cookie is lost (Safari ITP / in-app browsers).
+  const TK = 'unbanz_users_token';
+  const tok = () => { try { return localStorage.getItem(TK) || ''; } catch { return ''; } };
+  const H = () => (tok() ? { 'X-Users-Token': tok() } : {});
   const GROUPS = ['AI', 'Search', 'Social', 'Ads', 'Messaging', 'Direct', 'Other'];
   const MONO = { ChatGPT: 'GPT', Perplexity: 'Px', Gemini: 'Ge', Claude: 'Cl', Copilot: 'Co', 'Meta AI': 'MA', Grok: 'Gk', DeepSeek: 'DS', 'You.com': 'You', Phind: 'Ph', Google: 'G', Bing: 'B', DuckDuckGo: 'DD', Yahoo: 'Y!', Yandex: 'Ya', Ecosia: 'Ec', 'Brave Search': 'Br', Baidu: 'Bd', Instagram: 'IG', Facebook: 'f', Threads: '@', Reddit: 'r/', TikTok: 'TT', YouTube: 'YT', X: 'X', Snapchat: 'Sc', LinkedIn: 'in', Pinterest: 'P', Quora: 'Q', 'Google Ads': 'GA', 'Bing Ads': 'BA', 'Meta Ads': 'MA', 'Instagram Ads': 'IA', 'Facebook Ads': 'FA', 'TikTok Ads': 'TA', 'Snapchat Ads': 'SA', 'LinkedIn Ads': 'LA', WhatsApp: 'WA', Telegram: 'Tg', Discord: 'Dc', Email: '@', Direct: '→' };
   const mono = (s) => MONO[s] || String(s || '?').replace(/^www\./, '').slice(0, 2);
@@ -337,9 +341,9 @@ button,input,select{font:inherit;color:inherit}
     if (st.range === 'custom') { p.set('from', $('#from').value); p.set('to', $('#to').value || $('#from').value); }
     if (st.group) p.set('group', st.group); if (st.source) p.set('source', st.source); if (st.clicked) p.set('clicked', '1');
     try {
-      const r = await fetch(API + '?' + p, { credentials: 'same-origin', cache: 'no-store' });
+      const r = await fetch(API + '?' + p, { credentials: 'same-origin', cache: 'no-store', headers: H() });
       
-      if (r.status === 401) { busy = false; return gate(); }
+      if (r.status === 401) throw 0; // never log out from a poll
       if (!r.ok) throw 0;
       data = await r.json(); render(data);
       $('#dot').classList.remove('off'); $('#upd').textContent = 'Live';
@@ -479,7 +483,7 @@ button,input,select{font:inherit;color:inherit}
   async function online() {
     if (document.hidden) return;
     try {
-      const r = await fetch('/api/users/online/', { credentials: 'same-origin', cache: 'no-store' });
+      const r = await fetch('/api/users/online/', { credentials: 'same-origin', cache: 'no-store', headers: H() });
       if (!r.ok) return;
       const o = await r.json();
       $('#onum').textContent = fmt(o.online);
@@ -500,25 +504,26 @@ button,input,select{font:inherit;color:inherit}
     e.preventDefault(); $('#lerr').textContent = '';
     try {
       const r = await fetch(AUTH + 'login/', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: $('#luser').value }) });
-      if (r.ok) { $('#luser').value = ''; return start(); }
+      if (r.ok) { const j = await r.json(); try { localStorage.setItem(TK, j.token); } catch {} $('#luser').value = ''; return start(); }
       $('#lerr').textContent = r.status === 401 ? 'Unknown username.' : 'Sign-in failed. Try again.';
     } catch { $('#lerr').textContent = 'Network error. Try again.'; }
   });
   $('#out').addEventListener('click', async (e) => {
     e.preventDefault();
+    try { localStorage.removeItem(TK); } catch {}
     try { await fetch(AUTH + 'logout/', { method: 'POST', credentials: 'same-origin' }); } catch {}
     gate();
   });
   async function start() {
     $('#login').hidden = true;
     try {
-      const r = await fetch(API + '?range=7d', { credentials: 'same-origin', cache: 'no-store' });
+      const r = await fetch(API + '?range=7d', { credentials: 'same-origin', cache: 'no-store', headers: H() });
       if (r.status === 401) return gate();
       showApp(); skeleton(); if (r.ok) { data = await r.json(); requestAnimationFrame(() => render(data)); }
     } catch { showApp(); }
   }
   (async () => {
-    try { const r = await fetch(AUTH + 'config/', { credentials: 'same-origin', cache: 'no-store' }); if (r.ok) cfg = await r.json(); } catch {}
+    try { const r = await fetch(AUTH + 'config/', { credentials: 'same-origin', cache: 'no-store', headers: H() }); if (r.ok) cfg = await r.json(); } catch {}
     $('#out').hidden = false;
     if (cfg.gated && !cfg.authed) return gate();
     start();
