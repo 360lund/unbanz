@@ -6,6 +6,6 @@ The ZIP root contains the real index.html. Vercel: Other framework, no build com
 
 No backend is wanted. No Firebase. No lead database. No admin area. Contact is direct WhatsApp and email. Buttons must open the supplied wa.me links or mailto:team@unbanz.com. Do not replace these with a fake submission confirmation.
 
-Main offer: Instagram and Facebook bans/unbans and Meta ad account unbans. Ban requests cover genuine violations. Instagram username claims are secondary and Instagram-only. No verification or followers services. Pricing is a free initial case check and custom quote, pending supplier costs. Retain the 3–14-day estimate and case-by-case qualification without turning it into a guaranteed result.
+Main offer: Instagram and Facebook bans/unbans and Meta ad account unbans. Ban requests cover genuine violations. Instagram username claims are secondary and Instagram-only. No verification or followers services. Pricing is a free initial case check and custom quote, pending supplier costs. Retain the 3–14-day estimate and case-by-case qualification without overpromising results.
 
 Canonical host is https://unbanz.com. Keep page titles, descriptions, sitemap, structured data and share-preview metadata. Connect the domain in Vercel when ready. Keep source typography sans-serif; no decorative italic or serif replacement.

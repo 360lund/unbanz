@@ -1,6 +1,6 @@
 # Unbanz: competitor research and launch decisions
 
-Research date: 15 October 2026. Prices below are advertised by the businesses, not verified transaction prices. Their testimonials, recovery rates, platform relationships and guarantees were not independently verified. This is a review of public positioning and contact flows, not a ranking or traffic audit.
+Research date: 15 October 2026. Prices below are advertised by the businesses, not verified transaction prices. Their testimonials, recovery rates, platform relationships and result claims were not independently verified. This is a review of public positioning and contact flows, not a ranking or traffic audit.
 
 ## The seven websites
 
@@ -42,7 +42,7 @@ Before adding numerical starting prices, provide the rep's charge for Instagram,
 - A sitemap containing the indexable pages, working internal links, Open Graph/Twitter preview images and a crawlable contact page.
 - Locally served fonts and optimized images; hero logo assets are embedded to avoid extra fetches.
 - Primary calls to action are ordinary links and work without JavaScript. Content also remains visible without JavaScript.
-- No fake review schema, keyword-stuffed city pages, unsupported guarantees or FAQ rich-result promises. Google limits FAQ rich results chiefly to authoritative government/health sites.
+- No fake review schema, keyword-stuffed city pages, unsupported result claims or FAQ rich-result promises. Google limits FAQ rich results chiefly to authoritative government/health sites.
 
 ## Search and ad launch steps that require the owner's accounts
 
@@ -54,7 +54,7 @@ Before adding numerical starting prices, provide the rep's charge for Instagram,
 6. Track manually: service, campaign, qualified conversation, quote, accepted case, rep cost and result. Judge ads by cost per accepted case and contribution, not just clicks.
 7. Review Search Console's real queries after indexing. Expand content around questions customers actually ask. No keyword volume, backlink strength or ranking forecasts were inferred from these pages.
 
-Google does not guarantee indexing or rankings. The private ChatGPT preview is not the public SEO deployment. The separate unbanz-red.vercel.app project cannot be updated here without its repository/access; this package is the deployable handoff for that project.
+Google does not promise indexing or rankings. The private ChatGPT preview is not the public SEO deployment. The separate unbanz-red.vercel.app project cannot be updated here without its repository/access; this package is the deployable handoff for that project.
 
 ## Sources
 
