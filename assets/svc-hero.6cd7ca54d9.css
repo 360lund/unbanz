@@ -1,0 +1,61 @@
+/* Homepage-style hero + tidy layout for service pages (built by scripts/service_hero.py) */
+.hero-svc{min-height:0;padding-bottom:110px}
+.hero-svc .site-header .wordmark,.hero-svc .site-header .desktop-nav a{color:#fff}
+.hero-svc .site-header .menu-button{background:#ffffff2e}
+.hero-svc .site-header .menu-button span{background:#fff}
+.hero-svc .hero-content{padding-top:96px}
+.hero-svc h1{font-size:clamp(54px,6.6vw,92px)}
+.hero-svc .hero-description{max-width:540px}
+.hero-svc .ornament-facebook{top:170px}.hero-svc .ornament-instagram{top:auto;bottom:40px}
+.service-page.has-hero-svc .mobile-nav{top:98px}
+.svc-steps{padding:64px 0 10px}
+.svc-steps h2,.svc-video h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.04em;margin:0 0 26px}
+.svc-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.svc-steps li{background:#fff;border-radius:22px;padding:24px;box-shadow:0 10px 24px #24578512}
+.svc-steps li b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#589dd8;color:#fff;font-size:15px;margin-bottom:14px}
+.svc-steps li h3{font-size:19px;letter-spacing:-.02em;margin:0 0 6px}
+.svc-steps li p{margin:0;font-size:15px;line-height:1.55;opacity:.78}
+.svc-video{padding:56px 0 0}
+.svc-video .vt-track{grid-template-columns:minmax(0,300px);max-width:none}
+.svc-more{padding:10px 0 40px}
+.svc-more>summary{list-style:none;cursor:pointer;display:inline-flex;gap:10px;align-items:center;font-size:16px;font-weight:600;padding:14px 22px;border-radius:999px;background:#e2eef7}
+.svc-more>summary::-webkit-details-marker{display:none}
+.svc-more>summary::after{content:"+";font-weight:400}.svc-more[open]>summary::after{content:"–"}
+.svc-more>section{padding-left:0;padding-right:0}
+@media (max-width:760px){
+ .hero-svc{min-height:640px;padding-bottom:120px}
+ .hero-svc .hero-content{padding-top:78px}
+ .hero-svc h1{font-size:clamp(30px,9.4vw,54px)}
+ .hero-svc .ornament-facebook{top:84px;width:96px}.hero-svc .ornament-instagram{width:112px;bottom:14px}
+ .svc-steps{padding-top:44px}.svc-steps ol{grid-template-columns:1fr;gap:10px}
+ .svc-steps li{display:grid;grid-template-columns:34px 1fr;column-gap:14px;padding:18px}
+ .svc-steps li b{grid-row:span 2;margin:0}.svc-steps li h3{font-size:17px}
+ .svc-video{padding-top:40px}.svc-video .vt-track{display:grid;grid-template-columns:minmax(0,1fr);margin:0;padding:0;overflow:visible}
+ .svc-video .vt-card{max-width:340px}
+}
+.hero-svc .hero-cta{margin-inline:auto;align-items:center}
+.hero-svc .hero-cta .hero-email{align-self:center;margin-left:0}
+.svc-faq-more>summary{list-style:none;cursor:pointer;padding:18px 0;font-size:15px;opacity:.8}
+.svc-faq-more>summary::-webkit-details-marker{display:none}
+/* cinematic centered emblem */
+.hero-svc .hero-ornaments{display:none}
+.hero-svc{display:flex;flex-direction:column}
+.svc-emblem{position:absolute;left:50%;top:44%;width:min(520px,78vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.svc-emblem::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55) 0%,rgba(190,220,255,.28) 35%,rgba(120,170,240,0) 70%);filter:blur(10px);animation:svc-glow 7s ease-in-out infinite}
+.svc-emblem::after{content:"";position:absolute;inset:-60%;background:conic-gradient(from 200deg,transparent 0 20deg,rgba(255,255,255,.12) 26deg,transparent 34deg 80deg,rgba(255,255,255,.09) 88deg,transparent 98deg 150deg,rgba(255,255,255,.1) 158deg,transparent 168deg);-webkit-mask:radial-gradient(circle,#000 20%,transparent 62%);mask:radial-gradient(circle,#000 20%,transparent 62%);animation:svc-rays 40s linear infinite}
+.svc-emblem img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.42;filter:blur(1.5px) saturate(1.1) drop-shadow(0 30px 60px rgba(20,60,140,.35));animation:svc-float 9s ease-in-out infinite;z-index:1}
+.svc-emblem.duo img{width:72%;height:72%}
+.svc-emblem.duo img:first-child{inset:auto;left:-6%;top:6%;opacity:.3;animation-delay:-4s}
+.svc-emblem.duo img:last-child{inset:auto;right:-6%;top:18%}
+.hero-svc::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(18,50,110,.22) 100%);z-index:0}
+.hero-svc .hero-content{position:relative;z-index:2}
+.hero-svc .hero-content h1{text-shadow:0 2px 24px rgba(20,60,130,.25)}
+@keyframes svc-float{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-16px) rotate(3deg) scale(1.03)}}
+@keyframes svc-glow{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes svc-rays{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.svc-emblem img,.svc-emblem::before,.svc-emblem::after{animation:none}}
+@media (max-width:760px){
+ .hero.hero-svc{min-height:0!important;padding-bottom:44px!important}
+ .hero-svc .hero-content{padding-top:56px!important;padding-bottom:0!important;margin-top:0!important}
+ .svc-emblem{top:46%;width:92vw}
+}
