@@ -66,13 +66,16 @@ button,input,select{font:inherit;color:inherit}
 .cb{padding:16px}
 
 /* KPIs */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--b);border-radius:var(--r2);background:var(--s1);overflow:hidden;margin-bottom:16px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--b);border-radius:var(--r2);background:var(--s1);overflow:hidden;margin-bottom:16px}
 .kpi{padding:16px;border-left:1px solid var(--b);min-width:0;display:flex;flex-direction:column;gap:8px}
 .kpi:first-child{border-left:0}
 .kpi .l{color:var(--t2);font-size:12px;display:flex;justify-content:space-between;gap:8px}
 .kpi .v{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
 .kpi .row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;min-height:32px}
 .delta{font-size:12px;color:var(--t3);white-space:nowrap}
+.vpnb{display:inline-flex;align-items:center;font-size:11px;font-weight:600;line-height:1;padding:3px 6px;border-radius:999px;background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);white-space:nowrap;flex:none}
+.vpnw{color:#f87171;font-size:12px;margin-top:4px;overflow-wrap:anywhere}
+.kpi .v.red{color:#f87171}
 .delta.up{color:var(--up)}.delta.down{color:var(--down)}
 .spark{width:96px;height:32px;flex:none}
 .mini{display:flex;gap:24px;margin:-4px 0 16px;color:var(--t3);font-size:12px;flex-wrap:wrap}
@@ -216,7 +219,7 @@ button,input,select{font:inherit;color:inherit}
 .out{margin-left:8px}
 .lfoot{text-align:center;color:var(--t3);font-size:12px;margin-top:24px}
 
-@media (max-width:960px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.kpi:nth-child(3){border-left:0}.kpi:nth-child(n+3){border-top:1px solid var(--b)}}
+@media (max-width:960px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.kpi:nth-child(3),.kpi:nth-child(5){border-left:0}.kpi:nth-child(n+3){border-top:1px solid var(--b)}.kpi:nth-child(5){grid-column:1/-1}}
 @media (max-width:640px){
   .wrap{padding:16px 16px 48px}.top{margin-bottom:16px}
   .tool{gap:8px}.tool .seg{width:100%;overflow-x:auto;scrollbar-width:none}.tool .seg button{flex:1}
@@ -297,7 +300,7 @@ button,input,select{font:inherit;color:inherit}
     <div class="cb"><div id="countries"></div></div>
   </section>
 
-  <p class="foot">Shows where people came from and what they did on the site. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them, which Google usually doesn’t. Each visitor appears once, grouped by a random anonymous id kept in their browser; older visits without that id are grouped approximately by location and device (marked ≈). No IP addresses or personal data are stored.</p>
+  <p class="foot">Shows where people came from and what they did on the site. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them, which Google usually doesn’t. Each visitor appears once, grouped by a random anonymous id kept in their browser; older visits without that id are grouped approximately by location and device (marked ≈). “Likely VPN” means the browser’s time zone has a different UTC offset than the IP address’s location, so the visitor is probably on a VPN or proxy.</p>
 </div>
 
 <script>
@@ -328,7 +331,7 @@ button,input,select{font:inherit;color:inherit}
   $('#from').value = $('#to').value = todayK;
 
   function skeleton() {
-    $('#kpis').innerHTML = Array(4).fill('<div class="kpi"><div class="sk" style="height:12px;width:40%"></div><div class="sk" style="height:28px;width:60%"></div><div class="sk" style="height:12px;width:30%"></div></div>').join('');
+    $('#kpis').innerHTML = Array(5).fill('<div class="kpi"><div class="sk" style="height:12px;width:40%"></div><div class="sk" style="height:28px;width:60%"></div><div class="sk" style="height:12px;width:30%"></div></div>').join('');
     $('#chart').innerHTML = '<div class="sk" style="height:100%"></div>';
     const rows = (n) => Array(n).fill('<div class="sk" style="height:20px;margin:8px 0"></div>').join('');
     $('#sources').innerHTML = rows(6); $('#landing').innerHTML = rows(6); $('#countries').innerHTML = rows(5);
@@ -382,8 +385,9 @@ button,input,select{font:inherit;color:inherit}
       ['Total visits', fmt(R.visitors), delta(R.visitors, P.visitors), D.map((x) => x.n)],
       ['WhatsApp clicks', fmt(R.wa), `${delta(R.wa, P.wa)}<span class="delta num mut">${fmt(R.wa_people)} visitor${R.wa_people == 1 ? '' : 's'}</span>`, D.map((x) => x.w || 0)],
       ['Conversion', conv.toFixed(1) + '%', `<span class="delta num">${Number(R.pages || 0).toFixed(1)} pages / visit · ${fmt(R.email)} email</span>`, D.map((x) => (x.n ? x.c / x.n : 0))],
+      ['VPN visitors', fmt(R.vpn_people || 0), `<span class="delta num">${pct(R.vpn_people || 0, R.uniques).toFixed(0)}% of visitors · time zone ≠ IP</span>`, null],
     ];
-    $('#kpis').innerHTML = cards.map(([l, v, dl, s], i) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num">${v}</div><div class="row">${dl}${spark(s)}</div></div>`).join('');
+    $('#kpis').innerHTML = cards.map(([l, v, dl, s], i) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num${i == 4 && +v ? ' red' : ''}">${v}</div><div class="row">${dl}${s ? spark(s) : ''}</div></div>`).join('');
     const K = d.kpi;
     $('#mini').innerHTML = `<span><b>${fmt(K.today)}</b>today ${delta(K.today, K.yesterday)}</span><span><b>${fmt(K.d7)}</b>last 7 days ${delta(K.d7, K.p7)}</span><span><b>${fmt(K.d30)}</b>last 30 days ${delta(K.d30, K.p30)}</span>`;
     $('#rlabel').textContent = 'vs previous ' + ({ today: 'day', '7d': '7 days', '30d': '30 days', '90d': '90 days', custom: 'period' }[st.range]);
@@ -408,6 +412,9 @@ button,input,select{font:inherit;color:inherit}
     const pick = (v) => [v.platform, v.service].filter(Boolean).join(' · ');
     const loc = (v) => v.country ? `${flag(v.country)} ${esc(v.city ? v.city + ', ' : '')}${esc(country(v.country))}` : '<span class="mut">Unknown</span>';
     const pill = (v) => `<span class="pill ${v.g === 'AI' ? 'ai' : ''}">${esc(v.source)}</span>`;
+    const tzOff = (z) => { try { const n = new Intl.DateTimeFormat('en-US', { timeZone: z, timeZoneName: 'shortOffset' }).formatToParts(new Date()).find((p) => p.type === 'timeZoneName').value; return n.replace('GMT', 'UTC').replace(/^UTC$/, 'UTC+0'); } catch { return ''; } };
+    const tzName = (z) => z ? esc(z.split('/').pop().replace(/_/g, ' ')) + (tzOff(z) ? ` (${tzOff(z)})` : '') : 'unknown';
+    const vpnTxt = (i) => i ? `Browser clock ${tzName(i.tz)} · IP in ${esc([i.city, i.c ? country(i.c) : ''].filter(Boolean).join(', ') || 'unknown')} (${tzOff(i.iptz) || '?'})` : '';
     const P2 = d.people || [];
     const vcount = P2.length;
     $('#rcount').textContent = vcount ? `${fmt(vcount)}${vcount >= 100 ? '+ ' : ' '}visitor${vcount == 1 ? '' : 's'} · sorted by last seen` : '';
@@ -419,7 +426,7 @@ button,input,select{font:inherit;color:inherit}
       const pages = v.pages || [], ex = [...(v.searches || []).filter(Boolean).map((q) => '“' + esc(q) + '”'), ...(v.ai || []).map((a) => 'via ' + esc(a))];
       const same = v.first_source === v.last_source;
       return `<details class="vr" data-k="${esc(v.vk)}" ${open.has(v.vk) ? 'open' : ''}><summary>
-        <div class="c-loc"><div class="loc"><span class="flag" aria-hidden="true">${flag(v.country)}</span><b>${v.country ? esc(country(v.country)) : '<span class="mut">Unknown</span>'}</b><span class="cnt num ${v.visits == 1 ? 'one' : ''}" title="${v.visits} visit${v.visits == 1 ? '' : 's'} in range${v.all_visits != v.visits ? ' · ' + v.all_visits + ' all time' : ''}">×${v.visits}</span></div><div class="s">${esc(v.city || '')}${v.city ? ' · ' : ''}${esc([v.device, v.browser].filter(Boolean).join(' · '))}${v.approx ? ' <span title="Older visits grouped approximately by location and device">≈</span>' : ''}</div></div>
+        <div class="c-loc"><div class="loc"><span class="flag" aria-hidden="true">${flag(v.country)}</span><b>${v.country ? esc(country(v.country)) : '<span class="mut">Unknown</span>'}</b><span class="cnt num ${v.visits == 1 ? 'one' : ''}" title="${v.visits} visit${v.visits == 1 ? '' : 's'} in range${v.all_visits != v.visits ? ' · ' + v.all_visits + ' all time' : ''}">×${v.visits}</span>${v.vpn ? `<span class="vpnb" title="${vpnTxt(v.vpn_info)}">Likely VPN</span>` : ''}</div>${v.vpn ? `<div class="vpnw">${vpnTxt(v.vpn_info)}</div>` : ''}<div class="s">${esc(v.city || '')}${v.city ? ' · ' : ''}${esc([v.device, v.browser].filter(Boolean).join(' · '))}${v.approx ? ' <span title="Older visits grouped approximately by location and device">≈</span>' : ''}</div></div>
         <div class="c-src"><span class="k">Source</span>${srcPill(v.first_source, v.first_g)}${same ? '' : ` <span class="mut">→</span> ${srcPill(v.last_source, v.last_g)}`}<div class="s">${same ? 'First & latest' : 'First → latest'}${ex.length ? ' · ' + ex.join(', ') : ''}</div></div>
         <div class="c-seen"><span class="k">Seen</span><span class="num t2" title="${fullTime(v.last_seen)}">Last ${ago(v.last_seen)}</span><div class="s num" title="${fullTime(v.first_ever)}">First ${ago(v.first_ever)}</div></div>
         <div class="c-pg"><span class="k">Pages</span><span class="num t2">${pages.length} unique page${pages.length == 1 ? '' : 's'}</span><div class="s">${esc(pages.slice(0, 2).join(', '))}${pages.length > 2 ? '…' : ''}</div></div>
@@ -427,7 +434,7 @@ button,input,select{font:inherit;color:inherit}
         ${chev}</summary>
         <div class="vd"><div><h3>Pages viewed (${pages.length})</h3><div class="pgs">${pages.map((p) => `<span title="${esc(p)}">${esc(p)}</span>`).join('') || '<span>–</span>'}</div>
           <h3 style="margin-top:16px">WhatsApp tapped</h3><div class="t2">${v.wa ? 'Yes · ' + v.wa + ' visit' + (v.wa == 1 ? '' : 's') : 'No'}${v.email ? ' · Email ' + v.email : ''}</div></div>
-          <div><h3>Visits (${v.visits})</h3><ol class="tl">${(v.timeline || []).map((x) => `<li class="${x.wa ? 'wa' : ''}"><div><span class="num t2">${fullTime(x.t)}</span> · ${srcPill(x.s, x.g)} ${tlOut(x)}</div>${x.q ? `<div class="pth">“${esc(x.q)}”</div>` : ''}<div class="pth">${esc((x.pages || []).join(' → '))}${x.pl || x.sv ? ' · ' + esc([x.pl, x.sv].filter(Boolean).join(' · ')) : ''}</div></li>`).join('')}</ol></div></div></details>`;
+          <div><h3>Visits (${v.visits})</h3><ol class="tl">${(v.timeline || []).map((x) => `<li class="${x.wa ? 'wa' : ''}"><div><span class="num t2">${fullTime(x.t)}</span> · ${srcPill(x.s, x.g)} ${tlOut(x)}</div>${x.vpn ? `<div class="vpnw">Likely VPN · browser ${esc(x.tz || '?')} vs IP ${esc(x.iptz || '?')}</div>` : ''}${x.q ? `<div class="pth">“${esc(x.q)}”</div>` : ''}<div class="pth">${esc((x.pages || []).join(' → '))}${x.pl || x.sv ? ' · ' + esc([x.pl, x.sv].filter(Boolean).join(' · ')) : ''}</div></li>`).join('')}</ol></div></div></details>`;
     }).join('');
     // countries (top 5)
     const ctot = +R.uniques || R.visitors || 1;
