@@ -525,7 +525,7 @@ button,input,select{font:inherit;color:inherit}
   async function start() {
     $('#login').hidden = true;
     try {
-      const r = await fetch(API + '?range=7d', { credentials: 'same-origin', cache: 'no-store', headers: H() });
+      const r = await fetch(API + '?range=7d' + (/[?&]test=1/.test(location.search) ? '&test=1' : ''), { credentials: 'same-origin', cache: 'no-store', headers: H() });
       if (r.status === 401) return gate();
       showApp(); skeleton(); if (r.ok) { data = await r.json(); requestAnimationFrame(() => render(data)); }
     } catch { showApp(); }
