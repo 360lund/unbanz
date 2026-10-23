@@ -1,5 +1,5 @@
 import { json } from "../_lib/auth.mjs";
-import { gated, sessionEmail } from "../_lib/gauth.mjs";
+import { authed } from "../_lib/uauth.mjs";
 import { sql } from "../_lib/db.mjs";
 const TZ = "Asia/Karachi";
 // Stable visitor key: tracker's persistent anonymous id; old rows fall back to an approximate country/city/device/browser/os hash.
@@ -9,7 +9,7 @@ const migrate = () => (migrated ||= sql(`alter table visits add column if not ex
 const day = (s) => (/^\d{4}-\d{2}-\d{2}$/.test(s || "") ? s : null);
 export default async function handler(req, res) {
   if (req.method !== "GET") return json(res, 405, { error: "method_not_allowed" });
-  if (gated() && !sessionEmail(req)) return json(res, 401, { error: "unauthorized" });
+  if (!authed(req)) return json(res, 401, { error: "unauthorized" });
   const q = new URL(req.url, "http://x").searchParams;
   const range = q.get("range") || "7d";
   // date window in Karachi local days: [from, to] inclusive

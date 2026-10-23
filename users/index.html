@@ -241,8 +241,8 @@ button,input,select{font:inherit;color:inherit}
     <span class="wm">unbanz<i>.</i></span>
     <div class="lcard">
       <h1>Analytics</h1>
-      <p>Sign in with your Google account to continue.</p>
-      <div class="gbtn" id="gbtn"></div>
+      <p>Enter your username to continue.</p>
+      <form id="lform" autocomplete="off"><input id="luser" name="username" type="text" placeholder="Username" autocapitalize="off" autocorrect="off" spellcheck="false" required><button class="ghost" type="submit" style="width:100%;height:40px">Sign in</button></form>
       <div class="lerr" id="lerr" role="alert"></div>
     </div>
     <p class="lfoot">Private dashboard. Approved accounts only.</p>
@@ -494,26 +494,19 @@ button,input,select{font:inherit;color:inherit}
   const AUTH = '/api/users/auth/';
   let cfg = { gated: false };
   function gate() {
-    clearInterval(timer); $('#app').hidden = true; $('#login').hidden = false;
-    const go = () => {
-      google.accounts.id.initialize({ client_id: cfg.clientId, ux_mode: 'popup', auto_select: false, callback: async ({ credential }) => {
-        $('#lerr').textContent = '';
-        try {
-          const r = await fetch(AUTH + 'google/', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ credential }) });
-          if (r.ok) return start();
-          $('#lerr').textContent = r.status === 403 ? 'This Google account doesn’t have access.' : 'Sign-in failed. Try again.';
-        } catch { $('#lerr').textContent = 'Network error. Try again.'; }
-      } });
-      $('#gbtn').innerHTML = '';
-      google.accounts.id.renderButton($('#gbtn'), { theme: 'filled_black', size: 'large', shape: 'pill', text: 'continue_with', width: 280 });
-    };
-    if (window.google && google.accounts) return go();
-    const sc = document.createElement('script'); sc.src = 'https://accounts.google.com/gsi/client'; sc.async = true; sc.onload = go;
-    sc.onerror = () => { $('#lerr').textContent = 'Couldn’t load Google Sign-In.'; }; document.head.appendChild(sc);
+    clearInterval(timer); clearInterval(otimer); $('#app').hidden = true; $('#login').hidden = false; $('#luser').focus();
   }
-  $('#out').addEventListener('click', async () => {
+  $('#lform').addEventListener('submit', async (e) => {
+    e.preventDefault(); $('#lerr').textContent = '';
+    try {
+      const r = await fetch(AUTH + 'login/', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: $('#luser').value }) });
+      if (r.ok) { $('#luser').value = ''; return start(); }
+      $('#lerr').textContent = r.status === 401 ? 'Unknown username.' : 'Sign-in failed. Try again.';
+    } catch { $('#lerr').textContent = 'Network error. Try again.'; }
+  });
+  $('#out').addEventListener('click', async (e) => {
+    e.preventDefault();
     try { await fetch(AUTH + 'logout/', { method: 'POST', credentials: 'same-origin' }); } catch {}
-    try { google.accounts.id.disableAutoSelect(); } catch {}
     gate();
   });
   async function start() {
@@ -526,7 +519,7 @@ button,input,select{font:inherit;color:inherit}
   }
   (async () => {
     try { const r = await fetch(AUTH + 'config/', { credentials: 'same-origin', cache: 'no-store' }); if (r.ok) cfg = await r.json(); } catch {}
-    $('#out').hidden = !cfg.gated;
+    $('#out').hidden = false;
     if (cfg.gated && !cfg.authed) return gate();
     start();
   })();
