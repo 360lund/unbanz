@@ -123,32 +123,32 @@
     },
     {
       "source": "/guides/whatsapp-account-banned",
-      "destination": "/unban/",
+      "destination": "/whatsapp-banned-number/",
       "permanent": true
     },
     {
       "source": "/guides/whatsapp-account-banned/",
-      "destination": "/unban/",
+      "destination": "/whatsapp-banned-number/",
       "permanent": true
     },
     {
       "source": "/guides/whatsapp-business-account-banned",
-      "destination": "/unban/",
+      "destination": "/whatsapp-banned-number/",
       "permanent": true
     },
     {
       "source": "/guides/whatsapp-business-account-banned/",
-      "destination": "/unban/",
+      "destination": "/whatsapp-banned-number/",
       "permanent": true
     },
     {
       "source": "/guides/threads-account-suspended",
-      "destination": "/instagram-unban-service/",
+      "destination": "/threads-account-suspended/",
       "permanent": true
     },
     {
       "source": "/guides/threads-account-suspended/",
-      "destination": "/instagram-unban-service/",
+      "destination": "/threads-account-suspended/",
       "permanent": true
     },
     {
@@ -319,6 +319,96 @@
     {
       "source": "/guides/meta-two-factor-locked-out/",
       "destination": "/guides/hacked-instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/report-instagram-account-to-get-banned",
+      "destination": "/ban/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/report-instagram-account-to-get-banned/",
+      "destination": "/ban/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/remove-fake-instagram-account",
+      "destination": "/fake-account-takedown/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/remove-fake-instagram-account/",
+      "destination": "/fake-account-takedown/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/report-impersonation-facebook",
+      "destination": "/impersonation-account-removal/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/report-impersonation-facebook/",
+      "destination": "/impersonation-account-removal/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/report-fake-snapchat-account",
+      "destination": "/snapchat-account-ban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/report-fake-snapchat-account/",
+      "destination": "/snapchat-account-ban-service/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/snapchat-username-taken-or-inactive",
+      "destination": "/snapchat-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/snapchat-username-taken-or-inactive/",
+      "destination": "/snapchat-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-username-not-available",
+      "destination": "/facebook-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/facebook-username-not-available/",
+      "destination": "/facebook-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/get-a-taken-instagram-username",
+      "destination": "/taken-instagram-username/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/get-a-taken-instagram-username/",
+      "destination": "/taken-instagram-username/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/claim-inactive-instagram-username",
+      "destination": "/inactive-instagram-username/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/claim-inactive-instagram-username/",
+      "destination": "/inactive-instagram-username/",
+      "permanent": true
+    },
+    {
+      "source": "/trust",
+      "destination": "/reviews/",
+      "permanent": true
+    },
+    {
+      "source": "/trust/",
+      "destination": "/reviews/",
       "permanent": true
     }
   ]
