@@ -43,5 +43,20 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: msnbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 Sitemap: https://unbanz.com/sitemap.xml
 Sitemap: https://unbanz.com/sitemap-images.xml
