@@ -1,10 +1,9 @@
 // Vercel Routing Middleware (no framework, Web API only).
-// GEO-BLOCK DISABLED (constants kept for reference, unused). Previously blocked visitors whose edge-geolocated country is in BLOCKED_COUNTRIES
+// GEO-BLOCK DISABLED. Previously blocked visitors from a country list
 // with a small self-contained 403 page. Every other request (including
 // requests with no country header) passes through untouched, so static
 // files, vercel.json headers, redirects and the 404 page behave as before.
 
-const BLOCKED_COUNTRIES = new Set(['IN', 'BD', 'NP', 'NG', 'PK']);
 // The owner is in Pakistan: the private /users dashboard and its data API stay reachable from PK only.
 const OWNER_COUNTRY = 'PK';
 const OWNER_PATHS = /^\/(?:users\/?|api\/users\/.*|assets\/.*)$/i;
