@@ -6,13 +6,13 @@ const TZ = "Asia/Karachi";
 const VKEY = `coalesce(visitor_id, 'fp:' || md5(concat_ws('|', country, city, device, browser, os)))`;
 let migrated;
 const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text, add column if not exists tz text, add column if not exists ip text, add column if not exists ip_country text, add column if not exists ip_region text, add column if not exists ip_city text, add column if not exists ip_tz text, add column if not exists vpn boolean, add column if not exists vpn_reason text, add column if not exists is_test boolean`).then(() => sql(`create index if not exists visits_visitor_id on visits(visitor_id)`)).catch((e) => { migrated = null; throw e; }));
-// Our own test visits (tracker sent x:1) are hidden everywhere.
-const NT = `coalesce(is_test, false) = false`;
 const day = (s) => (/^\d{4}-\d{2}-\d{2}$/.test(s || "") ? s : null);
 export default async function handler(req, res) {
   if (req.method !== "GET") return json(res, 405, { error: "method_not_allowed" });
   if (!authed(req, res)) return json(res, 401, { error: "unauthorized" });
   const q = new URL(req.url, "http://x").searchParams;
+  // Our own test visits (tracker sent x:1) are hidden unless ?test=1.
+  const NT = q.get("test") === "1" ? `true` : `coalesce(is_test, false) = false`;
   const range = q.get("range") || "7d";
   // date window in Karachi local days: [from, to] inclusive
   let fromExpr, toExpr, p = [];
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
           (array_agg(w.source order by w.started_at desc))[1] as last_source, (array_agg(w.source_group order by w.started_at desc))[1] as last_g,
           (array_agg(w.country order by w.started_at desc))[1] as country, (array_agg(w.city order by w.started_at desc))[1] as city,
           (array_agg(w.device order by w.started_at desc))[1] as device, (array_agg(w.browser order by w.started_at desc))[1] as browser, (array_agg(w.os order by w.started_at desc))[1] as os,
-          bool_or(w.visitor_id is null) as approx, coalesce(bool_or(w.vpn), false) as vpn,
+          bool_or(w.visitor_id is null) as approx, coalesce(bool_or(w.is_test), false) as test, coalesce(bool_or(w.vpn), false) as vpn,
           (array_agg(jsonb_build_object('tz', w.tz, 'iptz', w.ip_tz, 'c', w.ip_country, 'r', w.ip_region, 'city', w.ip_city) order by w.started_at desc) filter (where w.vpn))[1] as vpn_info, count(*) filter (where w.clicked_whatsapp)::int as wa, count(*) filter (where w.clicked_email)::int as email,
           coalesce(jsonb_agg(distinct w.search_term) filter (where coalesce(w.search_term, '') <> ''), '[]') as searches, coalesce(jsonb_agg(distinct w.source) filter (where w.source_group = 'AI'), '[]') as ai,
           (select coalesce(jsonb_agg(distinct p), '[]') from w w2, jsonb_array_elements_text(w2.pages) p where w2.vk = k.vk) as pages,

@@ -344,6 +344,7 @@ button,input,select{font:inherit;color:inherit}
     if (st.range === 'custom') { p.set('from', $('#from').value); p.set('to', $('#to').value || $('#from').value); }
     if (st.group) p.set('group', st.group); if (st.source) p.set('source', st.source); if (st.clicked) p.set('clicked', '1');
     try {
+      if (/[?&]test=1/.test(location.search)) p.set('test', '1');
       const r = await fetch(API + '?' + p, { credentials: 'same-origin', cache: 'no-store', headers: H() });
       
       if (r.status === 401) throw 0; // never log out from a poll
@@ -426,7 +427,7 @@ button,input,select{font:inherit;color:inherit}
       const pages = v.pages || [], ex = [...(v.searches || []).filter(Boolean).map((q) => '“' + esc(q) + '”'), ...(v.ai || []).map((a) => 'via ' + esc(a))];
       const same = v.first_source === v.last_source;
       return `<details class="vr" data-k="${esc(v.vk)}" ${open.has(v.vk) ? 'open' : ''}><summary>
-        <div class="c-loc"><div class="loc"><span class="flag" aria-hidden="true">${flag(v.country)}</span><b>${v.country ? esc(country(v.country)) : '<span class="mut">Unknown</span>'}</b><span class="cnt num ${v.visits == 1 ? 'one' : ''}" title="${v.visits} visit${v.visits == 1 ? '' : 's'} in range${v.all_visits != v.visits ? ' · ' + v.all_visits + ' all time' : ''}">×${v.visits}</span>${v.vpn ? `<span class="vpnb" title="${vpnTxt(v.vpn_info)}">Likely VPN</span>` : ''}</div>${v.vpn ? `<div class="vpnw">${vpnTxt(v.vpn_info)}</div>` : ''}<div class="s">${esc(v.city || '')}${v.city ? ' · ' : ''}${esc([v.device, v.browser].filter(Boolean).join(' · '))}${v.approx ? ' <span title="Older visits grouped approximately by location and device">≈</span>' : ''}</div></div>
+        <div class="c-loc"><div class="loc"><span class="flag" aria-hidden="true">${flag(v.country)}</span><b>${v.country ? esc(country(v.country)) : '<span class="mut">Unknown</span>'}</b><span class="cnt num ${v.visits == 1 ? 'one' : ''}" title="${v.visits} visit${v.visits == 1 ? '' : 's'} in range${v.all_visits != v.visits ? ' · ' + v.all_visits + ' all time' : ''}">×${v.visits}</span>${v.test ? '<span class="cnt num" title="Our own test visit">TEST</span>' : ''}${v.vpn ? `<span class="vpnb" title="${vpnTxt(v.vpn_info)}">Likely VPN</span>` : ''}</div>${v.vpn ? `<div class="vpnw">${vpnTxt(v.vpn_info)}</div>` : ''}<div class="s">${esc(v.city || '')}${v.city ? ' · ' : ''}${esc([v.device, v.browser].filter(Boolean).join(' · '))}${v.approx ? ' <span title="Older visits grouped approximately by location and device">≈</span>' : ''}</div></div>
         <div class="c-src"><span class="k">Source</span>${srcPill(v.first_source, v.first_g)}${same ? '' : ` <span class="mut">→</span> ${srcPill(v.last_source, v.last_g)}`}<div class="s">${same ? 'First & latest' : 'First → latest'}${ex.length ? ' · ' + ex.join(', ') : ''}</div></div>
         <div class="c-seen"><span class="k">Seen</span><span class="num t2" title="${fullTime(v.last_seen)}">Last ${ago(v.last_seen)}</span><div class="s num" title="${fullTime(v.first_ever)}">First ${ago(v.first_ever)}</div></div>
         <div class="c-pg"><span class="k">Pages</span><span class="num t2">${pages.length} unique page${pages.length == 1 ? '' : 's'}</span><div class="s">${esc(pages.slice(0, 2).join(', '))}${pages.length > 2 ? '…' : ''}</div></div>
