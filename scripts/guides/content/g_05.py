@@ -318,11 +318,11 @@ A(mk('threads-deactivate-or-delete',
  pill='Delete or deactivate Threads'))
 
 A(mk('account-recovery-scams-fake-hackers-warning',
- 'Account recovery scams: how fake “hackers” and “Meta agents” work',
+ 'Account recovery scams: how fake “hackers” and fake “support agents” work',
  'Account Recovery Scams: Fake Hackers & Fake Agents',
  'People who lose an account are targeted by fake recovery services. Learn the tactics, how to check any helper and what a safe recovery looks like.',
  'instagram', 'Scams', None,
- 'any helper who asks for your password, a code, an upfront payment in gift cards or crypto, or claims inside contacts at Meta is a scam. Recovery only happens through official routes.',
+ 'any helper who asks for your password, a code, an upfront payment in gift cards or crypto, or claims to have special access to your account is a scam. Recovery only happens through official routes.',
  'When an account is locked or hacked, the person who lost it is under pressure and looking for help. Scammers know that, and they find victims in comments, DMs and search ads within hours.',
  [('first', 'What to do first',
    '<p>Pause before you reply to any offer of help you didn’t ask for. Then check the official route for your platform, such as the Instagram, Facebook or Snapchat help pages. If you’ve already contacted someone, stop sending information and read the warning signs below.</p>'),
