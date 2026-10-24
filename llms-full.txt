@@ -578,6 +578,55 @@ Yes. Restricted or disabled Meta ad accounts and Business Portfolios. Send the a
 - Meta Business Portfolio restricted: what it means and how to request a review: https://unbanz.com/guides/meta-business-portfolio-restricted/
 - Snapchat account locked: how to unlock it or appeal: https://unbanz.com/guides/snapchat-account-locked/
 - Hacked Facebook account: how to get it back: https://unbanz.com/guides/hacked-facebook-account-recovery/
+- Lost your Instagram two-factor codes? How to get back in: https://unbanz.com/guides/instagram-two-factor-lost-access/
+- Lost access to the email or phone on your Instagram account: https://unbanz.com/guides/instagram-lost-access-to-email-or-phone/
+- Instagram says there was a new login: what to do if it wasn’t you: https://unbanz.com/guides/instagram-suspicious-login-alert/
+- Fake Instagram ban and copyright emails: how to spot them: https://unbanz.com/guides/instagram-fake-ban-or-copyright-emails/
+- How to download your Instagram data before something goes wrong: https://unbanz.com/guides/instagram-download-your-data-backup/
+- Instagram says the password is wrong (and it isn’t): fixes that work: https://unbanz.com/guides/instagram-cant-log-in-password-incorrect/
+- How to change your Instagram email or phone number safely: https://unbanz.com/guides/instagram-change-email-or-phone-securely/
+- Instagram asked for your ID: what’s accepted and how to submit it safely: https://unbanz.com/guides/instagram-id-verification-request/
+- Changing your Instagram username: the rules, the risks and how to undo it: https://unbanz.com/guides/instagram-change-username-rules/
+- Deactivate or delete your Instagram account: the real differences: https://unbanz.com/guides/instagram-deactivate-or-delete-account/
+- Memorializing or removing a loved one’s Instagram account: https://unbanz.com/guides/instagram-memorialized-account/
+- Instagram Account Status: how to read it and what each notice means: https://unbanz.com/guides/instagram-check-account-status/
+- Instagram reach suddenly dropped? What “shadowban” usually means: https://unbanz.com/guides/instagram-reach-drop-recommendation-eligibility/
+- Instagram removed your post for copyright: what to do: https://unbanz.com/guides/instagram-copyright-removed-content/
+- Instagram removed a post or Reel: how to request a review: https://unbanz.com/guides/instagram-removed-post-or-reel-appeal/
+- Instagram Business vs Creator account: which should you choose?: https://unbanz.com/guides/instagram-business-vs-creator-account/
+- Can’t get your Facebook two-factor code? How to log in anyway: https://unbanz.com/guides/facebook-two-factor-lost-access/
+- Lost the email or phone linked to your Facebook account? Here’s the route back: https://unbanz.com/guides/facebook-lost-access-to-email-or-phone/
+- Facebook asked for ID: what’s accepted, how to upload and what to avoid: https://unbanz.com/guides/facebook-id-upload-request/
+- Facebook name change: the 60-day limit and what names are allowed: https://unbanz.com/guides/facebook-name-change-rules/
+- Deactivate or delete Facebook: what each does and what you lose: https://unbanz.com/guides/facebook-deactivate-or-delete-account/
+- Facebook legacy contacts and memorialized accounts, explained: https://unbanz.com/guides/facebook-memorialized-legacy-contact/
+- Facebook says there was a login you don’t recognise: check and lock it down: https://unbanz.com/guides/facebook-suspicious-login-active-sessions/
+- How to check Facebook violations: Support Inbox, Account Status and Page Quality: https://unbanz.com/guides/facebook-support-inbox-violations/
+- Your Facebook Page was hacked and you were removed as admin: https://unbanz.com/guides/facebook-page-hacked-admin-removed/
+- Lost access to your Facebook Page because an admin left: https://unbanz.com/guides/facebook-page-admin-access-lost/
+- Facebook Marketplace access limited or suspended: how to request review: https://unbanz.com/guides/facebook-marketplace-restricted/
+- How to report a scam ad or a fake business Page on Facebook: https://unbanz.com/guides/report-scam-ad-or-fake-page-facebook/
+- Meta ads payment failed or declined: how to get ads running again: https://unbanz.com/guides/meta-ad-payment-declined-fix/
+- Meta ad rejected: how to read the reason and request a review: https://unbanz.com/guides/meta-ad-rejected-request-review/
+- Meta domain verification step by step: meta tag, HTML file or DNS: https://unbanz.com/guides/meta-domain-verification-steps/
+- Require two-factor authentication for everyone in your Meta business portfolio: https://unbanz.com/guides/meta-business-portfolio-two-factor/
+- Lost admin access to your Meta business portfolio: what are your options?: https://unbanz.com/guides/meta-business-portfolio-lost-admin-access/
+- Give an agency access to your Meta ads without sharing your login: https://unbanz.com/guides/meta-agency-partner-access/
+- Meta Special Ad Categories: when you must declare and what changes: https://unbanz.com/guides/meta-special-ad-categories/
+- Meta ads for health and wellness: the “personal attributes” trap: https://unbanz.com/guides/meta-ads-health-wellness-personal-attributes/
+- Meta ad rejected because of your landing page: how to find the problem: https://unbanz.com/guides/meta-ads-landing-page-rejected/
+- Meta Account Quality: how to read your ad account and Page status: https://unbanz.com/guides/meta-account-quality-status-walkthrough/
+- Protect your business from an Instagram ban: a continuity plan: https://unbanz.com/guides/protect-your-business-from-an-instagram-ban/
+- Your Instagram account is back: what to do in the first week: https://unbanz.com/guides/instagram-account-restored-next-steps/
+- Harassing DMs on Instagram: protect yourself and report properly: https://unbanz.com/guides/instagram-harassment-dms-what-to-do/
+- Got a scam DM on Instagram? What to do before and after you click: https://unbanz.com/guides/instagram-scam-dm-what-to-do/
+- Sextortion on Instagram: what to do right now: https://unbanz.com/guides/sextortion-what-to-do-on-instagram/
+- Snapchat account hacked: how to secure it or recover it: https://unbanz.com/guides/snapchat-account-hacked/
+- Snapchat login code or email lost: how to get back in: https://unbanz.com/guides/snapchat-two-factor-or-email-lost/
+- Snapchat device ban (SS06): what it means and whether you can appeal: https://unbanz.com/guides/snapchat-device-banned-appeal/
+- Snapchat username, deactivation and deletion: what you can and can’t change: https://unbanz.com/guides/snapchat-change-username-and-delete-account/
+- Threads: delete or deactivate without losing Instagram: https://unbanz.com/guides/threads-deactivate-or-delete/
+- Account recovery scams: how fake “hackers” and “Meta agents” work: https://unbanz.com/guides/account-recovery-scams-fake-hackers-warning/
 
 ## Contact
 

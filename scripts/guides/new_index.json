@@ -1,0 +1,560 @@
+[
+ {
+  "slug": "instagram-two-factor-lost-access",
+  "h1": "Lost your Instagram two-factor codes? How to get back in",
+  "desc": "Lost your phone or authenticator app and Instagram keeps asking for a code? Use backup codes, a logged-in device or Instagram’s official recovery flow.",
+  "group": "instagram",
+  "tag": "Two-factor",
+  "inbound": [
+   "/guides/hacked-instagram-account-recovery/",
+   "/guides/instagram-account-locked/"
+  ],
+  "sdesc": "Lost your phone or authenticator app and Instagram keeps asking for a code? Use backup codes, a logged-in device or Instagram’s official recovery flow."
+ },
+ {
+  "slug": "instagram-lost-access-to-email-or-phone",
+  "h1": "Lost access to the email or phone on your Instagram account",
+  "desc": "Can’t get into the email or number on your Instagram account? How to recover it, update your details and use Instagram’s official recovery routes.",
+  "group": "instagram",
+  "tag": "Access",
+  "inbound": [
+   "/guides/hacked-instagram-account-recovery/"
+  ],
+  "sdesc": "Can’t get into the email or number on your Instagram account? How to recover it, update your details and use Instagram’s official recovery routes."
+ },
+ {
+  "slug": "instagram-suspicious-login-alert",
+  "h1": "Instagram says there was a new login: what to do if it wasn’t you",
+  "desc": "Got a “was this you?” alert or a new-login email from Instagram? How to check it, secure the account and avoid fake security messages.",
+  "group": "instagram",
+  "tag": "Security",
+  "inbound": [
+   "/guides/hacked-instagram-account-recovery/"
+  ],
+  "sdesc": "Got a “was this you?” alert or a new-login email from Instagram? How to check it, secure the account and avoid fake security messages."
+ },
+ {
+  "slug": "instagram-fake-ban-or-copyright-emails",
+  "h1": "Fake Instagram ban and copyright emails: how to spot them",
+  "desc": "Got an email saying your Instagram will be deleted for copyright or policy reasons? How to check it’s real and what to do if you already clicked.",
+  "group": "instagram",
+  "tag": "Phishing",
+  "inbound": [
+   "/guides/instagram-account-disabled/",
+   "/guides/hacked-instagram-account-recovery/"
+  ],
+  "sdesc": "Got an email saying your Instagram will be deleted for copyright or policy reasons? How to check it’s real and what to do if you already clicked."
+ },
+ {
+  "slug": "instagram-download-your-data-backup",
+  "h1": "How to download your Instagram data before something goes wrong",
+  "desc": "Back up your Instagram posts, messages and followers while you can still log in. How the download tool works and what it won’t restore.",
+  "group": "instagram",
+  "tag": "Backup",
+  "inbound": [
+   "/guides/instagram-account-disabled/"
+  ],
+  "sdesc": "Back up your Instagram posts, messages and followers while you can still log in. How the download tool works and what it won’t restore."
+ },
+ {
+  "slug": "instagram-cant-log-in-password-incorrect",
+  "h1": "Instagram says the password is wrong (and it isn’t): fixes that work",
+  "desc": "Instagram rejects your password or says it can’t find your account? Check the username, reset with a login link and spot a disabled or suspended message.",
+  "group": "instagram",
+  "tag": "Login",
+  "inbound": [
+   "/guides/instagram-account-locked/"
+  ],
+  "sdesc": "Instagram rejects your password or says it can’t find your account? Check the username, reset with a login link and spot a disabled or suspended message."
+ },
+ {
+  "slug": "instagram-change-email-or-phone-securely",
+  "h1": "How to change your Instagram email or phone number safely",
+  "desc": "Changing the email or number on your Instagram account? Add the new one first, confirm it, then remove the old, and check nothing was changed behind your back.",
+  "group": "instagram",
+  "tag": "Security",
+  "inbound": [
+   "/guides/hacked-instagram-account-recovery/"
+  ],
+  "sdesc": "Changing the email or number on your Instagram account? Add the new one first, confirm it, then remove the old, and check nothing was changed behind your back."
+ },
+ {
+  "slug": "instagram-id-verification-request",
+  "h1": "Instagram asked for your ID: what’s accepted and how to submit it safely",
+  "desc": "Instagram asking you to upload an ID or confirm your identity? Which documents it accepts, how your ID is handled and how to avoid fake ID requests.",
+  "group": "instagram",
+  "tag": "Verification",
+  "inbound": [
+   "/guides/instagram-video-selfie-verification/"
+  ],
+  "sdesc": "Instagram asking you to upload an ID or confirm your identity? Which documents it accepts, how your ID is handled and how to avoid fake ID requests."
+ },
+ {
+  "slug": "instagram-change-username-rules",
+  "h1": "Changing your Instagram username: the rules, the risks and how to undo it",
+  "desc": "How to change your Instagram username, what the format rules are, what breaks when you do, and how to switch back if the old handle is still free.",
+  "group": "instagram",
+  "tag": "Username",
+  "inbound": [
+   "/guides/why-instagram-bans-accounts/"
+  ],
+  "sdesc": "How to change your Instagram username, what the format rules are, what breaks when you do, and how to switch back if the old handle is still free."
+ },
+ {
+  "slug": "instagram-deactivate-or-delete-account",
+  "h1": "Deactivate or delete your Instagram account: the real differences",
+  "desc": "Deactivating hides your Instagram profile; deleting removes it for good after a waiting period. What each does, how to do it and what to save first.",
+  "group": "instagram",
+  "tag": "Account",
+  "inbound": [
+   "/is-my-instagram-account-deleted-or-disabled/"
+  ],
+  "sdesc": "Deactivating hides your Instagram profile; deleting removes it for good after a waiting period. What each does, how to do it and what to save first."
+ },
+ {
+  "slug": "instagram-memorialized-account",
+  "h1": "Memorializing or removing a loved one’s Instagram account",
+  "desc": "How to request that Instagram memorialize or remove a deceased person’s account, what proof is needed and what family can and can’t do.",
+  "group": "instagram",
+  "tag": "Memorial",
+  "inbound": [
+   "/fake-instagram-account-using-my-photos/"
+  ],
+  "sdesc": "How to request that Instagram memorialize or remove a deceased person’s account, what proof is needed and what family can and can’t do."
+ },
+ {
+  "slug": "instagram-check-account-status",
+  "h1": "Instagram Account Status: how to read it and what each notice means",
+  "desc": "Where to find Account Status on Instagram, what removed content and restrictions look like, and what to do next at each result.",
+  "group": "instagram",
+  "tag": "Account status",
+  "inbound": [
+   "/instagram-we-restrict-certain-activity-action-blocked/",
+   "/guides/instagram-community-guidelines-strikes/"
+  ],
+  "sdesc": "Where to find Account Status on Instagram, what removed content and restrictions look like, and what to do next at each result."
+ },
+ {
+  "slug": "instagram-reach-drop-recommendation-eligibility",
+  "h1": "Instagram reach suddenly dropped? What “shadowban” usually means",
+  "desc": "There is no official “shadowban”, but Instagram does limit recommendations. How to check eligibility, audit your content and recover reach honestly.",
+  "group": "instagram",
+  "tag": "Reach",
+  "inbound": [
+   "/guides/why-instagram-bans-accounts/"
+  ],
+  "sdesc": "There is no official “shadowban”, but Instagram does limit recommendations. How to check eligibility, audit your content and recover reach honestly."
+ },
+ {
+  "slug": "instagram-copyright-removed-content",
+  "h1": "Instagram removed your post for copyright: what to do",
+  "desc": "A post or Reel was removed for copyright. How to read the notice, when to counter-notify, how repeat violations work and how to avoid it next time.",
+  "group": "instagram",
+  "tag": "Copyright",
+  "inbound": [
+   "/guides/instagram-community-guidelines-strikes/"
+  ],
+  "sdesc": "A post or Reel was removed for copyright. How to read the notice, when to counter-notify, how repeat violations work and how to avoid it next time."
+ },
+ {
+  "slug": "instagram-removed-post-or-reel-appeal",
+  "h1": "Instagram removed a post or Reel: how to request a review",
+  "desc": "How to find a removed post in Account Status, request a review, what strikes mean and when an Oversight Board appeal may be available.",
+  "group": "instagram",
+  "tag": "Appeal",
+  "inbound": [
+   "/guides/instagram-community-guidelines-strikes/",
+   "/guides/why-instagram-bans-accounts/"
+  ],
+  "sdesc": "How to find a removed post in Account Status, request a review, what strikes mean and when an Oversight Board appeal may be available."
+ },
+ {
+  "slug": "instagram-business-vs-creator-account",
+  "h1": "Instagram Business vs Creator account: which should you choose?",
+  "desc": "A plain comparison of Instagram Business and Creator accounts: features, music, messaging, ads and what changes if you switch.",
+  "group": "instagram",
+  "tag": "Account type",
+  "inbound": [
+   "/guides/instagram-account-integrity/"
+  ],
+  "sdesc": "A plain comparison of Instagram Business and Creator accounts: features, music, messaging, ads and what changes if you switch."
+ },
+ {
+  "slug": "facebook-two-factor-lost-access",
+  "h1": "Can’t get your Facebook two-factor code? How to log in anyway",
+  "desc": "Lost your phone or not receiving the Facebook login code? Approve from another device, use recovery codes or ask Facebook to confirm your identity.",
+  "group": "facebook",
+  "tag": "Two-factor",
+  "inbound": [
+   "/guides/facebook-account-locked/",
+   "/guides/hacked-facebook-account-recovery/"
+  ],
+  "sdesc": "Lost your phone or not receiving the Facebook login code? Approve from another device, use recovery codes or ask Facebook to confirm your identity."
+ },
+ {
+  "slug": "facebook-lost-access-to-email-or-phone",
+  "h1": "Lost the email or phone linked to your Facebook account? Here’s the route back",
+  "desc": "No longer have the email or number on your Facebook account? Use the official identify page, a trusted device and Facebook’s identity check.",
+  "group": "facebook",
+  "tag": "Access",
+  "inbound": [
+   "/guides/hacked-facebook-account-recovery/"
+  ],
+  "sdesc": "No longer have the email or number on your Facebook account? Use the official identify page, a trusted device and Facebook’s identity check."
+ },
+ {
+  "slug": "facebook-id-upload-request",
+  "h1": "Facebook asked for ID: what’s accepted, how to upload and what to avoid",
+  "desc": "Facebook asking you to confirm your identity with ID? Which documents work, how many you need, and how to avoid fake ID requests.",
+  "group": "facebook",
+  "tag": "Verification",
+  "inbound": [
+   "/guides/facebook-account-disabled-appeal/"
+  ],
+  "sdesc": "Facebook asking you to confirm your identity with ID? Which documents work, how many you need, and how to avoid fake ID requests."
+ },
+ {
+  "slug": "facebook-name-change-rules",
+  "h1": "Facebook name change: the 60-day limit and what names are allowed",
+  "desc": "How often you can change your Facebook name, what names are allowed, why a change may be refused and how to ask for a review with documents.",
+  "group": "facebook",
+  "tag": "Name",
+  "inbound": [
+   "/guides/facebook-account-disabled-appeal/"
+  ],
+  "sdesc": "How often you can change your Facebook name, what names are allowed, why a change may be refused and how to ask for a review with documents."
+ },
+ {
+  "slug": "facebook-deactivate-or-delete-account",
+  "h1": "Deactivate or delete Facebook: what each does and what you lose",
+  "desc": "Deactivating Facebook hides your profile and can be undone; deleting is permanent after a waiting period. What changes for Messenger, Pages and apps.",
+  "group": "facebook",
+  "tag": "Account",
+  "inbound": [
+   "/facebook-account-suspended-180-days/"
+  ],
+  "sdesc": "Deactivating Facebook hides your profile and can be undone; deleting is permanent after a waiting period. What changes for Messenger, Pages and apps."
+ },
+ {
+  "slug": "facebook-memorialized-legacy-contact",
+  "h1": "Facebook legacy contacts and memorialized accounts, explained",
+  "desc": "How Facebook memorialization works, what a legacy contact can and can’t do, how to set one up and how to request removal.",
+  "group": "facebook",
+  "tag": "Memorial",
+  "inbound": [
+   "/guides/hacked-facebook-account-recovery/"
+  ],
+  "sdesc": "How Facebook memorialization works, what a legacy contact can and can’t do, how to set one up and how to request removal."
+ },
+ {
+  "slug": "facebook-suspicious-login-active-sessions",
+  "h1": "Facebook says there was a login you don’t recognise: check and lock it down",
+  "desc": "See where you’re logged in on Facebook, end unknown sessions, turn on login alerts and spot signs of a takeover.",
+  "group": "facebook",
+  "tag": "Security",
+  "inbound": [
+   "/guides/hacked-facebook-account-recovery/"
+  ],
+  "sdesc": "See where you’re logged in on Facebook, end unknown sessions, turn on login alerts and spot signs of a takeover."
+ },
+ {
+  "slug": "facebook-support-inbox-violations",
+  "h1": "How to check Facebook violations: Support Inbox, Account Status and Page Quality",
+  "desc": "Where Facebook tells you about violations, how to find them for a profile or a Page, and how to request a review.",
+  "group": "facebook",
+  "tag": "Account status",
+  "inbound": [
+   "/guides/facebook-page-restricted/"
+  ],
+  "sdesc": "Where Facebook tells you about violations, how to find them for a profile or a Page, and how to request a review."
+ },
+ {
+  "slug": "facebook-page-hacked-admin-removed",
+  "h1": "Your Facebook Page was hacked and you were removed as admin",
+  "desc": "What to do when someone takes over your Facebook Page and removes you: secure your profile, report the Page and use official dispute routes.",
+  "group": "facebook",
+  "tag": "Page hacked",
+  "inbound": [
+   "/guides/hacked-facebook-account-recovery/",
+   "/guides/facebook-page-restricted/"
+  ],
+  "sdesc": "What to do when someone takes over your Facebook Page and removes you: secure your profile, report the Page and use official dispute routes."
+ },
+ {
+  "slug": "facebook-page-admin-access-lost",
+  "h1": "Lost access to your Facebook Page because an admin left",
+  "desc": "An agency, employee or ex-partner controls your Facebook Page and you can’t get in. Ask for access, use the admin dispute and plan so it doesn’t repeat.",
+  "group": "facebook",
+  "tag": "Page access",
+  "inbound": [
+   "/guides/facebook-page-restricted/"
+  ],
+  "sdesc": "An agency, employee or ex-partner controls your Facebook Page and you can’t get in. Ask for access, use the admin dispute and plan so it doesn’t repeat."
+ },
+ {
+  "slug": "facebook-marketplace-restricted",
+  "h1": "Facebook Marketplace access limited or suspended: how to request review",
+  "desc": "What it means when Marketplace is at risk, limited or suspended, how to request a review from Profile status, and how to avoid repeat problems.",
+  "group": "facebook",
+  "tag": "Marketplace",
+  "inbound": [
+   "/guides/facebook-account-disabled-appeal/"
+  ],
+  "sdesc": "What it means when Marketplace is at risk, limited or suspended, how to request a review from Profile status, and how to avoid repeat problems."
+ },
+ {
+  "slug": "report-scam-ad-or-fake-page-facebook",
+  "h1": "How to report a scam ad or a fake business Page on Facebook",
+  "desc": "The official way to report a scam ad, a Page pretending to be your business or a fraudulent seller on Facebook, and what to save before you do.",
+  "group": "facebook",
+  "tag": "Report",
+  "inbound": [
+   "/report-business-impersonation/",
+   "/fake-account-takedown/"
+  ],
+  "sdesc": "The official way to report a scam ad, a Page pretending to be your business or a fraudulent seller on Facebook, and what to save before you do."
+ },
+ {
+  "slug": "meta-ad-payment-declined-fix",
+  "h1": "Meta ads payment failed or declined: how to get ads running again",
+  "desc": "A failed payment can pause your Meta ads. Find out why it was declined, how to pay the balance and what to check if payments keep failing.",
+  "group": "ads",
+  "tag": "Billing",
+  "inbound": [
+   "/guides/meta-ad-account-disabled-payment/",
+   "/guides/meta-ad-account-restricted/"
+  ],
+  "sdesc": "A failed payment can pause your Meta ads. Find out why it was declined, how to pay the balance and what to check if payments keep failing."
+ },
+ {
+  "slug": "meta-ad-rejected-request-review",
+  "h1": "Meta ad rejected: how to read the reason and request a review",
+  "desc": "Understand why your ad was rejected, how to find the policy, edit or request a review, and what to leave alone while a review is pending.",
+  "group": "ads",
+  "tag": "Ad review",
+  "inbound": [
+   "/guides/meta-ad-account-restricted/",
+   "/ad-account-policy-violation-appeal/"
+  ],
+  "sdesc": "Understand why your ad was rejected, how to find the policy, edit or request a review, and what to leave alone while a review is pending."
+ },
+ {
+  "slug": "meta-domain-verification-steps",
+  "h1": "Meta domain verification step by step: meta tag, HTML file or DNS",
+  "desc": "How to verify your domain in Meta Business Suite using a meta tag, HTML file or DNS TXT record, and how to fix the usual errors.",
+  "group": "ads",
+  "tag": "Domain",
+  "inbound": [
+   "/meta-business-verification-rejected/",
+   "/guides/meta-business-portfolio-restricted/"
+  ],
+  "sdesc": "How to verify your domain in Meta Business Suite using a meta tag, HTML file or DNS TXT record, and how to fix the usual errors."
+ },
+ {
+  "slug": "meta-business-portfolio-two-factor",
+  "h1": "Require two-factor authentication for everyone in your Meta business portfolio",
+  "desc": "How to turn on the business portfolio security setting that requires two-factor authentication for all people, and what to tell your team first.",
+  "group": "ads",
+  "tag": "Security",
+  "inbound": [
+   "/guides/meta-business-portfolio-restricted/",
+   "/guides/instagram-business-vs-creator-account/"
+  ],
+  "sdesc": "How to turn on the business portfolio security setting that requires two-factor authentication for all people, and what to tell your team first."
+ },
+ {
+  "slug": "meta-business-portfolio-lost-admin-access",
+  "h1": "Lost admin access to your Meta business portfolio: what are your options?",
+  "desc": "Locked out of a business portfolio because the admin left or the account was hacked? Use the official full-control request and prepare proof.",
+  "group": "ads",
+  "tag": "Access",
+  "inbound": [
+   "/guides/meta-business-portfolio-restricted/",
+   "/business-manager-disabled/"
+  ],
+  "sdesc": "Locked out of a business portfolio because the admin left or the account was hacked? Use the official full-control request and prepare proof."
+ },
+ {
+  "slug": "meta-agency-partner-access",
+  "h1": "Give an agency access to your Meta ads without sharing your login",
+  "desc": "How to share Pages and ad accounts with an agency or freelancer as a partner, keep ownership and remove access when the work ends.",
+  "group": "ads",
+  "tag": "Partners",
+  "inbound": [
+   "/guides/meta-business-portfolio-restricted/"
+  ],
+  "sdesc": "How to share Pages and ad accounts with an agency or freelancer as a partner, keep ownership and remove access when the work ends."
+ },
+ {
+  "slug": "meta-special-ad-categories",
+  "h1": "Meta Special Ad Categories: when you must declare and what changes",
+  "desc": "Housing, employment, credit and social issue ads need a Special Ad Category. What it limits, why declaring correctly matters and how to fix a wrong choice.",
+  "group": "ads",
+  "tag": "Policy",
+  "inbound": [
+   "/guides/ad-account-unacceptable-business-practices/"
+  ],
+  "sdesc": "Housing, employment, credit and social issue ads need a Special Ad Category. What it limits, why declaring correctly matters and how to fix a wrong choice."
+ },
+ {
+  "slug": "meta-ads-health-wellness-personal-attributes",
+  "h1": "Meta ads for health and wellness: the “personal attributes” trap",
+  "desc": "Why health, weight and wellness ads get rejected for implying knowledge of the viewer, and how to rewrite them within Meta’s policies.",
+  "group": "ads",
+  "tag": "Policy",
+  "inbound": [
+   "/guides/meta-ad-account-restricted/"
+  ],
+  "sdesc": "Why health, weight and wellness ads get rejected for implying knowledge of the viewer, and how to rewrite them within Meta’s policies."
+ },
+ {
+  "slug": "meta-ads-landing-page-rejected",
+  "h1": "Meta ad rejected because of your landing page: how to find the problem",
+  "desc": "Ads can be rejected because of what’s on the page you link to. Test it like a reviewer, fix common problems and request a review.",
+  "group": "ads",
+  "tag": "Landing page",
+  "inbound": [
+   "/guides/ad-account-circumventing-systems/"
+  ],
+  "sdesc": "Ads can be rejected because of what’s on the page you link to. Test it like a reviewer, fix common problems and request a review."
+ },
+ {
+  "slug": "meta-account-quality-status-walkthrough",
+  "h1": "Meta Account Quality: how to read your ad account and Page status",
+  "desc": "Where to see restrictions, disapproved ads and review options for your ad account, Page and business portfolio in Meta Account Quality.",
+  "group": "ads",
+  "tag": "Account status",
+  "inbound": [
+   "/guides/meta-ad-account-restricted/",
+   "/ad-account-request-review-not-showing/"
+  ],
+  "sdesc": "Where to see restrictions, disapproved ads and review options for your ad account, Page and business portfolio in Meta Account Quality."
+ },
+ {
+  "slug": "protect-your-business-from-an-instagram-ban",
+  "h1": "Protect your business from an Instagram ban: a continuity plan",
+  "desc": "A practical plan so losing an Instagram account doesn’t sink your business: backups, access, email lists and habits that keep you within the rules.",
+  "group": "instagram",
+  "tag": "Prevention",
+  "inbound": [
+   "/guides/why-instagram-bans-accounts/",
+   "/guides/instagram-account-disabled/"
+  ],
+  "sdesc": "A practical plan so losing an Instagram account doesn’t sink your business: backups, access, email lists and habits that keep you within the rules."
+ },
+ {
+  "slug": "instagram-account-restored-next-steps",
+  "h1": "Your Instagram account is back: what to do in the first week",
+  "desc": "You’ve regained an Instagram account after a lock, hack or appeal. Secure it, check what changed and avoid the habits that cause a repeat.",
+  "group": "instagram",
+  "tag": "After recovery",
+  "inbound": [
+   "/guides/hacked-instagram-account-recovery/",
+   "/guides/instagram-account-suspended-appeal/"
+  ],
+  "sdesc": "You’ve regained an Instagram account after a lock, hack or appeal. Secure it, check what changed and avoid the habits that cause a repeat."
+ },
+ {
+  "slug": "instagram-harassment-dms-what-to-do",
+  "h1": "Harassing DMs on Instagram: protect yourself and report properly",
+  "desc": "Block, restrict, filter and report abusive messages on Instagram. What to save, which tools to use first and how to handle new accounts.",
+  "group": "instagram",
+  "tag": "Safety",
+  "inbound": [
+   "/harassment-account-removal/",
+   "/someone-keeps-making-new-accounts-to-harass-me/"
+  ],
+  "sdesc": "Block, restrict, filter and report abusive messages on Instagram. What to save, which tools to use first and how to handle new accounts."
+ },
+ {
+  "slug": "instagram-scam-dm-what-to-do",
+  "h1": "Got a scam DM on Instagram? What to do before and after you click",
+  "desc": "Spot the common scam messages on Instagram, what to do if you clicked or paid, and how to report the account the right way.",
+  "group": "instagram",
+  "tag": "Scams",
+  "inbound": [
+   "/instagram-seller-scammed-me/",
+   "/scammer-account-removal/"
+  ],
+  "sdesc": "Spot the common scam messages on Instagram, what to do if you clicked or paid, and how to report the account the right way."
+ },
+ {
+  "slug": "sextortion-what-to-do-on-instagram",
+  "h1": "Sextortion on Instagram: what to do right now",
+  "desc": "If someone is threatening to share your private images, don’t pay. Stop contact, save evidence, report and use StopNCII or NCMEC’s Take It Down.",
+  "group": "instagram",
+  "tag": "Safety",
+  "inbound": [
+   "/harassment-account-removal/"
+  ],
+  "sdesc": "If someone is threatening to share your private images, don’t pay. Stop contact, save evidence, report and use StopNCII or NCMEC’s Take It Down."
+ },
+ {
+  "slug": "snapchat-account-hacked",
+  "h1": "Snapchat account hacked: how to secure it or recover it",
+  "desc": "Steps to take if someone else is using your Snapchat: reset your password, check email and phone, end sessions and contact Snapchat support.",
+  "group": "snapchat",
+  "tag": "Hacked",
+  "inbound": [
+   "/guides/snapchat-account-locked/"
+  ],
+  "sdesc": "Steps to take if someone else is using your Snapchat: reset your password, check email and phone, end sessions and contact Snapchat support."
+ },
+ {
+  "slug": "snapchat-two-factor-or-email-lost",
+  "h1": "Snapchat login code, email or phone lost: what’s possible and what isn’t",
+  "desc": "Can’t receive your Snapchat verification code or lost the email or phone on the account? Snapchat’s own rules on what it can and can’t reset.",
+  "group": "snapchat",
+  "tag": "Login help",
+  "inbound": [
+   "/guides/snapchat-account-locked/"
+  ],
+  "sdesc": "Can’t receive your Snapchat verification code or lost the email or phone on the account? Snapchat’s own rules on what it can and can’t reset."
+ },
+ {
+  "slug": "snapchat-device-banned-appeal",
+  "h1": "Snapchat device ban (SS06): what it means and whether you can appeal",
+  "desc": "What a Snapchat device ban means, how it differs from an account ban and when the login screen offers an appeal.",
+  "group": "snapchat",
+  "tag": "Device ban",
+  "inbound": [
+   "/can-a-permanently-banned-snapchat-account-be-recovered/",
+   "/snapchat-unban-service/"
+  ],
+  "sdesc": "What a Snapchat device ban means, how it differs from an account ban and when the login screen offers an appeal."
+ },
+ {
+  "slug": "snapchat-change-username-and-delete-account",
+  "h1": "Snapchat username, deactivation and deletion: what you can and can’t change",
+  "desc": "Snapchat usernames can’t be freely changed, and deleting an account is a 30-day process. Learn the rules and the steps before you decide.",
+  "group": "snapchat",
+  "tag": "Account",
+  "inbound": [
+   "/guides/snapchat-account-locked/"
+  ],
+  "sdesc": "Snapchat usernames can’t be freely changed, and deleting an account is a 30-day process. Learn the rules and the steps before you decide."
+ },
+ {
+  "slug": "threads-deactivate-or-delete",
+  "h1": "Threads: delete or deactivate without losing Instagram",
+  "desc": "You can delete a Threads profile separately from Instagram. What happens, the 30-day window and what to do first.",
+  "group": "instagram",
+  "tag": "Threads",
+  "inbound": [
+   "/threads-suspended-but-instagram-works/",
+   "/threads-account-suspended/"
+  ],
+  "sdesc": "You can delete a Threads profile separately from Instagram. What happens, the 30-day window and what to do first."
+ },
+ {
+  "slug": "account-recovery-scams-fake-hackers-warning",
+  "h1": "Account recovery scams: how fake “hackers” and “Meta agents” work",
+  "desc": "People who lose an account are targeted by fake recovery services. Learn the tactics, how to check any helper and what a safe recovery looks like.",
+  "group": "instagram",
+  "tag": "Scams",
+  "inbound": [
+   "/guides/hacked-instagram-account-recovery/"
+  ],
+  "sdesc": "People who lose an account are targeted by fake recovery services. Learn the tactics, how to check any helper and what a safe recovery looks like."
+ }
+]
