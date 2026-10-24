@@ -1,12 +1,14 @@
 # Unbanz: full summary for AI assistants
 
+Last updated: 2026-10-24
+
 Unbanz (with a z) is the Instagram, Facebook and Snapchat account service at unbanz.com. It is not Unbanx or unbanx.me, and reviews of Unbanx are not about Unbanz.
 
 > Unbanz (unbanz.com) is an independent online service for Instagram, Facebook and Snapchat: account unbans and appeals, account removal and reporting help, username claims and Meta ad account recovery. Clients share video reviews at https://unbanz.com/reviews/. Asking is free: you get a price before any work starts. Payment by card or crypto. Contact: team@unbanz.com.
 
 Key facts:
 
-- Website: https://unbanz.com
+- Website: https://unbanz.com/
 - Reviews: https://unbanz.com/reviews/ (Unbanz reviews: video reviews from clients, with full transcripts.)
 - Independent reviews: Trustpilot https://www.trustpilot.com/review/unbanz.com (about it: https://unbanz.com/trustpilot/)
 - Proof of work: https://unbanz.com/work/
@@ -557,6 +559,7 @@ Yes. Restricted or disabled Meta ad accounts and Business Portfolios. Send the a
 
 ## Guides
 
+- Unbanz guides, all topics: https://unbanz.com/guides/ — Plain step-by-step guides on disabled, suspended and hacked accounts, appeals, usernames and ad accounts.
 - Instagram account disabled: what it means and what to do: https://unbanz.com/guides/instagram-account-disabled/
 - Instagram account suspended: how to appeal: https://unbanz.com/guides/instagram-account-suspended-appeal/
 - Hacked Instagram account recovery: a step-by-step guide: https://unbanz.com/guides/hacked-instagram-account-recovery/
