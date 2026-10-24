@@ -1,0 +1,163 @@
+# -*- coding: utf-8 -*-
+from lib import *
+
+def add(site):
+    sv = site.service
+    # ---------- Instagram
+    sv('ig', 'Recuperar conta do Instagram desativada ou hackeada', 'Recuperar conta do Instagram',
+       'Recuperar conta do Instagram: desativada, suspensa ou hackeada.',
+       'Sua conta do Instagram foi desativada, suspensa ou hackeada? Envie seu nome de usuário e um print do aviso: preparamos a contestação e a enviamos pelo processo oficial do Instagram. Sua senha fica com você. Há avaliações em vídeo de clientes.',
+       'A Unbanz ajuda a recuperar contas do Instagram desativadas, suspensas, bloqueadas ou hackeadas, sempre pelos caminhos oficiais da plataforma. O preço você fica sabendo na conversa, depois de explicar sua situação e antes de o trabalho começar.',
+       [('Desativada ou suspensa', 'Perfis pessoais, de criador e comerciais que o Instagram restringiu ou desativou. Conte o que aparece na tela de login e quando aconteceu.'),
+        ('Hackeada ou sem acesso', 'E-mail e telefone trocados, nome de usuário roubado, um loop de verificação que não leva a lugar nenhum: ajudamos você a voltar a entrar e a proteger a conta depois.'),
+        ('A conta que você construiu', 'Suas fotos, seus posts e seus seguidores importam. Conhecemos os passos oficiais e sabemos como apresentar um pedido com clareza.')],
+       [('1. Envie os dados', 'Seu @usuário ou o link do perfil, um print do aviso e a data em que você perdeu o acesso.'),
+        ('2. Informamos o preço', 'Depois da sua explicação, dizemos se podemos ajudar e quanto custa, antes de o trabalho começar. Se outra pessoa cuida da conta, diga quem está autorizado.'),
+        ('3. Enviamos o pedido', 'Preparamos o pedido e o enviamos pelo processo oficial do Instagram. Depois mantemos você informado sobre as respostas.')],
+       [('Minha conta do Instagram desativada está perdida para sempre?', 'Não necessariamente. Se o Instagram mostra a opção de contestar, em geral dá para fazer isso por cerca de 180 dias. Envie o aviso exato e dizemos com sinceridade o que é possível.'),
+        ('Dá para recuperar uma conta hackeada se trocaram o e-mail?', 'Muitas vezes sim, pelas ferramentas oficiais do Instagram (instagram.com/hacked e a verificação por vídeo selfie). Diga a que você ainda tem acesso e orientamos você.'),
+        ('Vocês ajudam também com contas pequenas?', 'Sim. Contas pessoais, de criador e comerciais: o número de seguidores não muda a nossa ajuda.'),
+        ('Preciso passar minha senha?', 'Não. Começamos com o link do perfil e o aviso. Sua senha e seus códigos ficam com você.'),
+        ('Quanto custa recuperar uma conta do Instagram?', 'O preço depende da conta e da situação. Informamos na conversa, depois de você contar o que aconteceu e antes de o trabalho começar. Perguntar não custa nada.'),
+        ('Quanto tempo leva para recuperar uma conta do Instagram?', 'O Instagram não publica prazo: vai de alguns dias a várias semanas. Não podemos prometer uma data, mas mantemos você informado.')],
+       ['ig-disabled', 'appeal-time', 'ig-hacked', 'no-button', 'appeal-denied', 'deleted', 'blocked', 'support'],
+       meta('Recuperar conta do Instagram', 'Recuperar conta', 'Ajuda com contas do Instagram desativadas, suspensas ou hackeadas pelos caminhos oficiais da plataforma.'),
+       desc='Conta do Instagram desativada, suspensa ou hackeada? Envie seu nome de usuário e o aviso; preparamos a contestação pelo processo oficial.')
+
+    # ---------- Facebook
+    sv('fb', 'Recuperar conta do Facebook desativada ou hackeada', 'Recuperar conta do Facebook',
+       'Recuperar conta do Facebook: desativada, hackeada ou restrita.',
+       'Seu perfil do Facebook foi desativado, hackeado ou sua página foi restrita? Envie o link do perfil e um print do aviso: preparamos o pedido e o enviamos pelo processo oficial do Facebook. Sua senha fica com você.',
+       'A Unbanz ajuda com perfis do Facebook desativados ou hackeados e com páginas restritas, pelos caminhos oficiais da plataforma. O preço você fica sabendo na conversa, antes de o trabalho começar.',
+       [('Perfil desativado', 'O Facebook diz que sua conta está desativada ou restrita. Envie o aviso e a data e vemos qual caminho oficial se aplica.'),
+        ('Perfil hackeado', 'Senha, e-mail ou nome trocados e você não consegue entrar: ajudamos a encarar a recuperação com as ferramentas oficiais.'),
+        ('Página restrita', 'Uma página que não pode mais publicar ou que foi limitada. Ajudamos a apresentar o pedido de análise com clareza.')],
+       [('1. Envie os dados', 'O link do perfil ou da página, um print do aviso e a data.'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se podemos ajudar e quanto custa, antes de o trabalho começar.'),
+        ('3. Enviamos o pedido', 'Enviamos o pedido de análise pelo processo oficial do Facebook e mantemos você informado.')],
+       [('Uma conta do Facebook desativada é definitiva?', 'Nem sempre. Se o Facebook mostra um botão para pedir análise, use-o dentro do prazo indicado. Envie o aviso e dizemos com sinceridade o que é possível.'),
+        ('Dá para recuperar uma conta do Facebook hackeada?', 'Muitas vezes sim, com facebook.com/hacked e os passos oficiais de recuperação. Diga a que você ainda tem acesso.'),
+        ('Vocês ajudam também com uma página de empresa?', 'Sim, ajudamos com páginas restritas e com as contas de anúncios vinculadas.'),
+        ('Preciso compartilhar minha senha?', 'Não. Basta o link do perfil e um print do aviso.'),
+        ('Quanto custa?', 'Depende da conta e da situação. Informamos o preço na conversa, antes de o trabalho começar. Perguntar não custa nada.')],
+       ['fb-appeal', 'fb-hacked', 'ad-disabled', 'appeal-time'],
+       meta('Recuperar conta do Facebook', 'Recuperar conta', 'Ajuda com contas do Facebook desativadas ou hackeadas e com páginas restritas pelos caminhos oficiais.'),
+       desc='Perfil do Facebook desativado, hackeado ou página restrita? Envie o link e o aviso; enviamos o pedido pelo processo oficial.')
+
+    # ---------- Ad accounts
+    sv('ad', 'Recuperar conta de anúncios do Facebook restrita', 'Recuperar conta de anúncios',
+       'Recuperar conta de anúncios da Meta: restrita ou desativada.',
+       'Sua conta de anúncios do Facebook ou Instagram está restrita ou desativada e você não consegue veicular anúncios? Envie o ID da conta e o aviso: preparamos o pedido de análise e o enviamos pelos processos oficiais da Meta.',
+       'A Unbanz ajuda empresas e agências com contas de anúncios e portfólios empresariais da Meta restritos ou desativados. Tudo passa pelos caminhos oficiais de análise; a decisão é sempre da Meta. O preço você fica sabendo na conversa, antes de o trabalho começar.',
+       [('Conta de anúncios restrita', 'Os anúncios pararam ou sua forma de pagamento não funciona mais. Vemos com você o aviso e o motivo indicado pela Meta.'),
+        ('Portfólio empresarial restrito', 'As restrições do portfólio empresarial costumam afetar várias contas de uma vez. Envie os detalhes e dizemos o que podemos fazer.'),
+        ('Para agências', 'Você gerencia contas de anúncios de clientes? Também ajudamos quando várias contas foram afetadas ao mesmo tempo.')],
+       [('1. Envie os dados', 'O ID da conta, um print do aviso e a data em que os anúncios pararam.'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se podemos ajudar e quanto custa, antes de o trabalho começar.'),
+        ('3. Enviamos o pedido', 'Preparamos o pedido de análise e o enviamos pelo processo oficial da Meta. Depois mantemos você informado.')],
+       [('Vocês conseguem recuperar uma conta de anúncios desativada?', 'Depende do motivo e do aviso. Olhamos os dois com você e dizemos com sinceridade se um pedido de análise faz sentido. A decisão é sempre da Meta.'),
+        ('O que vocês precisam de mim?', 'O ID da conta, um print do aviso e a data. Nunca sua senha nem seus códigos de acesso.'),
+        ('Vocês ajudam agências também?', 'Sim. Agências e empresas com várias contas de anúncios são bem-vindas.'),
+        ('Quanto custa?', 'Depende do número de contas e da situação. O preço você fica sabendo na conversa, antes de o trabalho começar.'),
+        ('Quanto tempo leva?', 'A Meta não publica prazo. Pode ir de alguns dias a semanas; não prometemos nenhuma data.')],
+       ['ad-disabled', 'fb-appeal', 'appeal-denied'],
+       meta('Recuperar conta de anúncios', 'Recuperar conta', 'Ajuda com contas de anúncios e portfólios empresariais da Meta restritos ou desativados.'),
+       desc='Conta de anúncios da Meta restrita ou desativada? Envie o ID da conta e o aviso; enviamos o pedido pelos processos oficiais.', svc='ad')
+
+    # ---------- Snapchat
+    sv('snap', 'Recuperar conta do Snapchat bloqueada ou desativada', 'Recuperar conta do Snapchat',
+       'Recuperar conta do Snapchat: bloqueada ou desativada.',
+       'Sua conta do Snapchat está bloqueada ou desativada? Envie seu nome de usuário e um print do aviso: preparamos o pedido e o enviamos pelo processo oficial do Snapchat. Sua senha fica com você.',
+       'A Unbanz ajuda com contas do Snapchat bloqueadas ou desativadas pelos canais oficiais de suporte do Snapchat. O preço você fica sabendo na conversa, antes de o trabalho começar.',
+       [('Bloqueio temporário', 'O Snapchat bloqueou sua conta por atividade incomum. Conte o que diz o aviso e quando aconteceu.'),
+        ('Desativada', 'Um aviso de que sua conta foi desativada. Envie o print e vemos qual caminho oficial se aplica.'),
+        ('Conta hackeada', 'Alguém entrou na sua conta e trocou os dados. Ajudamos você a encarar a recuperação pelos passos oficiais.')],
+       [('1. Envie os dados', 'Seu @usuário, um print do aviso e a data.'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se podemos ajudar e quanto custa, antes de o trabalho começar.'),
+        ('3. Enviamos o pedido', 'Enviamos o pedido pelo processo oficial do Snapchat e mantemos você informado.')],
+       [('Dá para recuperar uma conta do Snapchat bloqueada?', 'Muitas vezes há um caminho oficial. Envie o aviso e dizemos com sinceridade o que é possível. A decisão é do Snapchat.'),
+        ('Preciso passar minha senha?', 'Não. Basta o nome de usuário e um print do aviso.'),
+        ('Quanto custa?', 'Informamos o preço na conversa, antes de o trabalho começar. Perguntar não custa nada.'),
+        ('Quanto tempo leva?', 'O Snapchat não publica prazo e não prometemos data, mas mantemos você informado.')],
+       ['appeal-time', 'scams'],
+       meta('Recuperar conta do Snapchat', 'Recuperar conta', 'Ajuda com contas do Snapchat bloqueadas ou desativadas pelos canais oficiais de suporte.'),
+       desc='Conta do Snapchat bloqueada ou desativada? Envie seu nome de usuário e o aviso; enviamos o pedido pelo processo oficial.')
+
+    # ---------- fake accounts
+    sv('fake', 'Denunciar perfil falso no Instagram, Facebook e Snapchat', 'Denunciar perfil falso',
+       'Denunciar perfil falso: golpistas e contas fraudulentas.',
+       'Um perfil falso está enganando seus seguidores ou clientes? Envie o link e prints: ajudamos você a denunciar a conta pelas ferramentas oficiais de denúncia do Instagram, Facebook e Snapchat.',
+       'A Unbanz ajuda a denunciar perfis falsos e contas de golpistas pelas ferramentas oficiais de denúncia da plataforma. A decisão sobre remover ou não a conta é sempre da plataforma. Se houve golpe ou ameaça, registre também um boletim de ocorrência.',
+       [('Perfil falso', 'Uma conta que imita você, sua marca ou outra pessoa. Reúna links e prints; nós ajudamos com a denúncia.'),
+        ('Conta de golpista', 'Contas que enganam pessoas para obter dinheiro ou dados. Preparamos a denúncia com cuidado e, se necessário, você também registra um boletim de ocorrência na Delegacia Virtual.'),
+        ('Para marcas e empresas', 'Um perfil falso está enganando seus clientes? Ajudamos a preparar bem a denúncia.')],
+       [('1. Envie os dados', 'O link da conta, prints do que ela faz e, se afeta você, uma prova da sua identidade ou da sua marca.'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se podemos ajudar e quanto custa, antes de o trabalho começar.'),
+        ('3. Denunciamos a conta', 'Enviamos a denúncia pelas ferramentas oficiais da plataforma e mantemos você informado.')],
+       [('Vocês conseguem fazer uma conta falsa ser removida?', 'Denunciamos a conta pelas ferramentas oficiais e preparamos a denúncia com cuidado. Se a conta será removida ou não, quem decide é a plataforma.'),
+        ('E se alguém usa minhas fotos?', 'Você pode denunciar como personificação. Veja nosso guia sobre perfil falso com suas fotos.'),
+        ('Vocês usam denúncias falsas ou em massa?', 'Nunca. Só usamos denúncias reais pelas ferramentas oficiais.'),
+        ('Quanto custa?', 'O preço você fica sabendo na conversa, antes de o trabalho começar. Perguntar não custa nada.')],
+       ['report-fake', 'scams', 'sextortion'],
+       meta('Denunciar perfil falso', 'Denunciar conta', 'Ajuda para denunciar perfis falsos e contas de golpistas pelas ferramentas oficiais da plataforma.'),
+       desc='Perfil falso ou conta de golpista? Ajudamos você a denunciar pelas ferramentas oficiais do Instagram, Facebook e Snapchat.', svc='ban')
+
+    # ---------- impersonation
+    sv('imp', 'Denunciar personificação no Instagram', 'Denunciar personificação',
+       'Denunciar personificação: alguém se passa por você.',
+       'Alguém se passa por você ou pela sua empresa no Instagram, Facebook ou Snapchat? Envie o link do perfil e uma prova de quem você é: ajudamos a apresentar uma denúncia clara de personificação pelas ferramentas oficiais.',
+       'A Unbanz ajuda a denunciar contas que se passam por uma pessoa ou empresa, pelos caminhos oficiais de denúncia de personificação da plataforma. A decisão é da plataforma.',
+       [('Alguém usa seu nome', 'Um perfil com seu nome e suas fotos que fala com seus seguidores ou clientes. Reúna links e prints; nós ajudamos com a denúncia.'),
+        ('Alguém imita sua empresa', 'Uma conta que se passa pela sua marca. Ajudamos a apresentar a denúncia com os dados certos.'),
+        ('Você precisa de provas', 'Muitas vezes é preciso um documento de identidade ou dados da empresa. Dizemos o que a plataforma pede, sem você enviar dados sensíveis a mais.')],
+       [('1. Envie os dados', 'O link da conta, prints e uma breve explicação de como ela se passa por você.'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se podemos ajudar e quanto custa, antes de o trabalho começar.'),
+        ('3. Denunciamos a conta', 'Enviamos a denúncia de personificação pelo processo oficial e mantemos você informado.')],
+       [('Como denuncio uma conta que se passa por mim?', 'Pelo formulário oficial de personificação da plataforma. Ajudamos a preparar. A decisão é da plataforma.'),
+        ('Preciso de um documento de identidade?', 'Às vezes a plataforma pede. Dizemos antes o que é necessário.'),
+        ('Quanto custa?', 'O preço você fica sabendo na conversa, antes de o trabalho começar. Perguntar não custa nada.')],
+       ['report-fake', 'scams'],
+       meta('Denunciar personificação', 'Denunciar conta', 'Ajuda para denunciar contas que se passam por uma pessoa ou empresa pelas ferramentas oficiais.'),
+       desc='Alguém se passa por você ou pela sua empresa? Ajudamos a denunciar a personificação pelas ferramentas oficiais da plataforma.', svc='ban')
+
+    # ---------- harassment
+    sv('har', 'Denunciar perfil de assédio no Instagram e Facebook', 'Denunciar assédio',
+       'Denunciar perfil de assédio: perseguição e ameaças.',
+       'Uma conta do Instagram, Facebook ou Snapchat está assediando ou ameaçando você? Envie os links e prints: ajudamos a denunciar pelas ferramentas oficiais. Se houver perigo imediato, ligue primeiro para o 190.',
+       'A Unbanz ajuda a denunciar contas que assediam, ameaçam ou perseguem, pelas ferramentas oficiais de denúncia da plataforma. A decisão é da plataforma. Se houver ameaças, registre também um boletim de ocorrência na Delegacia Virtual ou numa delegacia.',
+       [('Assédio e perseguição', 'Mensagens repetidas, ameaças ou divulgação dos seus dados. Guarde prints com data e hora.'),
+        ('O que você pode fazer agora', 'Bloqueie a conta, limite quem pode escrever para você e denuncie as mensagens no app. Não apague nada antes de guardar as provas.'),
+        ('Quando você precisa de mais ajuda', 'Se continuar ou se houver ameaças, registre um boletim de ocorrência e peça que denunciemos a conta. A SaferNet Brasil também orienta vítimas de crimes online.')],
+       [('1. Envie os dados', 'Os links das contas, prints com data e uma breve explicação.'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se podemos ajudar e quanto custa, antes de o trabalho começar.'),
+        ('3. Denunciamos a conta', 'Enviamos a denúncia pelas ferramentas oficiais e mantemos você informado.')],
+       [('Vocês conseguem fazer uma conta de assédio ser bloqueada?', 'Denunciamos pelas ferramentas oficiais; a plataforma decide se a conta será removida ou restringida.'),
+        ('Devo registrar também um boletim de ocorrência?', 'Se houver ameaças, extorsão ou assédio constante, vale registrar um B.O. na Delegacia Virtual do seu estado ou numa delegacia. Guarde as provas.'),
+        ('Quanto custa?', 'O preço você fica sabendo na conversa, antes de o trabalho começar. Perguntar não custa nada.')],
+       ['sextortion', 'report-fake', 'scams'],
+       meta('Denunciar assédio', 'Denunciar conta', 'Ajuda para denunciar contas que assediam ou ameaçam pelas ferramentas oficiais.'),
+       desc='Uma conta assedia ou ameaça você? Ajudamos a denunciar pelas ferramentas oficiais. Se houver perigo imediato, ligue para o 190.', svc='ban')
+
+    # ---------- username
+    refund = ('<section class="service-price container"><h2>Refund policy<br>para nomes de usuário.</h2><div><p>Se um pedido de nome de usuário não der certo, você recebe 100% do valor de volta. '
+              'Vale somente para pedidos de nome de usuário.</p>'
+              '<a href="/refund-policy/" hreflang="en" lang="en">Leia a refund policy (em inglês) ↗︎</a></div></section>')
+    sv('user', 'Reivindicar nome de usuário do Instagram inativo ou ocupado', 'Reivindicar nome de usuário',
+       'Reivindicar nome de usuário do Instagram: inativo ou ocupado.',
+       'Quer um nome de usuário do Instagram que está ocupado ou que pertence a uma conta inativa? Envie o nome que você quer e seu perfil: vemos qual caminho oficial se aplica e enviamos o pedido. Se não der certo, você recebe 100% do valor de volta.',
+       'A Unbanz ajuda com pedidos de nome de usuário no Instagram, Facebook e Snapchat pelos processos oficiais da plataforma, como uma denúncia de marca registrada, uma denúncia de personificação ou o caminho para contas inativas. A decisão é da plataforma. Nunca compramos nem vendemos contas.',
+       [('Nome de usuário inativo', 'A conta parece abandonada? Às vezes existe um caminho oficial. Vemos se ele se aplica ao seu nome de usuário.'),
+        ('Marca ou nome de empresa', 'Se o nome de usuário é a sua marca registrada ou o nome da sua empresa, uma denúncia de marca registrada pode ser o caminho certo.'),
+        ('Personificação', 'Se alguém usa seu nome para enganar seus seguidores ou clientes, pode caber uma denúncia de personificação.')],
+       [('1. Envie os dados', 'O nome de usuário que você quer, seu perfil atual e por que esse nome é seu (por exemplo, sua marca).'),
+        ('2. Informamos o preço', 'Dizemos com sinceridade se o pedido tem chance e quanto custa, antes de o trabalho começar. A decisão é sempre da plataforma.'),
+        ('3. Enviamos o pedido', 'Usamos o processo oficial que corresponde a esse nome de usuário e mantemos você informado.')],
+       [('Posso simplesmente ficar com o nome de usuário de outra pessoa?', 'Não. Não existe botão para comprar ou tomar um nome de usuário. Só há processos oficiais, que dependem de cada situação, e a decisão é da plataforma.'),
+        ('Vocês vendem nomes de usuário ou contas?', 'Nunca. Não compramos, vendemos nem transferimos contas. Só usamos os caminhos oficiais da plataforma.'),
+        ('E se meu pedido não der certo?', 'Você recebe 100% do valor de volta. Vale somente para pedidos de nome de usuário. Veja a <a href="/refund-policy/" hreflang="en" lang="en">refund policy</a> (em inglês).'),
+        ('Quanto custa?', 'O preço depende do nome de usuário e do caminho. Você fica sabendo na conversa, antes de o trabalho começar. Perguntar não custa nada.'),
+        ('Quem decide no final?', 'A plataforma. Nós preparamos e enviamos o pedido; não podemos decidir nem prometer nada em nome da plataforma.'),
+        ('Qualquer pessoa pode reivindicar um nome de usuário?', 'Sim, não é só para empresas. O caminho depende da situação: uma conta inativa, uma marca ou uma personificação.')],
+       ['inactive-user', 'pricing'],
+       meta('Reivindicar nome de usuário', 'Pedido de nome de usuário', 'Ajuda para reivindicar nomes de usuário inativos ou ocupados pelos processos oficiais da plataforma.'),
+       desc='Nome de usuário do Instagram ocupado ou inativo? Enviamos o pedido pelo processo oficial. Se não der certo, o reembolso é de 100%.', svc='username', extra=refund)
