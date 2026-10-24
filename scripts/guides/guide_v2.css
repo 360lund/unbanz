@@ -1,0 +1,185 @@
+/* ===== Guides v2 (guide pages + hub) ===== */
+.guide-page .service-hero{padding:46px 0 50px}
+.guide-page .service-hero h1{font-size:clamp(32px,5.2vw,60px);letter-spacing:-.05em;line-height:1.08;margin:20px 0 20px;max-width:860px}
+.guide-page .service-hero p{max-width:680px;font-size:17px;line-height:1.65;margin-bottom:18px}
+.guide-page .service-hero p a{text-decoration:underline;text-underline-offset:3px}
+.guide-page .service-hero .guide-meta{font-size:13.5px;color:#e6f3fd;margin:0 0 4px}
+.guide-page .service-hero .quick-answer{background:#fff;color:#25415d;border-radius:20px;padding:18px 22px;font-size:17.5px;line-height:1.6;box-shadow:inset 6px 0 0 #2d719f,0 10px 30px #1b43662e;margin:0 0 20px}
+.guide-page .service-hero .quick-answer strong{color:#2d719f}
+.guide-cta-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:20px}
+.guide-cta-top .gct-lead{flex:0 0 100%;font-size:17px;font-weight:700;color:#fff;margin:0}
+.guide-cta-top .button{min-height:56px;padding:15px 28px;font-size:16px;font-weight:600;gap:14px;box-shadow:0 8px 22px #1b436633}
+.guide-cta-top .button-light{color:#1e4a6f}
+.guide-cta-top .gct-mail{color:#fff;font-weight:600;font-size:16px;text-decoration:underline;text-underline-offset:4px;padding:10px 4px}
+.guide-page .guide-cta-top .gct-lead{max-width:none}
+
+/* layout: sticky contents + readable column */
+.guide-body.guide-v2{max-width:none;display:grid;grid-template-columns:270px minmax(0,740px);column-gap:68px;align-items:start;padding:44px 0 24px}
+.guide-v2 .guide-toc{grid-column:1;position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:#fff;border:1px solid #dbe8f1;border-radius:22px;padding:4px 14px 8px;margin:0}
+.guide-v2 .guide-toc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 6px 12px;font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#4d708a}
+.guide-v2 .guide-toc summary::-webkit-details-marker{display:none}
+.guide-v2 .guide-toc summary::after{content:"–";font-size:20px;line-height:1;color:#2d719f;letter-spacing:0}
+.guide-v2 .guide-toc details:not([open]) summary::after{content:"+"}
+.guide-v2 .guide-toc ol{list-style:none;margin:0 0 6px;padding:0;display:grid;gap:1px;counter-reset:none}
+.guide-v2 .guide-toc li{padding:0;font-size:14.5px;line-height:1.4;background:none;border:0;min-height:0;counter-increment:none}
+.guide-v2 .guide-toc li::before{content:none}
+.guide-v2 .guide-toc li a{display:block;padding:7px 10px;border-radius:10px;color:#25415d;text-decoration:none}
+.guide-v2 .guide-toc li a:hover,.guide-v2 .guide-toc li a:focus-visible{background:#e8f2f9;color:#245c83}
+.guide-main{grid-column:2;min-width:0}
+.guide-main>*:first-child{margin-top:0}
+
+/* type */
+.guide-v2 .guide-main p,.guide-v2 .guide-main li{font-size:17.5px;line-height:1.75;color:#3a566e}
+.guide-v2 .guide-main p+p{margin-top:16px}
+.guide-v2 .guide-main strong{color:#25415d}
+.guide-v2 .guide-main h2{font-size:31px;letter-spacing:-.035em;line-height:1.18;margin:0 0 16px;padding-top:34px;border-top:1px solid #d9e6ef;margin-top:42px;color:#25415d;scroll-margin-top:18px}
+.guide-v2 .guide-main>h2:first-child{border-top:0;padding-top:0}
+.guide-v2 .guide-main h3{font-size:21px;letter-spacing:-.02em;line-height:1.3;margin:28px 0 10px;color:#25415d;scroll-margin-top:18px}
+.guide-v2 .guide-main a{color:#2d719f;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.guide-v2 .guide-main a:hover{color:#245c83}
+.guide-v2 .guide-main ul{list-style:none;margin:16px 0;padding:0;display:grid;gap:10px}
+.guide-v2 .guide-main ul>li{position:relative;padding-left:26px}
+.guide-v2 .guide-main ul>li::before{content:"";position:absolute;left:5px;top:.72em;width:8px;height:8px;border-radius:50%;background:#2d719f}
+.guide-v2 .guide-main ol{list-style:none;margin:20px 0;padding:0;display:grid;gap:12px;counter-reset:st}
+.guide-v2 .guide-main ol>li{counter-increment:st;position:relative;min-height:60px;padding:15px 18px 15px 66px;background:#fff;border:1px solid #dce8f1;border-radius:18px}
+.guide-v2 .guide-main ol>li::before{content:counter(st);position:absolute;left:15px;top:13px;width:36px;height:36px;border-radius:50%;background:#2d719f;color:#fff;font-weight:700;font-size:16px;display:grid;place-items:center}
+.guide-v2 .guide-main li ul,.guide-v2 .guide-main li ol{margin:10px 0 0}
+.guide-v2 .guide-main li ol>li{background:#f7fafc}
+
+/* step headings */
+.guide-v2 .step-h{display:flex;align-items:center;gap:14px}
+.guide-v2 .step-h .step-n{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#2d719f;color:#fff;font-size:20px;font-weight:700;letter-spacing:0;display:grid;place-items:center;box-shadow:0 4px 12px #2d719f40}
+.guide-v2 h3.step-h .step-n{width:34px;height:34px;font-size:16px}
+.guide-v2 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* callouts */
+.guide-v2 .guide-callout{margin:42px 0 8px;border-radius:22px;padding:6px 24px 22px;border:1px solid transparent}
+.guide-v2 .guide-callout h2{border-top:0;padding-top:20px;margin:0 0 14px;font-size:25px;display:flex;align-items:center;gap:12px}
+.guide-v2 .guide-callout h2::before{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:800;line-height:1}
+.guide-v2 .guide-callout ul{margin:12px 0}
+.guide-v2 .guide-callout-warn{background:#fff4e4;border-color:#f3d6a8}
+.guide-v2 .guide-callout-warn h2::before{content:"!";background:#d9822b;color:#fff}
+.guide-v2 .guide-callout-warn p,.guide-v2 .guide-callout-warn li{color:#4d3a22}
+.guide-v2 .guide-callout-warn strong{color:#3b2a14}
+.guide-v2 .guide-callout-warn ul>li::before{background:#d9822b}
+.guide-v2 .guide-callout-info{background:#eaf3fa;border-color:#cfe2f0}
+.guide-v2 .guide-callout-info h2::before{content:"✓";background:#2d719f;color:#fff}
+.guide-v2 .guide-callout-info li{color:#2f4d66}
+.guide-v2 .guide-callout-info ul>li{padding-left:30px}
+.guide-v2 .guide-callout-info ul>li::before{content:"✓";background:none;color:#2d719f;width:auto;height:auto;font-weight:800;font-size:15px;top:.1em;left:4px;border-radius:0}
+
+/* tables */
+.guide-v2 .table-wrap{overflow-x:auto;margin:20px 0;border:1px solid #d9e6ef;border-radius:16px;background:#fff;-webkit-overflow-scrolling:touch}
+.guide-v2 .guide-main table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:440px}
+.guide-v2 .guide-main th{text-align:left;background:#e8f2f9;color:#25415d;font-weight:700;padding:12px 16px}
+.guide-v2 .guide-main td{padding:12px 16px;border-top:1px solid #e3edf4;color:#3a566e;vertical-align:top;line-height:1.55}
+
+/* CTA cards */
+.guide-cta-card{margin:44px 0;border-radius:26px;padding:28px 30px;background:#fff;border:1px solid #cfe2f0;border-left:7px solid #2d719f;box-shadow:0 10px 30px #2d719f14}
+.guide-cta-card .gcc-kicker{font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2d719f;margin:0 0 8px}
+.guide-v2 .guide-main .guide-cta-card .gcc-kicker{font-size:12.5px;color:#2d719f;line-height:1.4}
+.guide-v2 .guide-main .guide-cta-card .gcc-title{font-size:26px;line-height:1.2;letter-spacing:-.03em;font-weight:700;color:#25415d;margin:0 0 10px}
+.guide-v2 .guide-main .guide-cta-card .gcc-text{font-size:17px;line-height:1.65;color:#3a566e;margin:0 0 20px}
+.guide-cta-card .gcc-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.guide-v2 .guide-main .guide-cta-card a.button{color:#fff;text-decoration:none;min-height:54px;font-weight:600;font-size:16px}
+.guide-v2 .guide-main .guide-cta-card a.gcc-mail{font-weight:600;font-size:16px;color:#2d719f;padding:10px 2px}
+.guide-cta-card-close{background:#25415d;border:0;border-left:0;box-shadow:0 14px 34px #25415d38}
+.guide-cta-card-close .gcc-kicker,.guide-v2 .guide-main .guide-cta-card-close .gcc-kicker{color:#a9cfe9}
+.guide-v2 .guide-main .guide-cta-card-close .gcc-title{color:#fff}
+.guide-v2 .guide-main .guide-cta-card-close .gcc-text{color:#d5e6f3}
+.guide-v2 .guide-main .guide-cta-card-close a.button{background:#fff;color:#1e4a6f}
+.guide-v2 .guide-main .guide-cta-card-close a.button:hover{background:#eaf4fc}
+.guide-v2 .guide-main .guide-cta-card-close a.gcc-mail{color:#fff}
+
+/* sources */
+.guide-v2 .guide-sources{margin-top:44px;padding-top:26px;border-top:1px solid #d9e6ef}
+.guide-v2 .guide-sources h2{font-size:22px;border:0;padding:0;margin:0 0 12px}
+.guide-v2 .guide-sources p{font-size:15px;color:#52708a}
+
+/* FAQ: light card, dark text */
+.guide-page .faq-section{background:#fff;color:#25415d;border:1px solid #d9e6ef;margin:10px 16px 48px;padding:54px 0 36px}
+.guide-page .faq-section .faq-layout{grid-template-columns:minmax(0,1fr);gap:20px;width:min(1216px,calc(100% - 96px))}
+.guide-page .faq-section .simple-faq{max-width:800px}
+.guide-page .faq-section .faq-intro{padding-top:0}
+.guide-page .faq-section .faq-intro>.eyebrow{color:#2d719f}
+.guide-page .faq-section .faq-intro h2{font-size:38px;max-width:none;margin-top:10px;color:#25415d}
+.guide-page .simple-faq details,.guide-page .faq-entry{border-bottom:1px solid #d9e6ef}
+.guide-page .simple-faq summary,.guide-page .faq-trigger{color:#25415d;font-size:19px;font-weight:600;padding:20px 4px}
+.guide-page .simple-faq summary>span,.guide-page .faq-trigger>span{color:#2d719f}
+.guide-page .faq-trigger:hover{color:#2d719f}
+.guide-page .simple-faq p,.guide-page .faq-answer p{color:#3a566e;font-size:16.5px;line-height:1.75;padding:0 36px 22px 4px}
+.guide-page .simple-faq p a,.guide-page .faq-answer a{color:#2d719f;text-decoration:underline;text-underline-offset:3px}
+.guide-page .faq-answer-inner{color:#3a566e}
+
+/* closing service block + related */
+.guide-page .service-proof{padding-bottom:26px}
+.guide-page .service-proof h2{font-size:34px;color:#25415d}
+.guide-page .service-proof p{color:#3a566e}
+.guide-page .service-proof .button-light{box-shadow:inset 0 0 0 1px #c9dcea;background:#fff}
+.guide-page .related-services{align-items:center;padding:6px 0 18px}
+.guide-page .related-services .rel-label{flex:0 0 100%;font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#4d708a;margin:10px 0 0}
+.guide-page .related-services a{background:#e4eef6;color:#25415d;font-size:14px;padding:11px 16px}
+.guide-page .related-services a:hover{background:#d6e7f3}
+
+/* hub */
+.hub-jump{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.hub-jump a{padding:11px 18px;border-radius:30px;background:#fff;color:#1e4a6f;font-size:15px;font-weight:600}
+.hub-jump a:hover{background:#eaf4fc}
+.guide-hub{padding:44px 0 20px}
+.hub-group{padding-top:12px;margin-bottom:46px;scroll-margin-top:16px}
+.hub-group>h2{display:flex;align-items:baseline;gap:12px;font-size:34px;letter-spacing:-.04em;margin:0 0 18px;color:#25415d}
+.hub-group>h2 small{font-size:14px;letter-spacing:0;font-weight:600;color:#5d7a90}
+.hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hub-card{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid #dce8f1;border-radius:22px;padding:22px 22px 20px;color:#25415d;transition:transform .24s var(--ease),box-shadow .24s ease,border-color .24s ease}
+.hub-card:hover,.hub-card:focus-visible{transform:translateY(-3px);border-color:#9fc4de;box-shadow:0 12px 28px #2d719f1f}
+.hub-card .hub-tag{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2d719f;background:#e6f0f8;border-radius:20px;padding:5px 11px}
+.hub-card strong{font-size:19px;line-height:1.28;letter-spacing:-.02em;color:#25415d}
+.hub-card .hub-desc{font-size:15px;line-height:1.6;color:#4a667e}
+.hub-card .hub-more{margin-top:auto;padding-top:4px;font-size:14.5px;font-weight:600;color:#2d719f}
+.hub-cta{max-width:none}
+.hub-cta .guide-cta-card{margin:10px 0 40px}
+
+@media (max-width:1100px){
+.guide-body.guide-v2{grid-template-columns:230px minmax(0,1fr);column-gap:40px}
+.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+.guide-body.guide-v2{display:block;padding-top:28px}
+.guide-v2 .guide-toc{position:static;max-height:none;margin:0 0 30px}
+.guide-main{max-width:720px}
+}
+@media (max-width:650px){
+.guide-page .faq-section .faq-layout{width:calc(100% - 28px)}
+.guide-page .service-hero{padding:30px 0 34px}
+.guide-page .service-hero h1{font-size:clamp(30px,8.6vw,40px);margin:18px 0 16px}
+.guide-page .service-hero p{font-size:16px}
+.guide-page .service-hero .quick-answer{font-size:16.5px;padding:16px 18px;border-radius:18px}
+.guide-cta-top{gap:10px}
+.guide-cta-top .button{width:100%;padding-inline:18px}
+.guide-cta-top .gct-mail{flex:0 0 100%;text-align:center;padding:8px}
+.guide-v2 .guide-main p,.guide-v2 .guide-main li{font-size:16.5px;line-height:1.72}
+.guide-v2 .guide-main h2{font-size:26px;padding-top:28px;margin-top:36px}
+.guide-v2 .step-h{gap:12px;align-items:flex-start}
+.guide-v2 .step-h .step-n{width:38px;height:38px;font-size:17px}
+.guide-v2 .guide-main ol>li{padding:14px 14px 14px 58px}
+.guide-v2 .guide-main ol>li::before{left:12px;top:12px;width:34px;height:34px}
+.guide-v2 .guide-callout{padding:4px 18px 18px;border-radius:20px}
+.guide-v2 .guide-callout h2{font-size:22px}
+.guide-cta-card{padding:22px 20px;border-radius:22px;margin:36px 0}
+.guide-v2 .guide-main .guide-cta-card .gcc-title{font-size:23px}
+.guide-cta-card .gcc-actions .button{width:100%}
+.guide-cta-card .gcc-mail{flex:0 0 100%;text-align:center}
+.guide-page .faq-section{margin:6px 8px 36px;padding:36px 0 22px}
+.guide-page .faq-section .faq-intro h2{font-size:30px}
+.guide-page .simple-faq summary,.guide-page .faq-trigger{font-size:17.5px;padding:18px 2px}
+.guide-page .simple-faq p,.guide-page .faq-answer p{font-size:16px;padding:0 8px 20px 2px}
+.guide-page .service-proof h2{font-size:28px}
+.guide-page .service-proof .cta-pair .button{width:100%}
+.guide-page .related-services a{font-size:13.5px;padding:10px 14px}
+.hub-grid{grid-template-columns:1fr}
+.hub-group>h2{font-size:28px}
+.hub-jump a{font-size:14px;padding:10px 15px}
+.guide-body.guide-v2{padding-bottom:10px}
+}
+.guide-main .note{background:#eaf3fa;border-radius:14px;padding:6px 20px;margin:22px 0;border-left:4px solid #2d719f}
+.guide-main .note p{margin:12px 0}
