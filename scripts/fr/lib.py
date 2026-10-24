@@ -269,7 +269,7 @@ def guide_page(slug, h1, answer, secs, faq, related, help_html, crumb_label='Gui
     crumbs = [('Accueil', BASE + '/fr/'), (crumb_label, url('services') if crumb_label == 'Services' else url('faq')), (d['nav'], url(slug))]
     return page_shell(d, main, faq, crumbs)
 
-def service_page(slug, h1, answer, bold, cards1, steps, cards3_title_override, faq, guides, svc, crumb_label='Services', extra=''):
+def service_page(slug, h1, answer, bold, cards1, steps, cards3_title_override, faq, guides, svc, crumb_label='Services', extra='', refund=False):
     d = PAGES[slug]
     def art(items):
         return '<section class="service-editorial container">' + ''.join('<article><h2>%s</h2><p>%s</p></article>' % (h, p) for h, p in items) + '</section>'
@@ -278,6 +278,9 @@ def service_page(slug, h1, answer, bold, cards1, steps, cards3_title_override, f
               ('Votre mot de passe reste chez vous', 'Il nous suffit du nom d’utilisateur et de la notification. Votre mot de passe et vos codes restent avec vous.')]
     price = ('<section class="service-price container"><h2>Connaître le prix<br>avant de commencer.</h2><div><p>Écrivez-nous sur WhatsApp ou par e-mail, expliquez-nous la situation et nous revenons vers vous avec le prix.</p>'
              '<a href="/fr/prix-recuperation-compte/">Comment est établi le prix ↗︎</a></div></section>')
+    if refund:
+        price += ('<section class="service-price container"><h2>Politique de<br>remboursement.</h2><div><p>Remboursement intégral à 100\u00a0% si la réclamation du nom d’utilisateur échoue. Une réclamation échoue lorsque le pseudo n’est pas obtenu sur votre profil. Cette politique concerne uniquement les réclamations de pseudo.</p>'
+                  '<a href="/fr/prix-recuperation-compte/">Comment est établi le prix ↗︎</a></div></section>')
     gl = ('<section class="guide-links container"><h2>Guides associés</h2>' + related_nav(guides, 'Guides associés').replace(' container', '') + '</section>') if guides else ''
     main = ('<main id="content">' + hero(d, h1, answer, crumb_label) +
             '<section class="answer-first container" style="padding-top:48px"><p style="max-width:860px;font-size:19px;line-height:1.5;margin:0"><strong>%s</strong></p></section>' % bold +
@@ -320,5 +323,5 @@ def service(slug, en, title, nav, h1, answer, bold, cards1, steps, faq, guides, 
     reg(slug, 'service', en, title, desc or autodesc(answer), nav)
     def b():
         SVC[0] = svc
-        return service_page(slug, h1, answer, bold, cards1, steps, None, faq, guides, svcmeta)
+        return service_page(slug, h1, answer, bold, cards1, steps, None, faq, guides, svcmeta, refund=(svc == 'username'))
     BUILD[slug] = b

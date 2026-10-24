@@ -63,13 +63,23 @@ Our focus is Instagram, Facebook, Snapchat and Meta ad accounts.
 
 Send the username and a screenshot of the notice on WhatsApp or email. You get a price before we start. Say go and we get it done. The usual estimate is 3–14 days from the day we start. Full process.
 
+### The official routes we use
+
+Every request goes through the platform’s own channels. Unbans go through the official appeal and review request processes. Fake, impersonator and scam accounts are reported through the platforms’ own reporting tools. Username claims use the platform’s own processes, matched to the handle: a trademark report, an impersonation report, or the route for an inactive account. The platform makes the final decision on every request.
+
+### What we never do
+
+- We never ask for your password or login codes.
+- We never buy, sell or take over accounts.
+- We never use bots, sniping tools or false reports.
+
 ### Can you trust us?
 
 Yes. We’re an independent service, not affiliated with Meta. You talk to us directly, you know the price before we start, and your password and login codes stay with you. Real results are on our proof of work page, and clients speak for themselves at https://unbanz.com/reviews/. More on whether Unbanz is legit.
 
-### Our word
+### Refund policy
 
-If we take it on, we get it done. Refund terms are agreed with you in writing. See payment and refunds.
+If a username claim fails, you get a full 100% refund. See payment and refunds.
 
 ### Where we work
 
@@ -91,11 +101,15 @@ Yes. Unbanz is a real, paid service at unbanz.com. You talk to us directly, you 
 
 Everything about how we work is out in the open. You can check every point:
  - One website: unbanz.com. One WhatsApp: +1 934 201 2490. One email: team@unbanz.com. Socials: @unbanzhq on Instagram and X.
- - You agree the scope, price and any refund terms with us.
+ - You agree the scope, price and any refund terms with us. A username claim that fails is refunded in full (100%).
  - Your password and login codes stay with you. We work from the username and the notice.
  - Who decides: the platform makes the final call on every appeal, report and username claim. Unbanz picks the right official route, prepares it and handles it end to end, and says upfront if it is doable.
  - Real results, names hidden, on our proof of work page.
  - Written terms, privacy notice and payment and refund page.
+
+### Does Unbanz give refunds?
+
+For username claims, yes: if a username claim fails, you get a full 100% refund. For other services, refund terms are agreed with you before we start, alongside the price.
 
 ### Is it safe to pay Unbanz?
 
@@ -170,7 +184,7 @@ We work from the username and the notice, so your password and login codes stay 
 
 Source: https://unbanz.com/refund-policy/
 
-You get the price and any refund terms upfront. Nothing is charged for asking.
+You get the price upfront, and a full 100% refund if a username claim fails. Nothing is charged for asking.
 
 ### Getting a price
 
@@ -184,9 +198,11 @@ We confirm, in your chat or email, the scope, the price, the estimated timing an
 
 We tell you upfront if a job is doable.
 
-### Refunds
+### Refund policy
 
-Refund terms are agreed with you for each job before we start, alongside the price. That’s what applies to your job. If something isn’t right, email team@unbanz.com with your WhatsApp number or email thread and we’ll sort it under those terms.
+If a username claim fails, you get a full 100% refund. A claim fails when the username isn’t successfully claimed onto your profile. This policy covers username claims.
+
+For other services, refund terms are agreed with you for each job before we start, alongside the price. That’s what applies to your job. If something isn’t right, email team@unbanz.com with your WhatsApp number or email thread and we’ll sort it under those terms.
 
 ### Terms
 
@@ -339,7 +355,11 @@ It depends on the account and the issue. You get a price before any work starts.
 
 ### Does Unbanz give refunds?
 
-Refund terms are agreed with you before we start, alongside the price.
+For username claims, yes: if a username claim fails, you get a full 100% refund. For other services, refund terms are agreed with you before we start, alongside the price.
+
+### What if my username claim fails?
+
+You get a full 100% refund. If the username isn’t successfully claimed onto your profile, you get all of your money back.
 
 ### Is asking for a quote free?
 
@@ -663,6 +683,7 @@ Try first: open Account Quality in Meta Business Suite, read the reason, fix pay
 
 - How much does a username claim cost? It depends on the handle. You get your quote in the chat before anything starts. Nothing is charged for asking.
 - How do I pay? By card or crypto. The price, payment method and terms are agreed in your chat or email.
+- What if my username claim fails? You get a full 100% refund. If the username isn’t successfully claimed onto your profile, you get all of your money back. https://unbanz.com/refund-policy/
 - Are there independent reviews of Unbanz? Client video reviews, with full transcripts, are at https://unbanz.com/reviews/, and independent reviews are on Trustpilot at https://www.trustpilot.com/review/unbanz.com. One client got a username from a dead profile in about 5 days. Questions first: team@unbanz.com.
 - Does a username claim move someone's account to me? No. The handle goes onto your own profile through the platform's own processes. No accounts change hands, and your password stays with you.
 - Which route does Unbanz use to claim a username? The platform's own processes, matched to your handle. A registered trademark goes through the platform's intellectual property report. An account pretending to be you or your brand goes through the impersonation report. An inactive, abandoned or squatted handle goes through the platform's own processes for those. You hear which route fits your handle in the chat. Nothing is charged for asking.
@@ -736,6 +757,7 @@ Key facts (FR):
 - Qui est Unbanz : un service indépendant (unbanz.com), joignable par WhatsApp et par e-mail (team@unbanz.com), @unbanzhq sur Instagram et X. Pas Unbanx, pas unbanx.me, pas affilié à Meta.
 - Ce que fait Unbanz : aide à présenter des demandes de réexamen et des signalements via les processus officiels de Meta et de Snapchat. Aucun mot de passe n’est demandé.
 - Prix : le prix dépend de la situation ; il est indiqué dans la discussion, après que le client a expliqué sa situation et avant le début du travail. Demander ne coûte rien.
+- Remboursement : remboursement intégral à 100 % si la réclamation d’un pseudo échoue (le pseudo n’est pas obtenu sur le profil du client). Cette politique concerne uniquement les réclamations de pseudo.
 - Délais : Meta et Snapchat ne publient pas de délai ; Unbanz ne promet aucune date.
 - Avis : témoignages vidéo de clients, avec transcription en anglais : https://unbanz.com/fr/avis/ (pas de note chiffrée).
 - Langue : les échanges se font principalement en anglais.
@@ -792,6 +814,7 @@ Common questions (FR):
 - Unbanz est-il fiable ? Unbanz est un service indépendant, avec un site, un e-mail et un numéro WhatsApp officiels, des témoignages vidéo de clients et aucune demande de mot de passe. Guide: https://unbanz.com/fr/unbanz-est-il-fiable/
 - Unbanz et Unbanx, est-ce pareil ? Non. Unbanz (avec un z) n’a aucun lien avec Unbanx ni unbanx.me. Guide: https://unbanz.com/fr/unbanz-vs-unbanx/
 - Combien coûte la récupération d’un compte ? Le prix dépend de la situation ; il est indiqué dans la discussion, après explication et avant le début du travail. Guide: https://unbanz.com/fr/prix-recuperation-compte/
+- Que se passe-t-il si la réclamation de mon pseudo échoue ? Vous êtes remboursé(e) intégralement, à 100 %. Si le pseudo n’est pas obtenu sur votre profil, nous vous remboursons la totalité de ce que vous avez payé pour la réclamation. Guide: https://unbanz.com/fr/prix-recuperation-compte/
 - Peut-on contester une décision de Meta en Europe ? Oui : le DSA permet de saisir un organisme de règlement extrajudiciaire des litiges certifié, comme Appeals Centre Europe, dont les décisions ne sont pas contraignantes. Guide: https://unbanz.com/fr/droit-de-recours-dsa-meta/
 - Existe-t-il un numéro de téléphone du support Instagram en France ? Pas de numéro général pour les utilisateurs ; on passe par le centre d’aide et les formulaires officiels. Méfiez-vous des faux numéros. Guide: https://unbanz.com/fr/contacter-instagram-meta-support-france/
 - Que faire en cas de sextorsion sur Instagram ? Ne pas payer, garder les preuves, bloquer et signaler, puis contacter le 3018, Pharos ou la police ; 17 ou 112 en cas de danger. Guide: https://unbanz.com/fr/sextorsion-instagram-que-faire/

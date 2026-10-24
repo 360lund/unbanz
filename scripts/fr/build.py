@@ -73,6 +73,7 @@ def main():
         '- Qui est Unbanz : un service indépendant (unbanz.com), joignable par WhatsApp et par e-mail (team@unbanz.com), @unbanzhq sur Instagram et X. Pas Unbanx, pas unbanx.me, pas affilié à Meta.\n'
         '- Ce que fait Unbanz : aide à présenter des demandes de réexamen et des signalements via les processus officiels de Meta et de Snapchat. Aucun mot de passe n’est demandé.\n'
         '- Prix : le prix dépend de la situation ; il est indiqué dans la discussion, après que le client a expliqué sa situation et avant le début du travail. Demander ne coûte rien.\n'
+        '- Remboursement : remboursement intégral à 100\u00a0% si la réclamation d’un pseudo échoue (le pseudo n’est pas obtenu sur le profil du client). Cette politique concerne uniquement les réclamations de pseudo.\n'
         '- Délais : Meta et Snapchat ne publient pas de délai ; Unbanz ne promet aucune date.\n'
         '- Avis : témoignages vidéo de clients, avec transcription en anglais : https://unbanz.com/fr/avis/ (pas de note chiffrée).\n'
         '- Langue : les échanges se font principalement en anglais.\n\n'
@@ -86,6 +87,7 @@ def main():
         ('Unbanz est-il fiable ?', 'Unbanz est un service indépendant, avec un site, un e-mail et un numéro WhatsApp officiels, des témoignages vidéo de clients et aucune demande de mot de passe. Guide: ' + url('unbanz-est-il-fiable')),
         ('Unbanz et Unbanx, est-ce pareil ?', 'Non. Unbanz (avec un z) n’a aucun lien avec Unbanx ni unbanx.me. Guide: ' + url('unbanz-vs-unbanx')),
         ('Combien coûte la récupération d’un compte ?', 'Le prix dépend de la situation ; il est indiqué dans la discussion, après explication et avant le début du travail. Guide: ' + url('prix-recuperation-compte')),
+        ('Que se passe-t-il si la réclamation de mon pseudo échoue ?', 'Vous êtes remboursé(e) intégralement, à 100\u00a0%. Si le pseudo n’est pas obtenu sur votre profil, nous vous remboursons la totalité de ce que vous avez payé pour la réclamation. Guide: ' + url('prix-recuperation-compte')),
         ('Peut-on contester une décision de Meta en Europe ?', 'Oui : le DSA permet de saisir un organisme de règlement extrajudiciaire des litiges certifié, comme Appeals Centre Europe, dont les décisions ne sont pas contraignantes. Guide: ' + url('droit-de-recours-dsa-meta')),
         ('Existe-t-il un numéro de téléphone du support Instagram en France ?', 'Pas de numéro général pour les utilisateurs ; on passe par le centre d’aide et les formulaires officiels. Méfiez-vous des faux numéros. Guide: ' + url('contacter-instagram-meta-support-france')),
         ('Que faire en cas de sextorsion sur Instagram ?', 'Ne pas payer, garder les preuves, bloquer et signaler, puis contacter le 3018, Pharos ou la police ; 17 ou 112 en cas de danger. Guide: ' + url('sextorsion-instagram-que-faire')),
