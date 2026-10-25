@@ -270,6 +270,7 @@ button,input,select{font:inherit;color:inherit}
 
   <section class="kpis" id="kpis"></section>
   <div class="mini num" id="mini"></div>
+  <div class="mini num" id="funnel"></div>
 
   <section class="card full">
     <div class="ch"><h2>Visitors</h2><div class="legend"><span><i></i>Visitors</span><span><i class="c"></i>Contacted</span></div></div>
@@ -391,6 +392,9 @@ button,input,select{font:inherit;color:inherit}
     $('#kpis').innerHTML = cards.map(([l, v, dl, s], i) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num${i == 4 && +v ? ' red' : ''}">${v}</div><div class="row">${dl}${s ? spark(s) : ''}</div></div>`).join('');
     const K = d.kpi;
     $('#mini').innerHTML = `<span><b>${fmt(K.today)}</b>today ${delta(K.today, K.yesterday)}</span><span><b>${fmt(K.d7)}</b>last 7 days ${delta(K.d7, K.p7)}</span><span><b>${fmt(K.d30)}</b>last 30 days ${delta(K.d30, K.p30)}</span>`;
+    // funnel: visits -> CTA on screen -> popup (a CTA tap) -> WhatsApp. 'Tracked' = visits from the engagement-aware tracker (older rows have no CTA/scroll data).
+    const fs = (l, n, of) => `<span><b>${fmt(n)}</b>${l}${of ? ` <span class="mut">${pct(n, of).toFixed(0)}%</span>` : ''}</span>`;
+    $('#funnel').innerHTML = `<span class="mut">Funnel</span>${fs('visits', R.visitors)}${+R.tracked ? fs('with CTA data', R.tracked, R.visitors) + fs('saw a CTA', R.seen_cta, R.tracked) + fs('scrolled 50%+', R.deep, R.tracked) : ''}${fs('opened popup', R.popup, R.visitors)}${fs('WhatsApp', R.wa, R.visitors)}${R.popup ? `<span class="mut">${pct(R.wa, R.popup).toFixed(0)}% of popups → WhatsApp</span>` : ''}`;
     $('#rlabel').textContent = 'vs previous ' + ({ today: 'day', '7d': '7 days', '30d': '30 days', '90d': '90 days', custom: 'period' }[st.range]);
     chart(D);
     // sources
@@ -409,7 +413,7 @@ button,input,select{font:inherit;color:inherit}
     const lmax = Math.max(1, ...d.landing.map((x) => x.n));
     $('#landing').innerHTML = d.landing.length ? d.landing.map((x) => `<div class="br" style="cursor:default" title="${esc(x.k)}"><span class="fill" style="width:${(x.n / lmax) * 100}%"></span><span class="ic" aria-hidden="true">/</span><span class="nm">${esc(x.k)}</span><span class="n num">${fmt(x.n)}</span><span class="p num">${pct(x.n, R.visitors).toFixed(0)}%</span></div>`).join('') : EMPTY('No pages yet', 'Landing pages appear after the first visit.');
     // recent
-    const outc = (v) => v.clicked_whatsapp ? '<span class="out wa">WhatsApp</span>' : v.clicked_email ? '<span class="out em">Email</span>' : v.opened_popup ? '<span class="out">Opened popup</span>' : '<span class="out">Browsed</span>';
+    const outc = (v) => v.clicked_whatsapp ? '<span class="out wa">WhatsApp</span>' : v.clicked_email ? '<span class="out em">Email</span>' : v.opened_popup ? '<span class="out">Opened popup</span>' : `<span class="out">${v.saw_cta ? 'Saw CTA' : 'Browsed'}${v.scroll_max != null ? ' · ' + v.scroll_max + '%' : ''}</span>`;
     const pick = (v) => [v.platform, v.service].filter(Boolean).join(' · ');
     const loc = (v) => v.country ? `${flag(v.country)} ${esc(v.city ? v.city + ', ' : '')}${esc(country(v.country))}` : '<span class="mut">Unknown</span>';
     const pill = (v) => `<span class="pill ${v.g === 'AI' ? 'ai' : ''}">${esc(v.source)}</span>`;

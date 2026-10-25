@@ -4,7 +4,7 @@
 import { sql } from "./_lib/db.mjs";
 import crypto from "node:crypto";
 let migrated;
-const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text, add column if not exists tz text, add column if not exists ip text, add column if not exists ip_country text, add column if not exists ip_region text, add column if not exists ip_city text, add column if not exists ip_tz text, add column if not exists vpn boolean, add column if not exists vpn_reason text, add column if not exists is_test boolean`).catch((e) => { migrated = null; throw e; }));
+const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text, add column if not exists tz text, add column if not exists ip text, add column if not exists ip_country text, add column if not exists ip_region text, add column if not exists ip_city text, add column if not exists ip_tz text, add column if not exists vpn boolean, add column if not exists vpn_reason text, add column if not exists is_test boolean, add column if not exists saw_cta boolean, add column if not exists scroll_max int, add column if not exists active_s int`).catch((e) => { migrated = null; throw e; }));
 let presenceReady;
 const presenceTable = () => (presenceReady ||= sql(`create table if not exists presence (visitor_id text primary key, last_seen timestamptz not null default now(), path text, country text)`).catch((e) => { presenceReady = null; throw e; }));
 // Live "online now": last-seen per visitor. /users views never count.
@@ -65,6 +65,11 @@ export default async function handler(req, res) {
          S(req.headers["x-vercel-ip-country"], 2), S(city, 80), u.device, u.browser, u.os, vid,
          tz, ip, S(dec(req.headers["x-vercel-ip-country-region"]), 20), iptz, vpn, vpn ? `Browser time zone ${tz} vs IP time zone ${iptz}` : null, b.x === 1],
       );
+    } else if (b.e === "eng") {
+      // Engagement beat from the tracker: a WhatsApp CTA was on screen (c), furthest scroll % (sc) and active seconds since the last beat (t).
+      // Does not touch last_at, so it never changes visit timing or the conversion flags.
+      const sc = Math.max(0, Math.min(100, parseInt(b.sc, 10) || 0)), t = Math.max(0, Math.min(1800, parseInt(b.t, 10) || 0));
+      await sql(`update visits set saw_cta = coalesce(saw_cta, false) or $2::boolean, scroll_max = greatest(coalesce(scroll_max, 0), $3::int), active_s = least(coalesce(active_s, 0) + $4::int, 7200) where id = $1`, [id, b.c === 1, sc, t]);
     } else if (b.e === "click") {
       const k = b.k === "whatsapp" ? "clicked_whatsapp" : b.k === "email" ? "clicked_email" : b.k === "popup" ? "opened_popup" : null;
       if (k) await sql(`update visits set ${k} = true, platform = coalesce($2, platform), service = coalesce($3, service), last_at = now() where id = $1`, [id, S(b.pl, 20), S(b.sv, 20)]);
