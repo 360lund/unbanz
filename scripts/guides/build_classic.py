@@ -1,12 +1,12 @@
 """Classic (pre-redesign) presentation for guides. Restores the 21 originals + hub from 5b529e7^
-and rebuilds the new guides with the original template/markup (stylesheet site.7c2d3ae502c9.css)."""
+and rebuilds the new guides with the original template/markup (stylesheet site.0c72990a1a48.css)."""
 import re, json, html, os, subprocess, sys, glob
 sys.path.insert(0, '/workspace/site/scripts/guides')
 import build_new as bn
 from common import ROOT, wa_link, mail_link, attrs
 
 BASE = '5b529e7^'
-CSS = 'site.7c2d3ae502c9.css'
+CSS = 'site.0c72990a1a48.css'
 smart, plain = bn.smart, bn.plain
 
 def git_show(path):

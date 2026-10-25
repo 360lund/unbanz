@@ -1,6 +1,6 @@
 import re, glob, hashlib, os, sys
 ROOT = '/workspace/site'
-base = open(ROOT + '/assets/site.7c2d3ae502c9.css', encoding='utf-8').read()
+base = open(ROOT + '/assets/site.0c72990a1a48.css', encoding='utf-8').read()
 add = open(ROOT + '/scripts/guides/guide_v2.css', encoding='utf-8').read()
 css = base.rstrip('\n') + '\n' + add
 name = 'site.' + hashlib.sha256(css.encode()).hexdigest()[:12] + '.css'
