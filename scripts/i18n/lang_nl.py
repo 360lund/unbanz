@@ -59,7 +59,8 @@ S = dict(
  vt_transcript='Transcript (in het Engels)', vt_play='Video afspelen',
  vt_titles=[('Client on claiming an inactive Instagram username with Unbanz', 'Video afspelen: klant over het claimen van een inactieve Instagram-gebruikersnaam', 'Klant: videoreview over een Instagram-gebruikersnaam-verzoek', 'Username claim', 'Gebruikersnaam'),
             ('Management agency owner on working with Unbanz', 'Video afspelen: eigenaar van een marketingbureau over het werken met Unbanz', 'Bureau-eigenaar: videoreview over het werken met Unbanz', 'Agency owner', 'Bureau-eigenaar'),
-            ('Restricted Facebook ad account restored by Unbanz', 'Video afspelen: beperkt Facebook-advertentieaccount weer actief', 'Klant: videoreview over een beperkt advertentieaccount', 'Ad account', 'Advertentieaccount')],
+            ('Restricted Facebook ad account restored by Unbanz', 'Video afspelen: beperkt Facebook-advertentieaccount weer actief', 'Klant: videoreview over een beperkt advertentieaccount', 'Ad account', 'Advertentieaccount'),
+            ('Client on getting an Instagram username held by an inactive account', 'Video afspelen: klant over een Instagram-gebruikersnaam die door een inactief account werd vastgehouden', 'Klant: videoreview over een Instagram-gebruikersnaam van een inactief account', 'Instagram username', 'Instagram-naam')],
  # ---- JS (contact modal)
  js_services="['unban', 'Mijn account terugkrijgen'], ['ban', 'Account melden'], ['username', 'Gebruikersnaam'], ['ad', 'Advertentieaccount'], ['other', 'Anders']",
  js_eyebrow='SCHRIJF ONS', js_title='Waar heb je hulp bij nodig?', js_legend_service='Dienst', js_legend_platform='Platform',
@@ -151,7 +152,7 @@ C['reviews'] = dict(
  title='Reviews: video\'s van klanten van Unbanz',
  desc='Video\'s van klanten die met Unbanz werkten: een gebruikersnaam-verzoek, een bureau en een beperkt advertentieaccount. In het Engels.',
  nav='Reviews', h1='Klanten aan het woord.',
- p='Drie klanten vertellen in hun eigen woorden hoe het werken met Unbanz ging. De video\'s en transcripten zijn in het Engels.',
+ p='Vier klanten vertellen in hun eigen woorden hoe het werken met Unbanz ging. De video\'s en transcripten zijn in het Engels.',
  video_aria='Video-reviews van klanten', mail='Of stuur een e-mail', pick='Waar gaat het over?',
  pick_opts=[('Account terugkrijgen', 'Hoi Unbanz, ik wil mijn account terugkrijgen.', 'unban'), ('Gebruikersnaam', 'Hoi Unbanz, ik wil een gebruikersnaam claimen.', 'username'), ('Advertentieaccount', 'Hoi Unbanz, ik heb hulp nodig met een advertentieaccount.', 'ad')],
  q_h2='Vragen over deze reviews.',

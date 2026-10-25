@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Single source for video testimonials. Edit scripts/testimonials.json (+ add poster at
 assets/testimonials/<id>.jpg), then run: python3 scripts/build_testimonials.py
-Rebuilds the homepage section (first 3) and /reviews/ (all), with VideoObject schema."""
+Rebuilds the homepage section (all) and /reviews/ (all), with VideoObject schema.
+NOTE: /reviews/ has since been hand-patched (rv-fix style, auto-swipe script, FAQ JSON-LD, hreflang); set SKIP_REVIEWS=1 to rebuild only the homepage."""
 import json, re, hashlib, os, html
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(R)
 V = json.load(open('scripts/testimonials.json'))
@@ -22,17 +23,19 @@ def card(v, open_tr=False):
 def vo(v, page):
     return {"@type": "VideoObject", "@id": f"{page}#video-{v['id']}", "name": v["name"], "description": v["description"],
             "thumbnailUrl": [f"https://unbanz.com/assets/testimonials/{v['id']}.jpg"], "uploadDate": v["uploadDate"], "duration": v["duration"],
-            "contentUrl": v["src"], "transcript": v["transcript"], "inLanguage": "en", "publisher": {"@id": "https://unbanz.com/#organization"}}
+            "contentUrl": v["src"] if v["src"].startswith("http") else "https://unbanz.com" + v["src"], "transcript": v["transcript"], "inLanguage": "en", "publisher": {"@id": "https://unbanz.com/#organization"}}
 LD = lambda g: '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": g}, ensure_ascii=False, separators=(",", ":")) + '</script>'
 # homepage
 s = open('index.html').read()
 sec = ('<section class="vt container" id="testimonials" aria-labelledby="vt-title"><div class="vt-head"><div><p class="eyebrow">CLIENTS</p><h2 id="vt-title">In their words.</h2></div>'
-       '</div><ul class="vt-track">' + ''.join(card(v) for v in V[:3]) + '</ul></section>')
+       '</div><ul class="vt-track">' + ''.join(card(v) for v in V) + '</ul></section>')
 s = re.sub(r'<section class="vt container".*?</ul></section>', lambda m: sec, s, count=1, flags=re.S)
 s = re.sub(r'(?:<link rel="preconnect" href="https://cdn.dbimg.app">)?<link rel="stylesheet" href="/assets/testimonials\.\w+\.css"><script src="/assets/testimonials\.\w+\.js" defer></script><script type="application/ld\+json">[^<]*VideoObject[^<]*</script>',
-           lambda m: ASSETS + LD([vo(v, "https://unbanz.com/") for v in V[:3]]), s, count=1)
+           lambda m: ASSETS + LD([vo(v, "https://unbanz.com/") for v in V]), s, count=1)
 open('index.html', 'w').write(s)
 # /reviews/ built from the /work/ page shell (same header, menu, footer)
+if os.environ.get('SKIP_REVIEWS'):
+    print('built homepage; assets', h); raise SystemExit
 t = open('work/index.html').read()
 U = "https://unbanz.com/reviews/"
 TITLE = "Unbanz Reviews: Video Reviews from Clients | Unbanz"
@@ -51,6 +54,7 @@ graph = [org, {"@type": "WebPage", "@id": U + "#webpage", "url": U, "name": TITL
 t = t.replace('</head>', LD(graph) + ASSETS + '</head>', 1)
 RV_CSS = ('<style>.rv-top{padding:36px 0 8px}.rv-top h1{font-size:44px;letter-spacing:-.045em;line-height:1.05;margin:0}.rv-top p{margin:10px 0 0;font-size:17px;opacity:.75}'
   '.rv .vt-page{padding:22px 0 0}.rv .vt-page .vt-track{max-width:860px;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}'
+  '@media (min-width:761px){.rv .vt-page .vt-track:has(>.vt-card:nth-child(4)){max-width:1160px;grid-template-columns:repeat(4,minmax(0,1fr))}}'
   '.rv .vt-play b{font-size:17px}.rv .vt-play i{width:58px;height:58px}'
   '.rv-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:34px 0 10px}.rv-cta .button{font-size:17px;padding-inline:28px}.rv-cta .rv-mail{font-weight:600;text-decoration:underline;text-underline-offset:3px}'
   '.rv-faq{padding:46px 0 70px}.rv-faq h2{font-size:22px;letter-spacing:-.02em;margin:0 0 10px}'
