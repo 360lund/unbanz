@@ -10,7 +10,7 @@ CSS = '/assets/site.793cd0118fad.css'
 TCSS = '/assets/testimonials.633529d805.css'
 TJS = '/assets/testimonials.633529d805.js'
 SHARE = 'https://unbanz.com/assets/unbanz-share-v5.jpg'
-WA_NUM = 'https://wa.me/19342012490'
+WA_NUM = 'https://wa.me/447723162824'
 
 def read(p):
     with open(os.path.join(ROOT, p), encoding='utf-8') as f:

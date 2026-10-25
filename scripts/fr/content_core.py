@@ -197,7 +197,7 @@ BUILD['faq'] = b_faq
 def b_contact():
     d = PAGES['contact']
     def opt(t, text, sv):
-        return '<a class="contact-option" href="https://wa.me/19342012490?text=%s" data-service="%s">%s <span aria-hidden="true">↗︎</span></a>' % (text, sv, t)
+        return '<a class="contact-option" href="https://wa.me/447723162824?text=%s" data-service="%s">%s <span aria-hidden="true">↗︎</span></a>' % (text, sv, t)
     opts = ''.join([opt('Débloquer Instagram', 'Hey%20Unbanz%2C%20I%20want%20to%20unban%20my%20Instagram%20account', 'unban'),
                     opt('Signaler un faux compte', 'Hey%20Unbanz%2C%20I%20need%20an%20account%20taken%20down', 'ban'),
                     opt('Demander un pseudo', 'Hey%20Unbanz%2C%20I%20want%20to%20claim%20a%20username', 'username'),
@@ -227,10 +227,10 @@ def b_avis():
            ('Les avis sur Unbanx concernent-ils Unbanz ?', 'Non. Unbanx et unbanx.me n’ont aucun lien avec Unbanz. Voir <a href="/fr/unbanz-vs-unbanx/">Unbanz ou Unbanx</a>.')]
     rows = ''.join('<details><summary>%s<span aria-hidden="true">+</span></summary><p>%s</p></details>' % (q, a_) for q, a_ in faq)
     pick = ('<div class="rv-pick" role="group" aria-label="De quoi avez-vous besoin ?"><span>De quoi avez-vous besoin ?</span>'
-            '<a href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20want%20to%20get%20my%20account%20back" data-service="unban">Récupérer mon compte</a>'
-            '<a href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20an%20account%20removed" data-service="ban">Signaler un faux compte</a>'
-            '<a href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20want%20to%20claim%20a%20username" data-service="username">Demander un pseudo</a>'
-            '<a href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20ad%20account" data-service="ad">Compte publicitaire</a></div>')
+            '<a href="https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20want%20to%20get%20my%20account%20back" data-service="unban">Récupérer mon compte</a>'
+            '<a href="https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20need%20an%20account%20removed" data-service="ban">Signaler un faux compte</a>'
+            '<a href="https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20want%20to%20claim%20a%20username" data-service="username">Demander un pseudo</a>'
+            '<a href="https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20ad%20account" data-service="ad">Compte publicitaire</a></div>')
     main = ('<main id="content" class="rv"><section class="rv-top container"><h1>Avis clients Unbanz</h1>'
             '<p>De vrais clients, à la caméra. Touchez une vidéo pour la lire ; les vidéos et leurs transcriptions sont en anglais. Il s’agit d’une propriétaire d’agence, d’un client qui a demandé un pseudo Instagram inactif et d’un annonceur dont le compte publicitaire Facebook était restreint.</p></section>'
             '<section class="vt vt-page container" aria-label="Témoignages vidéo"><ul class="vt-track">' + ''.join(VT_CARDS) + '</ul></section>'

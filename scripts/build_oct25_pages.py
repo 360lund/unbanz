@@ -24,7 +24,7 @@ AREA = next(x for x in ld_t['@graph'] if x['@type'] == 'Service')['areaServed']
 TESTI = T[T.index('<section class="vt'):T.index('<section class="faq-section"')]
 FOOT = T[T.index('<footer'):]
 SAFE_ABOUT = T[T.index('<h2 id="safe">'):T.index('</article>')]
-HERE_WA = 'https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account'
+HERE_WA = 'https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account'
 HERE_MAIL = 'mailto:team@unbanz.com?subject=Account%20help'
 assert FOOT.count(HERE_WA) == 1 and 'data-service' not in FOOT
 
@@ -37,7 +37,7 @@ def build(p):
     assert len(title) <= 60 and len(desc) <= 160, slug
     assert 40 <= len(p['answer'].split()) <= 60, (slug, len(p['answer'].split()))
     assert "'" not in desc
-    wa = 'https://wa.me/19342012490?text=' + p['wa']
+    wa = 'https://wa.me/447723162824?text=' + p['wa']
     mail = 'mailto:team@unbanz.com?subject=' + p['subj']
     ds = ' data-service="username"' if p['ws'] == 'username' else ''
     # ---- head
@@ -63,7 +63,7 @@ def build(p):
       {'@type': 'Service', '@id': url + '#service', 'name': p['svc'],
        'serviceType': 'Social media account unbans, account removals and username claims', 'url': url,
        'description': desc, 'provider': {'@id': 'https://unbanz.com/#organization'}, 'areaServed': AREA,
-       'availableChannel': {'@type': 'ServiceChannel', 'serviceUrl': 'https://wa.me/19342012490', 'availableLanguage': 'English'},
+       'availableChannel': {'@type': 'ServiceChannel', 'serviceUrl': 'https://wa.me/447723162824', 'availableLanguage': 'English'},
        'offers': {'@type': 'Offer', 'url': url, 'availability': 'https://schema.org/InStock',
                   'description': 'Price agreed before work starts.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
     ld = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, separators=(',', ':'))

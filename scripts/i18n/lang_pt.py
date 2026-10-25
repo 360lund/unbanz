@@ -80,7 +80,7 @@ S = dict(
           '- O preço é informado na conversa, depois de a situação ser explicada e antes de o trabalho começar. Perguntar não custa nada.\n'
           '- A Unbanz nunca pede sua senha nem seus códigos de acesso.\n'
           '- Somente em pedidos de nome de usuário: se o pedido não der certo, o reembolso é de 100% (veja /refund-policy/).\n'
-          '- Contato: WhatsApp +1 934 201 2490 ou team@unbanz.com.'),
+          '- Contato: WhatsApp +44 7723 162824 ou team@unbanz.com.'),
    pages_label='### Páginas em português', qa_label='### Respostas curtas (português)',
    qa=[('Como recupero minha conta do Instagram se ela foi desativada?', 'Abra o aviso no app, conteste uma única vez pelo formulário oficial e guarde um print; se não funcionar, a Unbanz pode preparar e enviar o pedido por você.', 'ig-disabled'),
        ('Quanto custa recuperar uma conta?', 'O preço depende da conta e da situação. A Unbanz informa na conversa, antes de o trabalho começar; perguntar não custa nada.', 'pricing'),

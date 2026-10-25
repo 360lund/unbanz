@@ -1,7 +1,7 @@
 import re, hashlib, glob, os
 from urllib.parse import quote
 ROOT = '/workspace/site'
-WA = 'https://wa.me/19342012490'
+WA = 'https://wa.me/447723162824'
 MAIL = 'mailto:team@unbanz.com'
 
 def wa_link(text):

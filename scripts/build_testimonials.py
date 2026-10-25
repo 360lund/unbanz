@@ -63,7 +63,7 @@ FAQ = [("Is Unbanz legit?", "Yes. Unbanz is a real, independent service at unban
        ("What can Unbanz help with?", "Instagram and Facebook unbans, restricted ad accounts, removing fake or impersonation accounts, and username claims.")]
 main = ('<main id="content" class="rv"><section class="rv-top container"><h1>Unbanz reviews</h1><p>Real clients, on camera. Tap a video to play.</p></section>'
         '<section class="vt vt-page container" aria-label="Video reviews"><ul class="vt-track">' + ''.join(card(v) for v in V) + '</ul></section>'
-        '<section class="rv-cta container" aria-label="Contact"><a class="button button-light" href="https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account">Message us on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="rv-mail" href="mailto:team@unbanz.com?subject=Account%20help">Or email team@unbanz.com</a></section>'
+        '<section class="rv-cta container" aria-label="Contact"><a class="button button-light" href="https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account">Message us on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="rv-mail" href="mailto:team@unbanz.com?subject=Account%20help">Or email team@unbanz.com</a></section>'
         '<section class="rv-faq container" aria-labelledby="rvq"><h2 id="rvq">Questions</h2><div class="simple-faq">' + ''.join(f'<details><summary>{e(q)}<span aria-hidden="true">+</span></summary><p>{e(a)}</p></details>' for q, a in FAQ) + '</div></section></main>')
 t = t.replace('</head>', RV_CSS + '</head>', 1)
 t = re.sub(r'<main id="content">.*?</main>', lambda m: main, t, count=1, flags=re.S)
