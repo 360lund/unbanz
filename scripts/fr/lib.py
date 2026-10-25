@@ -8,8 +8,8 @@ LASTMOD = '2026-10-24'
 WA = 'https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account'
 MAIL = 'mailto:team@unbanz.com?subject=Account%20help'
 CSS = '/assets/site.5861d0cd0caa.css'
-TCSS = '/assets/testimonials.bd07e37b45.css'
-TJS = '/assets/testimonials.bd07e37b45.js'
+TCSS = '/assets/testimonials.9e050e56fb.css'
+TJS = '/assets/testimonials.9e050e56fb.js'
 SHARE = 'https://unbanz.com/assets/unbanz-share-v5.jpg'
 
 def read(p):

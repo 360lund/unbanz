@@ -71,3 +71,5 @@
 /* /reviews/: cards are always visible (no reveal movement), carousel is horizontal-only on phones */
 .rv .vt-page .vt-card,.rv .vt-anim .vt-card{opacity:1!important;transform:none!important;transition:none!important}
 @media (max-width:760px){.rv .vt-page .vt-track{scroll-snap-type:x mandatory;scroll-padding-inline:20px;overscroll-behavior-x:contain;overflow-y:hidden;scroll-behavior:auto}.rv .vt-page .vt-card{scroll-snap-align:start}}
+/* phones: no fade-in for off-screen cards, so swiping never shows an empty slot */
+@media (max-width:760px){.vt-anim .vt-track .vt-card{opacity:1;transition:none}}
