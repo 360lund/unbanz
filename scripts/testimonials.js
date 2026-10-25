@@ -45,3 +45,20 @@ if('IntersectionObserver'in window){
  if(!rm){document.documentElement.classList.add('vt-anim');const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});cards.forEach((c,i)=>{c.style.setProperty('--i',i%3);ro.observe(c)});}}
 else cards.forEach(setup);
 })();
+
+/* /reviews/ phone carousel auto-swipe: only while the page is completely untouched, never while a finger is down anywhere,
+   never during/just after page scrolling, never once the visitor swipes the carousel or starts a video. Horizontal only. */
+(()=>{const t=document.querySelector('.vt-page .vt-track');if(!t)return;
+const mq=matchMedia('(max-width:760px)'),rmq=matchMedia('(prefers-reduced-motion: reduce)');
+let down=0,quiet=Date.now(),off=0,vis=true,autoUntil=0;
+const bump=()=>{quiet=Date.now()};
+['touchstart','pointerdown','mousedown'].forEach(e=>addEventListener(e,()=>{down=1;bump()},{passive:true,capture:true}));
+['touchend','touchcancel','pointerup','pointercancel','mouseup'].forEach(e=>addEventListener(e,()=>{down=0;bump()},{passive:true,capture:true}));
+['scroll','wheel','keydown','resize'].forEach(e=>addEventListener(e,bump,{passive:true}));
+t.addEventListener('scroll',()=>{if(Date.now()>autoUntil)off=1},{passive:true});
+if('IntersectionObserver'in window)new IntersectionObserver(es=>{vis=es[es.length-1].isIntersecting},{threshold:.6}).observe(t);
+setInterval(()=>{if(off||down||!vis||!mq.matches||rmq.matches||document.hidden||Date.now()-quiet<5000)return;
+ if(t.querySelector('.is-started'))return;const c=t.children;if(c.length<2)return;
+ const x=t.scrollLeft;let i=0,best=1e9;for(let k=0;k<c.length;k++){const d=Math.abs(c[k].offsetLeft-t.offsetLeft-x-20);if(d<best){best=d;i=k}}
+ const n=t.scrollLeft+t.clientWidth>=t.scrollWidth-4?0:i+1;autoUntil=Date.now()+1200;
+ t.scrollTo({left:Math.max(0,c[n].offsetLeft-t.offsetLeft-20),behavior:'smooth'})},3200)})();

@@ -60,8 +60,8 @@ RV_CSS = ('<style>.rv-top{padding:36px 0 8px}.rv-top h1{font-size:44px;letter-sp
   '.rv-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:34px 0 10px}.rv-cta .button{font-size:17px;padding-inline:28px}.rv-cta .rv-mail{font-weight:600;text-decoration:underline;text-underline-offset:3px}'
   '.rv-faq{padding:46px 0 70px}.rv-faq h2{font-size:22px;letter-spacing:-.02em;margin:0 0 10px}'
   '@media (max-width:760px){.rv .vt-page .vt-track{max-width:none}.rv-top{padding:22px 0 4px}.rv-top h1{font-size:34px}.rv-top p{font-size:15px}'
-  '.rv .vt-page .vt-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding:2px 20px 8px;gap:14px;scrollbar-width:none}'
-  '.rv .vt-page .vt-card{flex:0 0 78vw;max-width:340px;scroll-snap-align:center}.rv-cta{padding-top:22px}.rv-cta .button{width:100%;justify-content:center}.rv-cta .rv-mail{width:100%;text-align:center}}</style>')
+  '.rv .vt-page .vt-track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;margin-inline:-20px;padding:2px 20px 8px;gap:14px;scrollbar-width:none}'
+  '.rv .vt-page .vt-card{flex:0 0 78vw;max-width:340px;scroll-snap-align:start}.rv-cta{padding-top:22px}.rv-cta .button{width:100%;justify-content:center}.rv-cta .rv-mail{width:100%;text-align:center}}</style>')
 FAQ = [("Is Unbanz legit?", "Yes. Unbanz is a real, independent service at unbanz.com. The clients above share their experience on camera."),
        ("Do I need to share my password?", "No. Your password stays with you."),
        ("How do I get a price?", "Message us on WhatsApp or email with what happened. You get a clear price before any work starts."),

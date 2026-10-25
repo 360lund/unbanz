@@ -7,8 +7,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 BASE = 'https://unbanz.com'
 LASTMOD = '2026-10-25'
 CSS = '/assets/site.5861d0cd0caa.css'
-TCSS = '/assets/testimonials.541eec32bc.css'
-TJS = '/assets/testimonials.541eec32bc.js'
+TCSS = '/assets/testimonials.bd07e37b45.css'
+TJS = '/assets/testimonials.bd07e37b45.js'
 SHARE = 'https://unbanz.com/assets/unbanz-share-v5.jpg'
 WA_NUM = 'https://wa.me/19342012490'
 
