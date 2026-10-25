@@ -1,5 +1,15 @@
 [
   {
+    "id": "ad-account-2",
+    "src": "/assets/testimonials/ad-account-2.mp4",
+    "label": "Facebook ad account",
+    "name": "Client on getting a disabled Facebook ad account sorted out with Unbanz",
+    "description": "A client says his Facebook ad account had been disabled and he couldn't run ads, and that Unbanz helped him get it working again.",
+    "duration": "PT17S",
+    "uploadDate": "2026-10-26T01:30:00+05:00",
+    "transcript": "Hey everybody, I just wanted to share my experience real quick with Unbanz. My Facebook ad account, you know, was disabled, I couldn't run any ads. Contacted these guys, they really helped me out, got everything back up and running, everything's working fine now. Really, really happy with the service."
+  },
+  {
     "id": "username-claim",
     "src": "https://cdn.dbimg.app/VCwGdHCz.mp4",
     "label": "Username claim",

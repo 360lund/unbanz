@@ -54,7 +54,8 @@ graph = [org, {"@type": "WebPage", "@id": U + "#webpage", "url": U, "name": TITL
 t = t.replace('</head>', LD(graph) + ASSETS + '</head>', 1)
 RV_CSS = ('<style>.rv-top{padding:36px 0 8px}.rv-top h1{font-size:44px;letter-spacing:-.045em;line-height:1.05;margin:0}.rv-top p{margin:10px 0 0;font-size:17px;opacity:.75}'
   '.rv .vt-page{padding:22px 0 0}.rv .vt-page .vt-track{max-width:860px;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}'
-  '@media (min-width:761px){.rv .vt-page .vt-track:has(>.vt-card:nth-child(4)){max-width:1160px;grid-template-columns:repeat(4,minmax(0,1fr))}}'
+  '@media (min-width:761px){.rv .vt-page .vt-track:has(>.vt-card:nth-child(4):last-child){max-width:1160px;grid-template-columns:repeat(4,minmax(0,1fr))}}'
+  '@media (min-width:1280px){.rv .vt-page .vt-track:has(>.vt-card:nth-child(5)){max-width:none;gap:20px;grid-template-columns:repeat(5,minmax(0,1fr))}}'
   '.rv .vt-play b{font-size:17px}.rv .vt-play i{width:58px;height:58px}'
   '.rv-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:34px 0 10px}.rv-cta .button{font-size:17px;padding-inline:28px}.rv-cta .rv-mail{font-weight:600;text-decoration:underline;text-underline-offset:3px}'
   '.rv-faq{padding:46px 0 70px}.rv-faq h2{font-size:22px;letter-spacing:-.02em;margin:0 0 10px}'

@@ -8,8 +8,8 @@ LASTMOD = '2026-10-24'
 WA = 'https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account'
 MAIL = 'mailto:team@unbanz.com?subject=Account%20help'
 CSS = '/assets/site.5861d0cd0caa.css'
-TCSS = '/assets/testimonials.da043140bd.css'
-TJS = '/assets/testimonials.da043140bd.js'
+TCSS = '/assets/testimonials.541eec32bc.css'
+TJS = '/assets/testimonials.541eec32bc.js'
 SHARE = 'https://unbanz.com/assets/unbanz-share-v5.jpg'
 
 def read(p):
@@ -55,14 +55,15 @@ SOCIAL = re.search(r'<div class="social-links">.*?</div>', _en, re.S).group(0)
 FOOT_SOCIAL = re.search(r'<span class="social-links">.*?</span></p>', _en, re.S).group(0)[:-4]
 CLARITY = re.search(r'<script type="text/javascript">\s*\(function\(c,l,a,r,i,t,y\).*?</script>', _en, re.S).group(0)
 VT_CARDS = re.findall(r'<li class="vt-card".*?</li>', read('reviews/index.html'), re.S)
-assert len(VT_CARDS) == 4
+assert len(VT_CARDS) == 5
 def _frcard(c):
     c = c.replace('<summary>Transcript</summary>', '<summary>Transcription (en anglais)</summary>')
-    c = re.sub(r'aria-label="Play video: ([^"]*)"', lambda m: 'aria-label="Lire la vidéo : ' + {'Management agency owner on working with Unbanz': 'une gérante d’agence parle de son travail avec Unbanz', 'Client on claiming an inactive Instagram username with Unbanz': 'un client à propos d’une demande de pseudo Instagram inactif', 'Restricted Facebook ad account restored by Unbanz': 'un annonceur parle de son compte publicitaire Facebook', 'Client on getting an Instagram username held by an inactive account': 'témoignage sur un pseudo Instagram détenu par un compte inactif', }.get(m.group(1), m.group(1)) + '"', c)
+    c = re.sub(r'aria-label="Play video: ([^"]*)"', lambda m: 'aria-label="Lire la vidéo : ' + {'Management agency owner on working with Unbanz': 'une gérante d’agence parle de son travail avec Unbanz', 'Client on claiming an inactive Instagram username with Unbanz': 'un client à propos d’une demande de pseudo Instagram inactif', 'Restricted Facebook ad account restored by Unbanz': 'un annonceur parle de son compte publicitaire Facebook', 'Client on getting an Instagram username held by an inactive account': 'témoignage sur un pseudo Instagram détenu par un compte inactif', 'Client on getting a disabled Facebook ad account sorted out with Unbanz': 'un client parle de son compte publicitaire Facebook désactivé', }.get(m.group(1), m.group(1)) + '"', c)
     c = re.sub(r'alt="Management agency owner on working with Unbanz"', 'alt="Propriétaire d’agence : témoignage vidéo sur Unbanz"', c)
     c = re.sub(r'alt="Client on claiming an inactive Instagram username with Unbanz"', 'alt="Client : témoignage vidéo sur une demande de pseudo Instagram"', c)
     c = c.replace('alt="Restricted Facebook ad account restored by Unbanz"', 'alt="Annonceur : témoignage vidéo sur un compte publicitaire Facebook"')
     c = c.replace('alt="Client on getting an Instagram username held by an inactive account"', 'alt="Client : témoignage vidéo sur un pseudo Instagram détenu par un compte inactif"')
+    c = c.replace('alt="Client on getting a disabled Facebook ad account sorted out with Unbanz"', 'alt="Client : témoignage vidéo sur un compte publicitaire Facebook désactivé"')
     c = c.replace('Play video: Restricted Facebook ad account restored by Unbanz', 'Lire la vidéo : un annonceur parle de son compte publicitaire Facebook')
     return c
 VT_CARDS = [_frcard(c) for c in VT_CARDS]
@@ -157,7 +158,7 @@ def related_nav(slugs, label='Pages liées'):
             ''.join('<a href="%s">%s</a>' % (path(d['slug']), d['nav']) for d in items) + '</nav>')
 
 def vt_section(title='Ce que disent les clients', note=True):
-    cards = VT_CARDS[1]
+    cards = next(c for c in VT_CARDS if 'uhbCtx4S' in c)
     return ('<section class="vt container svc-testi" aria-labelledby="vt-title"><div class="vt-head"><div><p class="eyebrow">CLIENTS</p>'
             '<h2 id="vt-title">%s</h2></div></div><ul class="vt-track">%s</ul></section>' % (title, cards))
 

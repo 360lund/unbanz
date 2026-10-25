@@ -7,8 +7,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 BASE = 'https://unbanz.com'
 LASTMOD = '2026-10-25'
 CSS = '/assets/site.5861d0cd0caa.css'
-TCSS = '/assets/testimonials.da043140bd.css'
-TJS = '/assets/testimonials.da043140bd.js'
+TCSS = '/assets/testimonials.541eec32bc.css'
+TJS = '/assets/testimonials.541eec32bc.js'
 SHARE = 'https://unbanz.com/assets/unbanz-share-v5.jpg'
 WA_NUM = 'https://wa.me/19342012490'
 
@@ -30,7 +30,7 @@ FOOT_SOCIAL = re.search(r'<span class="social-links">.*?</span></p>', _en, re.S)
 CLARITY = re.search(r'<script type="text/javascript">\s*\(function\(c,l,a,r,i,t,y\).*?</script>', _en, re.S).group(0)
 _rv = read('reviews/index.html')
 VT_RAW = re.findall(r'<li class="vt-card".*?</li>', _rv, re.S)
-assert len(VT_RAW) == 4
+assert len(VT_RAW) == 5
 AVIS_STYLE = ''.join('<style>%s</style>' % x for x in re.findall(r'<style[^>]*>(.*?)</style>', _rv, re.S))
 WEBSITE_NODE = {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "Unbanz",
                 "alternateName": ["unbanz.com", "Unbanz HQ"], "inLanguage": "en",

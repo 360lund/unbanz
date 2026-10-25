@@ -58,5 +58,7 @@
 @media (prefers-reduced-motion:reduce){.vt-ctl,.vt-center,.vt-spin,.vt-ctl button{transition:none!important}.vt-pp svg path{transition:none}}
 
 .vt-q{margin:14px 4px 0}.vt-q b{display:block;font-size:13px;font-weight:600;margin-bottom:6px}.vt-q blockquote{margin:0}.vt-q p{margin:0;font-size:14px;line-height:1.55;opacity:.78}
-/* 4+ cards on desktop: one row, same card size */
-@media (min-width:761px){.vt-track:has(>.vt-card:nth-child(4)){grid-template-columns:repeat(4,minmax(0,1fr));max-width:1020px}}
+/* exactly 4 cards on desktop: one row, same card size */
+@media (min-width:761px){.vt-track:has(>.vt-card:nth-child(4):last-child){grid-template-columns:repeat(4,minmax(0,1fr));max-width:1020px}}
+/* 5+ cards: one row on wide screens, otherwise the 3-up grid wraps at the same card size */
+@media (min-width:1280px){.vt-track:has(>.vt-card:nth-child(5)){grid-template-columns:repeat(5,minmax(0,1fr));max-width:none}}
