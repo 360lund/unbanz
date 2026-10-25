@@ -2,3 +2,5 @@
 skills-lock.json
 .vercel/
 .env*
+__pycache__/
+*.pyc
