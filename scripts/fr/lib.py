@@ -5,7 +5,7 @@ import re, json, html, os, hashlib
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 BASE = 'https://unbanz.com'
 LASTMOD = '2026-10-24'
-WA = 'https://wa.me/447723162824?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account'
+WA = 'https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20need%20help%20with%20an%20account'
 MAIL = 'mailto:team@unbanz.com?subject=Account%20help'
 CSS = '/assets/site.5861d0cd0caa.css'
 TCSS = '/assets/testimonials.633529d805.css'
@@ -184,7 +184,7 @@ def build_graph(d, faq_items, crumbs, service=None):
         wp["mainEntity"] = {"@id": u + "#service"}
         s = {"@type": "Service", "@id": u + "#service", "url": u, "inLanguage": "fr",
              "provider": {"@id": BASE + "/#organization"}, "areaServed": [{"@type": "Country", "name": "France"}],
-             "availableChannel": {"@type": "ServiceChannel", "serviceUrl": "https://wa.me/447723162824"},
+             "availableChannel": {"@type": "ServiceChannel", "serviceUrl": "https://wa.me/19342012490"},
              "offers": {"@type": "Offer", "url": u, "availability": "https://schema.org/InStock",
                         "description": "Le prix est indiqué après que vous avez expliqué votre situation, avant le début du travail.",
                         "seller": {"@id": BASE + "/#organization"}}}

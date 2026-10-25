@@ -81,7 +81,7 @@ S = dict(
           '- Je hoort de prijs in het gesprek, nadat je de situatie hebt uitgelegd en voordat het werk begint. Vragen kost niets.\n'
           '- Unbanz vraagt nooit om je wachtwoord of inlogcodes.\n'
           '- Alleen bij gebruikersnaam-verzoeken: mislukt het verzoek, dan krijg je 100% van je geld terug (zie /refund-policy/).\n'
-          '- Contact: WhatsApp +44 7723 162824 of team@unbanz.com.'),
+          '- Contact: WhatsApp +1 934 201 2490 of team@unbanz.com.'),
    pages_label='### Nederlandse pagina\'s', qa_label='### Korte antwoorden (Nederlands)',
    qa=[('Hoe krijg ik mijn Instagram-account terug na een uitschakeling?', 'Open de melding in de app, maak één keer bezwaar via het officiële formulier en bewaar een screenshot; lukt dat niet, dan kan Unbanz het verzoek voor je voorbereiden en indienen.', 'ig-disabled'),
        ('Wat kost het om een account terug te krijgen?', 'De prijs hangt af van het account en de situatie. Unbanz noemt die in het gesprek, voordat het werk begint; vragen kost niets.', 'pricing'),

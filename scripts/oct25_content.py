@@ -25,7 +25,7 @@ def sec(id_, h2, body):
 def ul(items): return '<ul>%s</ul>' % ''.join('<li>%s</li>' % i for i in items)
 def ol(items): return '<ol>%s</ol>' % ''.join('<li>%s</li>' % i for i in items)
 
-CONTACT_FAQ = ('How do I contact Unbanz?', 'WhatsApp +44 7723 162824 or team@unbanz.com.')
+CONTACT_FAQ = ('How do I contact Unbanz?', 'WhatsApp +1 934 201 2490 or team@unbanz.com.')
 PASSWORD_FAQ = ('Do I need to share my Instagram password?', 'No. Your password and login codes stay with you. Anyone who asks for them is not someone to work with.')
 WA_USER = 'Hey%20Unbanz%2C%20I%20want%20to%20claim%20this%20username%3A%20%40'
 RECOVER_WA = 'Hey%20Unbanz%2C%20I%20need%20help%20recovering%20my%20Instagram%20account'

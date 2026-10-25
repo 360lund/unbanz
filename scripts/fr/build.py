@@ -6,7 +6,7 @@ from lib import *
 import content_services, content_guides1, content_guides2, content_core
 
 def build_js():
-    s = read('assets/site.2f671a7051c9.js') if False else open(os.path.join(ROOT, 'assets/site.2f671a7051c9.js'), encoding='utf-8').read()
+    s = read('assets/site.94a55b60316a.js') if False else open(os.path.join(ROOT, 'assets/site.94a55b60316a.js'), encoding='utf-8').read()
     reps = [
      ("['unban', 'Unban my account'], ['ban', 'Ban an account'], ['username', 'Username claim'], ['ad', 'Ad account'], ['other', 'Other']",
       "['unban', 'Récupérer mon compte'], ['ban', 'Signaler un compte'], ['username', 'Pseudo'], ['ad', 'Compte publicitaire'], ['other', 'Autre']"),
