@@ -78,7 +78,7 @@ def build(p):
     faqs = ('<section class="faq-section" id="faq"><div class="container faq-layout"><div class="faq-intro">'
             '<p class="eyebrow">QUICK ANSWERS</p><h2>Good to know.</h2></div><div class="simple-faq">%s</div></div></section>') % faq_html
     proof = ('<section class="service-proof container"><h2>Tell us what you need.</h2><div class="cta-pair">'
-             '<a class="button button-blue" href="%s"%s>Get a quote on WhatsApp <span aria-hidden="true">↗︎</span></a>'
+             '<a class="button button-blue" href="%s"%s>Message us on WhatsApp <span aria-hidden="true">↗︎</span></a>'
              '<a class="button button-light" href="%s">Email us</a></div></section>') % (wa, ds, mail)
     def nav(label, items):
         items = [(u, t) for u, t in items if u.strip('/') != slug]

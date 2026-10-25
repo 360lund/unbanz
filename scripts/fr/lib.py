@@ -134,7 +134,7 @@ MOBILE_CONTACT = ('<div class="mobile-contact"><a class="" href="' + WA + '">Éc
                   '<a href="' + MAIL + '">E-mail</a></div>')
 
 SVC = ['unban']
-def cta_pair(label='Obtenir un devis sur WhatsApp', mail='Nous écrire par e-mail'):
+def cta_pair(label='Nous écrire sur WhatsApp', mail='Nous écrire par e-mail'):
     return ('<div class="cta-pair"><a class="button button-blue" href="%s" data-service="%s">%s <span aria-hidden="true">↗︎</span></a>'
             '<a class="button button-light" href="%s">%s</a></div>') % (WA, SVC[0], label, MAIL, mail)
 

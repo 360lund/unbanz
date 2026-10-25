@@ -34,7 +34,7 @@ S = dict(
  foot_tag='Recuperar contas &amp; denunciar perfis.<br>Fale direto com a gente.',
  foot_indep='Serviço independente. Sem vínculo com a Meta.',
  mc_wa='Mande uma mensagem no WhatsApp', mc_mail='E-mail',
- cta_quote='Peça um preço no WhatsApp', cta_mail='Mande um e-mail',
+ cta_quote='Mande uma mensagem no WhatsApp', cta_mail='Mande um e-mail',
  hero_wa='Vamos conversar no WhatsApp', hero_mail='Prefere e-mail?',
  write_us='Fale com a gente', see_detail='Ver detalhes',
  faq_eyebrow='PERGUNTAS FREQUENTES', faq_eyebrow2='SUAS DÚVIDAS', faq_title='O que vale saber.',

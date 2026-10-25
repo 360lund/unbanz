@@ -119,7 +119,7 @@ def build_page(g, parts, css_name):
             f'<div class="simple-faq">{faqh}</div></div></section>')
     gsvc = GROUP_SVC[g['group']]
     proof = ('<section class="service-proof container"><h2>Want it done for you?</h2><p>Want us to handle it? Get a quote and send us the details. Your password stays with you.</p>'
-             f'<div class="cta-pair"><a class="button button-blue" href="{wa_link(cta["wa"])}"{attrs(svc, plat)}>Get a quote on WhatsApp <span aria-hidden="true">↗︎</span></a>'
+             f'<div class="cta-pair"><a class="button button-blue" href="{wa_link(cta["wa"])}"{attrs(svc, plat)}>Message us on WhatsApp <span aria-hidden="true">↗︎</span></a>'
              f'<a class="button button-light" href="{mail_link(cta["subject"])}">Email us</a></div></section>')
     pills = ''.join(f'<a href="{h}">{html.escape(l)}</a>' for h, l in g['rel'])
     pills += f'<a href="{gsvc[0]}">{gsvc[1]}</a><a href="/guides/">All guides</a><a href="/contact/">Contact</a>'

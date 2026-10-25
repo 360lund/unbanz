@@ -34,7 +34,7 @@ S = dict(
  foot_tag='Accounts terugkrijgen &amp; meldingen.<br>Praat rechtstreeks met ons.',
  foot_indep='Onafhankelijke dienst. Niet verbonden aan Meta.',
  mc_wa='Stuur ons een bericht op WhatsApp', mc_mail='E-mail',
- cta_quote='Vraag een prijs op WhatsApp', cta_mail='Mail ons',
+ cta_quote='Stuur ons een bericht op WhatsApp', cta_mail='Mail ons',
  hero_wa='Laten we praten op WhatsApp', hero_mail='Liever mailen?',
  write_us='Schrijf ons', see_detail='Bekijk de details',
  faq_eyebrow='VEELGESTELDE VRAGEN', faq_eyebrow2='JOUW VRAGEN', faq_title='Goed om te weten.',
