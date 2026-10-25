@@ -13,7 +13,7 @@ def git_show(path):
     return subprocess.run(['git', 'show', f'{BASE}:{path}'], cwd=ROOT, capture_output=True, check=True).stdout.decode('utf-8')
 
 def top_cta(wa_text, svc, plat):
-    return ('<p class="guide-cta-top" style="margin-top:16px"><strong>Rather we get it back for you?</strong> '
+    return ('<p class="guide-cta-top" style="margin-top:16px"><strong>Rather have us handle it for you?</strong> '
             f'<a href="{wa_link(wa_text)}"{attrs(svc, plat)}>Message us on WhatsApp ↗︎</a></p>')
 
 def shell_parts():
