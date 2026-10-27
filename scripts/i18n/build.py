@@ -7,7 +7,7 @@ import lib
 from lib import *
 
 LANGS = {'nl': 'lang_nl', 'es': 'lang_es', 'pt-br': 'lang_pt'}
-BASE_JS = 'assets/site.94a55b60316a.js'
+BASE_JS = 'assets/site.d4eb65f0bc51.js'
 
 SENT_OLD_START = "    const base = s === 'unban' ?"
 SENT_OLD_END = "(window.unbanzViaTag ? ` ${window.unbanzViaTag}` : '');"
