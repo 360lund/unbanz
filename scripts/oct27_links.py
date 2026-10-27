@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Register the 10 pages added on 2026-10-27: sitemap, llms files, guides hub, and inbound links. Idempotent."""
 import html, os, re, sys, json
+sys.exit("Historic: already applied on 2026-10-27 (guides only). Country pages are registered by oct27b_links.py.")
 sys.path.insert(0, os.path.dirname(__file__))
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 import oct27_content as c, oct27_guides as og
@@ -70,32 +71,27 @@ L = {k: v for k, v in {
  'g_fb_na': ('/guides/facebook-disabled-no-appeal-option/', 'Facebook disabled, no appeal option'),
  'g_fb_hk': ('/guides/hacker-changed-facebook-email-and-password/', 'Hacker changed Facebook email and password'),
  'g_ig_nr': ('/guides/instagram-appeal-sent-no-response/', 'Instagram appeal, no response'),
- 'c_ig_bd': ('/instagram-account-recovery-bangladesh/', 'Recovery in Bangladesh'),
- 'c_ig_pk': ('/instagram-account-recovery-pakistan/', 'Recovery in Pakistan'),
- 'c_ig_ng': ('/instagram-account-recovery-nigeria/', 'Recovery in Nigeria'),
- 'c_fb_in': ('/facebook-account-recovery-india/', 'Facebook recovery in India'),
- 'c_fb_bd': ('/facebook-account-recovery-bangladesh/', 'Facebook recovery in Bangladesh'),
 }.items()}
 SRC = {
  '/guides/facebook-account-disabled-appeal/': ['g_fb_rej', 'g_fb_nr', 'g_fb_na'],
  '/facebook-account-disabled-appeal-help/': ['g_fb_rej', 'g_fb_nr', 'g_fb_na'],
  '/facebook-account-suspended-180-days/': ['g_fb_rej', 'g_fb_nr'],
  '/guides/facebook-account-locked/': ['g_fb_na', 'g_fb_nr'],
- '/guides/hacked-facebook-account-recovery/': ['g_fb_hk', 'c_fb_in', 'c_fb_bd'],
- '/facebook-hacked-account-recovery-service/': ['g_fb_hk', 'c_fb_in', 'c_fb_bd'],
+ '/guides/hacked-facebook-account-recovery/': ['g_fb_hk'],
+ '/facebook-hacked-account-recovery-service/': ['g_fb_hk'],
  '/guides/facebook-lost-access-to-email-or-phone/': ['g_fb_hk'],
- '/facebook-account-recovery/': ['c_fb_in', 'c_fb_bd', 'g_fb_rej', 'g_fb_hk'],
+ '/facebook-account-recovery/': ['g_fb_rej', 'g_fb_hk'],
  '/facebook-unban-service/': ['g_fb_rej'],
  '/how-long-does-an-instagram-appeal-take/': ['g_ig_nr'],
  '/instagram-appeal-denied/': ['g_ig_nr'],
  '/guides/instagram-account-suspended-appeal/': ['g_ig_nr'],
  '/guides/instagram-check-account-status/': ['g_ig_nr'],
- '/instagram-account-recovery/': ['c_ig_bd', 'c_ig_pk', 'c_ig_ng'],
- '/instagram-account-recovery-india/': ['c_ig_bd', 'c_ig_pk', 'c_fb_in'],
- '/instagram-account-recovery-usa/': ['c_ig_ng'],
- '/instagram-account-recovery-uk/': ['c_ig_ng'],
- '/instagram-account-recovery-uae/': ['c_ig_pk'],
- '/guides/hacked-instagram-account-recovery/': ['c_ig_bd', 'c_ig_pk', 'c_ig_ng'],
+ '/instagram-account-recovery/': [],
+ '/instagram-account-recovery-india/': [],
+ '/instagram-account-recovery-usa/': [],
+ '/instagram-account-recovery-uk/': [],
+ '/instagram-account-recovery-uae/': [],
+ '/guides/hacked-instagram-account-recovery/': [],
 }
 NAV = re.compile(r'<nav class="related-services container"[^>]*>.*?</nav>', re.S)
 n = 0

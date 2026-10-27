@@ -410,6 +410,56 @@
       "source": "/trust/",
       "destination": "/reviews/",
       "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-bangladesh",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-bangladesh/",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-pakistan",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-pakistan/",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-nigeria",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-nigeria/",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-account-recovery-india",
+      "destination": "/facebook-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-account-recovery-india/",
+      "destination": "/facebook-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-account-recovery-bangladesh",
+      "destination": "/facebook-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-account-recovery-bangladesh/",
+      "destination": "/facebook-account-recovery/",
+      "permanent": true
     }
   ]
 }
