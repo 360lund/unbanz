@@ -184,6 +184,14 @@ Unbanz is independent and not affiliated with Meta. It never asks for passwords 
 - [Instagram Username Claim for Influencers](https://unbanz.com/instagram-username-claim-for-influencers/): Stuck on an underscore handle? How influencers can claim an inactive or taken Instagram username through official routes, with a refund if it fails.
 - [Instagram Username Claim for Founders and Startups](https://unbanz.com/instagram-username-claim-for-founders-and-startups/): Launching a brand and the Instagram handle is taken? Official routes for founders and startups, including trademark, with a refund if the claim fails.
 
+### New pages (2026-10-27)
+
+- [Instagram Account Recovery in Bangladesh](https://unbanz.com/instagram-account-recovery-bangladesh/): Hacked or disabled Instagram account in Bangladesh? Official recovery steps, where to report it locally, and how Unbanz helps with a clean appeal.
+- [Instagram Account Recovery in Pakistan](https://unbanz.com/instagram-account-recovery-pakistan/): Hacked or disabled Instagram account in Pakistan? Official recovery steps, NCCIA reporting, and how Unbanz helps with a clean appeal.
+- [Instagram Account Recovery in Nigeria](https://unbanz.com/instagram-account-recovery-nigeria/): Hacked or disabled Instagram account in Nigeria? Official recovery steps, where to report it locally, and how Unbanz helps with a clean appeal.
+- [Facebook Account Recovery in India: Official Help](https://unbanz.com/facebook-account-recovery-india/): Hacked or disabled Facebook account in India? Official steps, the India grievance route, and how Unbanz helps with a clean appeal in English.
+- [Facebook Account Recovery in Bangladesh](https://unbanz.com/facebook-account-recovery-bangladesh/): Hacked or disabled Facebook account in Bangladesh? Official recovery steps, where to report it locally, and how Unbanz helps with a clean appeal.
+
 ## Guides
 
 - [Instagram account disabled: what it means and what to do](https://unbanz.com/guides/instagram-account-disabled/): Instagram disabled your account? Learn what the notice means, how to request a review in the app, what to avoid and when to hand it to us.
@@ -256,6 +264,11 @@ Unbanz is independent and not affiliated with Meta. It never asks for passwords 
 - [Snapchat username, deactivation and deletion: what you can and can’t change](https://unbanz.com/guides/snapchat-change-username-and-delete-account/): Snapchat usernames can’t be freely changed, and deleting an account is a 30-day process. Learn the rules and the steps before you decide.
 - [Threads: delete or deactivate without losing Instagram](https://unbanz.com/guides/threads-deactivate-or-delete/): You can delete a Threads profile separately from Instagram. What happens, the 30-day window and what to do first.
 - [Account recovery scams: how fake “hackers” and fake “support agents” work](https://unbanz.com/guides/account-recovery-scams-fake-hackers-warning/): People who lose an account are targeted by fake recovery services. Learn the tactics, how to check any helper and what a safe recovery looks like.
+- [Facebook appeal rejected: what you can still do](https://unbanz.com/guides/facebook-disabled-appeal-rejected/): Facebook rejected your appeal and the account is disabled? What a rejection means, the checks still worth making, and what not to do next.
+- [Facebook account disabled for no reason? What to check](https://unbanz.com/guides/facebook-account-disabled-for-no-reason/): Facebook disabled your account and you don’t know why? What usually triggers it, how to read the notice, and the steps to take before the deadline.
+- [Facebook account disabled with no appeal option: what to do](https://unbanz.com/guides/facebook-disabled-no-appeal-option/): No appeal button on your disabled Facebook notice? The usual reasons, what to try on another device, and the routes that may still be open.
+- [Hacker changed your Facebook email and password: how to get back in](https://unbanz.com/guides/hacker-changed-facebook-email-and-password/): Someone changed the email and password on your Facebook account? The undo link, facebook.com/hacked, identity checks, and how to lock it down afterwards.
+- [Instagram appeal sent but no response: what to check](https://unbanz.com/guides/instagram-appeal-sent-no-response/): Sent an Instagram appeal and heard nothing? Where replies show up, how to check your request, when to wait, and what not to do while you do.
 
 ## Optional
 
