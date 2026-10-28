@@ -157,10 +157,11 @@ def related_nav(slugs, label='Pages liées'):
     return ('<nav class="related-services container" aria-label="%s">' % label +
             ''.join('<a href="%s">%s</a>' % (path(d['slug']), d['nav']) for d in items) + '</nav>')
 
-def vt_section(title='Ce que disent les clients', note=True):
-    cards = next(c for c in VT_CARDS if 'uhbCtx4S' in c)
-    return ('<section class="vt container svc-testi" aria-labelledby="vt-title"><div class="vt-head"><div><p class="eyebrow">CLIENTS</p>'
-            '<h2 id="vt-title">%s</h2></div></div><ul class="vt-track">%s</ul></section>' % (title, cards))
+def vt_section(title=None, note=True):
+    """All testimonials (same full vt-page carousel as /reviews/); see scripts/testimonials_all.py (also run it after any rebuild)."""
+    import sys; sys.path.insert(0, os.path.join(ROOT if 'ROOT' in globals() else '.', 'scripts'))
+    import testimonials_all as T
+    return T.SEC['fr']
 
 # ---------- head ----------
 def hreflang(d):

@@ -73,3 +73,12 @@
 @media (max-width:760px){.rv .vt-page .vt-track{scroll-snap-type:x mandatory;scroll-padding-inline:20px;overscroll-behavior-x:contain;overflow-y:hidden;scroll-behavior:auto}.rv .vt-page .vt-card{scroll-snap-align:start}}
 /* phones: no fade-in for off-screen cards, so swiping never shows an empty slot */
 @media (max-width:760px){.vt-anim .vt-track .vt-card{opacity:1;transition:none}}
+
+/* service / country / white-label / agency pages: the same full carousel as /reviews/ (all testimonials, larger cards, phone auto-swipe via testimonials.js) */
+.svc-testi.vt-page{padding:6px 0 70px}
+.svc-testi.vt-page .vt-track{max-width:860px;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (min-width:761px){.svc-testi.vt-page .vt-track:has(>.vt-card:nth-child(4):last-child){max-width:1160px;grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1280px){.svc-testi.vt-page .vt-track:has(>.vt-card:nth-child(5)){max-width:none;gap:20px;grid-template-columns:repeat(5,minmax(0,1fr))}}
+.svc-testi.vt-page .vt-play b{font-size:17px}.svc-testi.vt-page .vt-play i{width:58px;height:58px}
+.svc-testi.vt-page .vt-card{opacity:1!important;transform:none!important;transition:none!important}
+@media (max-width:760px){.svc-testi.vt-page{padding:0 0 46px}.svc-testi.vt-page .vt-track{max-width:none;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:20px;overscroll-behavior-x:contain;scroll-behavior:auto;margin-inline:-20px;padding:2px 20px 8px;gap:14px;scrollbar-width:none}.svc-testi.vt-page .vt-card{flex:0 0 78vw;max-width:340px;scroll-snap-align:start}}
