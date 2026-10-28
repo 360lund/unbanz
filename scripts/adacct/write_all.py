@@ -93,3 +93,10 @@ for lk, core in native.CORE.items():
     items = ''.join('<a href="/%s/">%s</a>' % (native.path(lk, t), native.esc(native.LANGS[lk][0].T[t]['title'])) for t in native.TOPICS)
     s = s.replace('</nav></main>', items + '</nav></main>', 1) if False else re.sub(r'(<nav class="related-services container"[^>]*>)', lambda m: m.group(1) + items, s, 1)
     open(f, 'w', encoding='utf-8').write(s)
+# keep in step with the agency integration: "For agencies" link in the desktop nav of the new EN pages
+_nav = '<a href="/pricing/">Pricing</a><a href="/contact/">Contact</a></nav>'
+for sl in open('/tmp/adacct_new_slugs.txt').read().split():
+    fp = os.path.join(ROOT, sl, 'index.html'); t = open(fp, encoding='utf-8').read()
+    if _nav in t and '/white-label-agency/">For agencies' not in t:
+        t = t.replace(_nav, '<a href="/pricing/">Pricing</a><a href="/white-label-agency/">For agencies</a><a href="/contact/">Contact</a></nav>', 1)
+        open(fp, 'w', encoding='utf-8').write(t)
