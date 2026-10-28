@@ -58,12 +58,13 @@ def build(p):
        'inLanguage': p['lang'], 'dateModified': DATE,
        'breadcrumb': {'@id': url + '#breadcrumb'}, 'mainEntity': {'@id': url + '#service'}},
       {'@type': 'BreadcrumbList', '@id': url + '#breadcrumb', 'itemListElement': [
-        {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://unbanz.com/'},
-        {'@type': 'ListItem', 'position': 2, 'name': p['crumb'], 'item': url}]},
+        {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://unbanz.com/'}] + (
+        [{'@type': 'ListItem', 'position': 2, 'name': p['crumb_parent'][0], 'item': 'https://unbanz.com' + p['crumb_parent'][1]}] if p.get('crumb_parent') else []) + [
+        {'@type': 'ListItem', 'position': 3 if p.get('crumb_parent') else 2, 'name': p['crumb'], 'item': url}]},
       {'@type': 'FAQPage', '@id': url + '#faq', 'url': url, 'mainEntity': faq_ld},
       {'@type': 'Service', '@id': url + '#service', 'name': p['svc'],
        'serviceType': 'Social media account unbans, account removals and username claims', 'url': url,
-       'description': desc, 'provider': {'@id': 'https://unbanz.com/#organization'}, 'areaServed': AREA,
+       'description': desc, 'provider': {'@id': 'https://unbanz.com/#organization'}, 'areaServed': p.get('area') or AREA,
        'availableChannel': {'@type': 'ServiceChannel', 'serviceUrl': 'https://wa.me/19342012490', 'availableLanguage': 'English'},
        'offers': {'@type': 'Offer', 'url': url, 'availability': 'https://schema.org/InStock',
                   'description': 'Price agreed before work starts.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
