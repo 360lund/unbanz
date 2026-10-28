@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create NEW hashed site JS/CSS (old files are kept: cached pages and session replays still request them).
+"""Create NEW hashed site JS/CSS (old files are kept: cached pages still request them).
 JS:  (1) prepend the mobile WhatsApp-direct injector, (2) utm_source=outreach -> source 'Outreach' (group Other),
      (3) popup interceptor skips data-direct links, (4) tracker logs data-direct clicks as k:'whatsapp'.
 CSS: .wa-direct styles (mobile only, <=650px, the same breakpoint as the sticky bar).

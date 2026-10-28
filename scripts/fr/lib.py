@@ -53,7 +53,6 @@ _en_home = read('index.html')
 SPRITE = re.search(r'<body>\s*<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
 SOCIAL = ''  # social profile links removed site-wide
 FOOT_SOCIAL = ''
-CLARITY = re.search(r'<script type="text/javascript">\s*\(function\(c,l,a,r,i,t,y\).*?</script>', _en, re.S).group(0)
 VT_CARDS = re.findall(r'<li class="vt-card".*?</li>', read('reviews/index.html'), re.S)
 assert len(VT_CARDS) == 5
 def _frcard(c):
@@ -225,7 +224,6 @@ def head(d, faq_items, crumbs, service=None, vt=False):
     if vt:
         h.append('<link rel="preconnect" href="https://cdn.dbimg.app"><link rel="stylesheet" href="%s"><script src="%s" defer></script>' % (TCSS, TJS))
     h.append(ld_script(build_graph(d, faq_items, crumbs, service)))
-    h.append(CLARITY)
     h.append('</head>')
     return '\n'.join(h)
 

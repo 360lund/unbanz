@@ -46,7 +46,7 @@ AI_STUDIO_HANDOFF.md tells an agent how to preserve the site.
 The ChatGPT preview is private. This ZIP has not been pushed to the user's GitHub or unbanz-red Vercel project. No Search Console verification, analytics, Meta Pixel or ads were configured. Prices are quoted per case until supplier costs and refund terms are confirmed. Backend and former admin files have been removed.
 
 ## Assets
-Never delete old hashed files in assets/ (site.*.css / site.*.js). Session replays (Clarity) and cached pages still request them.
+Never delete old hashed files in assets/ (site.*.css / site.*.js). Cached pages still request them.
 
 ## Testimonials on every page
 `python3 scripts/testimonials_all.py` (idempotent, run after any page generator): puts ALL video testimonials (same `vt-page` carousel as /reviews/: larger cards, phone auto-swipe + loop) before the FAQ on every service, country, white-label and agency page, EN and fr/nl/es/pt-br (cards copied from each language's reviews page). It writes hashed `assets/testimonials.<hash>.css/.js` from `scripts/testimonials.{css,js}` and updates the head refs. Add new testimonials in `scripts/testimonials.json` + `build_testimonials.py` (home, /reviews/), rebuild the native reviews pages, then run it.

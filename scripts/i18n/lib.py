@@ -27,7 +27,6 @@ _en_home = read('index.html')
 SPRITE = re.search(r'<body>\s*<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
 SOCIAL = ''  # social profile links removed site-wide
 FOOT_SOCIAL = ''
-CLARITY = re.search(r'<script type="text/javascript">\s*\(function\(c,l,a,r,i,t,y\).*?</script>', _en, re.S).group(0)
 _rv = read('reviews/index.html')
 VT_RAW = re.findall(r'<li class="vt-card".*?</li>', _rv, re.S)
 assert len(VT_RAW) == 5
@@ -226,7 +225,6 @@ class Site:
         if vt:
             h.append('<link rel="preconnect" href="https://cdn.dbimg.app"><link rel="stylesheet" href="%s"><script src="%s" defer></script>' % (TCSS, TJS))
         h.append('<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": self.build_graph(d, faq_items, crumbs, service)}, ensure_ascii=False, separators=(',', ':')) + '</script>')
-        h.append(CLARITY)
         h.append('</head>')
         return '\n'.join(h)
 
