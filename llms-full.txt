@@ -835,6 +835,559 @@ Source: https://unbanz.com/facebook-ad-account-restricted-help/
 
 Try first: open Account Quality in Meta Business Suite, read the reason, fix payment or security issues and hit Request review (admin needed). Get help when the review is denied, there's no review button, the whole Business Portfolio is restricted, or it keeps getting restricted. Unbanz handles restricted and disabled Meta ad accounts, Business Portfolios and Pages from the ad account ID and the notice, with no login needed. One client says on video that her restricted Facebook ad account was back within a week (https://unbanz.com/reviews/).
 
+## Meta ad account help
+
+### Ad Account Disabled for Circumventing Systems: Help
+
+Source: https://unbanz.com/ad-account-disabled-circumventing-systems-help/
+
+Meta uses this notice when it believes an ad account is linked to one it already restricted, or that someone tried to get around its checks. You can request a review in Account Quality. Be honest about the history. A clean, specific appeal gives you the best chance, and Meta decides.
+
+Can an ad account disabled for circumventing systems come back? Sometimes. It depends on what Meta linked and whether the appeal explains it well. Meta makes the final decision and nobody can promise the result.
+Should I open a new ad account while I wait? No. A new account tied to the same admin, card or domain can be disabled as well and can make the original harder to recover.
+
+### Ad Account Restricted for a Payment Issue: What to Do
+
+Source: https://unbanz.com/ad-account-restricted-payment-issue/
+
+A payment restriction usually means a failed charge, an unpaid balance or a card Meta does not trust. Settle what you owe, check the payment method in Billing, then request a review in Account Quality. If the button is missing or the review is denied, Unbanz can prepare the appeal.
+
+Why was my ad account restricted for payment reasons? Common reasons are a failed charge, an unpaid balance, a card Meta does not trust, or a payment method tied to an account that was restricted before.
+Do I need to pay before I request a review? Usually yes. An outstanding balance blocks most reviews, so clear it first and keep proof of payment.
+
+### Ad Account Disabled After Adding a New Card
+
+Source: https://unbanz.com/ad-account-disabled-after-adding-new-card/
+
+A new card can trigger a restriction when Meta sees it as a change in who controls the account, or when the card is linked to a restricted account. Check the card details, remove any card you do not recognise, then request a review once. If it fails, Unbanz can prepare the appeal.
+
+Can a new payment method get my ad account disabled? It can. A card tied to a restricted account, or a change that looks like a takeover, can lead to a restriction.
+Should I remove the card? If you did not add it, yes, and secure the profile first. If it is yours and correct, leave it and request a review.
+
+### Ad Account Disabled by Mistake? How to Appeal
+
+Source: https://unbanz.com/ad-account-disabled-by-mistake/
+
+If your ad account was disabled and you cannot find a reason, start by confirming what Meta actually flagged in Account Quality. Then request a review with proof that you are a real business running allowed ads. A calm, specific appeal works better than a long complaint.
+
+Can Meta disable an ad account by mistake? Yes. Automated systems make wrong calls. A review by a person can change the outcome, though Meta makes the final decision.
+Why is there no reason in the notice? Meta often keeps the wording general. Account Quality and the account history give better clues.
+
+### Business Portfolio Restricted: Get Help With the Appeal
+
+Source: https://unbanz.com/meta-business-portfolio-restricted-help/
+
+A restricted portfolio blocks advertising across everything inside it. Open Account Quality, select the portfolio itself, read the reason and request a review. Check business verification and admins first. If you cannot see a review button or it was denied, Unbanz can prepare the appeal.
+
+What is the difference between a restricted portfolio and a restricted ad account? The portfolio holds your ad accounts, Pages and people. A portfolio restriction affects everything inside it. An ad account restriction affects that one account.
+Is Business Manager the same as a business portfolio? Yes, Meta now calls it a business portfolio. People still say Business Manager.
+
+### Business Manager Restricted: Cannot Add Ad Accounts
+
+Source: https://unbanz.com/business-manager-restricted-cant-add-ad-account/
+
+When a portfolio is restricted, Meta often blocks creating or adding ad accounts. Check Account Quality for the portfolio status, look at your own profile and your role, and request a review for the portfolio. Do not try to work around it with another portfolio.
+
+Why can I not create an ad account in Business Manager? It can be a role problem, a limit on new portfolios, a restriction on your profile or a restriction on the portfolio. Account Quality shows which.
+Is there a limit on ad accounts per portfolio? Yes, Meta limits how many a portfolio can hold, and the limit can be lower for newer or unverified portfolios.
+
+### Unacceptable Business Practices: Ad Account Appeal Help
+
+Source: https://unbanz.com/ad-account-disabled-unacceptable-business-practices-help/
+
+Meta uses this reason for ads or accounts it thinks mislead people, push deceptive offers, or cause harm to users. You can request a review in Account Quality. The appeal should show a real business, an honest offer and a landing page that matches the ad. Meta decides.
+
+Is unacceptable business practices a permanent ban? Not always. Meta can reverse it after a review if the business and ads meet its standards, but it can also stay in place. Meta makes the final decision.
+Can I appeal if my store really has these problems? Fix them first. An appeal that shows concrete changes is stronger than one that only asks for another look.
+
+### Ad Account Identity Verification Loop: What to Try
+
+Source: https://unbanz.com/ad-account-identity-verification-loop/
+
+Verification loops usually come from a mismatch: the name or date of birth on the profile does not match the ID, the photo is unreadable, or the wrong asset is being verified. Check those first, retry once with a clear photo, then ask for a review. Unbanz can look at the history with you.
+
+Why does Meta keep rejecting my ID? The usual reasons are a name or date mismatch, an unreadable photo, an expired document or a type that is not accepted in your country.
+How many times can I try? Meta limits attempts. Repeating the upload many times quickly can make it worse, so fix the cause before you retry.
+
+### Ads Rejected Again and Again, Ad Account Restricted
+
+Source: https://unbanz.com/ad-account-ads-rejected-repeatedly-restricted/
+
+Repeated rejections can lead Meta to restrict the whole ad account, even if each ad seemed small. Stop resubmitting the same creative, read the exact policy named on each rejection, fix the cause, then request a review in Account Quality. Unbanz can prepare the appeal.
+
+How many rejected ads lead to a restricted ad account? Meta does not publish a number. The pattern, the policy involved and the account history all matter.
+Should I delete the rejected ads? Do not delete them in a hurry. Keep screenshots and the stated reasons, since they show what you fixed.
+
+### Ad Account Restricted for Personal Attributes
+
+Source: https://unbanz.com/ad-account-restricted-personal-attributes/
+
+Meta restricts ads that assert or imply a personal attribute, such as health, finances, race or relationship status. Rewrite the ad so it talks about the offer, not the viewer, then request a review in Account Quality. Unbanz can prepare the account appeal if rejections keep adding up.
+
+What counts as a personal attribute? Examples are health, disability, financial status, religion, race, sexuality, age and relationship status, when the ad suggests it applies to the reader.
+Can I still advertise a clinic or a coaching offer? Yes, as long as the ad describes the service without implying private facts about the viewer and follows the other policies.
+
+### Ad Account Restricted: Special Ad Category Problems
+
+Source: https://unbanz.com/ad-account-restricted-special-ad-category/
+
+If your ads touch housing, credit, employment or social issues, Meta expects you to declare a special ad category and accepts limited targeting. Ads that skip the declaration are rejected and can lead to a restriction. Declare correctly, fix the ads, then request a review.
+
+What is a special ad category? A label you choose for ads about credit, employment, housing or social issues, elections and politics. It limits targeting and adds checks.
+Can I fix a restricted account by declaring the category now? It helps with future ads. If the account is already restricted you still need a review.
+
+### Ad Account Restricted for Misleading Claims
+
+Source: https://unbanz.com/ad-account-restricted-misleading-claims/
+
+Misleading claims include guaranteed results, unrealistic income, health cures and made-up reviews. If Meta flagged these, rewrite the ads and the landing page with claims you can back up, keep proof, and request a review in Account Quality. Unbanz can prepare the appeal if the account is restricted.
+
+What does Meta consider misleading? Claims that cannot be shown, results promised to the viewer, fake urgency and ads that differ from the landing page.
+Do disclaimers fix a misleading claim? Rarely. If the headline suggests one thing and the fine print says another, the ad can still be rejected.
+
+### Ad Account Restricted Because of the Landing Page
+
+Source: https://unbanz.com/ad-account-restricted-landing-page-issue/
+
+Meta checks that the landing page works, matches the ad and meets policy. A slow, broken, misleading or empty page can lead to rejections and eventually a restricted ad account. Fix the page first, then request a review. Unbanz can help prepare the appeal.
+
+Can a landing page get an ad account restricted? Yes. Repeated rejections because of the page can lead to a restriction on the ad account.
+Is it okay to show Meta a different page than users see? No. That is the kind of behaviour that leads to a circumventing systems notice.
+
+### Ad Account Spending Limit Stuck or Lowered by Meta
+
+Source: https://unbanz.com/ad-account-spending-limit-stuck/
+
+Meta sets ad account spending limits based on payment history and account trust. A limit that drops or will not rise often points to billing or a trust signal. Clear any balance, check the payment method, then request a review. Unbanz can look at whether the limit is part of a restriction.
+
+Why is my ad account spending limit so low? New accounts and accounts with payment issues have lower limits. Meta raises them as clean payment history builds.
+Can Unbanz raise my spending limit? No. We can only help with restrictions and appeals. Limits depend on Meta’s own checks.
+
+### Ad Account Disabled After Boosting a Post
+
+Source: https://unbanz.com/ad-account-disabled-after-boosting-post/
+
+Boosted posts are reviewed as ads. If the post breaks ad policy, uses a restricted topic, or the payment method fails, Meta can restrict the ad account. Check the notice, edit or remove the boosted post, then request a review. Unbanz can prepare the appeal if the review is denied.
+
+Can boosting a post get me banned? A boost can lead to an ad account restriction if the post or payment breaks policy. It is not the boost itself.
+Where is the ad account created from my boost? It is attached to your profile and Page. Check Ads Manager and Billing, or Account Quality, for the ID.
+
+### Ad Account Disabled After an Advantage+ Campaign
+
+Source: https://unbanz.com/ad-account-disabled-after-advantage-plus-campaign/
+
+Automated campaigns still follow ad policy, and Meta can combine your assets in ways you did not review. A restriction after an Advantage+ campaign usually comes from creative, a landing page, or a catalog item that broke a rule. Find the item, fix it, then request a review.
+
+Can Advantage+ campaigns cause a restriction? They can if the creative, catalog or landing page breaks policy. The automation does not remove your responsibility for the content.
+Should I stop using Advantage+? Not necessarily. Review what it generates and keep the assets clean.
+
+### Meta Ad Account Appeal: What to Write and Include
+
+Source: https://unbanz.com/meta-ad-account-appeal-what-to-write/
+
+A good ad account appeal is short, honest and specific. Say who you are, what you advertise, what Meta flagged, what you changed and what proof you attach. Send it once through Account Quality. Do not argue the policy. Meta makes the final decision, and Unbanz can prepare it with you.
+
+How long should an ad account appeal be? A short paragraph or two is enough. Facts and proof matter more than length.
+Can I appeal more than once? Meta allows follow-up reviews in some situations, but repeating the same request rarely helps. Change something before you ask again.
+
+### Meta Business Suite Restricted: What to Check and Do
+
+Source: https://unbanz.com/meta-business-suite-restricted-help/
+
+In Business Suite, a restriction can come from the Page, the Instagram account, the ad account or the portfolio. Open Account Quality, find which asset is flagged, then request the review for that asset. Unbanz can help sort it out and prepare the appeal.
+
+What is the difference between Business Suite and Business Manager? Business Suite is the daily tool for posting and messages. The business portfolio, formerly Business Manager, holds your assets and settings.
+Why can I not post or boost? The Page, your profile or the ad account may be restricted. Account Quality shows which.
+
+### Facebook Page Restricted and Cannot Advertise
+
+Source: https://unbanz.com/facebook-page-restricted-cannot-advertise/
+
+A Page can be restricted from advertising while the ad account stays active. Check Page quality and Account Quality for the notice, remove posts that broke a rule, secure the Page admins and request a review for the Page. Unbanz can prepare the appeal if it is denied.
+
+Why can I not select my Page in Ads Manager? The Page may be restricted from advertising, unpublished, or you may not have the right role on it.
+Can I advertise without a Page? Meta ads need a Page or an Instagram account to run from, so a restricted Page is a real block.
+
+### Meta Pixel or Dataset Restricted: What to Do
+
+Source: https://unbanz.com/meta-pixel-restricted-or-disabled-help/
+
+Meta can restrict a pixel or dataset when events appear to carry sensitive data or break business tools terms. Check Events Manager, remove the sensitive data you send, and request a review. If the whole ad account is restricted too, Unbanz can prepare the appeal.
+
+What does a restricted pixel mean? Meta limits how that data source can be used for ads, often because of sensitive events.
+Can a pixel restriction affect my ad account? It can limit the targeting and optimisation options, and repeated problems can lead to wider action.
+
+### Ad Account Disabled Again After Being Reinstated
+
+Source: https://unbanz.com/ad-account-reinstated-then-disabled-again/
+
+A second disabling after reinstatement usually means the original cause is still there, or Meta sees repeat behaviour. Compare the two notices, fix the underlying issue properly, and be open about the history in the next appeal. Meta decides. Unbanz can prepare the appeal.
+
+Why was my ad account disabled again? The first cause may still be present, or new activity may look similar. Compare the two notices.
+Will a second appeal work? It can, but there are no promises. A complete fix and an honest appeal give it the best chance.
+
+### Disabled Ad Account With an Unpaid Balance
+
+Source: https://unbanz.com/disabled-ad-account-unpaid-balance/
+
+Meta can still bill for ads that already ran, even when the account is disabled. Check the charges are genuine, then pay what you owe through Billing. A cleared balance helps a review, and an unpaid one can block it. You pay Meta directly. Unbanz prepares the appeal.
+
+Do I still have to pay for a disabled account? If ads delivered before it was disabled, the charges can still apply. Check the transactions in Billing.
+Can I dispute the charges with my bank? You can, but it can harm an appeal. Understand the charges first.
+
+### Lost Ad Account Access After an Employee or Agency Left
+
+Source: https://unbanz.com/ad-account-lost-admin-after-employee-left/
+
+If the admin who created the ad account is gone, you may need to prove ownership. Check whether another admin on the portfolio can add you. If not, gather business proof and request access through Meta’s official routes. Unbanz can prepare the evidence and the request.
+
+Can I take over an ad account created by a former employee? Not directly. Ownership follows the profile or portfolio that created it. You need access from an admin or approval from Meta.
+What proof helps? Company registration, invoices, bank statements showing ad spend and emails about the account.
+
+### Client Ad Account Disabled: What an Agency Should Do
+
+Source: https://unbanz.com/client-ad-account-disabled-agency-help/
+
+Start by finding who owns the ad account, what the notice says and whether it is linked to your own portfolio or other clients. Pause risky changes, tell the client plainly, and request one review with proof of the client relationship. Unbanz can prepare the appeal and the explanation.
+
+Who should appeal, the agency or the client? Usually the portfolio owner. If the ad account is in the client’s portfolio, the client needs to be involved.
+Will a client ad account restriction spread to my other clients? It can if they share admins, cards, pixels or a portfolio. Separate them where you can.
+
+### Facebook Profile Restricted, Ad Account Affected
+
+Source: https://unbanz.com/facebook-profile-restricted-ad-account-affected/
+
+If your personal profile is disabled or restricted, the ad accounts it administers can be blocked until you appeal the profile. Start with the profile appeal, then add a second admin, then check the ad account. Unbanz can help with both appeals.
+
+Can a restricted Facebook profile disable my ad account? It can block access to it and sometimes the account is restricted as well.
+Do I need a personal profile to run ads? Yes, ad accounts are managed by people with profiles. Meta does not allow fake ones.
+
+### Ad Account Disabled After Changing Domain or Business Name
+
+Source: https://unbanz.com/ad-account-disabled-after-domain-change/
+
+A sudden new domain, brand or Page name can look like an attempt to start over after a restriction. Verify the domain, make the website and business details match, and request a review that explains the change plainly. Unbanz can prepare the appeal and supporting documents.
+
+Can changing my domain get my ad account disabled? It can lead to extra checks, especially if the account has a restricted history.
+Do I need to verify the new domain? It is recommended and required for some features. It helps tie the site to your business.
+
+### Ad Account Disabled After Logging In From a New Country
+
+Source: https://unbanz.com/ad-account-disabled-after-login-from-new-country/
+
+Meta flags logins from new places, devices or networks when they follow a payment change or a spend jump. Confirm your identity if asked, secure the profile, and tell Meta in the review that you were travelling or working remotely. Unbanz can prepare the appeal.
+
+Can travelling get my ad account disabled? It can lead to a check if it comes with other changes. Securing the profile and explaining usually helps.
+Is using a VPN risky? Logins that jump between countries can look unusual. Keep access consistent.
+
+### Ad Account Disabled After Adding a New Admin
+
+Source: https://unbanz.com/ad-account-disabled-after-adding-admin/
+
+Meta looks at everyone with access. If the new person has a restricted profile, runs other flagged ad accounts or logs in from unusual places, your account can be affected. Remove them if you can, secure the portfolio, and request a review that explains who they are.
+
+Can adding a freelancer cause a restriction? It can if their profile is flagged or linked to flagged accounts.
+Should I remove the new admin? If you did not authorise them, yes. If they are trusted, explain it in the review.
+
+### Ad Account Restricted? Help for E-commerce Stores
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-ecommerce-stores/
+
+Online stores are usually flagged for misleading offers, product catalog items, slow or incomplete store pages or payment problems. Read the notice, check the products and store pages, fix them, then request one review. Unbanz can prepare the appeal with order and supplier proof.
+
+Why was my store ad account disabled? Common reasons are misleading offers, catalog or landing page problems, or payment issues. The notice and rejection history give the best clues.
+Can I keep selling while the account is restricted? Yes, through other channels. Do not create new ad accounts to continue the same ads.
+
+### Ad Account Restricted? Help for Dropshipping Stores
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-dropshipping-stores/
+
+Meta treats unclear shipping, copied product images and exaggerated claims as risks, and dropshipping stores are often affected. Be accurate about delivery times, show real policies and fix claims, then request one review. Unbanz can prepare an honest appeal. Meta decides.
+
+Is dropshipping allowed on Meta? Yes, as long as the store and ads follow policy and the customer gets what was promised.
+Why do dropshipping accounts get disabled so often? Shipping expectations, product claims and shared setups across many stores increase the chance of a flag.
+
+### Ad Account Restricted? Help for Coaches and Course Sellers
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-coaches-and-course-creators/
+
+Coaches are usually flagged for income or results claims, personal attributes in the ad text, or fake urgency on sales pages. Rewrite claims into what you actually teach, remove promises, and request one review. Unbanz can prepare the appeal and explain the business. Meta decides.
+
+Can coaches advertise on Meta? Yes, with careful wording. Avoid results promises, private facts about the viewer and fake urgency.
+Are testimonials allowed? Genuine ones are fine. Those that promise or imply typical results are often rejected.
+
+### Ad Account Restricted? Help for Local Service Businesses
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-local-service-businesses/
+
+Local businesses are usually restricted because of a boosted post, a payment failure, a profile problem or a claim in the ad. Check Account Quality, fix the likely cause and request a review with proof of the business and its address. Unbanz can prepare the appeal.
+
+Why did my small business lose its ad account? Common causes are boosts, payment failures, profile problems and claims in the ad. Account Quality shows the reason.
+Do I need a website to appeal? A website helps. A Page with a real address and phone number can also show you are a genuine local business.
+
+### Ad Account Restricted? Help for SaaS and B2B Companies
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-saas-and-b2b-companies/
+
+SaaS and B2B accounts are usually flagged for free trial terms that are not clear, data use in pixel events, a new domain or a payment issue. Check your pricing page, trial terms and event setup, then request one review. Unbanz can prepare the appeal with company proof.
+
+Can a free trial cause a restriction? Unclear trial terms can lead to rejections and, if repeated, restrictions.
+Is uploading a customer list allowed? Only lists you have the right to use. Do not upload bought lists.
+
+### Ad Account Restricted? Help for Freelance Media Buyers
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-freelance-media-buyers/
+
+A freelancer managing many accounts from one profile can see several of them flagged at once. Find which asset is restricted, separate clients where possible, and request one review per asset with proof of the working relationship. Unbanz can prepare the appeals.
+
+Can a client’s restriction affect my profile? It can if the cause involves your access. Check your own Account Quality.
+Should I ask clients to share their login? No. Ask for a role on their portfolio instead.
+
+### Ad Account Restricted? Help for Real Estate Agents
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-real-estate-agents/
+
+Property ads must be declared as a housing special ad category, with limited targeting and careful wording. Ads run without that declaration, or that favour a group of people, are rejected and can lead to a restriction. Fix the campaign, then request a review. Meta decides.
+
+Do estate agents need a special ad category? Yes for ads about housing, such as sales, rentals and mortgages, with some country differences.
+Can I still target by location? Options are limited. Meta shows what is allowed when you choose the category.
+
+### Ad Account Restricted? Help for Health and Wellness Brands
+
+Source: https://unbanz.com/ad-account-restricted-ads-for-health-and-wellness-businesses/
+
+Health and wellness accounts are usually flagged for before and after images, claims about results or conditions, and ads that speak to a personal health situation. Rewrite the creative around the service, remove medical claims, then request one review. Meta decides.
+
+Can supplements be advertised on Meta? Some can, with strict rules. Claims that suggest a cure or result are rejected.
+Are before and after images allowed? Generally not for health and weight loss ads.
+
+### Meta Ad Account Disabled in Ireland: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-ireland/
+
+Irish advertisers with a disabled or restricted ad account should check the notice in Account Quality, make the business details match the CRO entry or sole trader registration, clear any balance and request one review. Unbanz can prepare the appeal with the Irish documents Meta may ask for.
+
+Does Meta handle Irish advertisers differently? Irish advertisers follow the same policies. Local business details and EU rules can affect what Meta asks for.
+What documents do I need? Usually a CRO extract or sole trader registration, a utility or bank statement and the website.
+
+### Meta Ad Account Disabled in New Zealand: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-new-zealand/
+
+A New Zealand business with a restricted ad account should open Account Quality, check that the name matches the Companies Office entry and NZBN, clear any balance, and request one review. Unbanz can prepare the appeal and help with the documents Meta may ask for.
+
+Where do I find my NZBN? On the New Zealand Business Number register. It is free to look up.
+Do NZ advertisers pay GST on Meta ads? It depends on your registration and setup. Check your billing page and your accountant.
+
+### Meta Ad Account Disabled in Germany: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-germany/
+
+A German business with a restricted ad account should read the notice in Account Quality, check the Impressum and registration details match, clear any balance and request one review. Unbanz can prepare the appeal and the German documents Meta may ask for. Meta decides.
+
+Is the Impressum really important for Meta? It is a legal requirement in Germany and also a clear signal of a real business on the landing page.
+Which documents does Meta accept? Usually a Handelsregister extract, a tax document or a utility bill in the business name.
+
+### Meta Ad Account Disabled in the Netherlands: Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-netherlands/
+
+A Dutch business with a restricted ad account should check the notice in Account Quality, make sure the details match the KVK extract, clear any balance and request one review. Unbanz can prepare the appeal and the documents Meta may request. Meta makes the final decision.
+
+Where do I find my KVK number? On your KVK extract or the KVK business register.
+Does Meta accept Dutch documents? Often yes. We can add a short English summary.
+
+### Meta Ad Account Disabled in Singapore: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-singapore/
+
+A Singapore business with a restricted ad account should check the Account Quality notice, make sure the details match the ACRA record and UEN, clear any balance and request one review. Unbanz can prepare the appeal and the supporting documents. Meta makes the final decision.
+
+Do I need a UEN to appeal? It helps to show a registered business, but it is not the only proof.
+Can I run ads in other countries from Singapore? Yes, but the policies and local rules of those markets still apply.
+
+### Meta Ad Account Disabled in the UAE: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-uae/
+
+A business in the UAE with a restricted ad account should open Account Quality, check that the details match the trade licence, add the TRN if registered, clear any balance and request one review. Unbanz can prepare the appeal with the licence and supporting documents. Meta decides.
+
+Is a trade licence enough proof? It is strong proof for the entity. We can help you present it with a short summary.
+Does Meta accept free zone licences? Usually yes. Make sure the name matches what you entered.
+
+### Meta Ad Account Disabled in Sweden: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-sweden/
+
+A Swedish business with a restricted ad account should check the Account Quality notice, make sure the details match the Bolagsverket record and organisation number, clear any balance and request one review. Unbanz can prepare the appeal and documents. Meta makes the final decision.
+
+What is the organisationsnummer for? It identifies your company in Sweden and helps prove it is real.
+Can I use Swedish documents? Often yes. A short English summary helps.
+
+### Meta Ad Account Disabled in Denmark: Appeal Help
+
+Source: https://unbanz.com/meta-ad-account-disabled-denmark/
+
+A Danish business with a restricted ad account should open Account Quality, make sure the details match the CVR entry, add the VAT number if registered, clear any balance and request one review. Unbanz can prepare the appeal. Meta decides, and nobody can promise the outcome.
+
+Is the CVR register accepted as proof? It is a strong public record of the business. We can help present it with other documents.
+Do I need a Danish bank statement? It can help if the name matches the business.
+
+### Meta Ad Account Help: Every Notice Explained
+
+Source: https://unbanz.com/meta-ad-account-help/
+
+This is a guide to Meta ad account problems: disabled accounts, restrictions, payment flags, business portfolio notices and rejected appeals. Choose the page that matches your notice. Each one covers what to check first and how Unbanz prepares an appeal through Meta’s official review. Meta makes the final decision.
+
+Where do I find the notice about my ad account? Open Account Quality in Meta Business Suite or Business Support Home and select the ad account or the business portfolio.
+Which page should I start with? Start with the one that matches the wording of your notice. If nothing matches, read the page on restricted versus disabled accounts.
+
+## Meta ad account help (native languages)
+
+### Compte publicitaire restreint : problème de paiement
+
+Source: https://unbanz.com/fr/compte-publicitaire-restreint-probleme-de-paiement/
+
+Une restriction liée au paiement vient en général d’un prélèvement refusé, d’un solde impayé ou d’une carte à laquelle Meta ne fait pas confiance. Réglez ce que vous devez, vérifiez le moyen de paiement dans Facturation, puis demandez un réexamen dans la Qualité du compte. Si le bouton manque, Unbanz prépare la demande.
+
+### Vérification d’identité Meta qui tourne en boucle
+
+Source: https://unbanz.com/fr/compte-publicitaire-verification-identite-boucle/
+
+Une vérification d’identité refusée à répétition vient souvent d’un nom qui ne correspond pas, d’une photo floue ou d’un document expiré. Utilisez le bon administrateur, un document valide dont le nom est identique, une photo nette sans reflet. Si la boucle continue, Unbanz vous aide à comprendre le blocage.
+
+### Demande de réexamen Meta : quoi écrire
+
+Source: https://unbanz.com/fr/compte-publicitaire-meta-demande-de-reexamen-quoi-ecrire/
+
+Écrivez quatre à six phrases : qui vous êtes, ce que vous vendez, ce que vous avez corrigé et ce que vous demandez. Restez factuel, sans accuser personne, et n’envoyez qu’une demande soignée plutôt que plusieurs identiques. Unbanz peut relire votre texte avant l’envoi.
+
+### Compte publicitaire désactivé après avoir boosté
+
+Source: https://unbanz.com/fr/compte-publicitaire-desactive-apres-boost-publication/
+
+Un boost est une publicité comme une autre : Meta applique les mêmes règles. Ouvrez la Qualité du compte, repérez quel compte publicitaire a servi au boost et lisez le motif. Vérifiez la publication, la page de destination et le paiement, puis demandez un réexamen. Unbanz peut préparer la demande.
+
+### Compte publicitaire désactivé de nouveau après réactivation
+
+Source: https://unbanz.com/fr/compte-publicitaire-desactive-a-nouveau-apres-reactivation/
+
+Une seconde restriction signifie en général que la cause d’origine existe toujours : une annonce, une page de destination, un moyen de paiement ou un accès. Comparez les deux notifications, retirez ce qui a pu déclencher la mesure, puis demandez un réexamen. Unbanz vous aide à préparer la demande.
+
+### Compte publicitaire : plus d’accès administrateur
+
+Source: https://unbanz.com/fr/compte-publicitaire-perte-acces-administrateur/
+
+Commencez par vérifier qui d’autre est administrateur dans les Paramètres de l’entreprise et si le compte appartient à un portefeuille business ou à un profil personnel. Demandez une invitation à la personne concernée, puis préparez les preuves de propriété. Unbanz vous aide à organiser la demande.
+
+### Advertentieaccount beperkt door een betalingsprobleem
+
+Source: https://unbanz.com/nl/advertentieaccount-beperkt-betalingsprobleem/
+
+Een betalingsbeperking komt meestal door een mislukte afschrijving, een openstaand saldo of een kaart die Meta niet vertrouwt. Betaal wat openstaat, controleer de betaalmethode bij Facturering en vraag daarna een beoordeling aan in Accountkwaliteit. Ontbreekt de knop, dan bereidt Unbanz het bezwaar voor.
+
+### Identiteitsverificatie Meta loopt steeds vast
+
+Source: https://unbanz.com/nl/advertentieaccount-identiteitsverificatie-loopt-vast/
+
+Een verificatie die steeds wordt afgewezen komt vaak door een naam die niet overeenkomt, een wazige foto of een verlopen document. Gebruik de juiste beheerder, een geldig document met exact dezelfde naam en een scherpe foto zonder glans. Blijft het misgaan, dan helpt Unbanz je de blokkade te begrijpen.
+
+### Bezwaar bij Meta over je advertentieaccount: wat schrijven
+
+Source: https://unbanz.com/nl/advertentieaccount-bezwaar-wat-schrijven/
+
+Schrijf vier tot zes zinnen: wie je bent, wat je verkoopt, wat je hebt aangepast en wat je vraagt. Blijf feitelijk, beschuldig niemand en dien één zorgvuldig verzoek in in plaats van meerdere gelijke. Unbanz kan je tekst voor het versturen nalezen.
+
+### Advertentieaccount uitgeschakeld na een bericht boosten
+
+Source: https://unbanz.com/nl/advertentieaccount-uitgeschakeld-na-bericht-boosten/
+
+Een boost is gewoon een advertentie: dezelfde regels gelden. Open Accountkwaliteit, zoek welk advertentieaccount voor de boost is gebruikt en lees de reden. Controleer het bericht, de bestemmingspagina en de betaling en vraag een beoordeling aan. Unbanz kan het verzoek voorbereiden.
+
+### Advertentieaccount opnieuw uitgeschakeld na herstel
+
+Source: https://unbanz.com/nl/advertentieaccount-opnieuw-uitgeschakeld-na-herstel/
+
+Een tweede beperking betekent meestal dat de oorspronkelijke oorzaak er nog is: een advertentie, bestemmingspagina, betaalmethode of toegang. Vergelijk beide meldingen, haal weg wat de maatregel kan hebben veroorzaakt en vraag dan een beoordeling aan. Unbanz helpt het verzoek voor te bereiden.
+
+### Advertentieaccount: geen beheerderstoegang meer
+
+Source: https://unbanz.com/nl/advertentieaccount-geen-beheerder-meer/
+
+Controleer eerst wie er nog beheerder is in de Zakelijke instellingen en of het account bij een zakelijk portfolio of een persoonlijk profiel hoort. Vraag de betrokkene om een uitnodiging en verzamel bewijs van eigendom. Unbanz helpt je het verzoek te ordenen.
+
+### Cuenta publicitaria restringida por un problema de pago
+
+Source: https://unbanz.com/es/cuenta-publicitaria-restringida-problema-de-pago/
+
+Una restricción de pago suele venir de un cargo rechazado, un saldo pendiente o una tarjeta en la que Meta no confía. Salda lo que debes, revisa el método de pago en Facturación y solicita una revisión en Calidad de la cuenta. Si falta el botón, Unbanz prepara la solicitud.
+
+### Verificación de identidad de Meta que no termina
+
+Source: https://unbanz.com/es/cuenta-publicitaria-verificacion-de-identidad-bucle/
+
+Una verificación rechazada repetidamente suele deberse a un nombre que no coincide, una foto borrosa o un documento caducado. Usa al administrador correcto, un documento vigente con el nombre idéntico y una foto nítida sin reflejos. Si sigue fallando, Unbanz te ayuda a entender el bloqueo.
+
+### Apelación a Meta por tu cuenta publicitaria: qué escribir
+
+Source: https://unbanz.com/es/cuenta-publicitaria-meta-apelacion-que-escribir/
+
+Escribe de cuatro a seis frases: quién eres, qué vendes, qué has corregido y qué pides. Sé objetivo, no acuses a nadie y envía una solicitud cuidada en lugar de varias iguales. Unbanz puede revisar tu texto antes de enviarlo.
+
+### Cuenta desactivada tras promocionar una publicación
+
+Source: https://unbanz.com/es/cuenta-publicitaria-desactivada-tras-promocionar-publicacion/
+
+Promocionar una publicación es publicidad como cualquier otra: se aplican las mismas normas. Abre Calidad de la cuenta, localiza qué cuenta publicitaria se usó y lee el motivo. Revisa la publicación, la página de destino y el pago, y solicita una revisión. Unbanz puede preparar la solicitud.
+
+### Cuenta publicitaria desactivada otra vez tras reactivarla
+
+Source: https://unbanz.com/es/cuenta-publicitaria-desactivada-otra-vez-tras-reactivacion/
+
+Una segunda restricción suele significar que la causa original continúa: un anuncio, una página de destino, un método de pago o un acceso. Compara las dos notificaciones, retira lo que pudo provocar la medida y solicita la revisión. Unbanz te ayuda a preparar la solicitud.
+
+### Cuenta publicitaria: sin acceso de administrador
+
+Source: https://unbanz.com/es/cuenta-publicitaria-sin-acceso-de-administrador/
+
+Empieza comprobando quién más es administrador en la Configuración del negocio y si la cuenta pertenece a un portfolio comercial o a un perfil personal. Pide una invitación a la persona implicada y reúne pruebas de propiedad. Unbanz te ayuda a ordenar la solicitud.
+
+### Conta de anúncios restrita por problema de pagamento
+
+Source: https://unbanz.com/pt-br/conta-de-anuncios-restrita-problema-de-pagamento/
+
+Uma restrição de pagamento costuma vir de uma cobrança recusada, de um saldo em aberto ou de um cartão em que a Meta não confia. Quite o que deve, confira a forma de pagamento em Faturamento e peça uma análise em Qualidade da conta. Se o botão não aparecer, a Unbanz prepara o pedido.
+
+### Verificação de identidade da Meta que não termina
+
+Source: https://unbanz.com/pt-br/conta-de-anuncios-verificacao-de-identidade-em-loop/
+
+Uma verificação recusada várias vezes costuma ter um nome que não confere, uma foto desfocada ou um documento vencido. Use o administrador certo, um documento válido com o nome idêntico e uma foto nítida, sem reflexos. Se continuar falhando, a Unbanz ajuda você a entender o bloqueio.
+
+### Recurso à Meta pela conta de anúncios: o que escrever
+
+Source: https://unbanz.com/pt-br/conta-de-anuncios-meta-recurso-o-que-escrever/
+
+Escreva de quatro a seis frases: quem você é, o que vende, o que corrigiu e o que está pedindo. Seja objetivo, não acuse ninguém e envie um pedido bem feito em vez de vários iguais. A Unbanz pode revisar seu texto antes do envio.
+
+### Conta de anúncios desativada após impulsionar publicação
+
+Source: https://unbanz.com/pt-br/conta-de-anuncios-desativada-apos-impulsionar-publicacao/
+
+Impulsionar é anunciar como qualquer outro anúncio: valem as mesmas regras. Abra Qualidade da conta, descubra qual conta de anúncios foi usada e leia o motivo. Confira a publicação, a página de destino e o pagamento e peça uma análise. A Unbanz pode preparar o pedido.
+
+### Conta de anúncios desativada de novo após reativação
+
+Source: https://unbanz.com/pt-br/conta-de-anuncios-desativada-de-novo-apos-reativacao/
+
+Uma segunda restrição costuma indicar que a causa original continua: um anúncio, uma página de destino, uma forma de pagamento ou um acesso. Compare as duas notificações, retire o que pode ter provocado a medida e peça a análise. A Unbanz ajuda você a preparar o pedido.
+
+### Conta de anúncios: sem acesso de administrador
+
+Source: https://unbanz.com/pt-br/conta-de-anuncios-sem-acesso-de-administrador/
+
+Comece verificando quem mais é administrador nas Configurações da empresa e se a conta pertence a um portfólio empresarial ou a um perfil pessoal. Peça um convite à pessoa envolvida e reúna provas de propriedade. A Unbanz ajuda você a organizar o pedido.
+
 ## Username claims: quick answers
 
 - How much does a username claim cost? It depends on the handle. You get your quote in the chat before anything starts. Nothing is charged for asking.
