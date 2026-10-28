@@ -51,8 +51,8 @@ def a(s):  # attribute-safe
 _en = read('instagram-account-suspended-180-days/index.html')
 _en_home = read('index.html')
 SPRITE = re.search(r'<body>\s*<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
-SOCIAL = re.search(r'<div class="social-links">.*?</div>', _en, re.S).group(0)
-FOOT_SOCIAL = re.search(r'<span class="social-links">.*?</span></p>', _en, re.S).group(0)[:-4]
+SOCIAL = ''  # social profile links removed site-wide
+FOOT_SOCIAL = ''
 CLARITY = re.search(r'<script type="text/javascript">\s*\(function\(c,l,a,r,i,t,y\).*?</script>', _en, re.S).group(0)
 VT_CARDS = re.findall(r'<li class="vt-card".*?</li>', read('reviews/index.html'), re.S)
 assert len(VT_CARDS) == 5
@@ -216,7 +216,7 @@ def head(d, faq_items, crumbs, service=None, vt=False):
          '<meta property="og:image" content="%s">' % SHARE,
          '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="628">',
          '<meta property="og:image:alt" content="Unbanz : récupération de comptes et signalements.">',
-         '<meta name="twitter:site" content="@unbanzhq"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="%s"><meta name="twitter:description" content="%s"><meta name="twitter:image:alt" content="Unbanz : récupération de comptes Instagram et Facebook">' % (a(title), a(desc)),
+         '<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="%s"><meta name="twitter:description" content="%s"><meta name="twitter:image:alt" content="Unbanz : récupération de comptes Instagram et Facebook">' % (a(title), a(desc)),
          '<title>%s</title>' % html.escape(title, quote=False),
          '<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">',
          '<link rel="preload" href="/assets/unbanz-sans-latin.woff" as="font" type="font/woff" crossorigin>',

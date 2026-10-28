@@ -37,7 +37,6 @@ def contact_page(site, C):
                 '<p>%s</p><div class="contact-options">' % (c['eyebrow'], c['h1'], c['p1']) + opts + '</div>'
                 '<div class="email-option"><h2>%s</h2><a href="%s">team@unbanz.com ↗︎</a><p>%s</p></div>' % (c['mail_h2'], site.MAIL, c['mail_p']) +
                 '<div class="email-option"><h2>%s</h2><p>%s</p></div>' % (c['what_h2'], c['what_p']) +
-                '<div class="email-option"><h2>%s</h2>' % c['social_h2'] + SOCIAL + '<p>%s</p></div>' % c['social_p'] +
                 '<div class="email-option"><h2>%s</h2><p>%s</p></div>' % (c['lang_h2'], c['lang_p']) +
                 '<p class="contact-note">%s</p></section></main>' % c['note'])
         return site.page_shell(d, main, [], [(S['n_home'], BASE + '/%s/' % site.dir), (c['nav'], site.url('contact'))])

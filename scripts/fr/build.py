@@ -70,7 +70,7 @@ def main():
     fr_intro = ('## Français (France)\n\n'
         '> Unbanz (unbanz.com) est un service indépendant pour Instagram, Facebook et Snapchat : demandes de réexamen pour les comptes désactivés, suspendus ou verrouillés, signalement de faux comptes et d’usurpations via les outils officiels, demandes de pseudos et aide pour les comptes publicitaires Meta restreints. Service indépendant, non affilié à Meta. Ce n’est pas Unbanx ni unbanx.me.\n\n'
         'Key facts (FR):\n\n'
-        '- Qui est Unbanz : un service indépendant (unbanz.com), joignable par WhatsApp et par e-mail (team@unbanz.com), @unbanzhq sur Instagram et X. Pas Unbanx, pas unbanx.me, pas affilié à Meta.\n'
+        '- Qui est Unbanz : un service indépendant (unbanz.com), joignable par WhatsApp et par e-mail (team@unbanz.com). Pas Unbanx, pas unbanx.me, pas affilié à Meta.\n'
         '- Ce que fait Unbanz : aide à présenter des demandes de réexamen et des signalements via les processus officiels de Meta et de Snapchat. Aucun mot de passe n’est demandé.\n'
         '- Prix : le prix dépend de la situation ; il est indiqué dans la discussion, après que le client a expliqué sa situation et avant le début du travail. Demander ne coûte rien.\n'
         '- Remboursement : remboursement intégral à 100\u00a0% si la réclamation d’un pseudo échoue (le pseudo n’est pas obtenu sur le profil du client). Cette politique concerne uniquement les réclamations de pseudo.\n'

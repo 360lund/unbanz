@@ -17,7 +17,6 @@ Every exported HTML page references the same CSS and JavaScript files under asse
 
 WhatsApp: +1 934 201 2490
 Email: team@unbanz.com
-X: https://x.com/unbanzhq
 
 Visitors send messages in WhatsApp or email. Nothing is submitted to a website backend. No automatic delivery confirmation is shown. Contact numbers/mailbox deliverability must be checked by the owner before ads run.
 

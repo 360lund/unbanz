@@ -25,8 +25,8 @@ def a(s):
 _en = read('instagram-account-suspended-180-days/index.html')
 _en_home = read('index.html')
 SPRITE = re.search(r'<body>\s*<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
-SOCIAL = re.search(r'<div class="social-links">.*?</div>', _en, re.S).group(0)
-FOOT_SOCIAL = re.search(r'<span class="social-links">.*?</span></p>', _en, re.S).group(0)[:-4]
+SOCIAL = ''  # social profile links removed site-wide
+FOOT_SOCIAL = ''
 CLARITY = re.search(r'<script type="text/javascript">\s*\(function\(c,l,a,r,i,t,y\).*?</script>', _en, re.S).group(0)
 _rv = read('reviews/index.html')
 VT_RAW = re.findall(r'<li class="vt-card".*?</li>', _rv, re.S)
@@ -218,7 +218,7 @@ class Site:
              '<meta property="og:image" content="%s">' % SHARE,
              '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="628">',
              '<meta property="og:image:alt" content="%s">' % a(S['og_alt']),
-             '<meta name="twitter:site" content="@unbanzhq"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="%s"><meta name="twitter:description" content="%s"><meta name="twitter:image:alt" content="%s">' % (a(title), a(desc), a(S['og_alt'])),
+             '<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="%s"><meta name="twitter:description" content="%s"><meta name="twitter:image:alt" content="%s">' % (a(title), a(desc), a(S['og_alt'])),
              '<title>%s</title>' % html.escape(title, quote=False),
              '<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">',
              '<link rel="preload" href="/assets/unbanz-sans-latin.woff" as="font" type="font/woff" crossorigin>',

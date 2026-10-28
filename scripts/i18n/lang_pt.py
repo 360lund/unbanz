@@ -144,7 +144,7 @@ C['contact'] = dict(
        ('Conta de anúncios', 'Olá Unbanz, preciso de ajuda com uma conta de anúncios da Meta.', 'ad')],
  mail_h2='Prefere e-mail?', mail_p='Escreva para team@unbanz.com e informe seu nome de usuário ou o link do perfil, um print do aviso e a data em que aconteceu.',
  what_h2='O que você pode enviar', what_p='Seu @usuário ou o link do perfil, um print do aviso e a data. Em conta de anúncios, também o ID da conta. Nunca envie senha nem código de acesso.',
- social_h2='Também em', social_p='Somos @unbanzhq no Instagram e no X. Para dados de contas, prefira o WhatsApp ou o e-mail.',
+
  lang_h2='Idioma', lang_p='O atendimento é principalmente em inglês. Uma mensagem curta com nome de usuário, print e data basta para começar.',
  note='Serviço independente. Sem vínculo com a Meta. Nunca pedimos sua senha.')
 
