@@ -5,6 +5,5 @@ skills-lock.json
 __pycache__/
 *.pyc
 
-replay-kit/node_modules/
 __pycache__/
 *.pyc
