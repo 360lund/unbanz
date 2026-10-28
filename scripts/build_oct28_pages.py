@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import build_oct25_pages as b
 import oct28_content as c
 b.DATE = c.DATE
+for _p in c.PAGES: _p['v2'] = True
 def with_ld(out, extra):
     m = re.search(r'<script type="application/ld\+json">(.*?)</script>', out, re.S)
     d = json.loads(m.group(1).replace('<\\/', '</'))

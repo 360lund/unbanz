@@ -7,6 +7,7 @@ import oct28c_content_a, oct28c_content_b, oct28c_content_c as c
 import oct27_content as o
 b.DATE = c.DATE
 PAGES = list(o.PAGES) + c.UPAGES + [c.HUB]
+for _p in PAGES: _p['v2'] = True
 if __name__ == '__main__':
     for p in PAGES:
         d = os.path.join(b.ROOT, p['slug']); os.makedirs(d, exist_ok=True)

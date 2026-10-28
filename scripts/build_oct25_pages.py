@@ -3,6 +3,7 @@
 import html, json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from oct25_content import PAGES, DATE
+import oct28d_top as T2
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 T = open(os.path.join(ROOT, 'threads-account-suspended/index.html'), encoding='utf-8').read()
@@ -69,12 +70,19 @@ def build(p):
     ld = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, separators=(',', ':'))
     ld = ld.replace('</', '<\\/')
     # ---- main
-    hero = ('<main id="content"><section class="service-hero"><div class="container">'
-            '<a class="crumb" href="/">Home / %s</a><h1>%s</h1><p>%s</p><div class="hero-cta">'
-            '<a class="button button-light" href="%s"%s>Talk to us on WhatsApp <span aria-hidden="true">↗︎</span></a>'
-            '<a class="hero-email" href="%s">Prefer email? ↗︎</a></div></div></section>') % (esc(p['crumb']), esc(p['h1']), esc(p['hero']), wa, ds, mail)
-    art = '<article class="guide-body container"><h2 id="answer">Short answer</h2><p>%s</p>%s%s</article>' % (
-        esc(p['answer']), ''.join(p['body']), SAFE_ABOUT)
+    if p.get('v2'):
+        # same hero, answer-first and 3-card block as the original service pages (see oct28d_top.py)
+        h1 = T2.H1.get(slug, p['h1'])
+        hero = T2.top_v2(h1=h1, hero_html=esc(p['hero']), wa=wa, ws=p['ws'], mail=mail, answer=p['answer'],
+                         cards=p.get('cards') or T2.cards_for(slug, h1))
+        art = '<article class="guide-body container">%s%s</article>' % (''.join(p['body']), SAFE_ABOUT)
+    else:
+        hero = ('<main id="content"><section class="service-hero"><div class="container">'
+                '<a class="crumb" href="/">Home / %s</a><h1>%s</h1><p>%s</p><div class="hero-cta">'
+                '<a class="button button-light" href="%s"%s>Talk to us on WhatsApp <span aria-hidden="true">↗︎</span></a>'
+                '<a class="hero-email" href="%s">Prefer email? ↗︎</a></div></div></section>') % (esc(p['crumb']), esc(p['h1']), esc(p['hero']), wa, ds, mail)
+        art = '<article class="guide-body container"><h2 id="answer">Short answer</h2><p>%s</p>%s%s</article>' % (
+            esc(p['answer']), ''.join(p['body']), SAFE_ABOUT)
     faqs = ('<section class="faq-section" id="faq"><div class="container faq-layout"><div class="faq-intro">'
             '<p class="eyebrow">QUICK ANSWERS</p><h2>Good to know.</h2></div><div class="simple-faq">%s</div></div></section>') % faq_html
     proof = ('<section class="service-proof container"><h2>Tell us what you need.</h2><div class="cta-pair">'
