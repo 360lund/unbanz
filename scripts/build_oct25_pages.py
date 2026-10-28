@@ -52,7 +52,7 @@ def build(p):
     assert 4 <= len(faq) <= 6
     faq_html = ''.join('<details><summary>%s<span aria-hidden="true">+</span></summary><p>%s</p></details>' % (esc(q), esc(a)) for q, a in faq)
     faq_ld = [{'@type': 'Question', 'name': plain(esc(q)), 'acceptedAnswer': {'@type': 'Answer', 'text': plain(esc(a))}} for q, a in faq]
-    graph = [ORG, WEB,
+    graph = [p.get('org') or ORG, WEB,
       {'@type': 'WebPage', '@id': url + '#webpage', 'url': url, 'name': title, 'description': desc,
        'isPartOf': {'@id': 'https://unbanz.com/#website'}, 'about': {'@id': 'https://unbanz.com/#organization'},
        'inLanguage': p['lang'], 'dateModified': DATE,
@@ -63,11 +63,13 @@ def build(p):
         {'@type': 'ListItem', 'position': 3 if p.get('crumb_parent') else 2, 'name': p['crumb'], 'item': url}]},
       {'@type': 'FAQPage', '@id': url + '#faq', 'url': url, 'mainEntity': faq_ld},
       {'@type': 'Service', '@id': url + '#service', 'name': p['svc'],
-       'serviceType': 'Social media account unbans, account removals and username claims', 'url': url,
+       'serviceType': p.get('stype') or 'Social media account unbans, account removals and username claims', 'url': url,
        'description': desc, 'provider': {'@id': 'https://unbanz.com/#organization'}, 'areaServed': p.get('area') or AREA,
        'availableChannel': {'@type': 'ServiceChannel', 'serviceUrl': 'https://wa.me/19342012490', 'availableLanguage': 'English'},
        'offers': {'@type': 'Offer', 'url': url, 'availability': 'https://schema.org/InStock',
                   'description': 'Price agreed before work starts.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
+    if p.get('audience'): graph[-1]['audience'] = {'@type': 'Audience', 'audienceType': p['audience']}
+    if p.get('about_extra'): graph[2]['about'] = [graph[2]['about']] + p['about_extra']
     ld = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, separators=(',', ':'))
     ld = ld.replace('</', '<\\/')
     # ---- main

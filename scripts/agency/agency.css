@@ -1,0 +1,22 @@
+.guide-body .updated{font-size:14px;color:#5b7186;margin:0 0 6px}
+.guide-body .toc{border:1px solid #d9e6ef;background:#f7fbfe;border-radius:14px;padding:14px 20px;margin:18px 0 6px}
+.guide-body .toc p{font-weight:700;color:#25415d;margin:0 0 6px;font-size:15px}
+.guide-body .toc ul{margin:0 0 0 18px;gap:4px}
+.guide-body .toc li{font-size:15px;line-height:1.5}
+.guide-body .dfn{border-left:4px solid #589dd8;background:#f1f7fc;padding:14px 18px;border-radius:0 12px 12px 0;margin:20px 0}
+.guide-body .dfn p{margin:0}
+.guide-body .dfn .dfn-term{font-weight:700;color:#25415d;margin:0 0 4px}
+.guide-body .tmpl{border:1px dashed #9db9cf;background:#fbfdff;border-radius:14px;padding:16px 20px;margin:20px 0}
+.guide-body .tmpl .tmpl-title{font-weight:700;color:#25415d;font-size:15px;margin:0 0 8px}
+.guide-body .tmpl p{font-size:15.5px;line-height:1.65;color:#3a566e;margin:0 0 10px}
+.guide-body .tmpl p:last-child{margin-bottom:0}
+.guide-body .table-wrap{overflow-x:auto;margin:20px 0;border:1px solid #d9e6ef;border-radius:16px;background:#fff;-webkit-overflow-scrolling:touch}
+.guide-body table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:480px}
+.guide-body th{text-align:left;background:#e8f2f9;color:#25415d;font-weight:700;padding:12px 16px}
+.guide-body td{padding:12px 16px;border-top:1px solid #e3edf4;color:#3a566e;vertical-align:top;line-height:1.55;font-size:15.5px}
+.guide-body .agency-list{list-style:none;margin:12px 0;padding:0;display:grid;gap:10px}
+.guide-body .agency-list li{border:1px solid #e3edf4;border-radius:12px;padding:12px 16px;background:#fff;line-height:1.6;font-size:16px}
+.guide-body .agency-list li a{font-weight:700}
+.guide-body dl.glossary{margin:14px 0;display:grid;gap:12px}
+.guide-body dl.glossary dt{font-weight:700;color:#25415d;font-size:17px}
+.guide-body dl.glossary dd{margin:2px 0 0;font-size:16px;line-height:1.7;color:var(--muted)}
