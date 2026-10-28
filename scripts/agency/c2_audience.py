@@ -36,18 +36,18 @@ mk('white-label-recovery-for-social-media-agencies', 'For social media agencies'
  [('Why should a social media agency offer account recovery?', 'Clients call the agency first when an account stops working. Having a clear service to offer keeps the client with you and protects the content calendar.'),
   ('Do I have to hire a recovery specialist?', 'No. With white label, Unbanz does the platform work behind the scenes while you stay the contact. You handle intake and client updates.'),
   ('What should I collect from a client before contacting Unbanz?', 'The username or profile link, an unedited screenshot of the notice and its date, the email and number on the account and the client’s go-ahead. Never ask for a password.'),
-  ('Can I include recovery in my retainer?', 'Yes, many agencies do, usually as a defined add-on. Do not promise a result, because the platform decides every appeal.'),
+  ('Can I include recovery in my retainer?', 'Yes, usually as a defined add-on. Do not promise a result, because the platform decides every appeal.'),
   ('What if the client’s account cannot be recovered?', 'Tell them plainly, and offer the next best step, such as setting up a new account correctly. The platform’s decision is final for that request.')],
  REL_AUD + ['white-label-recovery-for-community-managers-freelancers', 'agency-pricing-models-reselling-recovery'],
  'Social media agencies: the lockouts they meet and a handoff that fits the working day.')
 
 mk('white-label-recovery-for-ad-agencies', 'For ad agencies', 'audience',
- 'White Label Recovery for Ad Agencies and Media Buyers',
+ 'White Label Recovery for Ad Agencies',
  'Paid media agencies lose spend when ad accounts are restricted. How to offer ad account and business portfolio recovery under your own brand.',
  'White label recovery for ad agencies.',
  'When an ad account is restricted, spend stops and the client wants answers. Here is how an ad agency can respond without building a recovery desk.',
  'For an ad agency, a restricted or disabled ad account stops campaigns and puts the retainer under pressure. White label ad account recovery lets you respond under your own brand while Unbanz prepares the appeal behind the scenes. Meta decides the outcome, so no result can be promised.',
- [('Campaigns stop', 'A disabled ad account pauses delivery. Clients notice within hours.'),
+ [('Campaigns stop', 'A disabled ad account pauses delivery. Clients notice as soon as delivery stops.'),
   ('Many assets, one problem', 'The restriction may sit on the ad account, the business portfolio, a Page or a profile.'),
   ('Honest answers', 'You report where the appeal stands. You do not predict the outcome.')],
  [('where', 'Where the restriction really sits',
@@ -289,7 +289,7 @@ mk('white-label-recovery-for-app-growth-agencies', 'For app growth agencies', 'a
  'App growth agencies: acquisition channels at risk and incident roles.')
 
 mk('white-label-recovery-for-web-design-seo-agencies', 'For web design and SEO agencies', 'audience',
- 'White Label Recovery for Web Design and SEO Agencies',
+ 'White Label Recovery for Web and SEO Agencies',
  'Web design and SEO agencies often set up clients’ social profiles and get blamed when they fail. How to add recovery support under your brand.',
  'White label recovery for web design and SEO agencies.',
  'You build the website and perhaps the profiles around it. When a client’s Instagram or Facebook stops working, you are still the person they call.',
@@ -298,7 +298,7 @@ mk('white-label-recovery-for-web-design-seo-agencies', 'For web design and SEO a
   ('Add-on, not a pivot', 'Recovery support sits next to your main work. It does not change what you do.'),
   ('Keeps clients close', 'A helpful answer at the right moment protects the retainer.')],
  [('why', 'Why web and SEO agencies get these calls',
-   P('Many agencies create the Facebook Page, link the Instagram account to it and connect the website. The client then sees the agency as the owner of the whole online presence. When a notice appears, the client asks the agency before asking anyone else.')),
+   P('Some agencies create the Facebook Page, link the Instagram account to it and connect the website. The client then sees the agency as the owner of the whole online presence. When a notice appears, the client asks the agency before asking anyone else.')),
   ('tie', 'How social account problems affect your own work',
    UL(['Broken links between the website and the Page or profile.', 'Social proof and embedded feeds that disappear from the site.', 'Business information that must match across the website, search listings and social profiles.', 'Ad and tracking setups tied to the same business portfolio.']) +
    P('A quick recovery plan protects your site and the surrounding work.')),
@@ -318,7 +318,7 @@ mk('white-label-recovery-for-web-design-seo-agencies', 'For web design and SEO a
  'Web and SEO agencies: why you get the call and a modest way to offer help.')
 
 mk('white-label-recovery-for-branding-creative-studios', 'For branding and creative studios', 'audience',
- 'White Label Recovery for Branding and Creative Studios',
+ 'White Label Recovery for Branding Studios',
  'Branding and creative studios hand over social profiles at the end of a project. How to offer handle claims and recovery support under your own studio name.',
  'White label recovery for branding and creative studios.',
  'A new brand needs a matching handle. A launched brand needs its profiles to stay online. Both are part of the studio’s job.',

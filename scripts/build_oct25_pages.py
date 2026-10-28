@@ -43,10 +43,10 @@ def build(p):
     ds = ' data-service="username"' if p['ws'] == 'username' else ''
     # ---- head
     h = HEAD_PRE.replace(TPL_DESC, esc(desc)).replace(TPL_TITLE, esc(title)).replace(TPL_URL, url)
-    h = h.replace('</title>', '</title><meta property="article:modified_time" content="%s">' % DATE, 1)
+    h = h.replace('</title>', '</title><meta property="article:modified_time" content="%s">' % p.get('date', DATE), 1)
     if p['lang'] != 'en-US':
         h = h.replace('<link rel="alternate" hreflang="en-US" href="%s">' % url, '')
-    assert h.count(url) >= 4 and 'threads' not in h.lower(), slug
+    assert h.count(url) >= 4 and ('threads' not in h.lower() or 'threads' in slug), slug
     # ---- JSON-LD
     faq = p['faq']
     assert 4 <= len(faq) <= 6
@@ -55,7 +55,7 @@ def build(p):
     graph = [p.get('org') or ORG, WEB,
       {'@type': 'WebPage', '@id': url + '#webpage', 'url': url, 'name': title, 'description': desc,
        'isPartOf': {'@id': 'https://unbanz.com/#website'}, 'about': {'@id': 'https://unbanz.com/#organization'},
-       'inLanguage': p['lang'], 'dateModified': DATE,
+       'inLanguage': p['lang'], 'dateModified': p.get('date', DATE),
        'breadcrumb': {'@id': url + '#breadcrumb'}, 'mainEntity': {'@id': url + '#service'}},
       {'@type': 'BreadcrumbList', '@id': url + '#breadcrumb', 'itemListElement': [
         {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://unbanz.com/'}] + (

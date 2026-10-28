@@ -76,7 +76,7 @@ def to_build(spec):
     related = [(HUB, 'White label agency hub')] + [('/%s/' % s, REG[s]['label']) for s in rel_slugs if not (os.environ.get('LENIENT') and s not in REG)] + spec.get('rel_extra', BASE_REL[:2])
     wa = quote(spec.get('wa') or ('Hey Unbanz, I run an agency and want to talk about %s' % spec['label'].lower()), safe='')
     title = spec['title'] + ' | Unbanz'
-    p = dict(slug=slug, title=title, desc=spec['desc'], lang='en-US', crumb=spec['label'], h1=spec['h1'], hero=spec['hero'],
+    p = dict(date=DATE, slug=slug, title=title, desc=spec['desc'], lang='en-US', crumb=spec['label'], h1=spec['h1'], hero=spec['hero'],
              answer=spec['answer'], wa=wa, subj='White%20label%20agency', ws='unban', svc=spec['svc'] if 'svc' in spec else spec['label'],
              body=[body_html(spec)], faq=[(resolve(q), re.sub(r'<[^>]+>', '', resolve(a))) for q, a in spec['faq']], related=related, relq=RELQ, v2=True,
              area=None, cards=spec['cards'], crumb_parent=('White label agency', HUB),
@@ -96,7 +96,7 @@ def css_tag(): return '<link rel="stylesheet" href="/assets/agency.%s.css">' % c
 def build_en(spec):
     h = b.build(to_build(spec))
     assert '</head>' in h
-    if 'agency.' not in h: h = h.replace('</head>', css_tag() + '</head>', 1)
+    if '/assets/agency.' not in h: h = h.replace('</head>', css_tag() + '</head>', 1)
     d = os.path.join(ROOT, spec['slug']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h)
     return h

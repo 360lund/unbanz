@@ -1,7 +1,7 @@
 import sys; sys.path.insert(0,'.')
 import importlib
 from lib import *
-MODS = ['c1_core','c2_audience','c3_services','c4_ops','c5_hubs']
+MODS = ['c1_core','c2_audience','c3_services','c4_ops','c5_hubs','c6_extra']
 for m in MODS:
     try: importlib.import_module(m)
     except ModuleNotFoundError as e:
