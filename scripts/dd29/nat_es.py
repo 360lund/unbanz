@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+T = {}
+T['spam'] = dict(slug='instagram-suspendido-por-spam-apelar', parent='ig',
+ title='Instagram suspendido por spam: cómo apelar',
+ desc='¿Tu cuenta de Instagram está suspendida por spam? Qué suele detectar Meta, qué dejar de hacer y cómo preparar una apelación clara y honesta.',
+ h1='¿Cuenta de Instagram suspendida por spam?',
+ lead='Instagram suspende cuentas cuya actividad parece automática: seguir en masa, mensajes iguales, enlaces repetidos. Esto es lo que conviene revisar antes de apelar.',
+ answer='Una suspensión por spam casi siempre viene de demasiadas acciones seguidas o de mensajes repetidos. Deja cualquier herramienta automática, no abras una segunda cuenta y apela una sola vez desde la notificación, explicando con calma lo que hacías. Unbanz prepara la solicitud contigo.',
+ cards=[('Deja las herramientas','Quita aplicaciones o extensiones que actúan por ti antes de apelar.'),('Una sola apelación','Enviar varias seguidas no ayuda. Corrige y envía una solicitud clara.'),('No crees otra cuenta','Una cuenta nueva puede empeorar la situación.')],
+ steps=['Abre la notificación de suspensión y anota la fecha.','Haz una lista de lo que hacías antes: seguir, mensajes, comentarios, enlaces.','Quita las aplicaciones de terceros conectadas a la cuenta.','Apela una vez desde la notificación, en tres frases sencillas.'],
+ send=['Tu nombre de usuario de Instagram.','La captura de la notificación, con la fecha.','Lo que hacías antes de la suspensión, en pocas líneas.','El correo o número vinculado a la cuenta (nunca un código).'],
+ faq=[('¿Borrar mensajes antiguos ayuda?','Evita nuevos avisos, pero no levanta la suspensión. Haz la apelación.'),('¿Puedo apelar varias veces?','Evítalo. Una solicitud precisa vale más que varias iguales.'),('¿Una cuenta de empresa tiene otras reglas?','Las reglas sobre spam son las mismas. Explicar el uso del negocio ayuda.')])
+T['fakename'] = dict(slug='facebook-desactivado-nombre-falso-apelar', parent='fb',
+ title='Facebook desactivado por nombre falso: apelar',
+ desc='¿Facebook desactivó tu perfil por el nombre? Qué documentos suelen aceptarse, cómo presentar la solicitud y qué no cambiar mientras tanto.',
+ h1='¿Perfil de Facebook desactivado porque el nombre parece falso?',
+ lead='Facebook pide el nombre que usas en tu vida diaria. Cuando el nombre parece inventado, el perfil puede desactivarse.',
+ answer='Facebook desactiva perfiles cuyo nombre parece falso o distinto del que usas a diario. Apela con un documento al nombre que usas, o uno que muestre el vínculo, si la solicitud lo indica. Sé breve y no cambies el nombre mientras dura el proceso.',
+ cards=[('Documento con el nombre correcto','El nombre debe ser el que usas en el perfil.'),('No cambies el nombre','Modificarlo durante la apelación puede complicar la solicitud.'),('Sé breve','Un mensaje corto y objetivo funciona mejor.')],
+ steps=['Abre el mensaje de desactivación y anota la fecha.','Mira qué documento acepta la solicitud.','Prepara un documento legible con el nombre que usas.','Apela una vez, sin tocar el perfil.'],
+ send=['El enlace de tu perfil de Facebook o el nombre que aparece.','La captura del mensaje, con la fecha.','El tipo de documento que puedes aportar (sin enviarlo).','Por qué usas ese nombre a diario.'],
+ faq=[('¿Puedo usar un apodo?','En un perfil personal, no. Las páginas y cuentas de empresa tienen reglas propias.'),('¿Y si mi nombre tiene caracteres especiales?','Explícalo con sencillez y aporta un documento donde aparezca.'),('¿Unbanz envía mi documento?','No. Lo envías tú en el formulario oficial.')])
+T['twofa'] = dict(slug='instagram-hackeado-verificacion-en-dos-pasos-activada', parent='ig',
+ title='Instagram hackeado: verificación en dos pasos activada',
+ desc='¿Un atacante activó la verificación en dos pasos en tu Instagram? Qué bloquea, qué hacer primero y qué vías oficiales existen.',
+ h1='¿Un atacante activó la verificación en dos pasos en tu Instagram?',
+ lead='Cuando el atacante activa la verificación con su número, los códigos dejan de llegarte. La recuperación pasa por otras vías oficiales.',
+ answer='Si el atacante activó la verificación en dos pasos, los códigos van a su teléfono, no al tuyo. Busca el correo de seguridad de Instagram y usa el enlace para deshacer el cambio, si aún sirve. Si no, usa la solicitud oficial de cuenta hackeada y avisa a tus seguidores. Unbanz prepara la solicitud.',
+ cards=[('Busca el correo de seguridad','A veces trae un enlace para deshacer el cambio.'),('Avisa a tus seguidores','El atacante puede escribirles en tu nombre.'),('Usa la vía oficial','No pagues a quien promete un acceso especial.')],
+ steps=['Busca en tu correo los mensajes de seguridad de Instagram.','Usa el enlace para deshacer si el mensaje es reciente.','Avisa a tus contactos por otro canal.','Si no funciona, inicia la recuperación oficial de cuenta hackeada.'],
+ send=['Tu nombre de usuario de Instagram.','Los mensajes de seguridad recibidos, con sus fechas.','Lo que cambió el atacante: correo, número, nombre.','El correo original de la cuenta.'],
+ faq=[('¿Se puede saltar el código?','No. Solo existen vías oficiales y todas pasan por la verificación.'),('¿Me sirve mi correo antiguo?','Sí. El mensaje para deshacer se envía allí.'),('¿Debo pagar a quien dice entrar en la cuenta?','No. Suele ser una estafa.')])
