@@ -4,3 +4,7 @@ skills-lock.json
 .env*
 __pycache__/
 *.pyc
+
+replay-kit/node_modules/
+__pycache__/
+*.pyc
