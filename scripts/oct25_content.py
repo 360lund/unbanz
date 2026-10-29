@@ -7,8 +7,8 @@ def A(href, label):
     return '<a href="%s">%s</a>' % (href, label)
 
 def how(step1, username=False):
-    price = ('We tell you honestly if we can help and what it costs. The price is agreed before work starts.' if username
-             else 'We tell you honestly if we can help and what it costs. Price and any refund terms are agreed before we start.')
+    price = ('We tell you honestly if we can help and what it costs.' if username
+             else 'We tell you honestly if we can help and what it costs.')
     what = 'handle the username through the platform’s official process' if username else 'handle the appeal through the platform’s official process'
     return ('<h2 id="how">How it works with Unbanz</h2><ol><li>%s</li><li>%s</li><li>We prepare everything and %s.</li>'
             '<li>We keep you posted until there’s a result.</li></ol>') % (step1, price, what)
@@ -424,7 +424,7 @@ page(slug='instagram-username-claim-refund', lang='en',
  faq=[
   ('Do I get a refund if my Instagram username claim fails?','Yes. If a username claim fails you get a full 100% refund. A claim fails when the username isn’t successfully claimed onto your profile.'),
   ('Is the refund full or partial?','Full. It’s 100% of your money back if the username isn’t claimed onto your profile.'),
-  ('Does the refund apply to unbans and recovery too?','No. The 100% refund covers username claims. For other services, price and any refund terms are agreed with you before we start.'),
+  ('Does the refund apply to unbans and recovery too?','No. The 100% refund covers username claims.'),
   ('How do I ask for the refund?','Email team@unbanz.com with your WhatsApp number or email thread, or message us in the chat you already have. The refund policy page has the wording.'),
   ('Who decides whether a username claim succeeds?','Instagram does. We pick the right official route and file it properly, and tell you upfront if the handle looks doable.'),
   ('Do you buy usernames from other people?','No. Buying or selling usernames breaks Instagram’s Terms of Use. The handle goes onto your own profile through official routes.')],

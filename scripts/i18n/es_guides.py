@@ -8,9 +8,9 @@ def UL(*t):
 def OL(*t):
     return '<ol>' + ''.join('<li>%s</li>' % x for x in t) + '</ol>'
 
-HELP_IG = P('¿No te funciona el botón oficial o prefieres que te ayudemos? Envíanos tu nombre de usuario, una captura del aviso y la fecha. Te decimos con sinceridad si podemos ayudarte y te indicamos el precio en la conversación, antes de que empiece el trabajo. Preguntar no cuesta nada. La atención es principalmente en inglés.')
-HELP_FB = P('Envíanos el enlace del perfil, una captura del aviso y la fecha. Te decimos con sinceridad si podemos ayudarte y te indicamos el precio en la conversación, antes de que empiece el trabajo. La atención es principalmente en inglés.')
-HELP_AD = P('Envíanos el ID de la cuenta, una captura del aviso y la fecha. Te decimos con sinceridad si podemos ayudarte y te indicamos el precio en la conversación, antes de que empiece el trabajo. La atención es principalmente en inglés.')
+HELP_IG = P('¿No te funciona el botón oficial o prefieres que te ayudemos? Envíanos tu nombre de usuario, una captura del aviso y la fecha. Te decimos con sinceridad si podemos ayudarte. Preguntar no cuesta nada. La atención es principalmente en inglés.')
+HELP_FB = P('Envíanos el enlace del perfil, una captura del aviso y la fecha. Te decimos con sinceridad si podemos ayudarte. La atención es principalmente en inglés.')
+HELP_AD = P('Envíanos el ID de la cuenta, una captura del aviso y la fecha. Te decimos con sinceridad si podemos ayudarte. La atención es principalmente en inglés.')
 HELP_REP = P('Envíanos los enlaces de las cuentas y las capturas. Te ayudamos a preparar y presentar una denuncia clara con las herramientas oficiales; la decisión es de la plataforma. El precio lo conoces en la conversación, antes de que empiece el trabajo. La atención es principalmente en inglés.')
 
 def add(site):
@@ -32,7 +32,7 @@ def add(site):
          ('refund', 'Solicitud de nombre de usuario: refund policy', P('Si una solicitud de nombre de usuario no prospera, se te devuelve el 100 % del importe. Solo se aplica a las solicitudes de nombre de usuario. Consulta la <a href="/refund-policy/" hreflang="en" lang="en">refund policy</a> (en inglés).')),
          ('plazo', '¿Y cuánto se tarda?', P('Meta y Snapchat no publican un plazo de respuesta. Según la situación, puede llegar a los pocos días o pasadas varias semanas. No prometemos ninguna fecha, pero te mantenemos informado. Consulta <a href="@@appeal-time@@">cuánto tarda una apelación de Instagram</a>.')),
          ('alertas', 'Señales de alerta con los precios', UL('Te dan un importe sin preguntarte nada sobre tu situación.', 'Un servicio que te escribe primero.', 'Te piden tu contraseña, un código o acceso a tu correo.', 'Te prometen un resultado seguro.') + P('Consulta también <a href="@@scams@@">estafas al recuperar cuentas</a>.'))],
-        [('¿Cuánto cuesta la ayuda con una cuenta de Instagram?', 'Depende de la cuenta y de la situación. Te decimos el precio en la conversación, después de que nos cuentes qué ha pasado y antes de que empiece el trabajo.'),
+        [('¿Cuánto cuesta la ayuda con una cuenta de Instagram?', 'Depende de la cuenta y de la situación. El precio depende de la cuenta y del problema.'),
          ('¿Cuesta algo pedir un presupuesto?', 'No. Preguntar no cuesta nada y no te obliga a nada.'),
          ('¿Cuánto se tarda en recuperar una cuenta?', 'Meta no publica un plazo. Varía de unos días a varias semanas. No podemos prometer una fecha.'),
          ('¿Puedo hacerlo gratis por mi cuenta?', 'Sí, los pasos oficiales (apelación, formulario de recuperación, denuncia) son gratuitos. Nuestra ayuda es para quien prefiere delegarlo o se ha atascado.'),
@@ -55,7 +55,7 @@ def add(site):
        ('¿Decidís vosotros si vuelve mi cuenta?', 'No. La decisión siempre es de la plataforma. Nosotros preparamos y enviamos la solicitud.'),
        ('¿Atendéis en español?', 'La atención es principalmente en inglés. Un mensaje corto basta para empezar.')],
       ['ig', 'fb', 'user', 'pricing', 'legit', 'faq'], HELP_IG, crumb_label=S['crumb_services'], std=False,
-      desc='Así funciona Unbanz: envías tu nombre de usuario y el aviso, conoces el precio antes de empezar y enviamos la solicitud por las vías oficiales.')
+      desc='Así funciona Unbanz: envías tu nombre de usuario y el aviso, y nosotros enviamos la solicitud por las vías oficiales.')
 
     g('legit', '¿Es Unbanz fiable? Lo que debes saber', '¿Es Unbanz fiable?', '¿Es Unbanz fiable?',
       'Unbanz es un servicio independiente con un solo sitio web, un correo, condiciones por escrito y opiniones en vídeo de clientes. Nunca pedimos tu contraseña, damos el precio antes de que empiece el trabajo y solo usamos las vías oficiales de la plataforma.',
@@ -227,7 +227,7 @@ def add(site):
        ('¿Puedo comprar un nombre de usuario?', 'No, y quien lo ofrece va contra las normas o es un estafador.'),
        ('¿Cuánto cuesta la ayuda con una solicitud de nombre de usuario?', 'El precio lo conoces en la conversación, antes de que empiece el trabajo.'),
        ('¿Qué pasa si la solicitud no prospera?', 'Se te devuelve el 100 % del importe. Consulta la <a href="/refund-policy/" hreflang="en" lang="en">refund policy</a> (en inglés).')],
-      ['user', 'pricing', 'scams'], P('Envíanos el nombre de usuario que quieres y tu perfil. Te decimos con sinceridad qué vía oficial corresponde y te indicamos el precio en la conversación, antes de que empiece el trabajo. Si una solicitud de nombre de usuario no prospera, se te devuelve el 100 % del importe. La atención es principalmente en inglés.'),
+      ['user', 'pricing', 'scams'], P('Envíanos el nombre de usuario que quieres y tu perfil. Te decimos con sinceridad qué vía oficial corresponde. Si una solicitud de nombre de usuario no prospera, se te devuelve el 100 % del importe. La atención es principalmente en inglés.'),
       svc='username', desc='¿Puedes reclamar el nombre de usuario de una cuenta inactiva de Instagram? No hay botón; solo procesos oficiales. Qué vías hay y qué significan.')
 
     g('report-fake', 'Denunciar cuenta falsa con mis fotos en Instagram', 'Cuenta falsa con mis fotos',

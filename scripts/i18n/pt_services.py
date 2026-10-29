@@ -39,7 +39,7 @@ def add(site):
         ('Dá para recuperar uma conta do Facebook hackeada?', 'Muitas vezes sim, com facebook.com/hacked e os passos oficiais de recuperação. Diga a que você ainda tem acesso.'),
         ('Vocês ajudam também com uma página de empresa?', 'Sim, ajudamos com páginas restritas e com as contas de anúncios vinculadas.'),
         ('Preciso compartilhar minha senha?', 'Não. Basta o link do perfil e um print do aviso.'),
-        ('Quanto custa?', 'Depende da conta e da situação. Informamos o preço na conversa, antes de o trabalho começar. Perguntar não custa nada.')],
+        ('Quanto custa?', 'Depende da conta e da situação. O preço depende da conta e do problema. Perguntar não custa nada.')],
        ['fb-appeal', 'fb-hacked', 'ad-disabled', 'appeal-time'],
        meta('Recuperar conta do Facebook', 'Recuperar conta', 'Ajuda com contas do Facebook desativadas ou hackeadas e com páginas restritas pelos caminhos oficiais.'),
        desc='Perfil do Facebook desativado, hackeado ou página restrita? Envie o link e o aviso; enviamos o pedido pelo processo oficial.')
@@ -77,7 +77,7 @@ def add(site):
         ('3. Enviamos o pedido', 'Enviamos o pedido pelo processo oficial do Snapchat e mantemos você informado.')],
        [('Dá para recuperar uma conta do Snapchat bloqueada?', 'Muitas vezes há um caminho oficial. Envie o aviso e dizemos com sinceridade o que é possível. A decisão é do Snapchat.'),
         ('Preciso passar minha senha?', 'Não. Basta o nome de usuário e um print do aviso.'),
-        ('Quanto custa?', 'Informamos o preço na conversa, antes de o trabalho começar. Perguntar não custa nada.'),
+        ('Quanto custa?', 'O preço depende da conta e do problema. Perguntar não custa nada.'),
         ('Quanto tempo leva?', 'O Snapchat não publica prazo e não prometemos data, mas mantemos você informado.')],
        ['appeal-time', 'scams'],
        meta('Recuperar conta do Snapchat', 'Recuperar conta', 'Ajuda com contas do Snapchat bloqueadas ou desativadas pelos canais oficiais de suporte.'),

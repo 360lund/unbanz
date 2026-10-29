@@ -65,7 +65,7 @@ page(slug='ways-to-get-a-banned-instagram-account-back', lang='en',
     '<strong>instagram.com/hacked (free).</strong> For accounts where the password or email was changed by someone else. Use a device you have logged in from before. Guide: '+A('/guides/hacked-instagram-account-recovery/','hacked Instagram account recovery')+'.',
     '<strong>Meta Verified support (paid subscription).</strong> If you already have an active Meta Verified subscription, Instagram’s Help Center says you can contact support from the app where it is available. Compare it with the other routes on '+A('/compare/','Compare options')+'.',
     '<strong>Identity checks (free).</strong> If Instagram asks for a code or a video selfie, complete it. Many reviews wait on this step. Guide: '+A('/guides/instagram-video-selfie-verification/','video selfie verification')+'.',
-    '<strong>An independent service such as Unbanz (paid).</strong> We read the notice, say whether an appeal looks realistic, prepare it and handle it through Meta’s official process. Price is agreed before work starts.'])),
+    '<strong>An independent service such as Unbanz (paid).</strong> We read the notice, say whether an appeal looks realistic, prepare it and handle it through Meta’s official process.'])),
   sec('wait','Do not repeat the same request', '<p>Sending the same appeal again and again does not help. Submit once, keep a screenshot of the confirmation and watch your email and the app for the answer. If the answer is no, read what it says and see '+A('/instagram-appeal-denied/','what to do after a denied appeal')+'.</p>'),
   sec('no','What does not work', ul([
     'Paying a stranger who says they know someone at Meta. No one outside Meta can change a decision.',

@@ -5,7 +5,7 @@ from oct25_content import A, sec, ul, how, who, WA_USER, USER_STEP1, RECOVER_WA
 from oct28c_base import DATE
 UPAGES = []
 
-REFUND = lambda: sec('refund', 'Refund policy', '<p>If a username claim fails, you get a full 100% refund. A claim fails when the username is not successfully claimed onto your profile. The full wording is on our ' + A('/refund-policy/', 'refund policy') + ' page, and the price is agreed with you before work starts.</p>')
+REFUND = lambda: sec('refund', 'Refund policy', '<p>If a username claim fails, you get a full 100% refund. A claim fails when the username is not successfully claimed onto your profile. The full wording is on our ' + A('/refund-policy/', 'refund policy') + ' page.</p>')
 
 def up(slug, place, title, desc, hero, answer, routes_h, routes, reg_h, reg, notenough, extra, who_items, faq, relq):
     UPAGES.append(dict(

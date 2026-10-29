@@ -23,7 +23,7 @@ WA_DEFAULT = 'Ol%C3%A1%20Unbanz%2C%20preciso%20de%20ajuda%20com%20uma%20conta%20
 S = dict(
  code='pt-br', dir='pt-br', html_lang='pt-BR', og_locale='pt_BR', country='Brasil', js_code='pt', tag='(PT)',
  wa_default=WA_DEFAULT, mail_subj='Ajuda%20com%20minha%20conta',
- offer_desc='Você fica sabendo o preço na conversa, depois de explicar sua situação e antes de o trabalho começar. Perguntar não custa nada.',
+ offer_desc='O preço depende da conta e do problema. Perguntar não custa nada.',
  og_alt='Unbanz: ajuda com contas do Instagram, Facebook e Snapchat',
  skip='Ir para o conteúdo', nav_aria='Menu principal', mnav_aria='Menu para celular',
  n_home='Início', n_services='Serviços', n_user='Nomes de usuário', n_reviews='Avaliações', n_faq='Perguntas', n_contact='Contato', n_how='Como funciona',
@@ -52,7 +52,7 @@ S = dict(
             'com a denúncia de contas que violam as regras pelas ferramentas oficiais, com pedidos de nome de usuário e com a recuperação de contas de anúncios da Meta. '
             'A Unbanz não é a Unbanx nem unbanx.me e não tem vínculo com a Meta. Veja também <a href="@@legit@@">A Unbanz é confiável?</a></p>'),
  block3=[('Onde você estiver', 'Trabalhamos à distância, por WhatsApp ou e-mail, com clientes no Brasil, em Portugal e no resto do mundo. O atendimento é principalmente em inglês.'),
-         ('Primeiro o preço', 'Você sabe o preço antes de o trabalho começar: informamos na conversa, depois de você explicar sua situação.'),
+         ('Primeiro o preço', 'O preço depende da conta e do problema.'),
          ('Sua senha continua com você', 'Só precisamos do seu nome de usuário e do aviso. Sua senha e seus códigos ficam com você.')],
  price_h2='Saiba o preço<br>antes de começar.', price_p='Mande uma mensagem pelo WhatsApp ou por e-mail, conte a situação e dizemos quanto custa.',
  price_link='Como o preço é definido',
@@ -105,7 +105,7 @@ C['services'] = dict(
        ('Denunciar assédio', 'Contas que perseguem ou ameaçam você.', 'har', 'ban'),
        ('Reivindicar nome de usuário', 'Nomes de usuário inativos ou ocupados, pelos processos oficiais da plataforma.', 'user', 'username')],
  faq=[('Com quais plataformas vocês ajudam?', 'Instagram, Facebook, Snapchat e contas de anúncios da Meta.'),
-      ('Como funciona?', 'Você envia o nome de usuário e um print do aviso. Dizemos com sinceridade se podemos ajudar e informamos o preço na conversa, antes de o trabalho começar.'),
+      ('Como funciona?', 'Você envia o nome de usuário e um print do aviso. Dizemos com sinceridade se podemos ajudar.'),
       ('Posso fazer isso sozinho?', 'Pode. Contestar, o formulário de recuperação de contas hackeadas e a denúncia de uma conta são gratuitos e oficiais. Nós ajudamos se travar ou se você preferir delegar.'),
       ('A Unbanz tem vínculo com a Meta?', 'Não. A Unbanz é independente e usa os mesmos caminhos oficiais que você. A decisão é sempre da plataforma.')],
  related=['ig', 'fb', 'snap', 'ad', 'user', 'pricing', 'how', 'legit'])
@@ -188,7 +188,7 @@ C['home'] = dict(
  faq_eyebrow='RESPOSTAS CURTAS', faq_h2='Antes de falar com a gente.',
  faq=[('Minha conta do Instagram foi desativada. E agora?', 'Entre na conta, abra o aviso e conteste uma única vez; em geral há cerca de 180 dias. Tire um print. Veja o <a href="@@ig-disabled@@">guia</a>.'),
       ('A Unbanz é confiável?', 'A Unbanz é um serviço independente: um único site, um e-mail, termos por escrito e avaliações em vídeo de clientes. Nunca pedimos sua senha. Veja <a href="@@legit@@">A Unbanz é confiável?</a>'),
-      ('Quanto custa?', 'Depende da conta e da situação. Você sabe o preço na conversa, antes de o trabalho começar. Perguntar não custa nada.'),
+      ('Quanto custa?', 'Depende da conta e da situação. O preço depende da conta e do problema. Perguntar não custa nada.'),
       ('Vocês precisam da minha senha?', 'Não. Basta um nome de usuário e um print do aviso.'),
       ('Vocês atendem em português?', 'O atendimento é principalmente em inglês. Uma mensagem curta com seu nome de usuário, o print e a data basta para começar.'),
       ('Posso reivindicar um nome de usuário inativo?', 'Às vezes sim, pelos processos oficiais da plataforma. A decisão é da plataforma. Se um pedido de nome de usuário não der certo, você recebe 100% do valor de volta. Veja <a href="@@user@@">reivindicar nome de usuário</a>.')],

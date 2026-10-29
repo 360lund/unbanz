@@ -71,7 +71,7 @@ def build(p):
        'description': desc, 'provider': {'@id': 'https://unbanz.com/#organization'}, 'areaServed': p.get('area') or AREA,
        'availableChannel': {'@type': 'ServiceChannel', 'serviceUrl': 'https://wa.me/19342012490', 'availableLanguage': 'English'},
        'offers': {'@type': 'Offer', 'url': url, 'availability': 'https://schema.org/InStock',
-                  'description': 'Price agreed before work starts.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
+                  'description': 'Price depends on the account and the issue.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
     if p.get('audience'): graph[-1]['audience'] = {'@type': 'Audience', 'audienceType': p['audience']}
     if p.get('about_extra'): graph[2]['about'] = [graph[2]['about']] + p['about_extra']
     ld = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, separators=(',', ':'))

@@ -52,7 +52,7 @@ S = dict(
             'con la denuncia de cuentas que incumplen las normas a través de las herramientas oficiales, con las solicitudes de nombres de usuario y con la recuperación de cuentas publicitarias de Meta. '
             'Unbanz no es Unbanx ni unbanx.me y no tiene afiliación con Meta. Consulta también <a href="@@legit@@">¿Es Unbanz fiable?</a></p>'),
  block3=[('Vivas donde vivas', 'Trabajamos a distancia, por WhatsApp o correo, con clientes de España, Europa y el resto del mundo. La atención es principalmente en inglés.'),
-         ('Primero el precio', 'Conoces el precio antes de que empiece el trabajo: te lo decimos en la conversación, después de que nos expliques tu situación.'),
+         ('Primero el precio', 'El precio depende de la cuenta y del problema.'),
          ('Tu contraseña es tuya', 'Solo necesitamos tu nombre de usuario y el aviso. Tu contraseña y tus códigos se quedan contigo.')],
  price_h2='Conoce el precio<br>antes de empezar.', price_p='Escríbenos por WhatsApp o por correo, cuéntanos la situación y te decimos cuánto cuesta.',
  price_link='Cómo se calcula el precio',
@@ -105,7 +105,7 @@ C['services'] = dict(
        ('Denunciar acoso', 'Cuentas que te acosan o te amenazan.', 'har', 'ban'),
        ('Reclamar un nombre de usuario', 'Nombres de usuario inactivos u ocupados, por los procesos oficiales de la plataforma.', 'user', 'username')],
  faq=[('¿Con qué plataformas ayudáis?', 'Instagram, Facebook, Snapchat y cuentas publicitarias de Meta.'),
-      ('¿Cómo funciona?', 'Nos envías el nombre de usuario y una captura del aviso. Te decimos con sinceridad si podemos ayudarte y te indicamos el precio en la conversación, antes de que empiece el trabajo.'),
+      ('¿Cómo funciona?', 'Nos envías el nombre de usuario y una captura del aviso. Te decimos con sinceridad si podemos ayudarte.'),
       ('¿Puedo hacerlo yo mismo?', 'Sí. Apelar, el formulario de recuperación de cuentas hackeadas y la denuncia de una cuenta son gratuitos y oficiales. Nosotros ayudamos si se atasca o si prefieres delegarlo.'),
       ('¿Tiene Unbanz relación con Meta?', 'No. Unbanz es independiente y usa las mismas vías oficiales que tú. La decisión siempre es de la plataforma.')],
  related=['ig', 'fb', 'snap', 'ad', 'user', 'pricing', 'how', 'legit'])
@@ -188,7 +188,7 @@ C['home'] = dict(
  faq_eyebrow='RESPUESTAS BREVES', faq_h2='Antes de escribirnos.',
  faq=[('Mi cuenta de Instagram está desactivada. ¿Y ahora?', 'Inicia sesión, abre el aviso y apela una sola vez; normalmente hay unos 180 días. Haz una captura. Consulta la <a href="@@ig-disabled@@">guía</a>.'),
       ('¿Es fiable Unbanz?', 'Unbanz es un servicio independiente: un solo sitio web, un correo, condiciones por escrito y opiniones en vídeo de clientes. Nunca pedimos tu contraseña. Consulta <a href="@@legit@@">¿Es Unbanz fiable?</a>'),
-      ('¿Cuánto cuesta?', 'Depende de la cuenta y de la situación. Conoces el precio en la conversación, antes de que empiece el trabajo. Preguntar no cuesta nada.'),
+      ('¿Cuánto cuesta?', 'Depende de la cuenta y de la situación. El precio depende de la cuenta y del problema. Preguntar no cuesta nada.'),
       ('¿Necesitáis mi contraseña?', 'No. Basta con un nombre de usuario y una captura del aviso.'),
       ('¿Atendéis en español?', 'La atención es principalmente en inglés. Un mensaje corto con tu nombre de usuario, la captura y la fecha basta para empezar.'),
       ('¿Puedo reclamar un nombre de usuario inactivo?', 'A veces sí, por los procesos oficiales de la plataforma. La decisión es de la plataforma. Si una solicitud de nombre de usuario fracasa, se te devuelve el 100 % del importe. Consulta <a href="@@user@@">reclamar un nombre de usuario</a>.')],

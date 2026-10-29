@@ -8,9 +8,9 @@ def UL(*t):
 def OL(*t):
     return '<ol>' + ''.join('<li>%s</li>' % x for x in t) + '</ol>'
 
-HELP_IG = P('O botão oficial não funciona ou você prefere que a gente ajude? Envie seu nome de usuário, um print do aviso e a data. Dizemos com sinceridade se podemos ajudar e informamos o preço na conversa, antes de o trabalho começar. Perguntar não custa nada. O atendimento é principalmente em inglês.')
-HELP_FB = P('Envie o link do perfil, um print do aviso e a data. Dizemos com sinceridade se podemos ajudar e informamos o preço na conversa, antes de o trabalho começar. O atendimento é principalmente em inglês.')
-HELP_AD = P('Envie o ID da conta, um print do aviso e a data. Dizemos com sinceridade se podemos ajudar e informamos o preço na conversa, antes de o trabalho começar. O atendimento é principalmente em inglês.')
+HELP_IG = P('O botão oficial não funciona ou você prefere que a gente ajude? Envie seu nome de usuário, um print do aviso e a data. Dizemos com sinceridade se podemos ajudar. Perguntar não custa nada. O atendimento é principalmente em inglês.')
+HELP_FB = P('Envie o link do perfil, um print do aviso e a data. Dizemos com sinceridade se podemos ajudar. O atendimento é principalmente em inglês.')
+HELP_AD = P('Envie o ID da conta, um print do aviso e a data. Dizemos com sinceridade se podemos ajudar. O atendimento é principalmente em inglês.')
 HELP_REP = P('Envie os links das contas e os prints. Ajudamos a preparar e apresentar uma denúncia clara pelas ferramentas oficiais; a decisão é da plataforma. O preço você fica sabendo na conversa, antes de o trabalho começar. O atendimento é principalmente em inglês.')
 
 def add(site):
@@ -32,7 +32,7 @@ def add(site):
          ('refund', 'Nome de usuário: refund policy', P('Se um pedido de nome de usuário não der certo, você recebe 100% do valor de volta. Vale somente para pedidos de nome de usuário. Veja a <a href="/refund-policy/" hreflang="en" lang="en">refund policy</a> (em inglês).')),
          ('prazo', 'E quanto tempo leva?', P('A Meta e o Snapchat não publicam prazo de resposta. Dependendo da situação, pode chegar em poucos dias ou depois de várias semanas. Não prometemos data, mas mantemos você informado. Veja <a href="@@appeal-time@@">quanto tempo leva a contestação do Instagram</a>.')),
          ('alertas', 'Sinais de alerta nos preços', UL('Passam um valor sem perguntar nada sobre sua situação.', 'Um serviço que chama você primeiro.', 'Pedem sua senha, um código ou acesso ao seu e-mail.', 'Prometem um resultado certo.') + P('Veja também <a href="@@scams@@">golpes na recuperação de contas</a>.'))],
-        [('Quanto custa a ajuda com uma conta do Instagram?', 'Depende da conta e da situação. Informamos o preço na conversa, depois de você contar o que aconteceu e antes de o trabalho começar.'),
+        [('Quanto custa a ajuda com uma conta do Instagram?', 'Depende da conta e da situação. O preço depende da conta e do problema.'),
          ('Custa algo pedir um orçamento?', 'Não. Perguntar não custa nada e não obriga a nada.'),
          ('Quanto tempo leva para recuperar uma conta?', 'A Meta não publica prazo. Varia de alguns dias a várias semanas. Não podemos prometer uma data.'),
          ('Posso fazer de graça por conta própria?', 'Sim, os passos oficiais (contestação, formulário de recuperação, denúncia) são gratuitos. Nossa ajuda é para quem prefere delegar ou travou.'),
@@ -41,7 +41,7 @@ def add(site):
         ['ig', 'fb', 'user', 'appeal-time', 'how', 'legit'], HELP_IG, crumb_label=S['crumb_services'], std=False)
 
     g('how', 'Como funciona: recuperar uma conta com a Unbanz', 'Como funciona', 'Como funciona.',
-      'Você envia seu nome de usuário e um print do aviso. Dizemos com sinceridade se podemos ajudar, informamos o preço antes de o trabalho começar e enviamos o pedido pelo processo oficial da plataforma.',
+      'Você envia seu nome de usuário e um print do aviso. Dizemos com sinceridade se podemos ajudar e enviamos o pedido pelo processo oficial da plataforma.',
       [('passos', 'Os passos', OL('Envie seu nome de usuário ou o link do perfil, um print do aviso e a data, pelo WhatsApp ou por e-mail.',
                                  'Vemos sua situação e dizemos com sinceridade se podemos ajudar. O preço você fica sabendo na conversa, antes de o trabalho começar.',
                                  'Se você aceitar, preparamos o pedido e o enviamos pelo processo oficial: uma contestação se a conta foi desativada, o formulário de recuperação se foi hackeada, as ferramentas de denúncia se é um perfil falso.',
@@ -55,7 +55,7 @@ def add(site):
        ('Vocês decidem se minha conta volta?', 'Não. A decisão é sempre da plataforma. Nós preparamos e enviamos o pedido.'),
        ('Vocês atendem em português?', 'O atendimento é principalmente em inglês. Uma mensagem curta basta para começar.')],
       ['ig', 'fb', 'user', 'pricing', 'legit', 'faq'], HELP_IG, crumb_label=S['crumb_services'], std=False,
-      desc='Veja como a Unbanz funciona: você envia seu nome de usuário e o aviso, sabe o preço antes de começar e enviamos o pedido pelos caminhos oficiais.')
+      desc='Veja como a Unbanz funciona: você envia seu nome de usuário e o aviso, e nós enviamos o pedido pelos caminhos oficiais.')
 
     g('legit', 'A Unbanz é confiável? O que você precisa saber', 'A Unbanz é confiável?', 'A Unbanz é confiável?',
       'A Unbanz é um serviço independente com um único site, um e-mail, termos por escrito e avaliações em vídeo de clientes. Nunca pedimos sua senha, informamos o preço antes de o trabalho começar e só usamos os caminhos oficiais da plataforma.',
@@ -69,7 +69,7 @@ def add(site):
        ('Onde posso ver avaliações?', 'Na página <a href="@@reviews@@">Avaliações</a> há vídeos de clientes com transcrições, em inglês.'),
        ('E se eu não ficar satisfeito?', 'Escreva para team@unbanz.com. Nos pedidos de nome de usuário, se não derem certo, o reembolso é de 100%; veja a <a href="/refund-policy/" hreflang="en" lang="en">refund policy</a> (em inglês).')],
       ['reviews', 'pricing', 'how', 'scams', 'contact'], HELP_IG, crumb_label=S['crumb_services'], std=False,
-      desc='Independente, sem pedir senha, com o preço antes de começar e só por caminhos oficiais. Veja como conferir se a Unbanz é confiável.')
+      desc='Independente, sem pedir senha e só por caminhos oficiais. Veja como conferir se a Unbanz é confiável.')
 
     g('about', 'Sobre a Unbanz: um serviço independente', 'Sobre a Unbanz', 'Sobre a Unbanz.',
       'A Unbanz (unbanz.com) é um serviço online independente para Instagram, Facebook e Snapchat: ajuda com contas desativadas, denúncia de perfis falsos e de personificação, pedidos de nome de usuário e contas de anúncios da Meta.',
@@ -227,7 +227,7 @@ def add(site):
        ('Posso comprar um nome de usuário?', 'Não, e quem oferece vai contra as regras ou é golpista.'),
        ('Quanto custa a ajuda com um pedido de nome de usuário?', 'O preço você fica sabendo na conversa, antes de o trabalho começar.'),
        ('E se o pedido não der certo?', 'Você recebe 100% do valor de volta. Veja a <a href="/refund-policy/" hreflang="en" lang="en">refund policy</a> (em inglês).')],
-      ['user', 'pricing', 'scams'], P('Envie o nome de usuário que você quer e seu perfil. Dizemos com sinceridade qual caminho oficial se aplica e informamos o preço na conversa, antes de o trabalho começar. Se um pedido de nome de usuário não der certo, você recebe 100% do valor de volta. O atendimento é principalmente em inglês.'),
+      ['user', 'pricing', 'scams'], P('Envie o nome de usuário que você quer e seu perfil. Dizemos com sinceridade qual caminho oficial se aplica. Se um pedido de nome de usuário não der certo, você recebe 100% do valor de volta. O atendimento é principalmente em inglês.'),
       svc='username', desc='Dá para reivindicar o nome de usuário de uma conta inativa do Instagram? Não há botão; só processos oficiais. Veja quais caminhos existem.')
 
     g('report-fake', 'Denunciar perfil falso com minhas fotos no Instagram', 'Perfil falso com minhas fotos',

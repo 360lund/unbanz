@@ -39,7 +39,7 @@ def add(site):
         ('¿Puedo recuperar una cuenta de Facebook hackeada?', 'A menudo sí, con facebook.com/hacked y los pasos oficiales de recuperación. Dinos a qué todavía tienes acceso.'),
         ('¿Ayudáis también con una página de empresa?', 'Sí, ayudamos con páginas restringidas y con las cuentas publicitarias vinculadas.'),
         ('¿Tengo que compartir mi contraseña?', 'No. Basta con el enlace del perfil y una captura del aviso.'),
-        ('¿Cuánto cuesta?', 'Depende de la cuenta y de la situación. Te decimos el precio en la conversación, antes de que empiece el trabajo. Preguntar no cuesta nada.')],
+        ('¿Cuánto cuesta?', 'Depende de la cuenta y de la situación. El precio depende de la cuenta y del problema. Preguntar no cuesta nada.')],
        ['fb-appeal', 'fb-hacked', 'ad-disabled', 'appeal-time'],
        meta('Recuperar cuenta de Facebook', 'Recuperar cuenta', 'Ayuda con cuentas de Facebook desactivadas o hackeadas y con páginas restringidas por las vías oficiales.'),
        desc='¿Perfil de Facebook desactivado, hackeado o página restringida? Envía el enlace y el aviso; enviamos la solicitud por el proceso oficial.')

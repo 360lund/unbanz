@@ -40,7 +40,7 @@ def send_block(extra=()):
 def how_block():
     return S('How it works with Unbanz', ol([
         'Message us on WhatsApp or email with the ad account ID, the business portfolio ID and a screenshot of the notice.',
-        'We tell you honestly whether we can help and what it costs. The price is agreed before work starts.',
+        'We tell you honestly whether we can help and what it costs.',
         'We prepare the appeal and the supporting details, then send it through Meta’s official review.',
         'We keep you posted until Meta responds. Meta makes the final decision, and nobody can promise the outcome.']))
 
@@ -87,7 +87,7 @@ def ld_for(p, url):
        'areaServed': p.get('area') or B.AREA,
        'availableChannel': {'@type': 'ServiceChannel', 'serviceUrl': 'https://wa.me/19342012490', 'availableLanguage': 'English'},
        'offers': {'@type': 'Offer', 'url': url, 'availability': 'https://schema.org/InStock',
-                  'description': 'Price agreed before work starts.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
+                  'description': 'Price depends on the account and the issue.', 'seller': {'@id': 'https://unbanz.com/#organization'}}}]
     if p.get('audience'): graph[-1]['audience'] = {'@type': 'Audience', 'audienceType': p['audience']}
     ld = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, separators=(',', ':'))
     return ld.replace('</', '<\\/')
