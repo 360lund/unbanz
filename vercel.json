@@ -412,6 +412,16 @@
       "permanent": true
     },
     {
+      "source": "/instagram-account-recovery-india",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-account-recovery-india/",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
       "source": "/instagram-account-recovery-bangladesh",
       "destination": "/instagram-account-recovery/",
       "permanent": true
