@@ -50,3 +50,6 @@ Never delete old hashed files in assets/ (site.*.css / site.*.js). Cached pages 
 
 ## Testimonials on every page
 `python3 scripts/testimonials_all.py` (idempotent, run after any page generator): puts ALL video testimonials (same `vt-page` carousel as /reviews/: larger cards, phone auto-swipe + loop) before the FAQ on every service, country, white-label and agency page, EN and fr/nl/es/pt-br (cards copied from each language's reviews page). It writes hashed `assets/testimonials.<hash>.css/.js` from `scripts/testimonials.{css,js}` and updates the head refs. Add new testimonials in `scripts/testimonials.json` + `build_testimonials.py` (home, /reviews/), rebuild the native reviews pages, then run it.
+
+## Paid-service note (human-only)
+`assets/cta-note.<hash>.js` shows a one-line note ("Unbanz is a paid professional service...", translated per page language) to human visitors from IN, PK, BD, NG, KE, NP, LK, GH, EG, IQ, DZ, MA, PH, ID (country from `/api/geo/`). Client-side only, skipped for bots/automation, never on the homepage or locale homes. Generators call `scripts/cta_note.py` (`write_page` / `with_cta_note`) so new pages get the tag; `scripts/apply_cta_note.py` re-applies it site-wide. If the JS changes, make a new hashed file, keep the old one, update `CTA_ASSET`, and re-run `apply_cta_note.py`.

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, re, sys, hashlib, glob
 sys.path.insert(0, os.path.dirname(__file__))
 import lib
@@ -32,7 +36,7 @@ def build_js():
 def write(slug, html_):
     p = os.path.join(ROOT, 'fr') if slug == '' else os.path.join(ROOT, 'fr', slug)
     os.makedirs(p, exist_ok=True)
-    open(os.path.join(p, 'index.html'), 'w', encoding='utf-8').write(html_)
+    write_page(os.path.join(p, 'index.html'), html_)
 
 def en_files(d):
     if d['en'] is None: return None

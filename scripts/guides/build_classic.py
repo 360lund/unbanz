@@ -1,5 +1,9 @@
 """Classic (pre-redesign) presentation for guides. Restores the 21 originals + hub from 5b529e7^
 and rebuilds the new guides with the original template/markup (stylesheet site.0c72990a1a48.css)."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import re, json, html, os, subprocess, sys, glob
 sys.path.insert(0, '/workspace/site/scripts/guides')
 import build_new as bn
@@ -75,7 +79,7 @@ def main():
         t = re.sub(r'<script.*?</script>', '', page, flags=re.S); t = re.sub(r'<[^>]+>', ' ', t)
         bad = bn.BAN.findall(t.replace('Independent service. Not affiliated with Meta.', ''))
         if bad: print('BANNED', g['slug'], bad)
-        open(f'{ROOT}/guides/{g["slug"]}/index.html', 'w', encoding='utf-8').write(page)
+        write_page(f'{ROOT}/guides/{g["slug"]}/index.html', page)
     # inbound links into the restored originals' related-services nav
     for g in guides:
         for href in g.get('inbound', []):

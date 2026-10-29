@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, sys, importlib, json
 from lib import *
 MODS = ['c_igsusp','c_igappeal','c_ighacked','c_igverify','c_fbdis','c_fblost','c_igrecov','c_igrestrict','c_fbrecov','c_snap','c_user','c_ad']
@@ -30,7 +34,7 @@ def main(write=True):
             if os.path.exists(os.path.join(d, 'index.html')) and tracked(p['slug']):
                 raise SystemExit('COLLISION ' + p['slug'])
             if write:
-                os.makedirs(d, exist_ok=True); open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h)
+                os.makedirs(d, exist_ok=True); write_page(os.path.join(d, 'index.html'), h)
             slugs.append(p['slug'])
     return slugs
 if __name__ == '__main__':

@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """Build the white label agency pages: 43 English (hub + 42 countries) and the native twins. Run from anywhere."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_oct25_pages as b
@@ -26,7 +30,7 @@ def english():
             h = nat.foot_links(h, key)
         d = os.path.join(ROOT, p['slug'])
         os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h)
+        write_page(os.path.join(d, 'index.html'), h)
         out.append('/%s/' % p['slug'])
     return out
 

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, re, sys, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import hub
@@ -11,7 +15,7 @@ for p in pages:
 out = []
 for p in pages:
     d = os.path.join(ROOT, p['slug']); os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(build(p))
+    write_page(os.path.join(d, 'index.html'), build(p))
     out.append(p['slug'])
 print('wrote', len(out))
 open('/tmp/adacct_new_slugs.txt', 'w').write('\n'.join(out))
@@ -56,7 +60,7 @@ native_paths = native.pages()
 for lk in native.LANGS:
     for t in native.TOPICS:
         p = native.path(lk, t); os.makedirs(os.path.join(ROOT, p), exist_ok=True)
-        open(os.path.join(ROOT, p, 'index.html'), 'w', encoding='utf-8').write(native.build(lk, t))
+        write_page(os.path.join(ROOT, p, 'index.html'), native.build(lk, t))
 print('native', len(native_paths))
 open('/tmp/adacct_native_paths.txt', 'w').write('\n'.join(native_paths))
 sm = open(os.path.join(ROOT, 'sitemap.xml'), encoding='utf-8').read(); add = ''

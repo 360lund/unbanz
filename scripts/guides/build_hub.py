@@ -1,3 +1,7 @@
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import re, json, html, sys
 sys.path.insert(0, '/workspace/site/scripts/guides')
 from common import *
@@ -86,7 +90,7 @@ def build():
                 if u not in have:
                     items.append({"@type": "ListItem", "position": len(items) + 1, "url": u, "name": html.unescape(c['title'])})
     h = h.replace(jm.group(0), jm.group(1) + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + jm.group(3))
-    open(path, 'w', encoding='utf-8').write(h)
+    write_page(path, h)
     print('hub built', len(allc))
 
 if __name__ == '__main__':

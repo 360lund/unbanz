@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """Agency / white label page kit (2026-10-28 evening). Helpers, registry, link resolver, English builder."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import html, os, re, sys, json, copy
 from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -98,7 +102,7 @@ def build_en(spec):
     assert '</head>' in h
     if '/assets/agency.' not in h: h = h.replace('</head>', css_tag() + '</head>', 1)
     d = os.path.join(ROOT, spec['slug']); os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h)
+    write_page(os.path.join(d, 'index.html'), h)
     return h
 
 def mk(slug, label, group, title, desc, h1, hero, answer, cards, sections, faq, rel, blurb, **kw):

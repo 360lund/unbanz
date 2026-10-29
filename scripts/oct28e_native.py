@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """Native (nl, es, pt-br, fr) white label pages, built on each language's own service page for head, footer and hero markup."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import re, os, json, html
 from urllib.parse import quote
 from oct28e_native_content import S, L
@@ -201,7 +205,7 @@ def write_all():
         h = build_native(lang, key, path)
         d = os.path.join(ROOT, path.strip('/'))
         os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h)
+        write_page(os.path.join(d, 'index.html'), h)
         out.append(path)
     return out
 

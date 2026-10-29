@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """Build /nl/, /es/ and /pt-br/ and cross-link them with the English and French pages.
 Usage: python3 scripts/i18n/build.py [nl es pt-br]   (default: every language that has a lang_*.py)"""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, re, sys, glob, hashlib, importlib
 sys.path.insert(0, os.path.dirname(__file__))
 import lib
@@ -102,7 +106,7 @@ def main(only=None):
             html_ = site.build[k]()
             p = base if site.slugs[k] == '' else os.path.join(base, site.slugs[k])
             os.makedirs(p, exist_ok=True)
-            open(os.path.join(p, 'index.html'), 'w', encoding='utf-8').write(html_)
+            write_page(os.path.join(p, 'index.html'), html_)
     # 2. hreflang + footer links on EN pages
     for twin, f in en_files.items():
         h = open(f, encoding='utf-8').read()

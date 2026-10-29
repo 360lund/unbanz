@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """Batch 2 of the 2026-10-29 double-down: 10 new EN pages each for the user, ad and snap families."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, sys, re, html, subprocess
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, '..', 'dd29'))
 from lib import *
@@ -30,7 +34,7 @@ def write():
         for e in errs: print('ERR', e)
         raise SystemExit(1)
     for d, h in out:
-        os.makedirs(d, exist_ok=True); open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(h)
+        os.makedirs(d, exist_ok=True); write_page(os.path.join(d, 'index.html'), h)
     return slugs
 def nav(label, links, mark):
     return '<nav class="related-services container" aria-label="%s" data-dd29="%s">%s</nav>' % (esc(label), mark, ''.join('<a href="%s">%s</a>' % (u, esc(t)) for u, t in links))

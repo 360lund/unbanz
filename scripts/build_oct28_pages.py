@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """Build the reference pages added on 2026-10-28."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import build_oct25_pages as b
@@ -24,5 +28,5 @@ for p in c.PAGES:
         out = with_ld(out, {'@type': 'DefinedTermSet', '@id': url + '#terms', 'name': 'Instagram and Meta account recovery glossary', 'url': url,
             'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': t, 'description': dsc, 'url': 'https://unbanz.com' + u, 'inDefinedTermSet': url + '#terms'} for t, dsc, u in c.GLOSS]})
     out = out.replace('</head>', TBL_CSS + '</head>', 1)
-    open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
+    write_page(os.path.join(d, 'index.html'), out)
     print('wrote', p['slug'], len(out))

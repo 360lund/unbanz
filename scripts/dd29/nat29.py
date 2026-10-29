@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """Native-language siblings (fr, pt-br, es) of selected dd29 EN pages. Reuses adacct native.build."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, re, sys, types
 HERE = os.path.dirname(os.path.abspath(__file__)); AD = os.path.join(HERE, '..', 'adacct')
 sys.path.insert(0, AD); sys.path.insert(0, HERE)
@@ -51,7 +55,7 @@ def build_all(root):
             s = N.build(lk, t)
             if par != 'ad': s = s.replace('data-service="ad"', 'data-service="unban"')
             p = pth(lk, t); os.makedirs(os.path.join(root, p), exist_ok=True)
-            open(os.path.join(root, p, 'index.html'), 'w', encoding='utf-8').write(s); done.append(p)
+            write_page(os.path.join(root, p, 'index.html'), s); done.append(p)
     return done
 N.LANGS_ORIG = dict(N.LANGS); N.CORE_ORIG = dict(N.CORE)
 if __name__ == '__main__':

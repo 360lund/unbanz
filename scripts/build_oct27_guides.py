@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """Build the guide pages added on 2026-10-27 from the current instagram-two-factor-lost-access page (same template as the 2026-10-24 guides)."""
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import os, re, sys, json, html
 sys.path.insert(0, os.path.dirname(__file__)); sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'guides'))
 import build_new as bn, build_classic as bc
@@ -18,5 +22,5 @@ bn.DATE_ISO, bn.DATE_TXT = '2026-10-27', '27 October 2026'
 for g in og.GUIDES:
     out = bc.build_page(g, parts)
     d = f'{ROOT}/guides/{g["slug"]}'; os.makedirs(d, exist_ok=True)
-    open(d + '/index.html', 'w', encoding='utf-8').write(out)
+    write_page(d + '/index.html', out)
     print('wrote', g['slug'], len(out))

@@ -1,3 +1,7 @@
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import re, json, html, glob, os, sys, importlib.util
 sys.path.insert(0, '/workspace/site/scripts/guides')
 from common import *
@@ -154,7 +158,7 @@ def main():
         if bad: print('BANNED', g['slug'], bad)
         d = f'{ROOT}/guides/{g["slug"]}'
         os.makedirs(d, exist_ok=True)
-        open(d + '/index.html', 'w', encoding='utf-8').write(page)
+        write_page(d + '/index.html', page)
         idx.append(dict(slug=g['slug'], h1=g['h1'], desc=g['desc'], group=g['group'], tag=g['tag'], inbound=g.get('inbound', []), sdesc=g['desc']))
         print(f'{wordcount(g):5d} {g["slug"]}')
     json.dump(idx, open(ROOT + '/scripts/guides/new_index.json', 'w'), ensure_ascii=False, indent=1)

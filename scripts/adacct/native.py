@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import os as _o, sys as _s
+_d = _o.path.dirname(_o.path.abspath(__file__))
+while not _o.path.exists(_o.path.join(_d, 'cta_note.py')): _d = _o.path.dirname(_d)
+_s.path.append(_d); from cta_note import write_page  # adds the human-only CTA note tag (homepages excluded)
 import copy, html, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 from lib import ROOT, DATE
@@ -101,5 +105,5 @@ if __name__ == '__main__':
     for lk in LANGS:
         for t in TOPICS:
             p = path(lk, t); os.makedirs(os.path.join(ROOT, p), exist_ok=True)
-            open(os.path.join(ROOT, p, 'index.html'), 'w', encoding='utf-8').write(build(lk, t))
+            write_page(os.path.join(ROOT, p, 'index.html'), build(lk, t))
     print(len(pages()))
