@@ -25,7 +25,7 @@
     };
     var c = null; try { c = sessionStorage.getItem(KEY); } catch (e) {}
     if (c !== null) return run(c);
-    fetch('/api/geo', { credentials: 'omit', cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) {
+    fetch('/api/geo/', { credentials: 'omit', cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) {
       var v = (j && j.c) || ''; try { sessionStorage.setItem(KEY, v); } catch (e) {}
       run(v);
     }).catch(function () {});
