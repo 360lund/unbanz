@@ -4,7 +4,7 @@
 (function () {
   try {
     var path = location.pathname || '/';
-    if (/^\/(?:(?:fr|es|nl|pt-br)\/)?(?:index\.html)?$/i.test(path)) return;
+    var HOME = /^\/(?:(?:fr|es|nl|pt-br)\/)?(?:index\.html)?$/i.test(path);
     var lang = (document.documentElement.lang || 'en').toLowerCase().slice(0, 2);
     var TEXTS = {
       en: 'Unbanz is a paid professional service. If you only need the official steps, our guides list them.',
@@ -14,16 +14,41 @@
       nl: 'Unbanz is een betaalde professionele dienst. Als je alleen de officiële stappen nodig hebt, staan die in onze gidsen.'
     };
     var TEXT = TEXTS[lang];
-    if (!TEXT) return;
+    var MAILS = { en: 'Email us', fr: 'Écrivez-nous', es: 'Escríbenos', pt: 'Envíe-nos un e-mail', nl: 'Mail ons' };
+    MAILS.pt = 'Envie um e-mail';
+    var MAIL_LABEL = MAILS[lang] || MAILS.en;
+    var MAIL_HREF = 'mailto:team@unbanz.com?subject=Account%20help';
     if (navigator.webdriver || /bot\b|bot[\/ ;)]|crawl|spider|slurp|bingpreview|googlebot|google-|facebookexternalhit|gptbot|chatgpt|claude|perplexity|amazonbot|applebot|bytespider|ccbot|duckduck|yandex|baidu|preview|lighthouse|headless|python|curl|wget/i.test(navigator.userAgent || '')) return;
-    var LOW = ['IN', 'PK', 'BD', 'NG', 'KE', 'NP', 'LK', 'GH', 'EG', 'IQ', 'DZ', 'MA', 'PH', 'ID'];
+    var LOW = ['IN', 'PK', 'BD', 'NG', 'KE', 'NP', 'LK', 'GH', 'EG', 'IQ', 'DZ', 'MA', 'PH', 'ID',
+      'SO', 'VN', 'AF', 'ET', 'UG', 'TZ', 'ZW', 'MM', 'KH', 'YE', 'SD', 'TN', 'CM', 'ZM', 'MW', 'RW', 'SN', 'CI', 'LR', 'SL',
+      'SS', 'NE', 'ML', 'BF', 'HT', 'LA', 'TJ', 'UZ', 'KG', 'SY', 'MZ'];
     var KEY = 'ubz_c';
     var mk = function (cls, style) {
       var p = document.createElement('p'); p.className = cls; p.textContent = TEXT; if (style) p.style.cssText = style; return p;
     };
     var run = function (c) {
       if (LOW.indexOf(c) < 0) return;
+      var isBtn = function (a) { return /\bbutton\b/.test(a.className || ''); };
+      // WhatsApp off for these countries: drop it where an email button sits next to it, otherwise turn it into the email link.
+      var noWa = function () {
+        document.querySelectorAll('a[href*="wa.me/"]:not([data-ubz-wa])').forEach(function (a) {
+          a.setAttribute('data-ubz-wa', '1');
+          var box = a.parentNode, mails = [];
+          for (var i = 0; box && i < 2 && !mails.length; i++, box = box.parentNode) {
+            if (box.querySelectorAll) mails = Array.prototype.slice.call(box.querySelectorAll('a[href^="mailto:"]'));
+          }
+          if (isBtn(a) && mails.some(isBtn)) { a.style.display = 'none'; return; }
+          if (!isBtn(a) && mails.length && !/header-contact/.test(a.className || '')) { a.style.display = 'none'; return; }
+          var arrow = a.querySelector('span[aria-hidden]');
+          a.href = MAIL_HREF; a.removeAttribute('target'); a.removeAttribute('data-service');
+          a.textContent = MAIL_LABEL + ' ';
+          if (arrow) a.appendChild(arrow);
+          mails.forEach(function (m) { if (!isBtn(m) && /hero-email/.test(m.className || '')) m.style.display = 'none'; });
+        });
+      };
       var apply = function () {
+        noWa();
+        if (HOME || !TEXT) return;
         // Contact popup hint.
         document.querySelectorAll('.cm-hint:not(.cta-note)').forEach(function (h) {
           if (h.nextElementSibling && h.nextElementSibling.classList.contains('cta-note')) return;

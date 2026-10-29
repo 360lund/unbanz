@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Idempotent: add/refresh the CTA-note script tag on every page (homepages and utility pages excluded). Run from anywhere."""
+"""Idempotent: add/refresh the CTA-note script tag on every page (utility pages excluded). Run from anywhere."""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
