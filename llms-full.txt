@@ -939,7 +939,7 @@ Can I fix a restricted account by declaring the category now? It helps with futu
 
 Source: https://unbanz.com/ad-account-restricted-misleading-claims/
 
-Misleading claims include guaranteed results, unrealistic income, health cures and made-up reviews. If Meta flagged these, rewrite the ads and the landing page with claims you can back up, keep proof, and request a review in Account Quality. Unbanz can prepare the appeal if the account is restricted.
+Misleading claims include promised results, unrealistic income, health cures and made-up reviews. If Meta flagged these, rewrite the ads and the landing page with claims you can back up, keep proof, and request a review in Account Quality. Unbanz can prepare the appeal if the account is restricted.
 
 What does Meta consider misleading? Claims that cannot be shown, results promised to the viewer, fake urgency and ads that differ from the landing page.
 Do disclaimers fix a misleading claim? Rarely. If the headline suggests one thing and the fine print says another, the ad can still be rejected.
