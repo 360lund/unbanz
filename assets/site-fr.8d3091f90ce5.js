@@ -278,7 +278,7 @@
 
 // Contact modal: intercepts WhatsApp CTAs; plain wa.me href stays as no-JS fallback.
 (() => {
-  const WA = 'https://wa.me/447723162824', MAIL = 'team@unbanz.com';
+  const WA = 'https://wa.me/19342012490', MAIL = 'team@unbanz.com';
   const services = [['unban', 'Récupérer mon compte'], ['ban', 'Signaler un compte'], ['username', 'Pseudo'], ['ad', 'Compte publicitaire'], ['other', 'Autre']];
   const platforms = ['Instagram', 'Facebook', 'Snapchat'];
   const p = new URLSearchParams(location.search);
@@ -402,7 +402,7 @@
   // Inline CTA after the first section of a guide, written in the guide's own language.
   const h2s = isGuide ? Array.from(document.querySelectorAll('.guide-body h2')) : [];
   if (h2s.length >= 3 && !document.querySelector('.inline-cta')) {
-    const WA = 'https://wa.me/447723162824';
+    const WA = 'https://wa.me/19342012490';
     const greet = { en: 'Hey Unbanz, I need help with an account', fr: 'Hey Unbanz, j’ai besoin d’aide avec un compte', nl: 'Hey Unbanz, ik heb hulp nodig met een account', es: 'Hola Unbanz, necesito ayuda con una cuenta', pt: 'Olá Unbanz, preciso de ajuda com uma conta' }[lang];
     const box = document.createElement('aside');
     box.className = 'inline-cta';
