@@ -26,9 +26,11 @@ export default async function handler(req, res) {
   }
   // previous period of the same length, right before the window
   const lenExpr = `(${toExpr} - ${fromExpr} + 1)`;
-  const prevWin = `(started_at at time zone '${TZ}')::date between ${fromExpr} - ${lenExpr} and ${fromExpr} - 1 and ${NT}`;
+  // "24h" is a rolling window (exactly the last 24 hours); previous = the 24 hours before that.
+  const roll = range === "24h";
+  const prevWin = roll ? `started_at > now() - interval '48 hours' and started_at <= now() - interval '24 hours' and ${NT}` : `(started_at at time zone '${TZ}')::date between ${fromExpr} - ${lenExpr} and ${fromExpr} - 1 and ${NT}`;
   const local = `(started_at at time zone '${TZ}')::date`;
-  const win = `${local} between ${fromExpr} and ${toExpr} and ${NT}`;
+  const win = roll ? `started_at > now() - interval '24 hours' and ${NT}` : `${local} between ${fromExpr} and ${toExpr} and ${NT}`;
   const fp = [...p];
   let f = win;
   if (q.get("group")) { fp.push(q.get("group").slice(0, 20)); f += ` and source_group = $${fp.length}`; }

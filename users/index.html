@@ -282,7 +282,7 @@ button,input,select{font:inherit;color:inherit}
 
   <div class="tool">
     <div class="seg" id="range" role="group" aria-label="Date range">
-      <button data-r="today">Today</button><button data-r="7d" aria-pressed="true">7d</button><button data-r="30d">30d</button><button data-r="90d">90d</button><button data-r="custom">Custom</button>
+      <button data-r="24h">24h</button><button data-r="today">Today</button><button data-r="7d" aria-pressed="true">7d</button><button data-r="30d">30d</button><button data-r="90d">90d</button><button data-r="custom">Custom</button>
     </div>
     <span class="custom" id="custom"><input class="field num" type="date" id="from" aria-label="From"><input class="field num" type="date" id="to" aria-label="To"></span>
     <select class="field" id="srcsel" aria-label="Source"><option value="">All sources</option></select>
@@ -384,7 +384,7 @@ button,input,select{font:inherit;color:inherit}
   function days(d) {
     const map = Object.fromEntries((d.daily || []).map((x) => [x.d, x]));
     const end = st.range === 'custom' ? ($('#to').value || $('#from').value) : todayK;
-    const n = st.range === 'custom' ? Math.max(1, Math.min(366, Math.round((new Date(end) - new Date($('#from').value)) / 864e5) + 1)) : { today: 1, '7d': 7, '30d': 30, '90d': 90 }[st.range];
+    const n = st.range === 'custom' ? Math.max(1, Math.min(366, Math.round((new Date(end) - new Date($('#from').value)) / 864e5) + 1)) : { '24h': 2, today: 1, '7d': 7, '30d': 30, '90d': 90 }[st.range];
     const out = [];
     for (let i = n - 1; i >= 0; i--) { const k = new Date(new Date(end).getTime() - i * 864e5).toISOString().slice(0, 10); out.push(map[k] || { d: k, n: 0, c: 0, w: 0 }); }
     return out;
@@ -420,7 +420,7 @@ button,input,select{font:inherit;color:inherit}
     // funnel: visits -> CTA on screen -> popup (a CTA tap) -> WhatsApp. 'Tracked' = visits from the engagement-aware tracker (older rows have no CTA/scroll data).
     const fs = (l, n, of) => `<span><b>${fmt(n)}</b>${l}${of ? ` <span class="mut">${pct(n, of).toFixed(0)}%</span>` : ''}</span>`;
     $('#funnel').innerHTML = `<span class="mut">Funnel</span>${fs('visits', R.visitors)}${+R.tracked ? fs('with CTA data', R.tracked, R.visitors) + fs('saw a CTA', R.seen_cta, R.tracked) + fs('scrolled 50%+', R.deep, R.tracked) : ''}${fs('opened popup', R.popup, R.visitors)}${fs('WhatsApp', R.wa, R.visitors)}${R.popup ? `<span class="mut">${pct(R.wa, R.popup).toFixed(0)}% of popups → WhatsApp</span>` : ''}`;
-    $('#rlabel').textContent = 'vs previous ' + ({ today: 'day', '7d': '7 days', '30d': '30 days', '90d': '90 days', custom: 'period' }[st.range]);
+    $('#rlabel').textContent = 'vs previous ' + ({ '24h': '24 hours', today: 'day', '7d': '7 days', '30d': '30 days', '90d': '90 days', custom: 'period' }[st.range]);
     chart(D);
     // sources
     const by = {}; let tot = 0;
