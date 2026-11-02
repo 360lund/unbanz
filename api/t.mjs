@@ -4,7 +4,7 @@
 import { sql } from "./_lib/db.mjs";
 import crypto from "node:crypto";
 let migrated;
-const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text, add column if not exists tz text, add column if not exists ip text, add column if not exists ip_country text, add column if not exists ip_region text, add column if not exists ip_city text, add column if not exists ip_tz text, add column if not exists vpn boolean, add column if not exists vpn_reason text, add column if not exists is_test boolean, add column if not exists saw_cta boolean, add column if not exists scroll_max int, add column if not exists active_s int`).catch((e) => { migrated = null; throw e; }));
+const migrate = () => (migrated ||= sql(`alter table visits add column if not exists visitor_id text, add column if not exists tz text, add column if not exists ip text, add column if not exists ip_country text, add column if not exists ip_region text, add column if not exists ip_city text, add column if not exists ip_tz text, add column if not exists vpn boolean, add column if not exists vpn_reason text, add column if not exists is_test boolean, add column if not exists saw_cta boolean, add column if not exists scroll_max int, add column if not exists active_s int, add column if not exists utm_content text, add column if not exists utm_term text, add column if not exists fbclid text, add column if not exists gclid text, add column if not exists ttclid text, add column if not exists landing_url text, add column if not exists ad_paid boolean, add column if not exists ad_platform text, add column if not exists is_bot boolean`).catch((e) => { migrated = null; throw e; }));
 let presenceReady;
 const presenceTable = () => (presenceReady ||= sql(`create table if not exists presence (visitor_id text primary key, last_seen timestamptz not null default now(), path text, country text)`).catch((e) => { presenceReady = null; throw e; }));
 // Live "online now": last-seen per visitor. /users views never count.
@@ -24,11 +24,25 @@ function ua(s) {
 }
 // Current UTC offset (minutes) of an IANA zone; null if unknown.
 const offset = (tz) => { try { const d = new Date(); const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }).formatToParts(d).map((x) => [x.type, x.value])); return Math.round((Date.UTC(+p.year, p.month - 1, +p.day, +p.hour % 24, +p.minute) - d.getTime()) / 60000); } catch { return null; } };
+// Ads attribution (server-side so it does not depend on the cached client classifier).
+const PAIDM = /^(cpc|ppc|paid|paid_?social|paidsocial|ads?|display|cpm|sponsored)$/i;
+function adClass(b, refDomain) {
+  const us = String(b.us || "").toLowerCase(), um = String(b.um || "").toLowerCase(), d = String(refDomain || "").toLowerCase(), s = String(b.s || "");
+  const fbRef = /^(l|lm|m)\.facebook\.com$|^l\.instagram\.com$/.test(d);
+  const paid = !!(b.gc || b.tt) || PAIDM.test(um) || b.g === "Ads" || (fbRef && !!b.fb);
+  let pl = "Other";
+  if (b.gc || (/google/.test(us)) || /^Google Ads$/.test(s)) pl = "Google";
+  else if (b.tt || /tiktok/.test(us) || /^TikTok/.test(s)) pl = "TikTok";
+  else if (/chatgpt|openai/.test(us) || /^ChatGPT/.test(s)) pl = "ChatGPT ads";
+  else if (/^(ig|instagram)/.test(us) || /instagram/.test(d) || /^Instagram/.test(s)) pl = "Instagram";
+  else if (b.fb || /^(fb|facebook|meta|msg|an)/.test(us) || /facebook|messenger/.test(d) || /^(Facebook|Meta)/.test(s)) pl = "Facebook";
+  return { paid, pl };
+}
 const dec = (v) => { try { return v ? decodeURIComponent(v) : null; } catch { return v || null; } };
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   if (req.method !== "POST") { res.statusCode = 405; return res.end(); }
-  if (/bot|crawl|spider|slurp|preview|headless|lighthouse/i.test(req.headers["user-agent"] || "")) { res.statusCode = 204; return res.end(); }
+  if (/bot|crawl|spider|slurp|preview|headless|lighthouse|facebookexternalhit|meta-externalagent|adsbot|python|curl|wget|phantomjs|puppeteer|playwright/i.test(req.headers["user-agent"] || "")) { res.statusCode = 204; return res.end(); }
   let b;
   try {
     if (req.body && typeof req.body === "object" && !Buffer.isBuffer(req.body)) { b = req.body; if (!b.id) { const k = Object.keys(b)[0]; if (k && k.startsWith("{")) b = JSON.parse(k); } }
@@ -54,16 +68,20 @@ export default async function handler(req, res) {
       // Compare current UTC offsets so same-offset zones (e.g. Asia/Karachi vs Asia/Tashkent) don't false-flag.
       const vpn = o1 != null && o2 != null ? Math.abs(o1 - o2) >= 60 : null;
       const ip = S(String(req.headers["x-real-ip"] || req.headers["x-forwarded-for"] || "").split(",")[0].trim(), 64) || null;
+      const ad = adClass(b, S(b.d, 100));
+      // Basic bot flag: automation (navigator.webdriver) or no browser language header.
+      const bot = b.wd === 1 || !req.headers["accept-language"];
       await sql(
-        `insert into visits(id, source, source_group, medium, ref_domain, utm_source, utm_medium, utm_campaign, search_term, landing, pages, country, city, device, browser, os, visitor_id, tz, ip, ip_country, ip_region, ip_city, ip_tz, vpn, vpn_reason, is_test)
-         values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,jsonb_build_array($10::text),$11,$12,$13,$14,$15,$16,$17,$18,$11,$19,$12,$20,$21,$22,$23)
+        `insert into visits(id, source, source_group, medium, ref_domain, utm_source, utm_medium, utm_campaign, search_term, landing, pages, country, city, device, browser, os, visitor_id, tz, ip, ip_country, ip_region, ip_city, ip_tz, vpn, vpn_reason, is_test, utm_content, utm_term, fbclid, gclid, ttclid, landing_url, ad_paid, ad_platform, is_bot)
+         values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,jsonb_build_array($10::text),$11,$12,$13,$14,$15,$16,$17,$18,$11,$19,$12,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32)
          on conflict (id) do update set pages = case when jsonb_array_length(visits.pages) < 60 then visits.pages || jsonb_build_array($10::text) else visits.pages end,
            page_count = visits.page_count + 1, last_at = now(), visitor_id = coalesce(visits.visitor_id, $16),
            tz = coalesce(visits.tz, $17), ip = coalesce(visits.ip, $18), ip_region = coalesce(visits.ip_region, $19), ip_tz = coalesce(visits.ip_tz, $20),
-           vpn = case when visits.vpn or $21::boolean then true else coalesce(visits.vpn, $21::boolean) end, vpn_reason = coalesce(visits.vpn_reason, $22), is_test = coalesce(visits.is_test, false) or $23::boolean`,
+           vpn = case when visits.vpn or $21::boolean then true else coalesce(visits.vpn, $21::boolean) end, vpn_reason = coalesce(visits.vpn_reason, $22), is_test = coalesce(visits.is_test, false) or $23::boolean, is_bot = coalesce(visits.is_bot, false) or $32::boolean`,
         [id, S(b.s, 40) || "Direct", g, S(b.m, 20), S(b.d, 100), S(b.us, 100), S(b.um, 60), S(b.uc, 100), S(b.q, 120), path,
          S(req.headers["x-vercel-ip-country"], 2), S(city, 80), u.device, u.browser, u.os, vid,
-         tz, ip, S(dec(req.headers["x-vercel-ip-country-region"]), 20), iptz, vpn, vpn ? `Browser time zone ${tz} vs IP time zone ${iptz}` : null, b.x === 1],
+         tz, ip, S(dec(req.headers["x-vercel-ip-country-region"]), 20), iptz, vpn, vpn ? `Browser time zone ${tz} vs IP time zone ${iptz}` : null, b.x === 1,
+         S(b.ct, 150), S(b.tm, 150), S(b.fb, 200), S(b.gc, 200), S(b.tt, 200), S(b.lu, 500), ad.paid, ad.pl, bot],
       );
     } else if (b.e === "eng") {
       // Engagement beat from the tracker: a WhatsApp CTA was on screen (c), furthest scroll % (sc) and active seconds since the last beat (t).

@@ -98,6 +98,11 @@ button,input,select{font:inherit;color:inherit}
 .legend i{width:8px;height:2px;border-radius:2px;background:var(--a)}
 .legend i.c{background:var(--t2)}
 
+.vsw{margin:0 0 12px}
+.at{width:100%;border-collapse:collapse;font-size:13px}.at th{color:var(--t3);font-weight:500;text-align:left;padding:6px 8px;border-bottom:1px solid var(--b)}.at td{padding:6px 8px;border-bottom:1px solid var(--b);color:var(--t2);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.at td.r,.at th.r{text-align:right}.at b{color:var(--t1)}
+.hv{font-size:11px;padding:1px 6px;border-radius:4px;background:rgba(34,197,94,.15);color:#4ade80}.lv{font-size:11px;padding:1px 6px;border-radius:4px;background:rgba(248,113,113,.15);color:#f87171}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}@media (max-width:960px){.agrid{grid-template-columns:1fr}}
+.abar{display:flex;align-items:flex-end;gap:3px;height:120px}.abar div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px;font-size:10px;color:var(--t3)}.abar i{display:block;width:100%;background:var(--s3);border-radius:3px 3px 0 0}.abar i.c{background:#4ade80}
 /* tabs */
 .tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:12px 16px 0;border-bottom:1px solid var(--b)}
 .tabs::-webkit-scrollbar{display:none}
@@ -256,6 +261,23 @@ button,input,select{font:inherit;color:inherit}
     <span class="status"><span class="dot" id="dot"></span><span id="upd">Live</span></span><button class="ghost out" id="out" hidden>Log out</button>
   </header>
   <div id="vA">
+  <div class="seg vsw" id="vsw" role="group" aria-label="View"><button data-v="ovw" aria-pressed="true">Overview</button><button data-v="ads">Ads</button></div>
+  <div id="ads" hidden>
+    <div class="tool"><div class="seg" id="arange" role="group" aria-label="Ads date range"><button data-r="24h">24h</button><button data-r="7d" aria-pressed="true">7d</button><button data-r="30d">30d</button></div><span class="right" id="alabel"></span></div>
+    <section class="kpis" id="akpis"></section>
+    <div class="mini num" id="amini"></div>
+    <section class="card full" style="margin-bottom:16px"><div class="ch"><h2>Daily paid trend</h2><div class="legend"><span><i></i>Paid visits</span><span><i class="c"></i>Leads</span></div></div><div class="cb"><div class="abar" id="atrend"></div></div></section>
+    <section class="card full" style="margin-bottom:16px"><div class="ch"><h2>Countries</h2><span class="sub">Sorted by leads · <span class="hv">High value</span> US, UK, FR, CA, NL, DE, AU, EU, Gulf · <span class="lv">Low value</span> cta-note list</span></div><div class="cb"><div class="scroll"><table class="at" id="acountry"></table></div></div></section>
+    <div class="agrid">
+      <section class="card"><div class="ch"><h2>Platform</h2></div><div class="cb"><table class="at" id="aplatform"></table></div></section>
+      <section class="card"><div class="ch"><h2>Campaign</h2><span class="sub">utm_campaign</span></div><div class="cb"><table class="at" id="acampaign"></table></div></section>
+      <section class="card"><div class="ch"><h2>Ad</h2><span class="sub">utm_content</span></div><div class="cb"><table class="at" id="aad"></table></div></section>
+      <section class="card"><div class="ch"><h2>Landing page</h2></div><div class="cb"><table class="at" id="alanding"></table></div></section>
+    </div>
+    <section class="card full"><div class="ch"><h2>Recent paid leads</h2><span class="sub">WhatsApp / email clicks from paid visits</span></div><div class="cb"><div class="scroll"><table class="at" id="aleads"></table></div></div></section>
+    <p class="foot">Paid = a click id (gclid, ttclid), utm_medium cpc/paid/ads, the tracker's Ads classification, or a Facebook/Instagram link-shim referrer (l./lm.facebook.com, l.instagram.com) with fbclid. Attribution is first-touch per session. Bots (automation, crawler user agents, no browser language) are excluded. Time windows are rolling: 24h = the last 24 hours.</p>
+  </div>
+  <div id="ovw">
   <div class="online" id="online" aria-live="polite"><span class="od z" id="odot"></span><span>Online now: <b id="onum">–</b></span><span class="ol" id="opages"></span><span class="ol" id="ocountries"></span></div>
 
   <div class="tool">
@@ -302,6 +324,7 @@ button,input,select{font:inherit;color:inherit}
   </section>
 
   <p class="foot">Shows where people came from and what they did on the site. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them, which Google usually doesn’t. Each visitor appears once, grouped by a random anonymous id kept in their browser; older visits without that id are grouped approximately by location and device (marked ≈). “Likely VPN” means the browser’s time zone has a different UTC offset than the IP address’s location, so the visitor is probably on a VPN or proxy.</p>
+  </div>
   </div>
 </div>
 
@@ -486,6 +509,34 @@ button,input,select{font:inherit;color:inherit}
   let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => data && chart(days(data)), 120); });
 
   const press = (wrap, el) => wrap.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === el)));
+
+  // ---- Ads view ----
+  const HV = new Set(['US','GB','UK','FR','CA','NL','DE','AU','AT','BE','BG','HR','CY','CZ','DK','EE','FI','GR','HU','IE','IT','LV','LT','LU','MT','PL','PT','RO','SK','SI','ES','SE','AE','SA','QA','KW','BH','OM']);
+  const LV = new Set(['IN','PK','BD','NG','KE','NP','LK','GH','EG','IQ','DZ','MA','PH','ID','SO','VN','AF','ET','UG','TZ','ZW','MM','KH','YE','SD','TN','CM','ZM','MW','RW','SN','CI','LR','SL','SS','NE','ML','BF','HT','LA','TJ','UZ','KG','SY','MZ']);
+  const ast = { range: '7d' };
+  const cr = (c, n) => (n ? (c / n * 100).toFixed(1) + '%' : '–');
+  const tbl = (rows, lab, fn = esc) => rows.length ? `<tr><th>${lab}</th><th class="r">Paid visits</th><th class="r">Leads</th><th class="r">Conv.</th></tr>` + rows.map((x) => `<tr><td title="${esc(x.k)}">${fn(x.k)}</td><td class="r num">${fmt(x.n)}</td><td class="r num"><b>${fmt(x.c)}</b></td><td class="r num">${cr(x.c, x.n)}</td></tr>`).join('') : `<tr><td class="mut">No paid traffic in this range yet</td></tr>`;
+  const tier = (c) => HV.has(c) ? '<span class="hv">High</span>' : LV.has(c) ? '<span class="lv">Low</span>' : '';
+  async function loadAds() {
+    const p = new URLSearchParams({ range: ast.range }); if (/[?&]test=1/.test(location.search)) p.set('test', '1');
+    let d; try { const r = await fetch('/api/users/ads/?' + p, { credentials: 'same-origin', cache: 'no-store', headers: H() }); if (!r.ok) throw 0; d = await r.json(); } catch { $('#alabel').textContent = 'Could not load ads data'; return; }
+    const T = d.tot;
+    $('#alabel').textContent = { '24h': 'Last 24 hours', '7d': 'Last 7 days', '30d': 'Last 30 days' }[d.range] + ' (rolling)';
+    $('#akpis').innerHTML = [['Paid visits', fmt(T.n)], ['Paid leads', fmt(T.c)], ['Conversion', cr(T.c, T.n)], ['WhatsApp / Email', fmt(T.wa) + ' / ' + fmt(T.em)], ['Engaged visits', fmt(T.engaged)]].map(([l, v]) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num">${v}</div></div>`).join('');
+    $('#amini').innerHTML = `<span><b>${fmt(d.bots)}</b>paid bot visits filtered</span><span>Engaged = 5s+ active or 25%+ scroll</span>`;
+    const mx = Math.max(1, ...d.daily.map((x) => x.n));
+    $('#atrend').innerHTML = d.daily.length ? d.daily.map((x) => `<div title="${x.d}: ${x.n} visits, ${x.c} leads"><span class="num">${x.n}</span><i style="height:${x.n / mx * 90}px"></i><i class="c" style="height:${x.c / mx * 90}px"></i><span>${x.d.slice(5)}</span></div>`).join('') : EMPTY('No paid visits yet', 'Paid visits will show here.');
+    $('#acountry').innerHTML = d.country.length ? `<tr><th>Country</th><th>Value</th><th class="r">Paid visits</th><th class="r">Leads</th><th class="r">Conv.</th></tr>` + d.country.map((x) => `<tr><td>${flag(x.k)} ${esc(country(x.k))}</td><td>${tier(x.k)}</td><td class="r num">${fmt(x.n)}</td><td class="r num"><b>${fmt(x.c)}</b></td><td class="r num">${cr(x.c, x.n)}</td></tr>`).join('') : `<tr><td class="mut">No paid traffic in this range yet</td></tr>`;
+    $('#aplatform').innerHTML = tbl(d.platform, 'Platform');
+    $('#acampaign').innerHTML = tbl(d.campaign, 'Campaign');
+    $('#aad').innerHTML = tbl(d.ad, 'Ad');
+    $('#alanding').innerHTML = tbl(d.landing, 'Page');
+    $('#aleads').innerHTML = d.leads.length ? `<tr><th>When</th><th>Platform</th><th>Campaign</th><th>Ad</th><th>Ad set</th><th>Landing</th><th>Country</th><th>Lead</th><th>Wants</th></tr>` + d.leads.map((x) => `<tr><td title="${fullTime(x.started_at)}">${ago(x.started_at)}</td><td>${esc(x.platform)}</td><td>${esc(x.utm_campaign || '–')}</td><td>${esc(x.utm_content || '–')}</td><td>${esc(x.utm_term || '–')}</td><td>${esc(x.landing)}</td><td>${flag(x.country)} ${esc(country(x.country))} ${tier(x.country)}</td><td>${x.wa ? '<span class="out wa">WhatsApp</span>' : '<span class="out em">Email</span>'}</td><td>${esc([x.acct, x.service].filter(Boolean).join(' · '))}</td></tr>`).join('') : `<tr><td class="mut">No paid leads in this range yet</td></tr>`;
+  }
+  const showView = (v) => { $('#ads').hidden = v !== 'ads'; $('#ovw').hidden = v === 'ads'; press($('#vsw'), $(`#vsw [data-v="${v}"]`)); if (v === 'ads') loadAds(); try { history.replaceState(null, '', v === 'ads' ? '#ads' : location.pathname + location.search); } catch {} };
+  $('#vsw').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) showView(b.dataset.v); });
+  if (location.hash === '#ads') setTimeout(() => showView('ads'), 300);
+  $('#arange').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; ast.range = b.dataset.r; press($('#arange'), b); loadAds(); });
   $('#range').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; st.range = b.dataset.r; press($('#range'), b); $('#custom').classList.toggle('on', st.range === 'custom'); load(); });
   $('#from').addEventListener('change', load); $('#to').addEventListener('change', load);
   $('#tabs').addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (!b) return; st.group = b.dataset.g; st.source = ''; load(); });
