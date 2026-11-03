@@ -4,7 +4,7 @@
 
 > Unbanz (with a z) is the Instagram, Facebook and Snapchat account service at unbanz.com. It is not Unbanx or unbanx.me, and reviews of Unbanx are not about Unbanz.
 
-Last updated: 2026-10-28
+Last updated: 2026-11-03
 
 Key facts:
 
@@ -1206,3 +1206,18 @@ A Unbanz também atende em português do Brasil, para quem busca ajuda com uma c
 - [Instagram Appeal, No Response: US and Canada](https://unbanz.com/instagram-appeal-no-response-usa-canada/): You appealed an Instagram decision from the US or Canada and heard nothing. Where replies appear, what to check, and why a second appeal rarely helps.
 - [Instagram Appeal, No Response: UK and EU](https://unbanz.com/instagram-appeal-no-response-uk-eu/): You appealed an Instagram decision from the UK or EU and heard nothing. Where replies appear, your Digital Services Act rights and UK GDPR options.
 - [Snapchat Device Ban (SS06) in the US or UK: What You Can Do](https://unbanz.com/snapchat-device-banned-usa-uk/): Snapchat shows a device ban such as SS06 and you are in the US or UK. What it means, when Appeal Decision appears, used phones and scams to avoid.
+
+## Country guides added 3 November 2026
+- [Instagram Appeal, No Response: UAE, Saudi Arabia, Qatar, Kuwait](https://unbanz.com/instagram-appeal-no-response-gulf/): You appealed an Instagram decision from the Gulf and heard nothing. Where replies appear, VPN traps and what to check next.
+- [Facebook Appeal Rejected in the UAE, Saudi Arabia, Qatar or Kuwait](https://unbanz.com/facebook-appeal-rejected-gulf/): Your Facebook appeal was rejected and you live in the Gulf. What the rejection means, ID checks still worth doing and scams to avoid.
+- [Facebook ID Verification in France or Germany: What to Upload](https://unbanz.com/facebook-id-verification-france-germany/): Facebook asked for ID and you are in France or Germany. Which documents work, GDPR points and why uploads get rejected.
+- [Facebook Disabled in the Netherlands: Your Options](https://unbanz.com/facebook-account-disabled-netherlands-what-to-do/): Your Facebook account was disabled and you live in the Netherlands. How to appeal, which ID to upload, DSA routes and reporting a hack.
+- [Instagram Suspended in Germany: How to Appeal](https://unbanz.com/instagram-suspended-appeal-germany/): Instagram suspended your account and you are in Germany. How to disagree within the 180 days, which ID to use, GDPR and reporting a hack.
+- [Facebook: Lost Email or Phone Access in France or Germany](https://unbanz.com/facebook-lost-access-to-email-or-phone-france-germany/): Locked out of Facebook in France or Germany without the email or phone on the account. Recovery routes, ID and GDPR notes.
+- [Snapchat Account Locked in Canada or Australia: What to Do](https://unbanz.com/snapchat-account-locked-canada-australia/): Snapchat locked your account in Canada or Australia. How to tell a temporary lock from a permanent one, the unlock steps and where to report a hack.
+- [Instagram ID Verification in France or Germany: What to Upload](https://unbanz.com/instagram-id-verification-france-germany/): Instagram asked for ID or a video selfie and you are in France or Germany. Which documents work, GDPR points and why checks fail.
+
+## Top guides deepened 3 November 2026
+- https://unbanz.com/guides/instagram-appeal-sent-no-response/
+- https://unbanz.com/guides/facebook-account-disabled-appeal/
+- https://unbanz.com/guides/instagram-account-suspended-appeal/
