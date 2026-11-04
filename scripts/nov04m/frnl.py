@@ -69,8 +69,10 @@ NL={
 ],
 }
 urls=[]
-for s,it in FR.items():
+import sys as _s
+RUN=__name__=="__main__"
+for s,it in (FR.items() if RUN else []):
     u=add('fr',s,qa(FRT,it,A),A); urls+= [u] if u else []
-for s,it in NL.items():
+for s,it in (NL.items() if RUN else []):
     u=add('nl',s,qa(NLT,it,A),A); urls+= [u] if u else []
-print(bump_lastmod(urls));open('/tmp/b5.txt','w').write('\n'.join(urls));print(len(urls))
+RUN and print(bump_lastmod(urls));RUN and open('/tmp/b5.txt','w').write('\n'.join(urls));print(len(urls))
