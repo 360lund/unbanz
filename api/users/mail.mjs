@@ -138,8 +138,10 @@ async function exportMail(c, folder, q) {
     const pick = uids.slice(0, Math.min(2000, Math.max(1, +q.get("limit") || 500))), out = [];
     if (pick.length) for await (const m of c.fetch(pick.join(","), { uid: true, flags: true, source: true }, { uid: true })) {
       const p = await simpleParser(m.source, { skipImageLinks: true });
-      out.push({ uid: m.uid, from: addr(p.from?.value), replyTo: addr(p.replyTo?.value), to: addr(p.to?.value), cc: addr(p.cc?.value), date: p.date || null, subject: p.subject || "", messageId: p.messageId || "", inReplyTo: p.inReplyTo || "", seen: m.flags?.has("\\Seen") || false, answered: m.flags?.has("\\Answered") || false, text: (p.text || "").slice(0, 20000) });
+      out.push({ uid: m.uid, from: addr(p.from?.value), replyTo: addr(p.replyTo?.value), to: addr(p.to?.value), cc: addr(p.cc?.value), date: p.date || null, subject: p.subject || "", messageId: p.messageId || "", inReplyTo: p.inReplyTo || "", seen: m.flags?.has("\\Seen") || false, answered: m.flags?.has("\\Answered") || false, text: (p.text || "").slice(0, 20000), _raw: m.source.toString("utf8", 0, Math.min(m.source.length, 65536)), _fa: p.from?.value?.[0]?.address || "" });
     }
+    try { const g = await geoLabels(out.map((x) => ({ raw: x._raw, fromAddr: x._fa }))); out.forEach((x, i) => (x.geo = g[i])); } catch {}
+    out.forEach((x) => { delete x._raw; delete x._fa; });
     out.sort((a, b) => b.uid - a.uid);
     return { folder, total, matched: uids.length, exported: out.length, messages: out };
   } finally { lock.release(); }
