@@ -36,7 +36,7 @@ export default function middleware(request, context) {
   try {
     const bot = botName(request.headers.get('user-agent') || '');
     if (bot && !ASSET.test(url.pathname) && context && typeof context.waitUntil === 'function') {
-      context.waitUntil(fetch(new URL('/api/crawl', url.origin), { method: 'POST', headers: { 'content-type': 'application/json', 'x-ubz-mw': '1' }, body: JSON.stringify({ bot, path: url.pathname, country: request.headers.get('x-vercel-ip-country') || '' }) }).catch(() => {}));
+      context.waitUntil(fetch(new URL('/api/crawl', url.origin), { method: 'POST', headers: { 'content-type': 'application/json', 'x-ubz-mw': '1' }, body: JSON.stringify({ bot, path: url.pathname, country: request.headers.get('x-vercel-ip-country') || '', test: url.searchParams.get('ubz_test') === '1' }) }).catch(() => {}));
     }
   } catch (e) {}
   if (SHORT[path]) {
