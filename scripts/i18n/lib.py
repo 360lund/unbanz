@@ -24,7 +24,7 @@ def a(s):
 
 _en = read('instagram-account-suspended-180-days/index.html')
 _en_home = read('index.html')
-SPRITE = re.search(r'<body>\s*<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
+SPRITE = re.search(r'<body>.*?<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
 SOCIAL = ''  # social profile links removed site-wide
 FOOT_SOCIAL = ''
 _rv = read('reviews/index.html')
@@ -57,6 +57,14 @@ LANG_DIR = {'nl': 'nl', 'es': 'es', 'pt-br': 'pt-br'}
 
 def en_path(twin):
     return '/' if not twin else '/' + twin.strip('/') + '/'
+
+def _vtlabel(c):
+    import html as _h
+    def fx(m):
+        lab,b=m.group(2),m.group(4)
+        if _h.unescape(lab).lower().startswith(_h.unescape(b).lower()): return m.group(0)
+        return m.group(1)+b+': '+lab[0].lower()+lab[1:]+m.group(3)+'<b>'+b+'</b>'
+    return re.sub(r'(<button class="vt-play" type="button" aria-label=")([^"]*)(">)<b>([^<]*)</b>',fx,c)
 
 class Site:
     def __init__(self, S, slugs):
@@ -102,7 +110,7 @@ class Site:
                 c = c.replace('aria-label="Play video: %s"' % en_, 'aria-label="%s"' % aria)
                 c = c.replace('alt="%s"' % en_, 'alt="%s"' % alt)
                 c = c.replace('<b>%s</b>' % lab_en, '<b>%s</b>' % lab)
-            out.append(c)
+            out.append(_vtlabel(c))
         return out
 
     # ---- registry
@@ -140,7 +148,7 @@ class Site:
                 '<p>%s' % (self.dir, S['foot_tag']) + FOOT_SOCIAL + '</p>'
                 '<div class="footer-links">' + links + '</div></div>'
                 '<div class="footer-bottom"><span>© <span id="year">2026</span> Unbanz</span>'
-                '<span>%s</span>' % S['foot_indep'] +
+                '<span>%s</span><span lang="en">Independent service. Not affiliated with Meta.</span>' % S['foot_indep'] +
                 '<a href="mailto:team@unbanz.com?subject=%s">team@unbanz.com</a></div></footer>' % S['mail_subj'])
 
     @property

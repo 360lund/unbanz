@@ -50,7 +50,7 @@ def a(s):  # attribute-safe
 # ---------- shared bits extracted from the English templates ----------
 _en = read('instagram-account-suspended-180-days/index.html')
 _en_home = read('index.html')
-SPRITE = re.search(r'<body>\s*<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
+SPRITE = re.search(r'<body>.*?<a class="skip-link"[^>]*>[^<]*</a>\s*(<svg.*?</svg>)', _en_home, re.S).group(1)
 SOCIAL = ''  # social profile links removed site-wide
 FOOT_SOCIAL = ''
 VT_CARDS = re.findall(r'<li class="vt-card".*?</li>', read('reviews/index.html'), re.S)
@@ -65,7 +65,15 @@ def _frcard(c):
     c = c.replace('alt="Client on getting a disabled Facebook ad account sorted out with Unbanz"', 'alt="Client : témoignage vidéo sur un compte publicitaire Facebook désactivé"')
     c = c.replace('Play video: Restricted Facebook ad account restored by Unbanz', 'Lire la vidéo : un annonceur parle de son compte publicitaire Facebook')
     return c
-VT_CARDS = [_frcard(c) for c in VT_CARDS]
+
+def _vtlabel(c):
+    import html as _h
+    def fx(m):
+        lab,b=m.group(2),m.group(4)
+        if _h.unescape(lab).lower().startswith(_h.unescape(b).lower()): return m.group(0)
+        return m.group(1)+b+': '+lab[0].lower()+lab[1:]+m.group(3)+'<b>'+b+'</b>'
+    return re.sub(r'(<button class="vt-play" type="button" aria-label=")([^"]*)(">)<b>([^<]*)</b>',fx,c)
+VT_CARDS = [_vtlabel(_frcard(c)) for c in VT_CARDS]
 AVIS_STYLE = ''.join('<style>%s</style>' % x for x in re.findall(r'<style[^>]*>(.*?)</style>', read('reviews/index.html'), re.S))
 WEBSITE_NODE = {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": "Unbanz",
                 "alternateName": ["unbanz.com", "Unbanz HQ"], "inLanguage": "en",
@@ -125,10 +133,10 @@ def footer(en_href):
     links += ('<a href="%s" hreflang="en" lang="en">English</a><a href="/privacy/" hreflang="en" lang="en">Privacy</a>'
               '<a href="/terms/" hreflang="en" lang="en">Terms</a>') % en_href
     return ('<footer class="site-footer container"><div class="footer-top"><a class="wordmark" href="/fr/">unbanz.</a>'
-            '<p>Récupération de comptes &amp; signalements.<br>Parlez-nous directement.' + FOOT_SOCIAL + '</p>'
+            '<p>Récupération de comptes &amp; pseudos.<br>Parlez-nous directement.' + FOOT_SOCIAL + '</p>'
             '<div class="footer-links">' + links + '</div></div>'
             '<div class="footer-bottom"><span>© <span id="year">2026</span> Unbanz</span>'
-            '<span>Service indépendant. Non affilié à Meta.</span>'
+            '<span>Service indépendant. Non affilié à Meta.</span><span lang="en">Independent service. Not affiliated with Meta.</span>'
             '<a href="mailto:team@unbanz.com?subject=Account%20help">team@unbanz.com</a></div></footer>')
 
 MOBILE_CONTACT = ('<div class="mobile-contact"><a class="" href="' + WA + '">Écrivez-nous sur WhatsApp <span aria-hidden="true">↗︎</span></a>'
