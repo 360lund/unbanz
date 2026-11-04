@@ -15,6 +15,7 @@ import { json, sameOrigin, readJson } from "../_lib/auth.mjs";
 import { sql } from "../_lib/db.mjs";
 import { authed } from "../_lib/uauth.mjs";
 import { limit, audit, auditList } from "../_lib/guard.mjs";
+import { geoLabels } from "../_lib/geo.mjs";
 export const config = { maxDuration: 60, api: { bodyParser: false } };
 
 const key = () => Buffer.from(crypto.hkdfSync("sha256", process.env.USERS_SESSION_SECRET || "", "unbanz-mail", "mailbox-password-v1", 32));
@@ -62,6 +63,8 @@ async function specialPath(c, use, rx, create) {
   if (create) { await c.mailboxCreate(create).catch(() => {}); return create; }
   return null;
 }
+const ROLES = [["inbox", null, /^inbox$/i], ["sent", "\\Sent", /^(sent|sent items|sent mail|sent messages)$/i], ["drafts", "\\Drafts", /^drafts?$/i], ["trash", "\\Trash", /^(trash|deleted|deleted items|deleted messages|bin)$/i], ["junk", "\\Junk", /^(junk|spam|junk e-?mail|bulk)$/i], ["archive", "\\Archive", /^archives?$/i]];
+const roleOf = (f, taken) => { if (/^inbox$/i.test(f.path)) return "inbox"; for (const [r, use] of ROLES) if (use && f.specialUse === use && !taken.has(r)) return r; for (const [r, , rx] of ROLES) if (!taken.has(r) && (rx.test(f.name) || rx.test(f.path.split(f.delimiter || "/").pop()))) return r; return "custom"; };
 async function resolveFolder(c, want) {
   if (!want || /^inbox$/i.test(want)) return "INBOX";
   if (/^sent$/i.test(want)) return (await specialPath(c, "\\Sent", /^sent/i)) || want;
@@ -92,6 +95,7 @@ async function autoFilter(c, b) {
 }
 
 async function list(c, b, q) {
+  if (q.get("folder") === "__blocked") return blockedList(c, b, q);
   const folder = await resolveFolder(c, q.get("folder"));
   const term = clean(q.get("q")).slice(0, 200);
   const size = Math.min(100, Math.max(5, +q.get("size") || 40)), page = Math.max(1, +q.get("page") || 1);
@@ -104,13 +108,7 @@ async function list(c, b, q) {
     const total = c.mailbox.exists || 0;
     let uids = term ? (await c.search({ or: [{ subject: term }, { from: term }, { to: term }, { body: term }] }, { uid: true })) || [] : total ? (await c.search({ all: true }, { uid: true })) || [] : [];
     uids.sort((x, y) => y - x);
-    const pick = uids.slice((page - 1) * size, page * size), rows = [];
-    // One FETCH for envelopes + the first 6 KB of each message (for snippets): BODY.PEEK, so nothing is marked read.
-    if (pick.length) for await (const m of c.fetch(pick.join(","), { uid: true, flags: true, envelope: true, size: true, source: { start: 0, maxLength: 6000 } }, { uid: true })) {
-      let snippet = "";
-      try { const p = await simpleParser(m.source, { skipImageLinks: true }); snippet = clean(p.text || "").slice(0, 160); } catch {}
-      rows.push({ uid: m.uid, seen: m.flags?.has("\\Seen") || false, flagged: m.flags?.has("\\Flagged") || false, answered: m.flags?.has("\\Answered") || false, from: addr(m.envelope?.from), to: addr(m.envelope?.to), subject: m.envelope?.subject || "", date: m.envelope?.date || null, size: m.size, snippet });
-    }
+    const pick = uids.slice((page - 1) * size, page * size), rows = await rowsFor(c, folder, pick);
     rows.sort((x, y) => y.uid - x.uid);
     const d = { folder, total, unseen: null, matched: uids.length, page, size, pages: Math.ceil(uids.length / size), q: term, filtered, messages: rows };
     cset(k, d);
@@ -127,7 +125,8 @@ async function message(c, folder, uid) {
     for (const a of p.attachments || []) if (a.cid && /^image\//.test(a.contentType) && a.size < 400000) cids[a.cid] = `data:${a.contentType};base64,${a.content.toString("base64")}`;
     let html = p.html ? sanitize(p.html) : "";
     html = html.replace(/cid:([^"'\s)>]+)/gi, (x, id) => cids[id] || x);
-    return { folder, uid: m.uid, seen: m.flags?.has("\\Seen") || false, from: addr(p.from?.value), fromAddr: p.from?.value?.[0]?.address || "", to: addr(p.to?.value), cc: addr(p.cc?.value), replyTo: addr(p.replyTo?.value), subject: p.subject || "", date: p.date || m.envelope?.date || null, messageId: p.messageId || "", references: [].concat(p.references || []).join(" "), text: p.text || "", html, remote: /<img[^>]+src\s*=\s*["']?https?:/i.test(html) || /url\(\s*["']?https?:/i.test(html), attachments: (p.attachments || []).filter((a) => !a.cid || !cids[a.cid]).map((a) => ({ filename: a.filename || "", type: a.contentType, size: a.size })) };
+    let geo = null; try { geo = (await geoLabels([{ raw: m.source.toString("utf8", 0, Math.min(m.source.length, 65536)), fromAddr: p.from?.value?.[0]?.address || "" }]))[0]; } catch {}
+    return { geo, folder, uid: m.uid, seen: m.flags?.has("\\Seen") || false, from: addr(p.from?.value), fromAddr: p.from?.value?.[0]?.address || "", to: addr(p.to?.value), cc: addr(p.cc?.value), replyTo: addr(p.replyTo?.value), subject: p.subject || "", date: p.date || m.envelope?.date || null, messageId: p.messageId || "", references: [].concat(p.references || []).join(" "), text: p.text || "", html, remote: /<img[^>]+src\s*=\s*["']?https?:/i.test(html) || /url\(\s*["']?https?:/i.test(html), attachments: (p.attachments || []).filter((a) => !a.cid || !cids[a.cid]).map((a) => ({ filename: a.filename || "", type: a.contentType, size: a.size })) };
   } finally { lock.release(); }
 }
 async function exportMail(c, folder, q) {
@@ -146,9 +145,59 @@ async function exportMail(c, folder, q) {
   } finally { lock.release(); }
 }
 
-async function folders(c) {
-  const l = await c.list({ statusQuery: { messages: true, unseen: true } });
-  return l.filter((f) => !f.flags?.has?.("\\Noselect")).map((f) => ({ path: f.path, name: f.name, special: f.specialUse || "", messages: f.status?.messages ?? null, unseen: f.status?.unseen ?? null }));
+async function folders(c, b) {
+  const l = (await c.list({ statusQuery: { messages: true, unseen: true } })).filter((f) => !f.flags?.has?.("\\Noselect"));
+  const taken = new Set(), out = [];
+  // special-use flags win over names
+  for (const f of [...l].sort((x, y) => (y.specialUse ? 1 : 0) - (x.specialUse ? 1 : 0))) { const role = roleOf(f, taken); if (role !== "custom") taken.add(role); out.push({ path: f.path, name: f.name, special: f.specialUse || "", role, messages: f.status?.messages ?? null, unseen: f.status?.unseen ?? null }); }
+  const order = ["inbox", "sent", "drafts", "archive", "junk", "trash", "custom"];
+  out.sort((x, y) => order.indexOf(x.role) - order.indexOf(y.role) || x.path.localeCompare(y.path));
+  let blocked = { messages: 0, unseen: 0 };
+  try { const r = await blockedAll(c, b, ""); blocked = { messages: r.length, unseen: r.filter((x) => !x.seen).length }; } catch {}
+  return { folders: out, blocked };
+}
+const fromQuery = (pats) => (pats.length === 1 ? { from: pats[0] } : { or: pats.map((p) => ({ from: p })) });
+// Every message from a blocked sender, in any folder. Returns rows with their own folder.
+async function blockedAll(c, b, term) {
+  const pats = (await blocksFor(b)).slice(0, 40);
+  if (!pats.length) return [];
+  const k = ckey(b, "blockedAll", term), hit = cget(k); if (hit) return hit;
+  const l = (await c.list()).filter((f) => !f.flags?.has?.("\\Noselect"));
+  const rows = [];
+  for (const f of l) {
+    const lock = await c.getMailboxLock(f.path, { readOnly: true });
+    try {
+      if (!c.mailbox.exists) continue;
+      const qy = fromQuery(pats); const u = (await c.search(term ? { ...qy, text: term } : qy, { uid: true })) || [];
+      if (!u.length) continue;
+      for await (const m of c.fetch(u.slice(-1500).join(","), { uid: true, flags: true, envelope: true, internalDate: true }, { uid: true })) rows.push({ folder: f.path, uid: m.uid, seen: m.flags?.has("\\Seen") || false, t: +new Date(m.envelope?.date || m.internalDate || 0) });
+    } finally { lock.release(); }
+    if (rows.length > 5000) break;
+  }
+  rows.sort((x, y) => y.t - x.t);
+  cset(k, rows); return rows;
+}
+async function rowsFor(c, folder, uids) {
+  const rows = [], items = [];
+  if (!uids.length) return rows;
+  for await (const m of c.fetch(uids.join(","), { uid: true, flags: true, envelope: true, size: true, headers: true, source: { start: 0, maxLength: 8000 } }, { uid: true })) {
+    let snippet = "";
+    try { const p = await simpleParser(m.source, { skipImageLinks: true }); snippet = clean(p.text || "").slice(0, 160); } catch {}
+    const fromAddr = m.envelope?.from?.[0]?.address || "";
+    rows.push({ folder, uid: m.uid, seen: m.flags?.has("\\Seen") || false, flagged: m.flags?.has("\\Flagged") || false, answered: m.flags?.has("\\Answered") || false, from: addr(m.envelope?.from), fromAddr, to: addr(m.envelope?.to), subject: m.envelope?.subject || "", date: m.envelope?.date || null, size: m.size, snippet });
+    items.push({ raw: m.headers ? m.headers.toString("utf8") : "", fromAddr });
+  }
+  try { const g = await geoLabels(items); rows.forEach((r, i) => (r.geo = g[i])); } catch {}
+  return rows;
+}
+async function blockedList(c, b, q) {
+  const term = clean(q.get("q")).slice(0, 200);
+  const size = Math.min(100, Math.max(5, +q.get("size") || 40)), page = Math.max(1, +q.get("page") || 1);
+  const all = await blockedAll(c, b, term), pick = all.slice((page - 1) * size, page * size), out = [];
+  const by = {}; for (const r of pick) (by[r.folder] ||= []).push(r.uid);
+  for (const [f, u] of Object.entries(by)) { const lock = await c.getMailboxLock(f, { readOnly: true }); try { out.push(...(await rowsFor(c, f, u))); } finally { lock.release(); } }
+  const pos = new Map(pick.map((r, i) => [r.folder + "|" + r.uid, i])); out.sort((x, y) => pos.get(x.folder + "|" + x.uid) - pos.get(y.folder + "|" + y.uid));
+  return { folder: "__blocked", total: all.length, matched: all.length, page, size, pages: Math.ceil(all.length / size), q: term, filtered: 0, messages: out };
 }
 
 async function post(req, res, b, box) {
@@ -266,7 +315,7 @@ export default async function handler(req, res) {
     const c = client(box);
     try {
       try { await c.connect(); } catch (e) { return json(res, 502, { ...loginErr(e), mailbox: box.email }); }
-      if (op === "folders") return json(res, 200, { mailbox: box.email, folders: await folders(c) });
+      if (op === "folders") return json(res, 200, { mailbox: box.email, ...(await folders(c, box)) });
       if (op === "list") return json(res, 200, { mailbox: box.email, ...(await list(c, box, q)) });
       const folder = await resolveFolder(c, q.get("folder"));
       if (op === "msg") { const m = await message(c, folder, UID(q.get("uid"))); return m ? json(res, 200, m) : json(res, 404, { error: "not_found" }); }

@@ -104,7 +104,7 @@ button,input,select{font:inherit;color:inherit}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}@media (max-width:960px){.agrid{grid-template-columns:1fr}}
 .abar{display:flex;align-items:flex-end;gap:3px;height:120px}.abar div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px;font-size:10px;color:var(--t3)}.abar i{display:block;width:100%;background:var(--s3);border-radius:3px 3px 0 0}.abar i.c{background:#4ade80}
 /* inbox */
-.ibx{display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:16px;min-height:70vh}
+.ibx{display:grid;grid-template-columns:190px minmax(280px,400px) 1fr;gap:16px;min-height:70vh}
 .ibl{height:75vh;overflow:auto;overscroll-behavior:contain}
 .ibi{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--b);background:none;padding:10px 14px;cursor:pointer;color:var(--t2);transition:background .12s,opacity .2s}
 .ibi:hover{background:var(--s2)}.ibi.on{background:var(--s3);box-shadow:inset 2px 0 0 var(--a)}.ibi.gone{opacity:.25;pointer-events:none}
@@ -122,7 +122,10 @@ button,input,select{font:inherit;color:inherit}
 .itoast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--s3);border:1px solid var(--b2);border-radius:10px;padding:10px 14px;display:flex;gap:12px;align-items:center;font-size:13px;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 .itoast button{background:none;border:0;color:var(--a);cursor:pointer;font-weight:600}
 .kbd{font-size:11px;color:var(--t3)}
-@media(max-width:760px){.ibx{grid-template-columns:1fr}.ibl{height:50vh}.ibr{height:auto}}
+.isb{padding:8px 0;height:75vh;overflow:auto}.isb button{display:flex;width:100%;gap:8px;align-items:center;border:0;background:none;color:var(--t2);padding:8px 14px;font-size:13px;cursor:pointer;text-align:left}.isb button:hover{background:var(--s2)}.isb button.on{background:var(--s3);color:var(--t1);box-shadow:inset 2px 0 0 var(--a)}.isb button span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.isb button i{font-style:normal;font-size:11px;color:var(--t3)}.isb button b{font-size:11px;background:var(--a);color:#000;border-radius:9px;padding:0 6px}.isb h4{margin:12px 14px 4px;font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+.geo{font-size:11px;color:var(--t3);white-space:nowrap}.geoh{display:inline-block;font-size:12px;padding:3px 8px;border:1px solid var(--b2);border-radius:999px;margin-bottom:8px;color:var(--t1)}
+@media(max-width:1000px){.ibx{grid-template-columns:150px minmax(240px,1fr) 1.4fr}}
+@media(max-width:760px){.isb{height:auto}.ibx{grid-template-columns:1fr}.ibl{height:50vh}.ibr{height:auto}}
 /* tabs */
 .tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:12px 16px 0;border-bottom:1px solid var(--b)}
 .tabs::-webkit-scrollbar{display:none}
@@ -298,12 +301,12 @@ button,input,select{font:inherit;color:inherit}
     <p class="foot">Paid = a click id (gclid, ttclid), utm_medium cpc/paid/ads, the tracker's Ads classification, or a Facebook/Instagram link-shim referrer (l./lm.facebook.com, l.instagram.com) with fbclid. Attribution is first-touch per session. Bots (automation, crawler user agents, no browser language) are excluded. Time windows are rolling: 24h = the last 24 hours.</p>
   </div>
   <div id="inbox" hidden>
-    <div class="tool"><select class="field" id="imb" aria-label="Mailbox"></select><select class="field" id="ifolder" aria-label="Folder"><option value="INBOX">Inbox</option></select><input class="field" id="iq" type="search" placeholder="Search subject, from, body  ( / )" aria-label="Search mail" maxlength="200" style="min-width:220px"><button class="ghost" id="icompose">Compose</button><button class="ghost" id="irefresh">Refresh</button><button class="ghost" id="iblk">Blocked</button><button class="ghost" id="ilog">Activity</button><button class="ghost" id="iconn">Connect mailbox</button><span class="right" id="ilabel"></span></div>
+    <div class="tool"><select class="field" id="imb" aria-label="Mailbox"></select><select class="field" id="icty" aria-label="Filter by sender country"><option value="">All countries</option></select><input class="field" id="iq" type="search" placeholder="Search subject, from, body  ( / )" aria-label="Search mail" maxlength="200" style="min-width:220px"><button class="ghost" id="icompose">Compose</button><button class="ghost" id="irefresh">Refresh</button><button class="ghost" id="iblk">Blocked</button><button class="ghost" id="ilog">Activity</button><button class="ghost" id="iconn">Connect mailbox</button><span class="right" id="ilabel"></span></div>
     <section class="card ipan" id="iconnect" hidden style="max-width:560px"><h3>Connect mailbox</h3><p class="mut" style="margin:0 0 12px;font-size:12px">Login is tested over IMAP first. The password is stored encrypted on the server and never shown again. To update a password, connect the same email again.</p>
       <form id="icf" style="display:grid;grid-template-columns:1fr 1fr;gap:8px" autocomplete="off"><input class="field" name="email" type="email" placeholder="Email" value="team@unbanz.com" required maxlength="254" style="grid-column:1/3"><input class="field" name="password" type="password" placeholder="Mailbox password" autocomplete="new-password" required maxlength="512" style="grid-column:1/3"><input class="field" name="imap_host" value="mail.spacemail.com" aria-label="IMAP host" title="IMAP host"><input class="field" name="imap_port" value="993" inputmode="numeric" aria-label="IMAP port (SSL)" title="IMAP port (SSL)"><input class="field" name="smtp_host" value="mail.spacemail.com" aria-label="SMTP host" title="SMTP host"><input class="field" name="smtp_port" value="465" inputmode="numeric" aria-label="SMTP port (SSL)" title="SMTP port (SSL)"><div style="grid-column:1/3;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="ghost" type="submit">Test and save</button><button class="ghost" type="button" id="idisc">Disconnect selected</button><span id="icmsg" style="font-size:12px;color:var(--t3)"></span></div></form></section>
     <section class="card ipan" id="iblocks" hidden><h3>Blocked senders</h3><p class="mut" style="margin:0 0 8px;font-size:12px">Mail from these addresses or domains (e.g. @spam.com) is moved from Inbox to Junk automatically. Nothing is deleted.</p><div class="row"><input class="field" id="iblkin" placeholder="name@domain.com or @domain.com" maxlength="254"><button class="ghost" id="iblkadd">Block</button></div><div id="iblklist"></div></section>
     <section class="card ipan" id="iaudit" hidden><h3>Activity</h3><div class="scroll"><table class="at" id="iauditt"></table></div></section>
-    <div class="ibx"><section class="card"><div class="ibl" id="ilist"></div></section><section class="card ibr" id="iread"><p class="mut">Select a message</p><p class="kbd">Keys: j/k move · Enter open · e archive · # delete · u read/unread · r reply · a reply all · f forward · c compose · / search</p></section></div>
+    <div class="ibx"><nav class="card isb" id="isb" aria-label="Mail folders"></nav><section class="card"><div class="ibl" id="ilist"></div></section><section class="card ibr" id="iread"><p class="mut">Select a message</p><p class="kbd">Keys: j/k move · Enter open · e archive · # delete · u read/unread · r reply · a reply all · f forward · c compose · / search</p></section></div>
     <form class="icm" id="icm" hidden autocomplete="off"><div style="display:flex;align-items:center;gap:8px"><b id="icmt" style="flex:1">New message</b><span class="kbd" id="icmfrom"></span><button class="ghost" type="button" id="icmx">Close</button></div>
       <input class="field" name="to" placeholder="To" maxlength="4000"><input class="field" name="cc" placeholder="Cc" maxlength="4000"><input class="field" name="bcc" placeholder="Bcc" maxlength="4000"><input class="field" name="subject" placeholder="Subject" maxlength="300"><textarea class="field" name="text" placeholder="Write your message"></textarea>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><input type="file" id="icmf" multiple style="font-size:12px;color:var(--t2)"><span class="kbd" id="icmfs"></span><button class="ghost" type="submit" style="margin-left:auto">Send</button></div><p class="kbd" style="margin:0">You get 10 seconds to undo after pressing Send. Once delivered, an email cannot be recalled or edited.</p></form>
@@ -571,14 +574,21 @@ button,input,select{font:inherit;color:inherit}
   }
   const showView = (v) => { $('#ads').hidden = v !== 'ads'; $('#inbox').hidden = v !== 'inbox'; $('#ovw').hidden = v !== 'ovw'; press($('#vsw'), $(`#vsw [data-v="${v}"]`)); if (v === 'ads') loadAds(); if (v === 'inbox') loadInbox(); try { history.replaceState(null, '', v !== 'ovw' ? '#' + v : location.pathname + location.search); } catch {} };
   // ---------- Inbox (/api/users/mail/) ----------
-  const ist = { mb: '', folder: 'INBOX', q: '', page: 0, pages: 1, rows: [], uid: 0, loading: false, loadedF: false, boxesLoaded: false, folderList: [], cur: null };
+  const ist = { mb: '', folder: 'INBOX', role: 'inbox', cty: '', blocked: null, q: '', page: 0, pages: 1, rows: [], uid: 0, loading: false, loadedF: false, boxesLoaded: false, folderList: [], cur: null };
   const MAPI = '/api/users/mail/';
   const LC = new Map(), MC = new Map(); // client caches: list pages and full messages
   const mget = async (p) => { if (ist.mb) p.mb = ist.mb; const r = await fetch(MAPI + '?' + new URLSearchParams(p), { credentials: 'same-origin', cache: 'no-store', headers: H() }); const j = await r.json().catch(() => ({})); if (!r.ok) { const e = new Error((j.error || r.status) + (j.detail ? ': ' + j.detail : '') + (j.hint ? ' ' + j.hint : '')); e.code = j.error; throw e; } return j; };
   const mpost = async (b, keep) => { if (ist.mb && !b.mb) b.mb = ist.mb; const r = await fetch(MAPI, { method: 'POST', credentials: 'same-origin', keepalive: !!keep, headers: { ...H(), 'Content-Type': 'application/json', 'X-Ubz-Csrf': '1' }, body: JSON.stringify(b) }); const j = await r.json().catch(() => ({})); return [r.ok, j]; };
   const mdate = (d) => { if (!d) return ''; const x = new Date(d), n = new Date(); return x.toDateString() === n.toDateString() ? x.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : x.toLocaleDateString([], { day: 'numeric', month: 'short', year: x.getFullYear() === n.getFullYear() ? undefined : 'numeric' }); };
   const nm = (s) => String(s || '').replace(/\s*<[^>]*>/g, '') || s || '';
-  const isSent = () => /sent/i.test(ist.folder);
+  const isSent = () => ist.role === 'sent' || ist.role === 'drafts';
+  const sp = (k) => { k = String(k); const i = k.lastIndexOf('|'); return [k.slice(0, i), +k.slice(i + 1)]; };
+  const cflag = (c) => (/^[A-Z]{2}$/.test(c || '') ? String.fromCodePoint(...[...c].map((x) => 127397 + x.charCodeAt(0))) : '');
+  const geoText = (g, full) => { if (!g) return ''; const h = g.hint ? ` · hint: .${g.hint.code.toLowerCase()} domain (${g.hint.country})` : '';
+    if (g.country) { const place = [g.city, g.region].filter((x, i, a) => x && a.indexOf(x) === i && x !== g.country).join(', '); return full ? `${cflag(g.code)} ${g.country}${place ? ' · ' + place : ''}${g.kind === 'server' ? ' (sender’s mail server)' : ''}` : `${cflag(g.code)} ${g.country}`; }
+    const u = g.kind === 'provider' ? `Unknown (sent via ${g.via})` : 'Unknown origin'; return full ? u + h : u; };
+  const geoKey = (g) => (g && g.country ? g.code : 'unknown');
+  const ROLE_LABEL = { inbox: 'Inbox', sent: 'Sent', drafts: 'Drafts', archive: 'Archive', junk: 'Junk / Spam', trash: 'Deleted / Trash' };
   // Toast with optional Undo. run() executes when the timer ends unless undone.
   let toastT, pending = [];
   function toast(msg, ms = 4000, undo) {
@@ -594,16 +604,24 @@ button,input,select{font:inherit;color:inherit}
   window.addEventListener('pagehide', () => pending.slice().forEach((p) => { if (!p.done) { p.done = true; p.run(true); } }));
 
   async function loadBoxes() { try { const d = await mget({ op: 'boxes' }); $('#imb').innerHTML = d.mailboxes.map((b) => `<option value="${esc(b.id)}"${String(b.id) === String(ist.mb) ? ' selected' : ''}>${esc(b.email)}${b.source === 'env' ? ' (env)' : ''}</option>`).join('') || '<option value="">No mailbox</option>'; if (!ist.mb && d.mailboxes[0]) ist.mb = String(d.mailboxes[0].id); if (!d.mailboxes.length) $('#iconnect').hidden = false; } catch {} }
-  async function loadFolders() {
-    try { const d = await mget({ op: 'folders' }); ist.loadedF = true; ist.folderList = d.folders;
-      $('#ifolder').innerHTML = d.folders.map((f) => `<option value="${esc(f.path)}"${f.path === ist.folder ? ' selected' : ''}>${esc(f.name)}${f.messages != null ? ' (' + (f.unseen ? f.unseen + '/' : '') + f.messages + ')' : ''}</option>`).join('');
-    } catch {}
+  function renderSidebar() {
+    const f = ist.folderList || [], b = ist.blocked || { messages: 0, unseen: 0 };
+    const item = (path, label, unseen, total) => `<button data-f="${esc(path)}" class="${path === ist.folder ? 'on' : ''}"><span>${esc(label)}</span>${unseen ? `<b>${fmt(unseen)}</b>` : ''}${total != null ? `<i>${fmt(total)}</i>` : ''}</button>`;
+    const std = f.filter((x) => x.role !== 'custom'), cus = f.filter((x) => x.role === 'custom');
+    $('#isb').innerHTML = std.map((x) => item(x.path, ROLE_LABEL[x.role] || x.name, x.unseen, x.messages)).join('') + item('__blocked', 'Blocked', b.unseen, b.messages) + (cus.length ? '<h4>Folders</h4>' + cus.map((x) => item(x.path, x.path.replace(/^INBOX[./]/i, ''), x.unseen, x.messages)).join('') : '');
   }
+  async function loadFolders() {
+    try { const d = await mget({ op: 'folders' }); ist.loadedF = true; ist.folderList = d.folders; ist.blocked = d.blocked; renderSidebar(); } catch {}
+  }
+  $('#isb').addEventListener('click', (e) => { const b = e.target.closest('[data-f]'); if (!b) return; ist.folder = b.dataset.f; const fo = (ist.folderList || []).find((x) => x.path === ist.folder); ist.role = ist.folder === '__blocked' ? 'blocked' : fo ? fo.role : 'custom'; ist.uid = 0; ist.cty = ''; $('#iread').innerHTML = '<p class="mut">Select a message</p>'; renderSidebar(); loadInbox(); });
   const skel = (n) => Array.from({ length: n }, () => '<div style="padding:10px 14px;border-bottom:1px solid var(--b)"><div class="sk" style="width:45%"></div><div class="sk" style="width:80%"></div><div class="sk" style="width:65%"></div></div>').join('');
-  const rowHtml = (m) => `<button class="ibi${m.seen ? '' : ' un'}${m.uid === ist.uid ? ' on' : ''}" data-uid="${m.uid}"><div class="f"><b>${esc(nm(isSent() ? m.to : m.from))}</b><span>${esc(mdate(m.date))}</span></div><div class="s">${m.answered ? '↩ ' : ''}${esc(m.subject || '(no subject)')}</div><div class="n">${esc(m.snippet || '')}</div></button>`;
+  const rowHtml = (m) => `<button class="ibi${m.seen ? '' : ' un'}${m.uid === ist.uid ? ' on' : ''}" data-uid="${esc(m.uid)}"><div class="f"><b>${esc(nm(isSent() ? m.to : m.from))}</b>${!isSent() && m.geo ? `<span class="geo" title="${esc(geoText(m.geo, true))}">${esc(geoText(m.geo))}</span>` : ''}<span>${esc(mdate(m.date))}</span></div><div class="s">${m.answered ? '↩ ' : ''}${esc(m.subject || '(no subject)')}</div><div class="n">${esc(m.snippet || '')}</div>${ist.folder === '__blocked' ? `<div class="n">in ${esc(m.folder)}</div>` : ''}</button>`;
   const lkey = (pg) => [ist.mb, ist.folder, ist.q, pg].join('|');
   function renderList() {
-    $('#ilist').innerHTML = (ist.rows.length ? ist.rows.map(rowHtml).join('') : ist.loading ? '' : '<p class="mut" style="padding:14px">No messages</p>') + (ist.loading ? skel(ist.rows.length ? 2 : 8) : ist.page < ist.pages ? '<div class="imore" id="imore">Loading more…</div>' : ist.rows.length ? '<div class="imore">End of folder</div>' : '');
+    const vis = ist.cty ? ist.rows.filter((r) => geoKey(r.geo) === ist.cty) : ist.rows;
+    const cs = {}; ist.rows.forEach((r) => { const k = geoKey(r.geo); cs[k] = cs[k] || { n: 0, l: r.geo && r.geo.country ? cflag(r.geo.code) + ' ' + r.geo.country : 'Unknown' }; cs[k].n++; });
+    $('#icty').innerHTML = '<option value="">All countries</option>' + Object.entries(cs).sort((a, b) => b[1].n - a[1].n).map(([k, v]) => `<option value="${esc(k)}"${k === ist.cty ? ' selected' : ''}>${esc(v.l)} (${v.n})</option>`).join('');
+    $('#ilist').innerHTML = (vis.length ? vis.map(rowHtml).join('') : ist.loading ? '' : '<p class="mut" style="padding:14px">No messages</p>') + (ist.loading ? skel(ist.rows.length ? 2 : 8) : ist.page < ist.pages ? '<div class="imore" id="imore">Loading more…</div>' : ist.rows.length ? `<div class="imore">End of folder · ${fmt(ist.rows.length)} messages loaded</div>` : '');
     const s = $('#imore'); if (s) io.observe(s);
   }
   const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) more(); }, { root: null, rootMargin: '400px' });
@@ -616,6 +634,7 @@ button,input,select{font:inherit;color:inherit}
     catch (e) { ist.loading = false; $('#ilist').innerHTML = `<p class="mut" style="padding:14px">Could not load mail (${esc(e.message)})</p>`; if (/imap_login_failed|mail_not_configured/.test(e.code || '')) $('#iconnect').hidden = false; return; }
     if (k !== lkey(pg)) return; // folder/search changed meanwhile
     ist.loading = false; ist.page = pg; ist.pages = d.pages || 1; ist.folder = d.folder;
+    d.messages.forEach((m) => { if (typeof m.uid === 'number') m.uid = (m.folder || d.folder) + '|' + m.uid; });
     const seen = new Set(ist.rows.map((r) => r.uid)); ist.rows.push(...d.messages.filter((m) => !seen.has(m.uid)));
     $('#ilabel').textContent = `${d.mailbox || ''} · ${fmt(d.total)} messages${d.q ? ' · ' + fmt(d.matched) + ' match' : ''}${d.filtered ? ' · ' + d.filtered + ' moved to Junk' : ''}`;
     renderList();
@@ -627,8 +646,8 @@ button,input,select{font:inherit;color:inherit}
     if (fresh) { LC.clear(); }
     ist.page = 0; ist.pages = 1; ist.rows = []; ist.loading = false; more(fresh);
   }
-  const mkey = (uid) => [ist.mb, ist.folder, uid].join('|');
-  function prefetch(uid) { const k = mkey(uid); if (MC.has(k)) return MC.get(k); const p = mget({ op: 'msg', folder: ist.folder, uid }).catch((e) => { MC.delete(k); throw e; }); MC.set(k, p); return p; }
+  const mkey = (uid) => ist.mb + '|' + uid;
+  function prefetch(uid) { const k = mkey(uid); if (MC.has(k)) return MC.get(k); const p = mget({ op: 'msg', folder: sp(uid)[0], uid: sp(uid)[1] }).catch((e) => { MC.delete(k); throw e; }); MC.set(k, p); return p; }
   function frame(m, imgs) {
     const f = document.createElement('iframe');
     f.setAttribute('sandbox', 'allow-popups allow-popups-to-escape-sandbox'); f.setAttribute('referrerpolicy', 'no-referrer'); f.setAttribute('title', 'Message body');
@@ -636,15 +655,15 @@ button,input,select{font:inherit;color:inherit}
     return f;
   }
   async function openMsg(uid) {
-    ist.uid = uid; document.querySelectorAll('.ibi').forEach((b) => b.classList.toggle('on', +b.dataset.uid === uid));
+    ist.uid = uid; document.querySelectorAll('.ibi').forEach((b) => b.classList.toggle('on', b.dataset.uid === uid));
     const k = mkey(uid);
     if (!MC.has(k) || !(MC.get(k) instanceof Object)) $('#iread').innerHTML = '<div class="sk" style="width:60%;height:18px"></div><div class="sk" style="width:40%"></div><div class="sk" style="width:90%;height:200px;margin-top:16px"></div>';
     let m; try { m = await prefetch(uid); } catch (e) { $('#iread').innerHTML = `<p class="mut">Could not open (${esc(e.message)})</p>`; return; }
     if (ist.uid !== uid) return;
-    ist.cur = m;
+    ist.cur = m; m.key = uid;
     const row = ist.rows.find((r) => r.uid === uid);
     const seen = row ? row.seen : m.seen;
-    $('#iread').innerHTML = `<div class="iact"><button class="ghost" data-a="reply">Reply</button><button class="ghost" data-a="all">Reply all</button><button class="ghost" data-a="fwd">Forward</button><button class="ghost" data-a="seen">${seen ? 'Mark unread' : 'Mark read'}</button><button class="ghost" data-a="archive">Archive</button><button class="ghost" data-a="delete">Delete</button><button class="ghost" data-a="block">Block sender</button>${m.remote ? '<button class="ghost" data-a="imgs">Load remote images</button>' : ''}</div><h3>${esc(m.subject || '(no subject)')}</h3><div class="meta">From: ${esc(m.from)}<br>To: ${esc(m.to)}${m.cc ? '<br>Cc: ' + esc(m.cc) : ''}${m.replyTo ? '<br>Reply-To: ' + esc(m.replyTo) : ''}<br>${esc(m.date ? fullTime(m.date) : '')}${m.attachments.length ? '<br>Attachments: ' + m.attachments.map((a) => esc(a.filename || a.type) + ' (' + Math.ceil(a.size / 1024) + ' KB)').join(', ') : ''}${m.remote ? '<br>Remote images are blocked to stop tracking.' : ''}</div><div id="ibody"></div>`;
+    $('#iread').innerHTML = `<div class="iact"><button class="ghost" data-a="reply">Reply</button><button class="ghost" data-a="all">Reply all</button><button class="ghost" data-a="fwd">Forward</button><button class="ghost" data-a="seen">${seen ? 'Mark unread' : 'Mark read'}</button><button class="ghost" data-a="archive">Archive</button><button class="ghost" data-a="delete">Delete</button><button class="ghost" data-a="block">Block sender</button>${m.remote ? '<button class="ghost" data-a="imgs">Load remote images</button>' : ''}</div>${m.geo ? `<div class="geoh" title="Based on the sender’s originating IP in the mail headers${m.geo.ip ? ' (' + esc(m.geo.ip) + ')' : ''}">From: ${esc(geoText(m.geo, true))}</div>` : ''}<h3>${esc(m.subject || '(no subject)')}</h3><div class="meta">From: ${esc(m.from)}<br>To: ${esc(m.to)}${m.cc ? '<br>Cc: ' + esc(m.cc) : ''}${m.replyTo ? '<br>Reply-To: ' + esc(m.replyTo) : ''}<br>${esc(m.date ? fullTime(m.date) : '')}${m.attachments.length ? '<br>Attachments: ' + m.attachments.map((a) => esc(a.filename || a.type) + ' (' + Math.ceil(a.size / 1024) + ' KB)').join(', ') : ''}${m.remote ? '<br>Remote images are blocked to stop tracking.' : ''}</div><div id="ibody"></div>`;
     if (m.html) $('#ibody').appendChild(frame(m, false)); else { const pre = document.createElement('pre'); pre.textContent = m.text || ''; $('#ibody').appendChild(pre); }
     const i = ist.rows.findIndex((r) => r.uid === uid); if (ist.rows[i + 1]) prefetch(ist.rows[i + 1].uid).catch(() => {});
   }
@@ -652,15 +671,15 @@ button,input,select{font:inherit;color:inherit}
   function restoreRow(x) { if (!x) return; ist.rows.splice(x.i, 0, x.r); renderList(); }
   function nextAfter(uid) { const i = ist.rows.findIndex((r) => r.uid === uid); return (ist.rows[i + 1] || ist.rows[i - 1] || {}).uid; }
   function moveAct(uid, kind) {
-    const nxt = nextAfter(uid), x = dropRow(uid), folder = ist.folder, mb = ist.mb;
+    const nxt = nextAfter(uid), x = dropRow(uid), [folder, ruid] = sp(uid), mb = ist.mb;
     if (nxt) openMsg(nxt); else $('#iread').innerHTML = '<p class="mut">Select a message</p>';
-    const undo = deferred(6000, async (keep) => { const [ok, d] = await mpost({ op: kind === 'archive' ? 'move' : 'delete', to: 'archive', folder, uids: [uid], mb }, keep); LC.clear(); if (!ok && !keep) { toast('Failed: ' + (d.error || '')); restoreRow(x); } else if (d.permanent) toast('Deleted permanently'); }, () => { restoreRow(x); openMsg(uid); });
+    const undo = deferred(6000, async (keep) => { const [ok, d] = await mpost({ op: kind === 'archive' ? 'move' : 'delete', to: 'archive', folder, uids: [ruid], mb }, keep); LC.clear(); if (!ok && !keep) { toast('Failed: ' + (d.error || '')); restoreRow(x); } else if (d.permanent) toast('Deleted permanently'); }, () => { restoreRow(x); openMsg(uid); });
     toast(kind === 'archive' ? 'Archived' : /trash|deleted/i.test(folder) ? 'Will be deleted permanently' : 'Moved to Trash', 6000, undo);
   }
   async function toggleSeen(uid) {
     const row = ist.rows.find((r) => r.uid === uid); if (!row) return;
     row.seen = !row.seen; renderList(); if (ist.uid === uid && ist.cur) openMsg(uid);
-    const [ok] = await mpost({ op: 'flag', flag: 'seen', value: row.seen, folder: ist.folder, uids: [uid] }); LC.clear();
+    const [ok] = await mpost({ op: 'flag', flag: 'seen', value: row.seen, folder: sp(uid)[0], uids: [sp(uid)[1]] }); LC.clear();
     if (!ok) { row.seen = !row.seen; renderList(); toast('Could not change read state'); }
   }
   async function blockSender(m) {
@@ -704,12 +723,12 @@ button,input,select{font:inherit;color:inherit}
     toast((s) => `Sending in ${Math.max(0, s)}s`, 10000, undo);
   });
   $('#iread').addEventListener('click', (e) => { const b = e.target.closest('[data-a]'); if (!b || !ist.cur) return; const m = ist.cur, a = b.dataset.a;
-    if (a === 'reply' || a === 'all' || a === 'fwd') compose(a, m); else if (a === 'seen') toggleSeen(m.uid); else if (a === 'archive' || a === 'delete') moveAct(m.uid, a); else if (a === 'block') blockSender(m);
+    if (a === 'reply' || a === 'all' || a === 'fwd') compose(a, m); else if (a === 'seen') toggleSeen(m.key); else if (a === 'archive' || a === 'delete') moveAct(m.key, a); else if (a === 'block') blockSender(m);
     else if (a === 'imgs') { const box = $('#ibody'); box.innerHTML = ''; box.appendChild(frame(m, true)); b.remove(); } });
-  $('#ilist').addEventListener('click', (e) => { const b = e.target.closest('.ibi'); if (b) openMsg(+b.dataset.uid); });
-  $('#ilist').addEventListener('pointerover', (e) => { const b = e.target.closest('.ibi'); if (b) { clearTimeout(b._t); b._t = setTimeout(() => prefetch(+b.dataset.uid).catch(() => {}), 120); } });
-  $('#ifolder').addEventListener('change', (e) => { ist.folder = e.target.value; ist.uid = 0; $('#iread').innerHTML = '<p class="mut">Select a message</p>'; loadInbox(); });
-  $('#imb').addEventListener('change', (e) => { ist.mb = e.target.value; ist.folder = 'INBOX'; ist.loadedF = false; LC.clear(); MC.clear(); loadInbox(); });
+  $('#ilist').addEventListener('click', (e) => { const b = e.target.closest('.ibi'); if (b) openMsg(b.dataset.uid); });
+  $('#ilist').addEventListener('pointerover', (e) => { const b = e.target.closest('.ibi'); if (b) { clearTimeout(b._t); b._t = setTimeout(() => prefetch(b.dataset.uid).catch(() => {}), 120); } });
+  $('#icty').addEventListener('change', (e) => { ist.cty = e.target.value; renderList(); });
+  $('#imb').addEventListener('change', (e) => { ist.mb = e.target.value; ist.folder = 'INBOX'; ist.role = 'inbox'; ist.loadedF = false; LC.clear(); MC.clear(); loadInbox(); });
   $('#irefresh').addEventListener('click', () => { ist.loadedF = false; MC.clear(); loadInbox(true); });
   $('#icompose').addEventListener('click', () => compose('new'));
   let iqt; $('#iq').addEventListener('input', (e) => { clearTimeout(iqt); iqt = setTimeout(() => { ist.q = e.target.value.trim(); loadInbox(); }, 400); });
@@ -729,11 +748,11 @@ button,input,select{font:inherit;color:inherit}
     if (e.key === 'Escape') { $('#icm').hidden = true; return; }
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable) return;
     const i = ist.rows.findIndex((r) => r.uid === ist.uid), m = ist.cur;
-    const go = (j) => { const r = ist.rows[Math.max(0, Math.min(ist.rows.length - 1, j))]; if (r) { openMsg(r.uid); document.querySelector(`.ibi[data-uid="${r.uid}"]`)?.scrollIntoView({ block: 'nearest' }); } };
+    const go = (j) => { const r = ist.rows[Math.max(0, Math.min(ist.rows.length - 1, j))]; if (r) { openMsg(r.uid); document.querySelector(`.ibi[data-uid="${CSS.escape(r.uid)}"]`)?.scrollIntoView({ block: 'nearest' }); } };
     const k = e.key;
     if (k === 'j' || k === 'ArrowDown') { e.preventDefault(); go(i + 1); } else if (k === 'k' || k === 'ArrowUp') { e.preventDefault(); go(i - 1); }
     else if (k === 'Enter' || k === 'o') { if (i < 0) go(0); } else if (k === '/') { e.preventDefault(); $('#iq').focus(); } else if (k === 'c') { e.preventDefault(); compose('new'); }
-    else if (!m) return; else if (k === 'e') moveAct(m.uid, 'archive'); else if (k === '#' || k === 'Delete') moveAct(m.uid, 'delete'); else if (k === 'u') toggleSeen(m.uid);
+    else if (!m) return; else if (k === 'e') moveAct(m.key, 'archive'); else if (k === '#' || k === 'Delete') moveAct(m.key, 'delete'); else if (k === 'u') toggleSeen(m.key);
     else if (k === 'r') { e.preventDefault(); compose('reply', m); } else if (k === 'a') { e.preventDefault(); compose('all', m); } else if (k === 'f') { e.preventDefault(); compose('fwd', m); }
   });
   $('#vsw').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) showView(b.dataset.v); });
