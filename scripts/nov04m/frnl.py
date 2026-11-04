@@ -7,7 +7,7 @@ FR={
 'compte-instagram-desactive-comment-recuperer':[
 ('Où se trouve la contestation dans l’Espace comptes ?','Si vous pouvez encore vous connecter, ouvrez Paramètres, puis Espace comptes, puis Qualité du compte ou la notification de désactivation. Sinon, la page de connexion affiche en général le bouton de contestation. Les intitulés changent selon la version de l’application.'),
 ('Désactivé sans pièce d’identité à envoyer : que faire ?','Meta propose souvent un selfie vidéo plutôt qu’un document. Faites-le dans un endroit bien éclairé, sans lunettes ni filtre, et une seule fois. Si aucune option ne s’affiche, notez-le avec une capture d’écran : cela compte pour la suite.'),
-('Piraté puis désactivé : par où commencer ?','Commencez par instagram.com/hacked, pas par la contestation classique. Signalez aussi l’incident sur 17Cyber (17cyber.gouv.fr) et, en cas d’escroquerie, déposez plainte sur THESEE. Changez le mot de passe de l’adresse e-mail liée.'),
+('Piraté puis désactivé : par où commencer ?','Commencez par instagram.com/hacked, pas par la contestation classique. Signalez aussi l’incident sur 17Cyber (17cyber.gouv.fr) et, s’il y a escroquerie, déposez plainte sur THESEE. Changez le mot de passe de l’adresse e-mail liée.'),
 ('Et si l’appel interne est refusé ?',ACF),
 ],
 'compte-facebook-desactive-faire-appel':[
@@ -33,7 +33,7 @@ FR={
 ],
 'compte-instagram-pirate-que-faire':[
 ('Piraté et désactivé : quel ordre suivre ?','D’abord instagram.com/hacked pour signaler le piratage, ensuite la contestation de la désactivation si elle s’affiche. Gardez les e-mails de security@mail.instagram.com qui signalent les changements.'),
-('Où signaler en France ?','Sur 17Cyber (17cyber.gouv.fr) pour être orienté, et sur THESEE pour une plainte en ligne en cas d’escroquerie. Pour la sextorsion, voyez aussi Pharos.'),
+('Où signaler en France ?','Sur 17Cyber (17cyber.gouv.fr) pour être orienté, et sur THESEE pour une plainte en ligne s’il y a escroquerie. Pour la sextorsion, voyez aussi Pharos.'),
 ],
 }
 NL={
