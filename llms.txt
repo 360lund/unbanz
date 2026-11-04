@@ -1228,3 +1228,10 @@ A Unbanz também atende em português do Brasil, para quem busca ajuda com uma c
 - [Meta ad account: fix the cause before you appeal](https://unbanz.com/meta-ad-account-fix-the-cause-before-appeal/)
 - [What to send for account recovery help (never your password)](https://unbanz.com/what-to-send-for-account-recovery-help/)
 - [Instagram disabled or suspended: the first 48 hours](https://unbanz.com/instagram-disabled-first-48-hours/)
+
+## Answers by notice type (added 4 November 2026)
+- [Instagram notice types](https://unbanz.com/instagram-notice-types/): Suspended with a countdown means appeal from the notice. Disabled with no button, hacked then flagged, impersonation, video selfie, ID request and lost two-factor codes each have their own route. Instagram makes the final decision.
+- [Facebook notice types](https://unbanz.com/facebook-notice-types/): Disabled, hacked and used for spam, confirm your identity, lost email or phone, lost two-factor and hacked Pages, each matched to its official route. Meta makes the final decision.
+- [Meta ad account notice types](https://unbanz.com/meta-ad-account-notice-types/): Read the reason in Account Quality, fix that cause, then request one review that says what changed.
+- Top guides: [Instagram suspended appeal](https://unbanz.com/guides/instagram-account-suspended-appeal/), [Facebook disabled appeal](https://unbanz.com/guides/facebook-account-disabled-appeal/), [Instagram ID verification](https://unbanz.com/guides/instagram-id-verification-request/), [Facebook lost email or phone](https://unbanz.com/guides/facebook-lost-access-to-email-or-phone/), [No appeal button](https://unbanz.com/guides/instagram-disabled-no-appeal-button/), [Meta ad account restricted](https://unbanz.com/guides/meta-ad-account-restricted/).
+- Contact: WhatsApp https://wa.me/19342012490 or team@unbanz.com. Independent service. Not affiliated with Meta.
