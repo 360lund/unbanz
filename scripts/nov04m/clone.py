@@ -7,7 +7,7 @@ def make(lang,tpl,slug,en,title,desc,nav,h1,answer,secs,help_html,faq,related,tw
     s=re.sub(r'(<meta (?:property|name)="(?:og|twitter):description" content=")[^"]*',lambda m:m.group(1)+E(desc),s)
     s=re.sub(r'(<meta (?:property|name)="(?:og|twitter):title" content=")[^"]*',lambda m:m.group(1)+E(title),s)
     s=re.sub(r'<title>[^<]*</title>',f'<title>{E(title)}</title>',s)
-    loc={'fr':['fr','fr-FR'],'nl':['nl','nl-NL']}
+    loc={'fr':['fr','fr-FR'],'nl':['nl','nl-NL'],'es':['es','es-ES'],'pt-br':['pt-BR']}
     alts=[('en',B+'/'+en+'/'),('en-US',B+'/'+en+'/')]
     for l in loc[lang]: alts.append((l,u))
     for tl,tu2 in (twins or {}).items():
