@@ -1,5 +1,5 @@
 import re,glob
-AN=['sub-questions-2026','local-questions-2026','quick-answers-2026','updated-2026','compared-2026']
+AN=['related-2026','sub-questions-2026','local-questions-2026','quick-answers-2026','updated-2026','compared-2026']
 n=0;out=[]
 for f in glob.glob('**/index.html',recursive=True):
     s=open(f).read();o=s
