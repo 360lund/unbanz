@@ -38,5 +38,6 @@ def build(p):
     post=re.sub(r'<div class="simple-faq">.*?</div></div></section>','<div class="simple-faq">'+faq_html+'</div></div></section>',post,count=1,flags=re.S)
     post=post.replace('Hey%20Unbanz%2C%20I%20need%20help%20with%20my%20Facebook%20account','Hey%20Unbanz%2C%20I%20need%20help%20with%20my%20account').replace('subject=Facebook%20account','subject=Account%20help')
     os.makedirs(slug,exist_ok=True);open(slug+'/index.html','w').write(head+pre+hero+post);print('ok',slug)
-from pages import PAGES
+import sys
+PAGES=__import__(sys.argv[1] if len(sys.argv)>1 else "pages").PAGES
 for p in PAGES: build(p)
