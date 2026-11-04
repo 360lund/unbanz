@@ -1,0 +1,8 @@
+{
+  "name": "unbanz-site",
+  "private": true,
+  "dependencies": {
+    "imapflow": "^1.0.190",
+    "mailparser": "^3.7.4"
+  }
+}

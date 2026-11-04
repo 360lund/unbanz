@@ -39,6 +39,8 @@ export default function middleware(request, context) {
       context.waitUntil(fetch(new URL('/api/crawl/', url.origin), { method: 'POST', headers: { 'content-type': 'application/json', 'x-ubz-mw': '1' }, body: JSON.stringify({ bot, path: url.pathname, country: request.headers.get('x-vercel-ip-country') || '', test: url.searchParams.get('ubz_test') === '1' }) }).catch(() => {}));
     }
   } catch (e) {}
+  // Never serve installed packages or manifests as static files (outputDirectory is the repo root).
+  if (/^\/(node_modules(\/|$)|package(-lock)?\.json$)/i.test(url.pathname)) return new Response('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex' } });
   if (SHORT[path]) {
     return new Response(null, { status: 301, headers: { Location: new URL(SHORT[path], request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
   }

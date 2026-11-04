@@ -103,6 +103,18 @@ button,input,select{font:inherit;color:inherit}
 .hv{font-size:11px;padding:1px 6px;border-radius:4px;background:rgba(34,197,94,.15);color:#4ade80}.lv{font-size:11px;padding:1px 6px;border-radius:4px;background:rgba(248,113,113,.15);color:#f87171}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}@media (max-width:960px){.agrid{grid-template-columns:1fr}}
 .abar{display:flex;align-items:flex-end;gap:3px;height:120px}.abar div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px;font-size:10px;color:var(--t3)}.abar i{display:block;width:100%;background:var(--s3);border-radius:3px 3px 0 0}.abar i.c{background:#4ade80}
+/* inbox */
+.ibx{display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:16px;min-height:70vh}
+.ibl{max-height:75vh;overflow:auto}
+.ibi{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--b);background:none;padding:10px 14px;cursor:pointer;color:var(--t2)}
+.ibi:hover{background:var(--s2)}.ibi.on{background:var(--s3)}
+.ibi .f{display:flex;gap:8px;font-size:13px;color:var(--t1)}.ibi .f b{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}.ibi .f span{color:var(--t3);font-size:12px;flex:none}
+.ibi.un .f b{font-weight:700}.ibi.un .f b:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--a);margin-right:6px;vertical-align:middle}
+.ibi .s{font-size:13px;color:var(--t1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ibi .n{font-size:12px;color:var(--t3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ibr{padding:16px;min-width:0}.ibr h3{margin:0 0 8px;font-size:17px;font-weight:600}.ibr .meta{font-size:12px;color:var(--t3);margin-bottom:12px;word-break:break-word}
+.ibr iframe{width:100%;height:65vh;border:1px solid var(--b);border-radius:8px;background:#fff}.ibr pre{white-space:pre-wrap;word-break:break-word;font:13px/1.5 ui-monospace,monospace;color:var(--t2)}
+.ibp{display:flex;gap:8px;align-items:center;padding:10px 14px;font-size:12px;color:var(--t3)}
+@media(max-width:760px){.ibx{grid-template-columns:1fr}}
 /* tabs */
 .tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:12px 16px 0;border-bottom:1px solid var(--b)}
 .tabs::-webkit-scrollbar{display:none}
@@ -261,7 +273,7 @@ button,input,select{font:inherit;color:inherit}
     <span class="status"><span class="dot" id="dot"></span><span id="upd">Live</span></span><button class="ghost out" id="out" hidden>Log out</button>
   </header>
   <div id="vA">
-  <div class="seg vsw" id="vsw" role="group" aria-label="View"><button data-v="ovw" aria-pressed="true">Overview</button><button data-v="ads">Ads</button></div>
+  <div class="seg vsw" id="vsw" role="group" aria-label="View"><button data-v="ovw" aria-pressed="true">Overview</button><button data-v="ads">Ads</button><button data-v="inbox">Inbox</button></div>
   <div id="ads" hidden>
     <div class="tool"><div class="seg" id="arange" role="group" aria-label="Ads date range"><button data-r="24h">24h</button><button data-r="7d" aria-pressed="true">7d</button><button data-r="30d">30d</button></div><span class="right" id="alabel"></span></div>
     <section class="kpis" id="akpis"></section>
@@ -276,6 +288,10 @@ button,input,select{font:inherit;color:inherit}
     </div>
     <section class="card full"><div class="ch"><h2>Recent paid leads</h2><span class="sub">WhatsApp / email clicks from paid visits</span></div><div class="cb"><div class="scroll"><table class="at" id="aleads"></table></div></div></section>
     <p class="foot">Paid = a click id (gclid, ttclid), utm_medium cpc/paid/ads, the tracker's Ads classification, or a Facebook/Instagram link-shim referrer (l./lm.facebook.com, l.instagram.com) with fbclid. Attribution is first-touch per session. Bots (automation, crawler user agents, no browser language) are excluded. Time windows are rolling: 24h = the last 24 hours.</p>
+  </div>
+  <div id="inbox" hidden>
+    <div class="tool"><select class="field" id="ifolder" aria-label="Folder"><option value="INBOX">Inbox</option></select><input class="field" id="iq" type="search" placeholder="Search subject, from, body" aria-label="Search mail" style="min-width:220px"><button class="ghost" id="irefresh">Refresh</button><span class="right" id="ilabel">team@unbanz.com · read-only</span></div>
+    <div class="ibx"><section class="card"><div class="ibl" id="ilist"></div><div class="ibp"><button class="ghost" id="iprev">‹ Newer</button><span id="ipage" class="num"></span><button class="ghost" id="inext">Older ›</button></div></section><section class="card ibr" id="iread"><p class="mut">Select a message</p></section></div>
   </div>
   <div id="ovw">
   <div class="online" id="online" aria-live="polite"><span class="od z" id="odot"></span><span>Online now: <b id="onum">–</b></span><span class="ol" id="opages"></span><span class="ol" id="ocountries"></span></div>
@@ -538,9 +554,43 @@ button,input,select{font:inherit;color:inherit}
     $('#alanding').innerHTML = tbl(d.landing, 'Page');
     $('#aleads').innerHTML = d.leads.length ? `<tr><th>When</th><th>Platform</th><th>Campaign</th><th>Ad</th><th>Ad set</th><th>Landing</th><th>Country</th><th>Lead</th><th>Wants</th></tr>` + d.leads.map((x) => `<tr><td title="${fullTime(x.started_at)}">${ago(x.started_at)}</td><td>${esc(x.platform)}</td><td>${esc(x.utm_campaign || '–')}</td><td>${esc(x.utm_content || '–')}</td><td>${esc(x.utm_term || '–')}</td><td>${esc(x.landing)}</td><td>${flag(x.country)} ${esc(country(x.country))} ${tier(x.country)}</td><td>${x.wa ? '<span class="out wa">WhatsApp</span>' : '<span class="out em">Email</span>'}</td><td>${esc([x.acct, x.service].filter(Boolean).join(' · '))}</td></tr>`).join('') : `<tr><td class="mut">No paid leads in this range yet</td></tr>`;
   }
-  const showView = (v) => { $('#ads').hidden = v !== 'ads'; $('#ovw').hidden = v === 'ads'; press($('#vsw'), $(`#vsw [data-v="${v}"]`)); if (v === 'ads') loadAds(); try { history.replaceState(null, '', v === 'ads' ? '#ads' : location.pathname + location.search); } catch {} };
+  const showView = (v) => { $('#ads').hidden = v !== 'ads'; $('#inbox').hidden = v !== 'inbox'; $('#ovw').hidden = v !== 'ovw'; press($('#vsw'), $(`#vsw [data-v="${v}"]`)); if (v === 'ads') loadAds(); if (v === 'inbox') loadInbox(); try { history.replaceState(null, '', v !== 'ovw' ? '#' + v : location.pathname + location.search); } catch {} };
+  // Inbox (read-only IMAP via /api/users/mail/)
+  const ist = { folder: 'INBOX', page: 1, q: '', uid: 0, loadedF: false };
+  const MAPI = '/api/users/mail/';
+  const mget = async (p) => { const r = await fetch(MAPI + '?' + new URLSearchParams(p), { credentials: 'same-origin', cache: 'no-store', headers: H() }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error((j.error || r.status) + (j.detail ? ': ' + j.detail : '')); return j; };
+  const mdate = (d) => { if (!d) return ''; const x = new Date(d), n = new Date(); return x.toDateString() === n.toDateString() ? x.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : x.toLocaleDateString([], { day: 'numeric', month: 'short', year: x.getFullYear() === n.getFullYear() ? undefined : 'numeric' }); };
+  const nm = (s) => String(s || '').replace(/\s*<[^>]*>/g, '') || s || '';
+  async function loadFolders() {
+    try { const d = await mget({ op: 'folders' }); ist.loadedF = true;
+      $('#ifolder').innerHTML = d.folders.map((f) => `<option value="${esc(f.path)}"${f.path === ist.folder ? ' selected' : ''}>${esc(f.name)}${f.messages != null ? ' (' + f.messages + ')' : ''}</option>`).join('');
+    } catch (e) { $('#ilabel').textContent = 'Mailbox error: ' + e.message; }
+  }
+  async function loadInbox() {
+    if (!ist.loadedF) loadFolders();
+    $('#ilist').innerHTML = '<p class="mut" style="padding:14px">Loading…</p>';
+    let d; try { d = await mget({ op: 'list', folder: ist.folder, page: ist.page, size: 30, q: ist.q }); } catch (e) { $('#ilist').innerHTML = `<p class="mut" style="padding:14px">Could not load mail (${esc(e.message)})</p>`; return; }
+    $('#ilabel').textContent = `team@unbanz.com · ${d.folder} · ${fmt(d.total)} messages${d.q ? ' · ' + fmt(d.matched) + ' match' : ''} · read-only`;
+    $('#ipage').textContent = d.pages ? `${d.page} / ${d.pages}` : '';
+    $('#iprev').disabled = d.page <= 1; $('#inext').disabled = d.page >= d.pages;
+    $('#ilist').innerHTML = d.messages.length ? d.messages.map((m) => `<button class="ibi${m.seen ? '' : ' un'}${m.uid === ist.uid ? ' on' : ''}" data-uid="${m.uid}"><div class="f"><b>${esc(nm(/sent/i.test(d.folder) ? m.to : m.from))}</b><span>${esc(mdate(m.date))}</span></div><div class="s">${esc(m.subject || '(no subject)')}</div><div class="n">${esc(m.snippet || '')}</div></button>`).join('') : '<p class="mut" style="padding:14px">No messages</p>';
+  }
+  async function openMsg(uid) {
+    ist.uid = uid; document.querySelectorAll('.ibi').forEach((b) => b.classList.toggle('on', +b.dataset.uid === uid));
+    $('#iread').innerHTML = '<p class="mut">Loading…</p>';
+    let m; try { m = await mget({ op: 'msg', folder: ist.folder, uid }); } catch (e) { $('#iread').innerHTML = `<p class="mut">Could not open (${esc(e.message)})</p>`; return; }
+    $('#iread').innerHTML = `<h3>${esc(m.subject || '(no subject)')}</h3><div class="meta">From: ${esc(m.from)}<br>To: ${esc(m.to)}${m.cc ? '<br>Cc: ' + esc(m.cc) : ''}${m.replyTo ? '<br>Reply-To: ' + esc(m.replyTo) : ''}<br>${esc(m.date ? fullTime(m.date) : '')}${m.attachments.length ? '<br>Attachments: ' + m.attachments.map((a) => esc(a.filename || a.type)).join(', ') : ''}</div><div id="ibody"></div>`;
+    if (m.html) { const f = document.createElement('iframe'); f.setAttribute('sandbox', 'allow-popups allow-popups-to-escape-sandbox'); f.setAttribute('referrerpolicy', 'no-referrer'); f.srcdoc = '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; img-src https: data: cid:; style-src \'unsafe-inline\'; font-src https: data:"><base target="_blank">' + m.html; $('#ibody').appendChild(f); }
+    else { const pre = document.createElement('pre'); pre.textContent = m.text || ''; $('#ibody').appendChild(pre); }
+  }
+  $('#ilist').addEventListener('click', (e) => { const b = e.target.closest('.ibi'); if (b) openMsg(+b.dataset.uid); });
+  $('#ifolder').addEventListener('change', (e) => { ist.folder = e.target.value; ist.page = 1; ist.uid = 0; loadInbox(); });
+  $('#irefresh').addEventListener('click', () => { ist.loadedF = false; loadInbox(); });
+  $('#iprev').addEventListener('click', () => { if (ist.page > 1) { ist.page--; loadInbox(); } });
+  $('#inext').addEventListener('click', () => { ist.page++; loadInbox(); });
+  let iqt; $('#iq').addEventListener('input', (e) => { clearTimeout(iqt); iqt = setTimeout(() => { ist.q = e.target.value.trim(); ist.page = 1; loadInbox(); }, 450); });
   $('#vsw').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) showView(b.dataset.v); });
-  if (location.hash === '#ads') setTimeout(() => showView('ads'), 300);
+  if (location.hash === '#ads' || location.hash === '#inbox') setTimeout(() => showView(location.hash.slice(1)), 300);
   $('#arange').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; ast.range = b.dataset.r; press($('#arange'), b); loadAds(); });
   $('#range').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; st.range = b.dataset.r; press($('#range'), b); $('#custom').classList.toggle('on', st.range === 'custom'); load(); });
   $('#from').addEventListener('change', load); $('#to').addEventListener('change', load);
