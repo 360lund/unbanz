@@ -49,7 +49,12 @@ def add_section(rel,block,date='2026-11-04',anchor=None):
     if a<m: a=s.rfind('</main>',0,end)
     ab=s.rfind('<h2 id="about-unbanz">',m,a)
     at=ab if ab>0 else a
-    s=s[:at]+block+s[at:]
+    sec=s.rfind('<section',m,at)
+    if sec>0 and 'service-editorial' in s[sec:sec+80]:
+        se=s.find('</section>',at)+10
+        s=s[:se]+'<article class="guide-body container">'+block+'</article>'+s[se:]
+    else:
+        s=s[:at]+block+s[at:]
     s=re.sub(r'"dateModified":"[^"]*"',f'"dateModified":"{date}"',s)
     if '"dateModified"' not in s:
         s=s.replace('"@type":"WebPage",',f'"@type":"WebPage","dateModified":"{date}",',1)
