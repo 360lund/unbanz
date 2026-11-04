@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "imapflow": "^1.0.190",
-    "mailparser": "^3.7.4"
+    "mailparser": "^3.7.4",
+    "nodemailer": "^10.3.1"
   }
 }
