@@ -20,8 +20,25 @@ export const config = {
 const BOT_UA = /(ChatGPT-User|OAI-SearchBot|GPTBot|PerplexityBot|Perplexity-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|Google-Extended|Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|bingbot|BingPreview|msnbot|adidxbot|Applebot|DuckDuckBot|DuckAssistBot|YandexBot|Amazonbot|meta-externalagent|meta-externalfetcher|facebookexternalhit|MistralAI-User|cohere-ai|YouBot|PhindBot|xAI|Grok|Bravebot|CCBot|Diffbot)/i;
 const SHORT = { '/testimonials': '/reviews/', '/review': '/reviews/' };
 
-export default function middleware(request) {
-  const path = new URL(request.url).pathname.replace(/\/+$/, '') || '/';
+const NAMES = ['OAI-SearchBot','ChatGPT-User','GPTBot','Claude-SearchBot','Claude-User','ClaudeBot','anthropic-ai','Perplexity-User','PerplexityBot','Google-Extended','Google-InspectionTool','GoogleOther','Googlebot','BingPreview','Applebot-Extended','Applebot','DuckAssistBot','DuckDuckBot','Amazonbot','meta-externalfetcher','meta-externalagent','facebookexternalhit','MistralAI-User','cohere-ai','YouBot','PhindBot','xAI-Bot','Grok','Bravebot','CCBot','YandexBot'];
+const ASSET = /^\/(assets\/|api\/|users)|\.(css|js|png|jpe?g|webp|svg|ico|woff2?|mp4|webmanifest)$/i;
+function botName(ua) {
+  if (!BOT_UA.test(ua)) return null;
+  const l = ua.toLowerCase();
+  for (const n of NAMES) if (l.includes(n.toLowerCase())) return n;
+  return /bingbot|msnbot|adidxbot/i.test(ua) ? 'Bingbot' : null;
+}
+
+export default function middleware(request, context) {
+  const url = new URL(request.url);
+  const path = url.pathname.replace(/\/+$/, '') || '/';
+  // Log AI and search crawler page fetches after the response (waitUntil), so pages are not delayed.
+  try {
+    const bot = botName(request.headers.get('user-agent') || '');
+    if (bot && !ASSET.test(url.pathname) && context && typeof context.waitUntil === 'function') {
+      context.waitUntil(fetch(new URL('/api/crawl', url.origin), { method: 'POST', headers: { 'content-type': 'application/json', 'x-ubz-mw': '1' }, body: JSON.stringify({ bot, path: url.pathname, country: request.headers.get('x-vercel-ip-country') || '' }) }).catch(() => {}));
+    }
+  } catch (e) {}
   if (SHORT[path]) {
     return new Response(null, { status: 301, headers: { Location: new URL(SHORT[path], request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
   }

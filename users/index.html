@@ -323,6 +323,11 @@ button,input,select{font:inherit;color:inherit}
     <div class="cb"><div id="countries"></div></div>
   </section>
 
+  <section class="card full">
+    <div class="ch"><h2>AI and search crawlers</h2><span class="sub">Page fetches by bot, last 7 days</span></div>
+    <div class="cb"><div id="crawlbots" class="rows"></div><div id="crawlpages" class="rows" style="margin-top:12px"></div></div>
+  </section>
+
   <p class="foot">Shows where people came from and what they did on the site. It can’t show what ChatGPT or any other AI said to them. Search terms appear only when the source passes them, which Google usually doesn’t. Each visitor appears once, grouped by a random anonymous id kept in their browser; older visits without that id are grouped approximately by location and device (marked ≈). “Likely VPN” means the browser’s time zone has a different UTC offset than the IP address’s location, so the visitor is probably on a VPN or proxy.</p>
   </div>
   </div>
@@ -545,6 +550,14 @@ button,input,select{font:inherit;color:inherit}
   $('#clk').addEventListener('click', (e) => { st.clicked = !st.clicked; e.currentTarget.setAttribute('aria-pressed', String(st.clicked)); load(); });
 
   let otimer;
+  async function crawlers() {
+    try {
+      const r = await fetch('/api/users/crawlers/?days=7', { credentials: 'same-origin', cache: 'no-store', headers: H() });
+      if (!r.ok) return; const d = await r.json();
+      $('#crawlbots').innerHTML = d.bots.length ? d.bots.map((x) => `<div class="br ai"><span class="nm">${esc(x.bot)}</span><span class="n num">${fmt(x.n)}</span></div>`).join('') : EMPTY('No crawler hits yet', 'AI and search bot fetches show up here.');
+      $('#crawlpages').innerHTML = d.pages.slice(0, 20).map((x) => `<div class="br"><span class="nm">${esc(x.path)}<small>${esc(x.names || '')}</small></span><span class="n num">${fmt(x.n)}</span></div>`).join('');
+    } catch {}
+  }
   async function online() {
     if (document.hidden) return;
     try {
@@ -557,7 +570,7 @@ button,input,select{font:inherit;color:inherit}
       $('#ocountries').innerHTML = o.countries.length ? o.countries.map((x) => `<span title="${esc(country(x.k))}">${flag(x.k)} ${esc(x.k === '??' ? '?' : x.k)}${x.n > 1 ? ' ' + x.n : ''}</span>`).join(' ') : '';
     } catch {}
   }
-  function showApp() { $('#app').hidden = false; clearInterval(otimer); online(); otimer = setInterval(online, 12000); clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(); }, 15000); }
+  function showApp() { $('#app').hidden = false; clearInterval(otimer); online(); crawlers(); otimer = setInterval(online, 12000); clearInterval(timer); timer = setInterval(() => { if (!document.hidden) load(); }, 15000); }
   document.addEventListener('visibilitychange', () => { if (!document.hidden && !$('#app').hidden) load(); });
   addEventListener('pageshow', (e) => { if (e.persisted && !$('#app').hidden) load(); });
   const AUTH = '/api/users/auth/';
