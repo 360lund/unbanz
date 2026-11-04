@@ -290,7 +290,9 @@ button,input,select{font:inherit;color:inherit}
     <p class="foot">Paid = a click id (gclid, ttclid), utm_medium cpc/paid/ads, the tracker's Ads classification, or a Facebook/Instagram link-shim referrer (l./lm.facebook.com, l.instagram.com) with fbclid. Attribution is first-touch per session. Bots (automation, crawler user agents, no browser language) are excluded. Time windows are rolling: 24h = the last 24 hours.</p>
   </div>
   <div id="inbox" hidden>
-    <div class="tool"><select class="field" id="ifolder" aria-label="Folder"><option value="INBOX">Inbox</option></select><input class="field" id="iq" type="search" placeholder="Search subject, from, body" aria-label="Search mail" style="min-width:220px"><button class="ghost" id="irefresh">Refresh</button><span class="right" id="ilabel">team@unbanz.com · read-only</span></div>
+    <div class="tool"><select class="field" id="imb" aria-label="Mailbox"></select><button class="ghost" id="iconn">Connect mailbox</button><select class="field" id="ifolder" aria-label="Folder"><option value="INBOX">Inbox</option></select><input class="field" id="iq" type="search" placeholder="Search subject, from, body" aria-label="Search mail" style="min-width:220px"><button class="ghost" id="irefresh">Refresh</button><span class="right" id="ilabel">team@unbanz.com · read-only</span></div>
+    <section class="card" id="iconnect" hidden style="padding:16px;margin-bottom:16px;max-width:560px"><h3 style="margin:0 0 4px;font-size:16px">Connect mailbox</h3><p class="mut" style="margin:0 0 12px;font-size:12px">Read-only. Login is tested over IMAP; the password is stored encrypted on the server and never shown again. To update a password, connect the same email again.</p>
+      <form id="icf" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="field" name="email" type="email" placeholder="Email" value="team@unbanz.com" required style="grid-column:1/3"><input class="field" name="password" type="password" placeholder="Mailbox password" autocomplete="new-password" required style="grid-column:1/3"><input class="field" name="imap_host" value="mail.spacemail.com" aria-label="IMAP host"><input class="field" name="imap_port" value="993" inputmode="numeric" aria-label="IMAP port (SSL)"><input class="field" name="smtp_host" value="mail.spacemail.com" aria-label="SMTP host"><input class="field" name="smtp_port" value="465" inputmode="numeric" aria-label="SMTP port (SSL)"><div style="grid-column:1/3;display:flex;gap:8px;align-items:center"><button class="ghost" type="submit">Test and save</button><button class="ghost" type="button" id="idisc">Disconnect selected</button><span id="icmsg" style="font-size:12px;color:var(--t3)"></span></div></form></section>
     <div class="ibx"><section class="card"><div class="ibl" id="ilist"></div><div class="ibp"><button class="ghost" id="iprev">‹ Newer</button><span id="ipage" class="num"></span><button class="ghost" id="inext">Older ›</button></div></section><section class="card ibr" id="iread"><p class="mut">Select a message</p></section></div>
   </div>
   <div id="ovw">
@@ -558,18 +560,28 @@ button,input,select{font:inherit;color:inherit}
   // Inbox (read-only IMAP via /api/users/mail/)
   const ist = { folder: 'INBOX', page: 1, q: '', uid: 0, loadedF: false };
   const MAPI = '/api/users/mail/';
-  const mget = async (p) => { const r = await fetch(MAPI + '?' + new URLSearchParams(p), { credentials: 'same-origin', cache: 'no-store', headers: H() }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error((j.error || r.status) + (j.detail ? ': ' + j.detail : '')); return j; };
+  const mget = async (p) => { if (ist.mb) p.mb = ist.mb; const r = await fetch(MAPI + '?' + new URLSearchParams(p), { credentials: 'same-origin', cache: 'no-store', headers: H() }); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error((j.error || r.status) + (j.detail ? ': ' + j.detail : '') + (j.hint ? ' ' + j.hint : '')); return j; };
   const mdate = (d) => { if (!d) return ''; const x = new Date(d), n = new Date(); return x.toDateString() === n.toDateString() ? x.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : x.toLocaleDateString([], { day: 'numeric', month: 'short', year: x.getFullYear() === n.getFullYear() ? undefined : 'numeric' }); };
   const nm = (s) => String(s || '').replace(/\s*<[^>]*>/g, '') || s || '';
+  async function loadBoxes() { try { const d = await mget({ op: 'boxes' }); $('#imb').innerHTML = d.mailboxes.map((b) => `<option value="${b.id}"${String(b.id) === String(ist.mb) ? ' selected' : ''}>${esc(b.email)}${b.source === 'env' ? ' (env)' : ''}</option>`).join('') || '<option value="">No mailbox</option>'; if (!ist.mb && d.mailboxes[0]) ist.mb = String(d.mailboxes[0].id); if (!d.mailboxes.length) $('#iconnect').hidden = false; } catch {} }
+  const mpost = async (b) => { const r = await fetch(MAPI, { method: 'POST', credentials: 'same-origin', headers: { ...H(), 'Content-Type': 'application/json' }, body: JSON.stringify(b) }); return [r.ok, await r.json().catch(() => ({}))]; };
+  $('#iconn').addEventListener('click', () => { $('#iconnect').hidden = !$('#iconnect').hidden; });
+  $('#imb').addEventListener('change', (e) => { ist.mb = e.target.value; ist.folder = 'INBOX'; ist.page = 1; ist.loadedF = false; loadInbox(); });
+  $('#icf').addEventListener('submit', async (e) => { e.preventDefault(); const f = Object.fromEntries(new FormData(e.target)); $('#icmsg').textContent = 'Testing login…';
+    const [ok, d] = await mpost({ op: 'connect', ...f }); e.target.password.value = '';
+    if (!ok) { $('#icmsg').textContent = d.error === 'imap_login_failed' ? `Login failed: ${d.detail || d.code}. ${d.hint || ''}` : 'Error: ' + (d.error || 'failed'); return; }
+    $('#icmsg').textContent = 'Connected.'; const b = d.mailboxes.find((x) => x.email === f.email.trim().toLowerCase()); ist.mb = b ? String(b.id) : ist.mb; ist.loadedF = false; ist.boxesLoaded = false; $('#iconnect').hidden = true; loadInbox(); });
+  $('#idisc').addEventListener('click', async () => { if (!ist.mb || ist.mb === 'env' || !confirm('Disconnect this mailbox? Mail on the server is not touched.')) return; await mpost({ op: 'disconnect', id: ist.mb }); ist.mb = ''; ist.boxesLoaded = false; ist.loadedF = false; loadInbox(); });
   async function loadFolders() {
     try { const d = await mget({ op: 'folders' }); ist.loadedF = true;
       $('#ifolder').innerHTML = d.folders.map((f) => `<option value="${esc(f.path)}"${f.path === ist.folder ? ' selected' : ''}>${esc(f.name)}${f.messages != null ? ' (' + f.messages + ')' : ''}</option>`).join('');
     } catch (e) { $('#ilabel').textContent = 'Mailbox error: ' + e.message; }
   }
   async function loadInbox() {
+    if (!ist.boxesLoaded) { ist.boxesLoaded = true; await loadBoxes(); }
     if (!ist.loadedF) loadFolders();
     $('#ilist').innerHTML = '<p class="mut" style="padding:14px">Loading…</p>';
-    let d; try { d = await mget({ op: 'list', folder: ist.folder, page: ist.page, size: 30, q: ist.q }); } catch (e) { $('#ilist').innerHTML = `<p class="mut" style="padding:14px">Could not load mail (${esc(e.message)})</p>`; return; }
+    let d; try { d = await mget({ op: 'list', folder: ist.folder, page: ist.page, size: 30, q: ist.q }); } catch (e) { $('#ilist').innerHTML = `<p class="mut" style="padding:14px">Could not load mail (${esc(e.message)})</p>`; if (/imap_login_failed|mail_not_configured/.test(e.message)) $('#iconnect').hidden = false; return; }
     $('#ilabel').textContent = `team@unbanz.com · ${d.folder} · ${fmt(d.total)} messages${d.q ? ' · ' + fmt(d.matched) + ' match' : ''} · read-only`;
     $('#ipage').textContent = d.pages ? `${d.page} / ${d.pages}` : '';
     $('#iprev').disabled = d.page <= 1; $('#inext').disabled = d.page >= d.pages;
