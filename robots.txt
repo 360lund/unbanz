@@ -6,39 +6,63 @@ Disallow: /api/
 # AI and search crawlers: welcome.
 User-agent: GPTBot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Applebot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Bingbot
 User-agent: msnbot
@@ -49,12 +73,18 @@ Disallow: /api/
 
 User-agent: GoogleOther
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: DuckAssistBot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /users
+Disallow: /api/
 
 Sitemap: https://unbanz.com/sitemap.xml
 Sitemap: https://unbanz.com/sitemap-images.xml
