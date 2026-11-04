@@ -9,8 +9,11 @@ def add(lang,slug,block,anchor,date='2026-11-04'):
     p=f'{lang}/{slug}/index.html';s=open(p).read()
     if f'id="{anchor}"' in s: return None
     t=re.sub(r'<[^>]+>|https?://\S+','',block);b=BAN.findall(t);assert not b,(slug,b)
-    lab,dh,ab=LBL[lang];i=s.find(f'<h2 id="{ab}">');assert i>0,slug
-    s=s[:i]+block+s[i:]
+    lab,dh,ab=LBL[lang];i=s.find(f'<h2 id="{ab}">')
+    if i>0: s=s[:i]+block+s[i:]
+    else:
+        i=s.find('<section class="vt');assert i>0,slug
+        s=s[:i]+'<article class="guide-body container">'+block+'</article>'+s[i:]
     if '"dateModified"' in s: s=re.sub(r'"dateModified":"[^"]*"',f'"dateModified":"{date}"',s)
     else: s=s.replace('"@type":"WebPage",',f'"@type":"WebPage","dateModified":"{date}",',1)
     if 'class="guide-meta"' not in s:
