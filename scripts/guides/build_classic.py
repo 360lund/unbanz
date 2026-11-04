@@ -10,7 +10,7 @@ import build_new as bn
 from common import ROOT, wa_link, mail_link, attrs
 
 BASE = '5b529e7^'
-CSS = 'site.8f5ca9ca83d8.css'
+CSS = 'site.5828109bc416.css'
 smart, plain = bn.smart, bn.plain
 
 def git_show(path):

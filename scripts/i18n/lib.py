@@ -6,7 +6,7 @@ import re, json, html, os, hashlib, glob
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 BASE = 'https://unbanz.com'
 LASTMOD = '2026-10-25'
-CSS = '/assets/site.5861d0cd0caa.css'
+CSS = '/assets/site.64607c874dc1.css'
 TCSS = '/assets/testimonials.9e050e56fb.css'
 TJS = '/assets/testimonials.9e050e56fb.js'
 SHARE = 'https://unbanz.com/assets/unbanz-share-v5.jpg'
