@@ -484,6 +484,356 @@
       "source": "/facebook-account-recovery-bangladesh/",
       "destination": "/facebook-account-recovery/",
       "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-inactive-username",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-inactive-username/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-taken",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-taken/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-og-short-username",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-og-short-username/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-trademark-claim",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-trademark-claim/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-impersonator-using-my-name",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-impersonator-using-my-name/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-back-after-ban",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-back-after-ban/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-back-after-hack",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-back-after-hack/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-back-after-deleting-account",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-back-after-deleting-account/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-not-available-notice",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-not-available-notice/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-cost",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-cost/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/how-long-does-a-tiktok-username-claim-take",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/how-long-does-a-tiktok-username-claim-take/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/is-a-tiktok-username-claim-safe",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/is-a-tiktok-username-claim-safe/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-scams",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-scams/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-for-business",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-for-business/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-for-creators",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-for-creators/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-usa",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-usa/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-uk",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-username-claim-uk/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-inactive-username",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-inactive-username/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-taken",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-taken/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-og-short-username",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-og-short-username/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-trademark-claim",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-trademark-claim/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-impersonator-using-my-name",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-impersonator-using-my-name/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-back-after-ban",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-back-after-ban/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-back-after-hack",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-back-after-hack/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-back-after-deleting-account",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-back-after-deleting-account/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-not-available-notice",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-not-available-notice/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-cost",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-cost/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/how-long-does-a-snapchat-username-claim-take",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/how-long-does-a-snapchat-username-claim-take/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/is-a-snapchat-username-claim-safe",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/is-a-snapchat-username-claim-safe/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-scams",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-scams/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-for-business",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-for-business/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-for-creators",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-for-creators/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-usa",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-usa/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-uk",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
+    },
+    {
+      "source": "/snapchat-username-claim-uk/",
+      "destination": "/instagram-username-claim/",
+      "permanent": true
     }
   ]
 }
