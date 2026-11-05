@@ -11,7 +11,7 @@ PL={'TikTok':{'chg':'TikTok lets you change your username once every 30 days.','
 for p,k in (('TikTok','tiktok'),('Snapchat','snapchat')):
   d=PL[p]; r=R[p]
   if p=='TikTok':
-    A('tiktok-username-claim','TikTok Username Claim: Inactive, Taken and OG Handles','TikTok username claim help for inactive, taken, short and brand handles. Legit routes only, $1,200, 100% refund if the claim fails.','TikTok username claim',
+    A('tiktok-username-claim','TikTok Username Claim: Inactive, Taken and OG Handles','TikTok username claim help for inactive, taken, short and brand handles. Legit routes only, price depends on the handle, 100% refund if the claim fails.','TikTok username claim',
       'Want a TikTok handle that an inactive account, a squatter or an impersonator is sitting on? We look at whether there is a legit route and handle it through TikTok’s own processes.',
       'A TikTok username claim works when there is a real route: a trademark or brand report, an impersonation report, or a dead account TikTok removes. Inactivity alone does not free a handle.',
       [('routes','Routes that can work','<ul><li><strong>Trademark or brand name.</strong> If you own the brand, %s is the main route.</li><li><strong>Impersonation.</strong> If the account pretends to be you or your business, %s applies.</li><li><strong>Squatting.</strong> TikTok’s rules do not allow holding usernames just to sell them.</li></ul>'%(d['ip'],d['imp'])),
@@ -66,9 +66,9 @@ for p,k in (('TikTok','tiktok'),('Snapchat','snapchat')):
     'The notice means the name is held by an active, deactivated, banned or reserved account, or it breaks %s’s naming rules. It does not mean the handle can never move.'%p,
     [('why','Common reasons','<ul><li>An account holds it, even a private or banned one.</li><li>A deactivated account is still inside its 30-day window.</li><li>The name is reserved or blocked by %s.</li><li>It uses characters or words %s does not allow.</li></ul>'%(p,p))],
     [('No profile shows up. Why is it still unavailable?','Banned, deactivated and reserved accounts often don’t show in search.')],p,r)
-  A('%s-username-claim-cost'%k,'How Much Does a %s Username Claim Cost?'%p,'A %s username claim with Unbanz costs $1,200, paid by card through Whop. 100%% refund if the claim fails.'%p,'How much does a %s username claim cost?'%p,
+  A('%s-username-claim-cost'%k,'How Much Does a %s Username Claim Cost?'%p,'A %s username claim with Unbanz depends on the handle. You get your quote in the chat before anything starts; pay by card through Whop. 100%% refund if the claim fails.'%p,'How much does a %s username claim cost?'%p,
     'One price, said upfront, and a refund policy if it doesn’t work.',
-    'A %s username claim with Unbanz costs $1,200. You pay by card through Whop checkout. If the claim fails, our refund policy gives a 100%% refund.'%p,
+    'A %s username claim with Unbanz depends on the handle. You get your quote in the chat before anything starts. You pay by card through Whop checkout. If the claim fails, our refund policy gives a 100%% refund.'%p,
     [('includes','What you pay for','<p>Checking the route, preparing evidence and reports, filing through %s’s own processes and following up.</p>'%p)],
     [('Is there a deposit?','No separate deposit. Asking is free.')],p,r)
   A('how-long-does-a-%s-username-claim-take'%k,'How Long Does a %s Username Claim Take?'%p,'How long a %s username claim can take, what affects it and why nobody can promise a date.'%p,'How long does a %s username claim take?'%p,
@@ -98,7 +98,7 @@ for p,k in (('TikTok','tiktok'),('Snapchat','snapchat')):
     [],p,r)
   for c,cn in (('usa','the USA'),('uk','the UK')):
     tm='USPTO' if c=='usa' else 'UKIPO'
-    A('%s-username-claim-%s'%(k,c),'%s Username Claim in %s'%(p,cn.replace('the ','')),'%s username claims for people and brands in %s. %s trademark route, $1,200, 100%% refund if the claim fails.'%(p,cn,tm),'%s username claim in %s'%(p,cn),
+    A('%s-username-claim-%s'%(k,c),'%s Username Claim in %s'%(p,cn.replace('the ','')),'%s username claims for people and brands in %s. %s trademark route, price depends on the handle, 100%% refund if the claim fails.'%(p,cn,tm),'%s username claim in %s'%(p,cn),
       'For people and businesses in %s who want an inactive, taken or brand %s handle.'%(cn,p),
       'In %s, a %s registration is the strongest base for a brand handle claim. Without one, impersonation or squatting routes may still fit.'%(cn,tm),
       [('local','What applies in %s'%cn,'<p>%s applies the same rules everywhere. Locally, what helps is a %s trademark and a business registered in %s.</p>'%(p,tm,cn))],
@@ -128,12 +128,12 @@ A('instagram-username-claim-scams','Instagram Username Claim Scams to Avoid','Co
   [('signs','Red flags','<ul><li>“Meta plug” or portal access.</li><li>Login links.</li><li>Selling accounts.</li></ul>')],[],'Instagram',r)
 A('how-does-an-instagram-username-claim-work','How Does an Instagram Username Claim Work?','Step by step: how an Instagram username claim works through Instagram’s own processes, cost and refund policy.','How does an Instagram username claim work?',
   'Plain steps, no secret methods.',
-  'You send the handle, we find whether there is a legit route (trademark, impersonation, squatting or an inactive account Instagram removes), you pay $1,200 by card through Whop, and we file and follow up through Instagram’s own processes.',
+  'You send the handle, we find whether there is a legit route (trademark, impersonation, squatting or an inactive account Instagram removes), you get your quote (it depends on the handle) and pay by card through Whop, and we file and follow up through Instagram’s own processes.',
   [],[],'Instagram',r)
 # Cross-platform
-A('how-to-pay-for-a-username-claim','How to Pay for a Username Claim','Paying Unbanz for a username claim: $1,200 by card through Whop checkout, 100% refund if the claim fails.','How do I pay for a username claim?',
+A('how-to-pay-for-a-username-claim','How to Pay for a Username Claim','Paying Unbanz for a username claim: price depends on the handle, paid by card through Whop checkout, 100% refund if the claim fails.','How do I pay for a username claim?',
   'Card only, through Whop checkout.',
-  'Username claims for Instagram, TikTok and Snapchat cost $1,200, paid by card through Whop checkout. Our refund policy gives a 100% refund if the claim fails.',
+  'Username claims for Instagram, TikTok and Snapchat depend on the handle. You get your quote in the chat before anything starts and pay by card through Whop checkout. Our refund policy gives a 100% refund if the claim fails.',
   [('not','What we never ask for','<p>Gift cards, passwords, login codes or payment to a personal account.</p>')],[],'Instagram',r)
 # Hub
 def li(items): return '<ul>'+''.join('<li><a href="/%s/">%s</a></li>'%(s,h) for s,h,_ in items)+'</ul>'
@@ -142,7 +142,7 @@ tk=grp(lambda s:'tiktok' in s); sc=grp(lambda s:'snapchat' in s); ig=grp(lambda 
 old='<ul><li><a href="/instagram-username-claim/">Instagram username claims</a></li><li><a href="/inactive-instagram-username/">Inactive Instagram usernames</a></li><li><a href="/taken-instagram-username/">Taken Instagram usernames</a></li><li><a href="/og-username/">OG usernames</a></li><li><a href="/trademark-username-claim/">Trademark username claims</a></li><li><a href="/snapchat-username-claim/">Snapchat username claims</a></li><li><a href="/business-username-claim/">Business username claims</a></li><li><a href="/username-claim-pricing/">Username claim pricing</a></li><li><a href="/is-a-username-claim-safe/">Is a username claim safe?</a></li></ul>'
 page('username-claim-questions','Username Claim Questions: Instagram, TikTok, Snapchat','Answers on claiming inactive, taken, OG and brand usernames on Instagram, TikTok and Snapchat: how it works, cost, timing, safety and scams.','Username claim questions',
  'Every Unbanz answer on Instagram, TikTok and Snapchat username claims in one place.',
- 'Unbanz claims inactive, taken, OG and brand handles on Instagram, TikTok and Snapchat through the platforms’ own processes. A claim costs $1,200, paid by card through Whop. Our refund policy gives a 100% refund if the claim fails.',
+ 'Unbanz claims inactive, taken, OG and brand handles on Instagram, TikTok and Snapchat through the platforms’ own processes. The price depends on the handle; you get your quote in the chat before anything starts and pay by card through Whop. Our refund policy gives a 100% refund if the claim fails.',
  [('instagram','Instagram',li(ig)+old),('tiktok','TikTok',li(tk)),('snapchat','Snapchat',li(sc)),('payment','Paying',li(ot))],[],'Instagram',[('/username/','Username claims'),('/refund-policy/','Refund policy'),('/contact/','Contact')])
 P.append(('username-claim-questions','Username claim questions','Answers on claiming inactive, taken, OG and brand usernames on Instagram, TikTok and Snapchat.'))
 import json; json.dump(P,open('/tmp/uclaims.json','w'),ensure_ascii=False)

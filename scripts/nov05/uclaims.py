@@ -16,12 +16,12 @@ def strip(x): return re.sub('<[^>]+>','',x)
 COST={'Instagram':'','TikTok':'','Snapchat':''}
 def shared_faq(p):
     return [
-     ('How much does a %s username claim cost?'%p,'A username claim costs $1,200. You pay by card through Whop checkout. Nothing is charged for asking whether a handle is doable.'),
+     ('How much does a %s username claim cost?'%p,'It depends on the handle. You get your quote in the chat before anything starts. You pay by card through Whop checkout. Nothing is charged for asking whether a handle is doable.'),
      ('What if the claim fails?','Our refund policy gives a 100% refund if a username claim fails, meaning the handle is not claimed onto your profile. See <a href="/refund-policy/">refund policy</a>.'),
      ('Do you need my password or login codes?','No. We never ask for passwords or codes. We work from the handle you want and your profile link.'),
     ]
 def how(p):
-    return ('how','How it works with Unbanz','<ol><li>Send the handle you want and your %s profile link on <a href="https://wa.me/19342012490">WhatsApp</a> or to <a href="mailto:team@unbanz.com">team@unbanz.com</a>.</li><li>We tell you straight whether there is a legit route: an inactive account, a trademark or brand report, an impersonation report or %s’s own processes.</li><li>If there is, the claim costs $1,200, paid by card through Whop checkout.</li><li>We prepare and file everything through %s’s own tools and keep you posted. %s makes the final call, so we can’t promise timing or an outcome. If the claim fails, our refund policy gives you 100%% back.</li></ol>'%(p,p,p,p))
+    return ('how','How it works with Unbanz','<ol><li>Send the handle you want and your %s profile link on <a href="https://wa.me/19342012490">WhatsApp</a> or to <a href="mailto:team@unbanz.com">team@unbanz.com</a>.</li><li>We tell you straight whether there is a legit route: an inactive account, a trademark or brand report, an impersonation report or %s’s own processes.</li><li>If there is, you get your quote in the chat. It depends on the handle. You pay by card through Whop checkout.</li><li>We prepare and file everything through %s’s own tools and keep you posted. %s makes the final call, so we can’t promise timing or an outcome. If the claim fails, our refund policy gives you 100%% back.</li></ol>'%(p,p,p,p))
 SAFE=('safe','Staying safe','<p>We never ask for passwords or codes. We don’t hack accounts, buy stolen handles or file false reports. If someone offers a “plug” at the platform, asks you to log in through their link or wants to sell you an account, walk away.</p>')
 def page(slug,title,desc,h1,lead,answer,secs,faqs,plat,related,crumb=('/username/','Home / Usernames'),noshared=False):
     url='https://unbanz.com/%s/'%slug
