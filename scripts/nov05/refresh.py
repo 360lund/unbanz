@@ -42,7 +42,7 @@ def refresh(p):
         i=h.find('</section>',h.find('<section class="service-hero"'))+10
         h=h[:i]+f'<section class="answer-first container" id="answer" style="padding-top:48px"><p style="max-width:860px;font-size:19px;line-height:1.5;margin:0">{ANS[p]}</p></section>'+h[i:]
     # FAQ schema
-    m=re.search(r'"@type"\s*:\s*"FAQPage"\s*,\s*"mainEntity"\s*:\s*\[',h)
+    m=None;_i=h.find("\"FAQPage\"");_j=h.find("\"mainEntity\"",_i) if _i>=0 else -1;_k=h.find("[",_j)+1 if _j>=0 else 0
     if m:
         qj=json.dumps({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub('<[^>]+>','',a)}},ensure_ascii=False)
         h=h[:m.end()]+qj+','+h[m.end():]
