@@ -86,6 +86,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/home-services-contractor-facebook-page-restricted",
+      "destination": "/contractor-home-services-facebook-page-disabled/",
+      "permanent": true
+    },
+    {
+      "source": "/home-services-contractor-facebook-page-restricted/",
+      "destination": "/contractor-home-services-facebook-page-disabled/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "statusCode": 301
