@@ -1254,3 +1254,7 @@ Common questions (FR):
 
 ## Freshness, 5 November 2026
 The top 40 pages by visits from AI assistants got an "Updated November 2026" section with current appeal-flow notes, a new FAQ and a what-to-send checklist.
+- [Liens d’appel TikTok](https://unbanz.com/fr/liens-officiels-appel-tiktok/): Les liens officiels TikTok pour un compte banni, suspendu ou piraté, et pour un compte publicitaire. Vérifiés en novembre 2026.
+- [Bezwaarlinks TikTok](https://unbanz.com/nl/officiele-bezwaarlinks-tiktok/): De officiële TikTok-links voor een verbannen, opgeschort of gehackt account en voor advertentieaccounts. Gecontroleerd november 2026.
+- [Liens WhatsApp numéro banni](https://unbanz.com/fr/liens-officiels-whatsapp-numero-banni/): Les liens officiels WhatsApp pour un numéro banni ou un compte volé, avec à quoi sert chacun. Vérifiés en novembre 2026.
+- [Links WhatsApp geblokkeerd](https://unbanz.com/nl/officiele-links-whatsapp-nummer-geblokkeerd/): De officiële WhatsApp-links voor een geblokkeerd nummer of gestolen account, met waarvoor elke link dient. Gecontroleerd november 2026.
