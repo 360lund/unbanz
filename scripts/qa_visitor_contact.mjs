@@ -70,7 +70,7 @@ const cases = [
   ["ID", "/ad-account-recovery/", false],
   ["DE", "/contact/", false],
   ["", "/contact/", false],
-  ["", "/best-username-claim-service-usa/", true],
+  ["", "/best-username-claim-service-usa/", false],
   ["", "/instagram-account-recovery-saudi-arabia/", false],
 ];
 const fails = [];

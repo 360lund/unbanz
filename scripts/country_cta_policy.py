@@ -42,36 +42,22 @@ FEE_QUESTION = {
 
 FEE_ANSWER = {
     "ig": (
-        "The published fee is $800 for one disabled, suspended or hacked Instagram account. "
-        "Facebook Marketplace is a separate Facebook service, also published at $800, and is not part of this Instagram fee. "
-        "The fee covers preparing and filing through Instagram’s own process for that one account. "
+        "The published fee for this service is $800 for one disabled, suspended or hacked Instagram account. "
+        "It covers preparing and filing through Instagram’s own process for that one account. "
         "Instagram decides the outcome. This is not a guarantee of reinstatement. "
-        "A Business Portfolio case or more than one account is a separate scope at $1,500 and is not this $800 fee. "
-        "The scope is confirmed in writing before payment. Payment is by card. "
-        "The fee is not a nationality discount, and the country named on this page does not by itself decide whether a case is accepted."
+        "Scope is confirmed in writing before payment. Payment is by card."
     ),
     "fb": (
-        "The published fee is $900 for one disabled, suspended or hacked Facebook profile. "
-        "Facebook Marketplace is a separate service at $800 and is not included in this profile fee. "
-        "The fee covers preparing and filing through Facebook’s own process for that one profile. "
+        "The published fee for this service is $900 for one disabled, suspended or hacked Facebook profile. "
+        "It covers preparing and filing through Facebook’s own process for that one profile. "
         "Facebook decides the outcome. This is not a guarantee of reinstatement. "
-        "A Business Portfolio case or more than one account is a separate scope at $1,500 and is not this $900 fee. "
-        "The scope is confirmed in writing before payment. Payment is by card. "
-        "The fee is not a nationality discount, and the country named on this page does not by itself decide whether a case is accepted."
+        "Scope is confirmed in writing before payment. Payment is by card."
     ),
     "ad": (
-        "Fees are set by the service, not by the country. "
-        "$800 is for one disabled, suspended or hacked Instagram account. "
-        "$800 is also the published fee for one Facebook Marketplace case. "
-        "Marketplace is a Facebook product, not an Instagram product, and that Marketplace fee does not include the Instagram account fee. "
-        "$900 is for one disabled, suspended or hacked Facebook profile and does not include Marketplace. "
-        "$1,200 is for one Instagram ad-account restriction. "
-        "The $1,200 fee is not a Business Portfolio case and not a two-account case. "
-        "A Business Portfolio case or more than one account is a separate scope at $1,500, not a discount of the $1,200 fee. "
-        "An Instagram username claim is priced after the handle is reviewed and is not one of these fees. "
+        "The published fee for this service is $1,200 for one Instagram ad-account restriction. "
         "The platform decides the outcome. This is not a guarantee. "
-        "Scope is confirmed in writing before payment. Payment is by card. "
-        "The fee is not a nationality discount, and the country named on this page does not by itself decide whether a case is accepted."
+        "A Business Portfolio case or more than one account is a separate scope at $1,500. "
+        "Scope is confirmed in writing before payment. Payment is by card."
     ),
     "username": (
         "An Instagram username claim is priced after the handle is reviewed. "

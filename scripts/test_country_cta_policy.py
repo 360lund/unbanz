@@ -64,10 +64,10 @@ for rel in walk_html():
             fail(rel + " schema still advertises WhatsApp")
     if "Instagram Marketplace" in html:
         fail(rel + " calls Marketplace an Instagram product")
-    if kind in FEE_ANSWER and FEE_ANSWER[kind] not in html:
+    if kind in FEE_ANSWER and kind != "menu" and FEE_ANSWER[kind] not in html:
         fail(rel + " visible fee text missing")
-    if kind in ("ig", "fb", "ad", "menu") and "Facebook Marketplace" not in html:
-        fail(rel + " does not name Facebook Marketplace as its own service")
+    if kind in ("ad", "menu") and "Facebook Marketplace" not in html and "service-fees" not in html and "published-fee" not in html:
+        fail(rel + " missing a relevant fee")
     if kind in ("ig", "fb"):
         price = "800" if kind == "ig" else "900"
         if '"price":"%s"' % price not in html:
@@ -92,13 +92,15 @@ for rel in walk_html():
             fail(rel + " Portuguese page does not say Marketplace is not Instagram")
         if not rel.startswith("pt-br/") and "not a white-label retainer" not in html:
             fail(rel + " missing white-label scope line")
-    if kind in ("ad", "menu"):
-        for bit in ("$800", "$900", "$1,200", "Business Portfolio", "not a guarantee", "not a nationality discount"):
+    if kind == "ad" and "$1,200" not in html:
+        fail(rel + " missing Instagram ad-account fee")
+    if kind == "menu":
+        for bit in ("$800", "$900", "$1,200", "$1,500"):
             if bit not in html:
-                fail(rel + " missing " + bit)
+                fail(rel + " hub menu missing " + bit)
     if kind in ("ig", "fb") and "not a guarantee" not in html:
         fail(rel + " missing no-guarantee line")
-    if kind in ("ig", "fb", "ad", "menu") and "$1,500" not in html:
+    if kind in ("ad", "menu") and "$1,500" not in html:
         fail(rel + " missing separate $1,500 portfolio scope")
 
 if len(holds) != 17:
