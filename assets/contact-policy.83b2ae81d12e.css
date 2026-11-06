@@ -1,0 +1,50 @@
+/* Contact channel and bottom email button. Not a page redesign.
+   WhatsApp stays in the HTML. It is shown only after the visitor's country
+   is a priority market. The default, including an unknown country, is email. */
+
+html:not([data-contact="both"]) a[href*="wa.me"],
+html:not([data-contact="both"]) .wa-direct,
+html:not([data-contact="both"]) .wa-direct-note {
+  display: none !important;
+}
+
+.mobile-contact a[href^="mailto:"] {
+  flex: 1 1 46%;
+  min-width: 44%;
+  min-height: 48px;
+  padding: 12px 16px;
+  position: relative;
+  z-index: 1;
+}
+
+html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] {
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+.footer-bottom a[href^="mailto:"],
+.site-footer a[href^="mailto:"] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 8px;
+}
+
+.ubz-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 13px;
+}
+
+.ubz-loc select {
+  min-height: 44px;
+  font-size: 16px;
+  padding: 6px 8px;
+  border: 1px solid #c5d5e2;
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+}

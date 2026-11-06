@@ -40,11 +40,11 @@ for rel in walk_html():
     holds.append(rel)
     title = re.search(r"<title>([^<]+)", html)
     kind = service_kind(rel, title.group(1) if title else "")
-    if "cta-hold" not in html:
-        fail(rel + " missing cta-hold")
-    for needle in ("wa.me", "mailto:", "mobile-contact", "mail-pick", "hero-cta", "hear-source"):
-        if needle in html:
-            fail(rel + " still has " + needle)
+    if "cta-hold" in html:
+        fail(rel + " still suppresses every contact control")
+    for needle in ("wa.me", "mailto:", "mobile-contact", "mail-pick", "contact-policy."):
+        if needle not in html:
+            fail(rel + " missing " + needle)
     if 'href="/contact/"' not in html and "contato" not in html and "contact/" not in html:
         fail(rel + " lost contact navigation")
     canon = re.search(r'<link rel="canonical" href="([^"]+)"', html)
@@ -72,8 +72,11 @@ for rel in walk_html():
         price = "800" if kind == "ig" else "900"
         if '"price":"%s"' % price not in html:
             fail(rel + " schema price missing")
-    if kind == "username" and re.search(r"\$800|\$900|\$1,200", html):
-        fail(rel + " username page shows a recovery price")
+    if kind == "username":
+        if "indicative range is $800–$1,200" not in html and "service-fees" not in html:
+            fail(rel + " username page omits the indicative range")
+        if re.search(r'"price"\s*:\s*"800"', html) or re.search(r'"price"\s*:\s*"1200"', html):
+            fail(rel + " username range marked as a fixed Offer")
     whitelabel = rel in {
         "white-label-agency-brazil/index.html",
         "white-label-agency-saudi-arabia/index.html",
@@ -95,8 +98,8 @@ for rel in walk_html():
                 fail(rel + " missing " + bit)
     if kind in ("ig", "fb") and "not a guarantee" not in html:
         fail(rel + " missing no-guarantee line")
-    if "$1,500" in html or "$1500" in html:
-        fail(rel + " introduced 1500")
+    if kind in ("ig", "fb", "ad", "menu") and "$1,500" not in html:
+        fail(rel + " missing separate $1,500 portfolio scope")
 
 if len(holds) != 17:
     fail("expected 17 low-priority country pages, found %d" % len(holds))
