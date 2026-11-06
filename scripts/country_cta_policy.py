@@ -46,7 +46,7 @@ FEE_ANSWER = {
         "Facebook Marketplace is a separate Facebook service, also published at $800, and is not part of this Instagram fee. "
         "The fee covers preparing and filing through Instagram’s own process for that one account. "
         "Instagram decides the outcome. This is not a guarantee of reinstatement. "
-        "Business Portfolio work and a two-account case are different services and are not this $800 fee. "
+        "A Business Portfolio case or more than one account is a separate scope at $1,500 and is not this $800 fee. "
         "The scope is confirmed in writing before payment. Payment is by card. "
         "The fee is not a nationality discount, and the country named on this page does not by itself decide whether a case is accepted."
     ),
@@ -55,7 +55,7 @@ FEE_ANSWER = {
         "Facebook Marketplace is a separate service at $800 and is not included in this profile fee. "
         "The fee covers preparing and filing through Facebook’s own process for that one profile. "
         "Facebook decides the outcome. This is not a guarantee of reinstatement. "
-        "Business Portfolio work and a two-account case are different services and are not this $900 fee. "
+        "A Business Portfolio case or more than one account is a separate scope at $1,500 and is not this $900 fee. "
         "The scope is confirmed in writing before payment. Payment is by card. "
         "The fee is not a nationality discount, and the country named on this page does not by itself decide whether a case is accepted."
     ),
@@ -67,7 +67,7 @@ FEE_ANSWER = {
         "$900 is for one disabled, suspended or hacked Facebook profile and does not include Marketplace. "
         "$1,200 is for one Instagram ad-account restriction. "
         "The $1,200 fee is not a Business Portfolio case and not a two-account case. "
-        "Those are quoted separately and are not reduced to $1,200. "
+        "A Business Portfolio case or more than one account is a separate scope at $1,500, not a discount of the $1,200 fee. "
         "An Instagram username claim is priced after the handle is reviewed and is not one of these fees. "
         "The platform decides the outcome. This is not a guarantee. "
         "Scope is confirmed in writing before payment. Payment is by card. "
@@ -75,8 +75,8 @@ FEE_ANSWER = {
     ),
     "username": (
         "An Instagram username claim is priced after the handle is reviewed. "
-        "There is no flat public username price. A recovery fee for a disabled account is a different "
-        "service and is not a username price."
+        "For a standard claim assessment the indicative range is $800–$1,200. "
+        "That range is not a fixed price and not a guarantee. Complex handles are quoted separately."
     ),
 }
 FEE_ANSWER["menu"] = FEE_ANSWER["ad"]
