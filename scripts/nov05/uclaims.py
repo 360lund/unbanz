@@ -10,7 +10,7 @@ OLD='https://unbanz.com/can-someone-take-my-inactive-instagram-username/'
 OT='Can Someone Get My Instagram Username If I’m Inactive?'
 OD='Can someone take your Instagram username if your account is inactive? What Instagram actually says, when a handle can move, and how to protect yours.'
 WA='https://wa.me/19342012490?text=Hey%20Unbanz%2C%20I%20want%20to%20claim%20this%20username%3A%20%40'
-DATE='2026-11-05'
+DATE='2026-11-06'
 def e(x): return html.escape(x,quote=True)
 def strip(x): return re.sub('<[^>]+>','',x)
 COST={'Instagram':'','TikTok':'','Snapchat':''}
@@ -34,7 +34,7 @@ def page(slug,title,desc,h1,lead,answer,secs,faqs,plat,related,crumb=('/username
       {"@type":"FAQPage","@id":url+"#faq","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":strip(a)}} for q,a in allf]}]
     ld='<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False)+'</script>'
     body=T[LD_END:MAIN_START]
-    m=('<section class="service-hero"><div class="container"><a class="crumb" href="%s">%s</a><h1>%s</h1><p class="guide-meta">Updated <time datetime="%s">5 November 2026</time></p><p>%s</p><div class="hero-cta"><a class="button button-light" href="%s" data-service="username" data-platform="%s">Message us on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="hero-email" href="mailto:team@unbanz.com?subject=Username%%20claim">Prefer email? ↗︎</a></div></div></section>'%(crumb[0],crumb[1],e(h1),DATE,lead,WA,plat)
+    m=('<section class="service-hero"><div class="container"><a class="crumb" href="%s">%s</a><h1>%s</h1><p class="guide-meta">Updated <time datetime="%s">6 November 2026</time></p><p>%s</p><div class="hero-cta"><a class="button button-light" href="%s" data-service="username" data-platform="%s">Message us on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="hero-email" href="mailto:team@unbanz.com?subject=Username%%20claim">Prefer email? ↗︎</a></div></div></section>'%(crumb[0],crumb[1],e(h1),DATE,lead,WA,plat)
       +'<section class="answer-first container" id="answer" style="padding-top:48px"><p style="max-width:860px;font-size:19px;line-height:1.5;margin:0"><strong>%s</strong></p></section>'%answer+('<section class="service-editorial container">'+''.join('<article><h2>%s</h2><p>%s</p></article>'%c for c in cards)+'</section>' if cards else '')+'<article class="guide-body container">'
       +''.join('<h2 id="%s">%s</h2>%s'%(i,h,b) for i,h,b in secs)
       +'<p class="inline-wa"><strong>Got a handle in mind?</strong> <a href="%s" data-service="username">Send it to us on WhatsApp ↗︎</a> and you hear first if it’s doable.</p></article>'%WA
