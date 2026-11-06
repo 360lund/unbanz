@@ -200,8 +200,21 @@ body.service-page .service-price {
 }
 
 body.service-page .guide-body {
-  max-width: 42rem;
+  max-width: min(42rem, 100%);
   padding-top: 36px;
+  overflow-x: auto;
+}
+
+body.service-page table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+body.service-page .vt,
+body.service-page .vt-page {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 body.service-page .guide-body h2 {

@@ -1,6 +1,6 @@
 # Template coverage — 6 Nov 2026
 
-Editorial stylesheet: `/assets/editorial.b8824aa80fee.css`, linked from every `body.service-page` document.
+Editorial stylesheet: `/assets/editorial.e097613855b2.css`, linked from every `body.service-page` document.
 
 ## Unchanged on purpose
 
@@ -29,14 +29,14 @@ Editorial stylesheet: `/assets/editorial.b8824aa80fee.css`, linked from every `b
 | `meta-appeal-links-saudi-arabia/index.html` | Saudi Arabia | info | none |
 | `pt-br/falar-com-o-instagram-ou-a-meta-no-brasil/index.html` | Brazil | info | none |
 | `pt-br/onde-denunciar-golpes-e-crimes-online-no-brasil/index.html` | Brazil | info | none |
-| `pt-br/white-label-agencias-brasil/index.html` | Brazil | agency | none |
+| `pt-br/white-label-agencias-brasil/index.html` | Brazil | agency | service menu, not a retainer |
 | `snapchat-account-locked-saudi-arabia/index.html` | Saudi Arabia | snap | none |
 | `snapchat-hacked-saudi-arabia-what-to-do/index.html` | Saudi Arabia | snap | none |
-| `white-label-agency-brazil/index.html` | Brazil | agency | none |
-| `white-label-agency-saudi-arabia/index.html` | Saudi Arabia | agency | none |
+| `white-label-agency-brazil/index.html` | Brazil | agency | service menu, not a retainer |
+| `white-label-agency-saudi-arabia/index.html` | Saudi Arabia | agency | service menu, not a retainer |
 
 Username rows say the claim is priced after handle review. They do not show $800–$1,200 as a username price.
-Instagram account rows show $800. Facebook profile rows show $900. Ad-account and mixed account rows list $800, $900 and $1,200 by service, and say a Business Portfolio or two-account case is not the $1,200 fee.
+Instagram account rows show $800 for one Instagram account. Facebook Marketplace is named as a separate Facebook service at $800, not as part of Instagram. Facebook profile rows show $900 and say Marketplace is not included. Ad-account, mixed, and white-label rows list the services separately. A Business Portfolio or two-account case is a separate quote, not the $1,200 Instagram ad-account fee. Username rows stay priced after the handle is reviewed.
 Agency, Snapchat and official-link pages do not gain a new price.
 
 The ZIP preview `robots.txt` and preview index were not deployed.

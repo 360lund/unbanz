@@ -62,16 +62,33 @@ for rel in walk_html():
         blob = json.dumps(data)
         if "wa.me" in blob:
             fail(rel + " schema still advertises WhatsApp")
+    if "Instagram Marketplace" in html:
+        fail(rel + " calls Marketplace an Instagram product")
     if kind in FEE_ANSWER and FEE_ANSWER[kind] not in html:
         fail(rel + " visible fee text missing")
+    if kind in ("ig", "fb", "ad", "menu") and "Facebook Marketplace" not in html:
+        fail(rel + " does not name Facebook Marketplace as its own service")
     if kind in ("ig", "fb"):
         price = "800" if kind == "ig" else "900"
         if '"price":"%s"' % price not in html:
             fail(rel + " schema price missing")
     if kind == "username" and re.search(r"\$800|\$900|\$1,200", html):
         fail(rel + " username page shows a recovery price")
-    if kind in NO_FEE_KINDS and 'id="published-fee"' in html:
+    whitelabel = rel in {
+        "white-label-agency-brazil/index.html",
+        "white-label-agency-saudi-arabia/index.html",
+        "pt-br/white-label-agencias-brasil/index.html",
+    }
+    if kind in NO_FEE_KINDS and 'id="published-fee"' in html and not whitelabel:
         fail(rel + " unexpected published fee")
+    if whitelabel:
+        for bit in ("$800", "$900", "$1,200", "Business Portfolio", "Marketplace"):
+            if bit not in html:
+                fail(rel + " white-label fee missing " + bit)
+        if rel.startswith("pt-br/") and "não do Instagram" not in html:
+            fail(rel + " Portuguese page does not say Marketplace is not Instagram")
+        if not rel.startswith("pt-br/") and "not a white-label retainer" not in html:
+            fail(rel + " missing white-label scope line")
     if kind in ("ad", "menu"):
         for bit in ("$800", "$900", "$1,200", "Business Portfolio", "not a guarantee", "not a nationality discount"):
             if bit not in html:

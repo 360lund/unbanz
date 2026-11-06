@@ -81,8 +81,8 @@
     document.addEventListener("click", function (e) {
       var t = e.target && e.target.closest ? e.target : null;
       if (!t) return;
-      if (t.closest("a[href^='https://wa.me/']") && !t.closest(".cm-dialog")) setTimeout(armWa, 0);
-      if (t.closest("a[href^='mailto:']") && !t.closest(".cm-dialog")) setTimeout(armMail, 0);
+      if (t.closest("a[href^='https://wa.me/']") && !t.closest(".cm-dialog")) armWa();
+      if (t.closest("a[href^='mailto:']") && !t.closest(".cm-dialog")) armMail();
     });
   } catch (e) {}
 })();
