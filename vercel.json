@@ -874,6 +874,266 @@
       "source": "/nl/prijs-account-terugkrijgen/",
       "destination": "/nl/prijzen-accountherstel/",
       "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-india",
+      "destination": "/meta-appeal-links-and-forms-directory/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-india/",
+      "destination": "/meta-appeal-links-and-forms-directory/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-pakistan",
+      "destination": "/meta-appeal-links-and-forms-directory/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-pakistan/",
+      "destination": "/meta-appeal-links-and-forms-directory/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-nigeria",
+      "destination": "/meta-appeal-links-and-forms-directory/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-nigeria/",
+      "destination": "/meta-appeal-links-and-forms-directory/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-sweden",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-sweden/",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-denmark",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-denmark/",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-finland",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-finland/",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-norway",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-norway/",
+      "destination": "/meta-appeal-links-nordics/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-austria",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-austria/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-belgium",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-belgium/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-luxembourg",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-luxembourg/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-portugal",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-portugal/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-poland",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-poland/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-czech-republic",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-czech-republic/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-greece",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-greece/",
+      "destination": "/meta-appeal-links-other-eu-countries/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-qatar",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-qatar/",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-kuwait",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-kuwait/",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-bahrain",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-bahrain/",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-oman",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-oman/",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-iraq",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-iraq/",
+      "destination": "/meta-appeal-links-gulf/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-japan",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-japan/",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-south-korea",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-south-korea/",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-hong-kong",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-hong-kong/",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-taiwan",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-taiwan/",
+      "destination": "/meta-appeal-links-east-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-singapore",
+      "destination": "/meta-appeal-links-southeast-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-singapore/",
+      "destination": "/meta-appeal-links-southeast-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-malaysia",
+      "destination": "/meta-appeal-links-southeast-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-malaysia/",
+      "destination": "/meta-appeal-links-southeast-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-philippines",
+      "destination": "/meta-appeal-links-southeast-asia/",
+      "permanent": true
+    },
+    {
+      "source": "/meta-appeal-links-philippines/",
+      "destination": "/meta-appeal-links-southeast-asia/",
+      "permanent": true
     }
   ]
 }
