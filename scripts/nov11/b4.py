@@ -1,5 +1,6 @@
 # Round 4: distinct country pages, regional merges, rebuilt contact pages.
 from common import *
+import re
 NAV=[('/meta-appeal-links-and-forms-directory/','Meta appeal links'),('/how-to-contact-meta-about-a-disabled-account/','How to contact Meta'),('/account-recovery-by-country/','Account recovery by country'),('/pricing/','Pricing')]
 OFF=('<p>The Meta routes themselves do not change by country: appeal from the notice you see at login (or in Accounts Center), use '+ext('https://www.instagram.com/hacked/')+' or '+ext('https://www.facebook.com/hacked')+' for a takeover, and ask for ad account reviews in '+ext('https://business.facebook.com/accountquality')+'. The full list is in the '+a('/meta-appeal-links-and-forms-directory/','Meta appeal links directory')+'. What follows is only what differs here.</p>')
 def R(*rows): return linkrows(list(rows))
@@ -189,14 +190,14 @@ def page(slug,n,N,ans,cards,secs,faqs,eu=False,lang=None):
     if eu and not any(x[0]=='dsa' for x in secs): s.append(('dsa','EU rights in one line','<p>As an EU user you get a statement of reasons, Meta’s internal appeal and then a certified dispute body. See '+a('/dsa-appeal-right-instagram-facebook/','DSA appeal rights')+'.</p>'))
     PAGES.append(P(slug=f'meta-appeal-links-{slug}',svc='ig',offer=False,crumb=('Meta appeal links','/meta-appeal-links-and-forms-directory/'),navrel=NAV,
       title=f'Meta Appeal Links for {N[0].upper()+N[1:]} (2026): Local Regulators, Reporting and Rights',short=f'Meta appeal links {n}',
-      desc=(ans[:150].rsplit(' ',1)[0]+'…'),h1=f'Meta appeal links for {n}.',lede='What is specific to '+n+': regulators, reporting lines and rights. Updated 11 November 2026.',
+      desc=(ans[:150].rsplit(' ',1)[0]+'…'),h1=f'Meta appeal links for {n}.',lede='What is specific to '+n+': regulators, reporting lines and rights.',
       answer='<strong>'+ans+'</strong> If the official route fails, Unbanz handles Instagram ($800) and Facebook ($900) cases, paid upfront with a 100% refund if it fails.',
       cards=cards,sections=s,faqs=faqs,related=[('/meta-appeal-links-and-forms-directory/','Meta appeal links directory'),('/account-recovery-by-country/','Account recovery by country')]))
 for slug,k in D.items(): page(slug,k['n'],k['N'],k['ans'],k['cards'],k['secs'],k['faqs'],k.get('eu',False),k.get('lang'))
 for g,k in REG.items():
     secs=[(sl,nm,txt+(R(*rows) if rows else '')) for sl,nm,txt,rows in k['parts']]+k.get('extra',[])
     if k.get('lang'): secs.append(('language','Arabic','<p>See our '+a(k['lang'][0],'Arabic guide to Meta appeal links')+'.</p>'))
-    cards=[(nm,'Jump to section') for sl,nm,_,_ in k['parts'][:3]]
+    cards=[(nm,re.sub(r'<[^>]+>','',txt).split('. ')[0][:90]+'.') for sl,nm,txt,_ in k['parts'][:3]]
     faqs=[(f'Why are {k["N"]} on one page?','The Meta routes are identical; only the local bodies differ, so each country has its own section.')]
     page(g,k['n'],k['N'],k['ans'],cards,secs,faqs,g in('nordics','other-eu-countries'))
 # ---------------- contact pages ----------------
@@ -210,7 +211,7 @@ CT={'usa':('the US','the USA','Meta has no account support phone line in the US,
 for slug,(n,N,ans,secs) in CT.items():
     PAGES.append(P(slug=f'how-to-contact-meta-support-{slug}',svc='ig',offer=False,crumb=('How to contact Meta','/how-to-contact-meta-about-a-disabled-account/'),navrel=NAV,
      title=f'How to Contact Meta Support in {N[0].upper()+N[1:]} (2026): Instagram & Facebook',short=f'Contact Meta support {n}',
-     desc=ans[:150].rsplit(' ',1)[0]+'…',h1=f'How to contact Meta support in {n}.',lede='Which contacts actually respond, and which are scams. Updated 11 November 2026.',
+     desc=ans[:150].rsplit(' ',1)[0]+'…',h1=f'How to contact Meta support in {n}.',lede='Which contacts actually respond, and which are scams.',
      answer='<strong>'+ans+'</strong>',cards=[('No phone line','Numbers claiming to be Meta are scams.'),('In-app first','Appeal from the notice.'),('Local contacts','Below.')],
      sections=[('channels','Meta channels',CH)]+secs+[('appeal-links','Appeal links for '+n,'<p>'+a(f'/meta-appeal-links-{slug}/',f'Meta appeal links for {n}')+'</p>')],
      faqs=[(f'Is there a Meta phone number in {n}?','No public account support number.')],related=[('/how-to-contact-meta-about-a-disabled-account/','How to contact Meta'),(f'/meta-appeal-links-{slug}/',f'Meta appeal links {n}')]))

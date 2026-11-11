@@ -1,6 +1,6 @@
 # Round 4: notice-wording pages in fr/es/pt-br/de/it/tr
 from gen import table, ul, ol, a, ext
-import html
+import html,re
 P=[]
 IGD='https://help.instagram.com/366993040048856'; FBD='https://www.facebook.com/help/103873106370583'; CS='https://transparency.meta.com/policies/community-standards/'
 H={'fr':('Lien','À quoi il sert'),'es':('Enlace','Para qué sirve'),'pt-br':('Link','Para que serve'),'de':('Link','Wofür'),'it':('Link','A cosa serve'),'tr':('Bağlantı','Ne için')}
@@ -13,6 +13,7 @@ HELP={'fr':('aide','Vous préférez nous confier le dossier ?','<p>Unbanz traite
 'tr':('yardim','İşi bize bırakmak ister misiniz?','<p>Unbanz Instagram hesapları için 800 $, Facebook hesapları için 900 $ sabit ücretle çalışır; kartla peşin ödenir, vaka başarısız olursa %100 iade edilir. Genellikle başladıktan sonra 3–7 gün sürer, garanti yoktur; son kararı Meta verir. Unbanz Meta’dan bağımsızdır ve asla şifre veya kod istemez. <a href="mailto:team@unbanz.com">team@unbanz.com</a> adresine yazın.</p>')}
 CR={'fr':(('Guides','/fr/'),'Accueil / Guides'),'es':(('Guías','/es/'),'Inicio / Guías'),'pt-br':(('Guias','/pt-br/'),'Início / Guias'),'de':(('Ratgeber','/de/'),'Start / Ratgeber'),'it':(('Guide','/it/'),'Home / Guide'),'tr':(('Rehberler','/tr/'),'Ana sayfa / Rehberler')}
 def add(l,en,slug,sv,svc,price,**k):
+    k['lede']=re.sub(r'\s*[^.]*2026[^.]*\.\s*$','',k['lede'])
     k['sections']=k['sections']+[HELP[l]]
     k.update(slug=f'{l}/{slug}',lang=l,_en=en,sv=sv,service=(svc,price,''),crumb=CR[l][0],crumbtxt=CR[l][1]); P.append(k)
 NR='you-cant-request-another-review-instagram-facebook'; CSE='facebook-disabled-child-sexual-exploitation-policy'; AI='instagram-disabled-account-integrity-notice'; UR='instagram-your-account-is-under-review-notice'
