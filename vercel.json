@@ -834,6 +834,26 @@
       "source": "/snapchat-username-claim-uk/",
       "destination": "/instagram-username-claim/",
       "permanent": true
+    },
+    {
+      "source": "/fr/prix-recuperation-compte",
+      "destination": "/fr/tarifs-recuperation-de-comptes/",
+      "permanent": true
+    },
+    {
+      "source": "/es/precio-recuperar-cuenta",
+      "destination": "/es/precios-recuperacion-de-cuentas/",
+      "permanent": true
+    },
+    {
+      "source": "/pt-br/preco-recuperar-conta",
+      "destination": "/pt-br/precos-recuperacao-de-contas/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/prijs-account-terugkrijgen",
+      "destination": "/nl/prijzen-accountherstel/",
+      "permanent": true
     }
   ]
 }
