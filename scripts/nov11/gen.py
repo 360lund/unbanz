@@ -70,7 +70,7 @@ def build(p):
     secs=''.join(f'<h2 id="{sid}">{h}</h2>{c}' for sid,h,c in p['sections'])
     ab=ABOUT[lang]
     rel=p.get('related',[])
-    relhtml=('<h2 id="related">'+{'en':'Related','fr':'À lire aussi','es':'Relacionado','pt-br':'Relacionados','nl':'Gerelateerd','de':'Verwandte Seiten'}[lang]+'</h2><p>'+', '.join(a(h,t) for h,t in rel)+'.</p>') if rel else ''
+    relhtml=('<h2 id="related">'+{'en':'Related','fr':'À lire aussi','es':'Relacionado','pt-br':'Relacionados','nl':'Gerelateerd','de':'Verwandte Seiten','ar':'صفحات ذات صلة','it':'Pagine correlate','tr':'İlgili sayfalar'}[lang]+'</h2><p>'+', '.join(a(h,t) for h,t in rel)+'.</p>') if rel else ''
     hero=(f'<main id="content"><section class="service-hero"><div class="container"><a class="crumb" href="{crumb_href}">{html.escape(p.get("crumbtxt","Home / "+crumb_name))}</a><h1>{p["h1"]}</h1><p>{p["lede"]}</p><p class="guide-meta">{UPD[lang]} <time datetime="{D}">{DH[lang]}</time></p>'
       f'<div class="hero-cta"><a class="button button-light" href="{WA}" data-service="{sv}">{wa} <span aria-hidden="true">↗︎</span></a><a class="hero-email" href="mailto:team@unbanz.com?subject=Account%20help">{em}</a></div></div></section>'
       f'<section class="answer-first container" id="answer" style="padding-top:48px"><p style="max-width:860px;font-size:19px;line-height:1.5;margin:0">{p["answer"]}</p></section>'
