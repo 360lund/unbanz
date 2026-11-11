@@ -30,3 +30,26 @@ html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] {
   min-height: 44px;
   padding: 10px 8px;
 }
+
+/* Nov 11: compact, evenly split mobile contact bar; content never hidden behind it. */
+@media (max-width: 650px) {
+  .mobile-contact {
+    left: 8px; right: 8px;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    padding: 5px; gap: 6px; border-radius: 18px;
+    align-items: stretch;
+  }
+  html .mobile-contact a,
+  html .mobile-contact a:first-child,
+  html .mobile-contact a[href^="mailto:"] {
+    flex: 1 1 0; min-width: 0; width: auto;
+    min-height: 46px; padding: 5px 8px; border-radius: 14px;
+    display: inline-flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 1px; font-size: 14px; font-weight: 600; line-height: 1.2; text-align: center;
+  }
+  html .mobile-contact a[href^="mailto:"] { background: #e5eff6; color: var(--ink, #10243a); }
+  html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] { flex: 1 1 100%; width: 100%; }
+  .mobile-contact a:first-child > span { display: none; }
+  .mobile-contact .mc-sub { font-size: 10px; font-weight: 400; line-height: 1.15; opacity: .9; white-space: normal; }
+  body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
+}

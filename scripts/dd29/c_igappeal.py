@@ -47,7 +47,7 @@ page('instagram-disabled-appeal-window-expired', F, 'Instagram Appeal Window Exp
   S('Next steps', ol(['Log in on the web and in the app and screenshot what each shows.', 'Search email and spam for any message from Instagram about the account.', 'Submit what is offered, once, with a short and honest explanation.', 'If nothing is offered, contact us with the dates and screenshots.']))],
  [('Is permanently disabled really final?', 'Often it is, but there are situations where another route works. We tell you plainly if we see none.'),
   ('Should I make a new account meanwhile?', 'You can. Do not use it to contact the old account’s followers in bulk, which can lead to flags.'),
-  ('Does Unbanz have a special route?', 'No. Unbanz has no special access. We use the same official routes available to you.')],
+  ('Does Unbanz have a special route?', 'Unbanz is independent and not affiliated with Meta. For Facebook and Instagram cases we work through our contacts at Meta, alongside the official routes. Payment is upfront with a 100% refund if it fails.')],
  ['People who missed the appeal window.', 'Owners of accounts that say permanently disabled.', 'Anyone who gave up early and wants a second look.'])
 
 page('instagram-disabled-no-email-from-instagram', F, 'Instagram Account Disabled, No Email From Instagram',
@@ -78,7 +78,7 @@ page('instagram-appeal-sent-twice-no-reply', F, 'Instagram Appeal Sent Twice, St
     'Instagram does not publish how long appeals take, and nobody outside can see the queue.'),
   S('What to do', ol(['Do not submit a third time until you know what happened to the first two.', 'Search all inboxes, including spam, for messages about the account.', 'Log in and screenshot the current notice and its date.', 'Send us the dates of both submissions and the screenshots.']))],
  [('How long should I wait?', 'There is no fixed time. Check the account and your email regularly rather than resubmitting.'),
-  ('Is there someone at Meta to contact?', 'No direct line is open to the public, and we do not have one. We use the same official routes.'),
+  ('Is there someone at Meta to contact?', 'No direct line is open to the public. For Facebook and Instagram cases we work through our contacts at Meta.'),
   ('What could a different route be?', 'Sometimes a request through ID or selfie verification, or the disabled-account help flow, fits better. We look at it with you.')],
  ['People who already submitted more than once.', 'Owners waiting a long time without any email.', 'Businesses that rely on the account.'])
 

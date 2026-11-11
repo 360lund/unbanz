@@ -51,8 +51,8 @@ def how_block(p):
 def who_block(p): return S('Who this is for', ul(p['who']))
 
 SAFE = ('<h2 id="safe">Staying safe</h2><p>Nobody needs your password or login codes to help you. If someone in your DMs offers to fix it, asks you to '
-        'log in through their link, or claims to have a special way in, walk away. Unbanz never asks for logins and has no special access. '
-        'We use the same official routes that are open to you.</p>'
+        'log in through their link, or wants to be paid in gift cards, walk away. Unbanz never asks for logins. We are an independent paid service, not affiliated with Meta: '
+        'payment is upfront, with a 100% refund if the case fails. For Facebook and Instagram cases we work through our contacts at Meta, and Meta makes the final decision.</p>'
         '<h2 id="about-unbanz">About Unbanz</h2><p>Unbanz (unbanz.com) is an independent service that helps people, businesses and agencies with Instagram, Facebook '
         'and Snapchat account unbans, username claims, and Meta ad account recovery. Contact: WhatsApp +1 934 201 2490 or team@unbanz.com. Not affiliated with Meta.</p>')
 

@@ -94,7 +94,7 @@ page('instagram-account-suspended-pakistan-what-to-do', 'igsusp',
  ],
  [('Can I upload my CNIC?', 'Yes, if Instagram asks for ID. Use one clear photo, with the name matching the profile.'),
   ('Can I write the appeal in Urdu?', 'Yes. Short and accurate matters more than the language.'),
-  ('Should I pay someone who says they know someone at Meta?', 'No. Such offers are often scams. Nobody needs your password or login codes.')],
+  ('Can someone with contacts at Meta help?', 'Never give anyone your password or login codes. Unbanz is independent and not affiliated with Meta; for Facebook and Instagram cases we work through our contacts at Meta, with payment upfront and a 100% refund if it fails.')],
  ['Instagram users in Pakistan after a suspension.',
   'Creators and online sellers in Pakistan.',
   'People whose account was hacked before it was suspended.'], area='PK')

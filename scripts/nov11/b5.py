@@ -119,7 +119,7 @@ add('de',NR,'keine-weitere-ueberpruefung-moeglich','ig','Instagram-Kontowiederhe
  cards=[('Einspruch ausgeschöpft','Der Button kommt nicht wieder.'),('DSA','Danach Streitbeilegung.'),('Kein neues Konto','Wird verknüpft.')],
  sections=[('bedeutung','Was die Meldung bedeutet',ul(['Ein erster Einspruch wurde geprüft und abgelehnt oder automatisch bestätigt.','Auch die Frist kann abgelaufen sein.','Die Entscheidung bleibt in der Kontenübersicht sichtbar.'])),
   ('optionen','Was noch geht',ol(['EU-Nutzer: '+ext('https://www.user-rights.org/en','User Rights')+' oder '+ext('https://www.appealscentre.eu/','Appeals Centre Europe')+' mit der Meta-Entscheidung anrufen.','Bei Meta eine Datenauskunft nach Art. 15 DSGVO verlangen.','Wurde das Konto vorher gehackt: instagram.com/hacked oder facebook.com/hacked.'])),
-  ('vermeiden','Lieber lassen',ul(['Niemanden bezahlen, der einen „internen Kontakt“ bei Meta verspricht.','Keine Konten mit derselben Nummer oder demselben Gerät anlegen.','Nicht dutzende gleiche Formulare schicken.']))],
+  ('vermeiden','Lieber lassen',ul(['Niemandem Passwort oder Codes geben, der dich ungefragt anschreibt.','Keine Konten mit derselben Nummer oder demselben Gerät anlegen.','Nicht dutzende gleiche Formulare schicken.']))],
  faqs=[('Kann ich das Konto noch zurückbekommen?','Manchmal, vor allem über eine DSA-Stelle oder wenn ein Hack vorlag. Nie garantiert.')],related=[('/de/meta-einspruch-links-instagram-facebook/','Meta-Einspruchslinks')])
 add('de',CSE,'konto-deaktiviert-sexuelle-ausbeutung-von-kindern','fb','Facebook-Kontowiederherstellung','900',
  title='Konto wegen „sexueller Ausbeutung von Kindern“ deaktiviert: was tun? (Facebook, Instagram 2026)',short='Deaktiviert: Ausbeutung von Kindern',

@@ -24,7 +24,7 @@ page('instagram-business-account-disabled-lost-income', 'igsusp', 'Instagram Bus
     'Post a short note on your website and email list saying the Instagram account is temporarily unavailable and how to order. Update the link on your Google Business Profile. If customers DM you for orders, give them a phone number or email they can use. None of this affects the appeal.'),
   S('What not to do',
     ul(['Do not create a new business account with the same email, phone or device. Instagram can treat it as an attempt to get around the decision.',
-        'Do not pay anyone in your DMs who says they know someone at Meta. Nobody can buy a reinstatement.',
+        'Ignore strangers in your DMs who ask for your password or codes. Nobody can guarantee a reinstatement.',
         'Do not delete posts in bulk. It does not lift a suspension and can remove evidence that the account was genuine.'])),
  ],
  [('How long do I have to appeal?', 'Instagram usually shows the deadline on the notice. Check what your notice says and act well before it ends.'),

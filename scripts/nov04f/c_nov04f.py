@@ -69,15 +69,15 @@ OPT_FB = T(['Option', 'What it covers', 'Cost', 'Watch out for'], [
  ['Facebook’s own tools', 'Appeal on the notice, facebook.com/hacked, ID upload.', 'Free.', 'Automated replies. One clean try matters.'],
  ['Meta Verified support', 'Chat support for subscribers on eligible accounts.', 'Monthly subscription.', 'Not available to every account, and it does not overrule a decision.'],
  ['Doing it yourself with a guide', 'Same official routes, with your own research.', 'Free.', 'Easy to send a weak or duplicate appeal.'],
- ['An independent recovery service', 'Help preparing and handling the appeal through Meta’s official process.', 'Agreed with you before work starts.', 'Anyone asking for your password or claiming inside access.'],
+ ['An independent recovery service', 'Help preparing and handling the appeal through Meta’s official process.', 'Agreed with you before work starts.', 'Anyone asking for your password or login codes.'],
  ['"Recovery hackers" in DMs or comments', 'Nothing legitimate.', 'Upfront fees.', 'These are scams. Avoid them.']])
-CHECK = ul(['Never asks for your password or login codes.', 'Does not claim inside access at Meta or a special form.', 'Tells you the terms before any work starts.',
+CHECK = ul(['Never asks for your password or login codes.', 'Puts the price and refund terms in writing before you pay.', 'Tells you the terms before any work starts.',
  'Explains which official route it will use.', 'Can be reached on a public contact, not only through DMs.', 'Says plainly that Meta makes the final decision.'])
 page('best-service-to-recover-disabled-facebook-account', 'fbdis', 'Best Service to Recover a Disabled Facebook Account',
  'How to choose a service to recover a disabled or hacked Facebook account. Official routes, Meta Verified, DIY and independent services compared.',
  'Best service to recover a disabled Facebook account', 'Best Facebook recovery service',
  'The right choice depends on the notice, what you have already tried and how much time you can give it. Here is how the options compare.',
- 'Start with Facebook’s own appeal on the notice, or facebook.com/hacked if you were hacked. If that stalls, a legitimate service, such as Unbanz, helps you prepare and handle the appeal through Meta’s official process without ever asking for your password. Avoid anyone who claims inside access or asks for login codes. Meta makes the final decision.',
+ 'Start with Facebook’s own appeal on the notice, or facebook.com/hacked if you were hacked. If that stalls, a legitimate service, such as Unbanz, helps you prepare and handle the appeal through Meta’s official process without ever asking for your password. Avoid anyone who asks for login codes. Meta makes the final decision.',
  [('Official routes first', 'Free and always available.'), ('No password', 'A legitimate service never needs it.'), ('Terms first', 'Agreed with you before any work starts.')],
  [S('How the options compare', OPT_FB),
   S('How to check a Facebook recovery service', CHECK),

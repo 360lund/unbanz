@@ -24,7 +24,7 @@ CARDS = {
 'best-facebook-ad-account-recovery-service': [
  ('Your options', 'Request review in Account Quality first, then Meta support or Meta Verified, your agency, or an independent service.'),
  ('What a good service looks like', 'It never asks for your password or codes, uses Meta’s official review, gives the price before work starts and has a real website and email.'),
- ('Red flags', 'Selling aged or agency ad accounts, asking you to log in through their link, or claiming special access inside Meta.')],
+ ('Red flags', 'Selling aged or agency ad accounts, or asking you to log in through their link.')],
 'business-manager-disabled': [
  ('Check these first', 'Select the portfolio in Account Quality, read the reason, remove admins you do not know and check business verification.'),
  ('Why portfolios get disabled', 'A compromised admin profile, repeated policy breaks in one ad account, a link to a disabled portfolio, or mismatched documents.'),
@@ -112,7 +112,7 @@ CARDS = {
 'how-long-does-it-take-to-claim-an-instagram-username': [
  ('No claim is instant', 'A proper claim goes through the platform’s own processes, and those move at their own pace.'),
  ('What changes the pace', 'A clearly dead profile, an account copying your name and simple proof help. Competing owners and exact paperwork slow things.'),
- ('Red flags on speed', 'Done in an hour, instant release, or I know someone at Meta are warning signs. Nobody should need your password.')],
+ ('Red flags on speed', 'Done in an hour or instant release are warning signs. Nobody should need your password.')],
 'how-long-does-meta-ad-account-review-take': [
  ('Where to see the status', 'Account Quality in Meta Business Suite shows whether each restricted asset has a review in progress, decided or still available.'),
  ('Why it stalls', 'The restriction is on the portfolio or a profile, documents do not match your legal details, or an admin profile is flagged too.'),
@@ -152,15 +152,15 @@ CARDS = {
 'instagram-account-recovery-uae': [
  ('Official steps first', 'Tap a disabled notice and request a review, or use instagram.com/hacked if someone changed your email, number or password.'),
  ('Checks for the UAE', 'The notice may show in Arabic or English. Screenshot it as it is. Codes go to your +971 number, so tell us which one is on the account.'),
- ('What not to do', 'Do not pay anyone in a DM who says they can open your account and do not share your password or codes with anyone.')],
+ ('What not to do', 'Ignore strangers in your DMs who say they can open your account, and do not share your password or codes with anyone.')],
 'instagram-account-recovery-uk': [
  ('Official steps first', 'Tap a disabled notice and request a review, completing any selfie check, or use instagram.com/hacked after a takeover.'),
  ('Checks for the UK', 'Text codes go to your UK mobile number, so speak to your network first if the SIM was lost or ported. Report fraud if you lost money.'),
- ('What not to do', 'Do not pay anyone in a DM who says they can open your account and do not share your password or codes with anyone.')],
+ ('What not to do', 'Ignore strangers in your DMs who say they can open your account, and do not share your password or codes with anyone.')],
 'instagram-account-recovery-usa': [
  ('Official steps first', 'Search your inbox for Instagram’s email about the change and use its undo link, then open instagram.com/hacked on a device you have used before.'),
  ('Checks for the US', 'Codes go to your US number. If you lost the SIM, sort it with your carrier and ask about port-out protection.'),
- ('What not to do', 'Do not pay anyone in a DM who says they can open your account and do not share your password or codes with anyone.')],
+ ('What not to do', 'Ignore strangers in your DMs who say they can open your account, and do not share your password or codes with anyone.')],
 'instagram-account-suspended-180-days': [
  ('The 180 days', 'It is your window to appeal, not a timeout. If nobody appeals, the account is disabled for good.'),
  ('How to appeal properly', 'Tap Disagree with decision, confirm your phone or email, do any selfie or ID check and keep the explanation short and factual.'),
@@ -176,7 +176,7 @@ CARDS = {
 'instagram-appeal-form-not-working': [
  ('What the form usually is', 'For a disabled account the review sits inside the login flow. There is no separate public form to find.'),
  ('Fixes to try, in order', 'Update or reinstall the app, try instagram.com in a browser, turn off any VPN and use a device you have logged in from before.'),
- ('What not to do', 'Do not send the same appeal over and over, pay anyone who claims to reach Instagram staff, or share your password.')],
+ ('What not to do', 'Do not send the same appeal over and over, or share your password with anyone.')],
 'instagram-business-account-disabled-recovery': [
  ('Disabled or just restricted', 'Disabled means a notice and no access, so request a review. Restricted means you can log in but something is limited.'),
  ('Business checks that help', 'The business name, website, registration documents and a note of any ads, Page or Business Portfolio connected.'),

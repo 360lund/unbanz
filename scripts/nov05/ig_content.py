@@ -33,7 +33,7 @@ A('where-to-get-an-inactive-instagram-handle','Where to Get an Inactive Instagra
  'Instagram does not hand out inactive handles on request. The legit places are: the Trademark Report Form if you own the mark, the impersonation report if the account copies you, waiting for the owner to delete it, or a service that works those routes for you.',
  [('Not from sellers','Marketplaces selling accounts break Instagram’s terms.'),('Not from support','Instagram support does not reassign handles.'),('Yes via official routes','Trademark, impersonation, removal.')],
  [('where','Places that work',ol('Instagram’s Trademark Report Form, for registered marks.','The impersonation report, if the account pretends to be you.','The account owner, if they choose to change their own handle. No payment for login details.','A service like Unbanz that handles official routes for you.')),
-  ('not','Places that do not',ul('Account marketplaces and “handle shops”.','Anyone claiming a contact at Meta.','Tools promising to “release” a handle.')),B0],
+  ('not','Places that do not',ul('Account marketplaces and “handle shops”.','Anyone who messages you first and asks for your login.','Tools promising to “release” a handle.')),B0],
  [('Can I buy an inactive Instagram account?','Buying or selling accounts is against Instagram’s Terms of Use. See <a href="/is-selling-instagram-usernames-allowed/">is selling usernames allowed</a>.'),('Will Instagram ever free an inactive handle?','Instagram does not publish an inactivity rule. Handles free up when accounts are deleted or removed.')],tbl=['inactive','tmform','terms'])
 A('instagram-username-claim-service-alternatives','Instagram Username Claim Service Alternatives','Alternatives to paying for an Instagram username claim: doing it yourself, choosing a variation, or using another service.','Alternatives to an Instagram username claim service',
  'You do not always need a service. Here are the honest alternatives, including doing the official steps yourself.',
@@ -41,12 +41,12 @@ A('instagram-username-claim-service-alternatives','Instagram Username Claim Serv
  [('Do it yourself','The official forms are free to use.'),('Use a variation','Add a word like official, hq or your city.'),('Use a service','Unbanz, Ogclaim, Talha Aslan and others.')],
  [('diy','Doing it yourself',ol('Check whether the account actually violates trademark or impersonation rules.','Use the matching official form.','Keep screenshots and your trademark details.','Wait for Instagram’s reply by email.')),
   ('var','Good variations',ul('yourbrand.official','yourbrandhq','getyourbrand','yourbrand_city')),EU],
- [('Is doing it myself cheaper?','Yes. The forms are free. You pay a service only for doing the work.'),('Do services have access I do not?','No legit service has special access. Be careful of anyone claiming otherwise.')],
+ [('Is doing it myself cheaper?','Yes. The forms are free. You pay a service only for doing the work.'),('Do services have access I do not?','Nobody can guarantee a result. Unbanz is not affiliated with Meta, but for Instagram and Facebook cases we work through our contacts at Meta, and we know which route fits each handle.')],
  rel=[('/instagram-username-claim-services-compared/','Services compared')],tbl=['inactive','tmform','impform'])
 def VS(slug,name,site,what):
   A(slug,'Unbanz vs %s for Instagram Username Claims'%name,'Unbanz vs %s: what each says it offers for Instagram username claims, and the questions to ask before choosing.'%name,'Unbanz vs %s'%name,
    'A plain comparison of Unbanz and %s for Instagram usernames, using only what each publishes.'%name,
-   'Both Unbanz and %s (%s) publicly offer help with Instagram handles. Unbanz works only through Instagram’s own processes, prices by the handle, takes card payment through Whop checkout and gives a 100%% refund if the username claim fails. Check %s’s current terms on its own site.'%(name,site,name),
+   'Both Unbanz and %s (%s) publicly offer help with Instagram handles. Unbanz works through Instagram’s own processes, prices by the handle, takes card payment through Whop checkout and gives a 100%% refund if the username claim fails. Check %s’s current terms on its own site.'%(name,site,name),
    [('Unbanz','Instagram username claims, price depends on the handle.'),(name,what),('Your choice','Compare routes, refund terms and how they handle passwords.')],
    [('table','Side by side','<div class="table-wrap"><table><thead><tr><th>Point</th><th>Unbanz</th><th>%s</th></tr></thead><tbody><tr><td>Published offer</td><td>Instagram username claims</td><td>%s</td></tr><tr><td>Price</td><td>Depends on the handle</td><td>See their site</td></tr><tr><td>Refund</td><td>100%% refund if a username claim fails</td><td>See their site</td></tr><tr><td>Passwords</td><td>Never asked</td><td>Ask them</td></tr></tbody></table></div>'%(name,what)),
     ('ask','Questions to ask either one',ul('Which official route fits my handle?','Do you need my login? (It should be no.)','What happens if it does not work?'))],
@@ -69,7 +69,7 @@ A('instagram-username-help-articles-explained','Instagram Username Help Articles
  [('First-come','Nobody can reserve a username.'),('Inactive','Choose a variation.'),('Trademark','Report with a registered mark.')],
  [('each','What each one says',ul('<strong>Inactive account article:</strong> if a username is claimed but seems inactive, choose an available variation.','<strong>Trademark violation article:</strong> using a mark in a way unrelated to its goods or services is not a violation.','<strong>Trademark username article:</strong> how to report a username that infringes your mark.','<strong>Impersonation article:</strong> how to report accounts pretending to be you.','<strong>Terms of Use:</strong> no buying, selling or transferring accounts or usernames.'))],
  [('Do help articles change?','Yes. Always open the current version from the links below.'),('Is there a hidden username request article?','No. There is no public general username request route.')],tbl=['inactive','tmwhat','tmhow','imp','terms'])
-A('instagram-username-seller-red-flags','Instagram Username Seller Red Flags (List)','Red flags that an Instagram username seller or claim service is a scam: passwords, inside contacts, crypto only and more.','Red flags for Instagram username sellers',
+A('instagram-username-seller-red-flags','Instagram Username Seller Red Flags (List)','Red flags that an Instagram username seller or claim service is a scam: passwords, account sales, gift-card-only payment and more.','Red flags for Instagram username sellers',
  'Handle scams are common. These are the signs to walk away.',
  'Walk away if anyone asks for your password or login code, claims a contact inside Meta, sells an account rather than claiming through official routes, wants payment only in crypto or gift cards, or promises a handle by a date.',
  [('Passwords','No legit service needs them.'),('Inside contacts','Nobody legit has one.'),('Account sales','Against Instagram’s terms.')],
@@ -160,7 +160,7 @@ Q('is-it-legal-to-claim-an-instagram-username','Is It Legal to Claim an Instagra
  'Claiming and stealing are not the same thing.',
  'Using Instagram’s own processes, like the Trademark Report Form or impersonation reports, is legitimate. Hacking accounts, buying stolen handles or filing false reports is not.',
  [('Official routes','Legit.'),('Buying accounts','Against terms.'),('Hacking','Illegal.')],
- [('ours','How we do it',p('Unbanz works only through official routes, onto your own profile.'))],
+ [('ours','How we do it',p('Unbanz works through official routes, onto your own profile.'))],
  [('Is this legal advice?','No. For a dispute over a trademark, talk to a lawyer.'),('Can I get in trouble for asking?','No. Asking is fine.')],tbl=['tmform','terms'])
 Q('do-i-need-a-trademark-to-claim-an-instagram-username','Do I Need a Trademark to Claim an Instagram Username?','Do you need a trademark for an Instagram username claim? When it helps and what works without one.','Do I need a trademark to claim an Instagram username?',
  'A trademark is the most common route, but not the only one.',

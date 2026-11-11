@@ -47,7 +47,7 @@ def country(slug, cc, plat, title, desc, h1, crumb, hero, answer, first, local_h
       sec('first', 'Official steps that come first', ol(first)),
       sec('local', local_h, ul(local)) + extra,
       sec('avoid', 'What not to do', ul([
-        'Don’t pay or message anyone from a DM who says they can “open” your account.',
+        'Ignore strangers who DM you first saying they can “open” your account. Unbanz never cold-messages people and never asks for your password.',
         'Don’t share your password or login codes with anyone, including us.',
         'Don’t create new accounts to plead with %s, and don’t send the same appeal over and over.' % plat])),
       sec('help', 'How Unbanz helps', '<p>We work out whether the account is disabled, hacked or both, gather the notice, the old email and phone and the dates, and handle the appeal through Meta’s official process. Main page: ' +

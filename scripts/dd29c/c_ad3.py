@@ -43,7 +43,7 @@ page('meta-support-chat-disabled-ad-account', F, 'Meta Support Chat for a Disabl
         'A chat or email option on the help pages, when your account is eligible.',
         'Messages in your Support Inbox or email after a review request.'])),
   S('What chat can and cannot do',
-    'A support agent can tell you which asset is restricted, what the policy name means and whether a review is still open. Agents do not usually reverse a decision in the chat. If someone tells you chat staff can be paid to switch an account back on, that is a scam.'),
+    'A support agent can tell you which asset is restricted, what the policy name means and whether a review is still open. Agents do not usually reverse a decision in the chat.'),
   S('Getting the most from one chat',
     ol(['Say which asset is affected: the ad account, your profile or the business portfolio.',
         'Paste the exact wording of the notice.',

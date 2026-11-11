@@ -122,10 +122,10 @@ A('instagram-impersonator-using-my-username','Instagram Impersonator Using My Na
   'A fake account with your name is a safety and username problem.',
   'Report it through Instagram’s impersonation form. If it is removed, the handle can be claimed onto your own profile, but Instagram makes the final call.',
   [('more','Related','<p>See <a href="/someone-is-pretending-to-be-me-on-instagram/">someone is pretending to be me</a>.</p>')],[],'Instagram',r)
-A('instagram-username-claim-scams','Instagram Username Claim Scams to Avoid','Common Instagram username scams: fake Meta plugs, stolen OG handles, login links. How to spot them.','Instagram username claim scams to avoid',
+A('instagram-username-claim-scams','Instagram Username Claim Scams to Avoid','Common Instagram username scams: stolen OG handles, login links, account sales. How to spot them.','Instagram username claim scams to avoid',
   'Scammers target people who want a handle badly.',
-  'Walk away from anyone who asks for your password or codes, claims inside access at Meta, sells accounts, or wants gift cards.',
-  [('signs','Red flags','<ul><li>“Meta plug” or portal access.</li><li>Login links.</li><li>Selling accounts.</li></ul>')],[],'Instagram',r)
+  'Walk away from anyone who asks for your password or codes, sells accounts, or wants gift cards.',
+  [('signs','Red flags','<ul><li>Guaranteed results.</li><li>Login links.</li><li>Selling accounts.</li></ul>')],[],'Instagram',r)
 A('how-does-an-instagram-username-claim-work','How Does an Instagram Username Claim Work?','Step by step: how an Instagram username claim works through Instagram’s own processes, cost and refund policy.','How does an Instagram username claim work?',
   'Plain steps, no secret methods.',
   'You send the handle, we find whether there is a legit route (trademark, impersonation, squatting or an inactive account Instagram removes), you get your quote (it depends on the handle) and pay by card through Whop, and we file and follow up through Instagram’s own processes.',

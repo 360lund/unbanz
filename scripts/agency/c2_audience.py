@@ -245,7 +245,7 @@ mk('white-label-recovery-for-community-managers-freelancers', 'For community man
   ('kit', 'A small kit for a solo operator',
    OL(['A one-page checklist of what to ask a client at onboarding.', 'The [[agency-intake-form-checklist-account-recovery|intake checklist]] for a lockout.', 'Two or three message templates from [[client-status-update-templates-account-recovery|the status templates]].', 'A saved WhatsApp chat or email address for your partner.'])),
   ('honesty', 'Staying honest as a freelancer',
-   P('Do not tell a client you have a contact at Meta. Do not promise a result. Do not take a client’s password. These three rules protect your reputation more than any marketing. Unbanz works the same way: official routes, honest answers, no insiders.')),
+   P('Do not promise a result. Do not take a client’s password. These rules protect your reputation more than any marketing. Unbanz works the same way: honest answers, no guarantees, no passwords.')),
   ('growth', 'A small way to grow the business',
    P('Many clients never think about account security until it fails. Offering a short security check at onboarding creates a natural moment to mention recovery support. See [[prevent-client-account-lockouts-agency-checklist|the lockout prevention checklist]] for a ready-made list.'))],
  [('Can a freelancer use white label account recovery?', 'Yes. A solo community manager can offer recovery under their own name while Unbanz handles the platform work behind the scenes.'),

@@ -107,7 +107,7 @@ C['services'] = dict(
  faq=[('¿Con qué plataformas ayudáis?', 'Instagram, Facebook, Snapchat y cuentas publicitarias de Meta.'),
       ('¿Cómo funciona?', 'Nos envías el nombre de usuario y una captura del aviso. Te decimos con sinceridad si podemos ayudarte.'),
       ('¿Puedo hacerlo yo mismo?', 'Sí. Apelar, el formulario de recuperación de cuentas hackeadas y la denuncia de una cuenta son gratuitos y oficiales. Nosotros ayudamos si se atasca o si prefieres delegarlo.'),
-      ('¿Tiene Unbanz relación con Meta?', 'No. Unbanz es independiente y usa las mismas vías oficiales que tú. La decisión siempre es de la plataforma.')],
+      ('¿Tiene Unbanz relación con Meta?', 'No. Unbanz es independiente, sin afiliación con Meta. En casos de Facebook e Instagram trabajamos a través de nuestros contactos en Meta. La decisión siempre es de la plataforma.')],
  related=['ig', 'fb', 'snap', 'ad', 'user', 'pricing', 'how', 'legit'])
 
 FAQ_ALL = [

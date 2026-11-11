@@ -39,7 +39,7 @@ bp('de','business-portfolio-adminzugang-verloren','Adminzugang zum Meta Business
  [('Noch ein Admin?','Der schnellste Weg.'),('Volle Kontrolle','Antrag bei Meta.'),('Unterlagen','Ausweis und Firma.')],
  ('Reihenfolge',['Klären, wer noch Zugriff hat: alte Einladungs-Mails, Team, Agentur.','Mit dem ursprünglich eingeladenen Privatprofil anmelden.','Einen Admin um volle Kontrolle bitten.','Sonst volle Kontrolle bei Meta beantragen.']),
  ('Hilfreiche Unterlagen',['Ausweis passend zum Profil.','Handelsregisterauszug oder Rechnung auf die Firma.','Website-Domain und geschäftliche E-Mail.']),
- ('Lieber lassen',['Ein neues Portfolio für dieselben Seiten und Konten anlegen.','Jemanden bezahlen, der „internen Zugang“ verspricht.']),'Offizielle Links',
+ ('Lieber lassen',['Ein neues Portfolio für dieselben Seiten und Konten anlegen.','Passwort oder Codes an Fremde weitergeben.']),'Offizielle Links',
  [('Wie lange dauert ein Antrag auf volle Kontrolle?','Einige Tage bis Wochen, ohne Garantie.')],[('/de/','Unbanz auf Deutsch')])
 bp('it','accesso-admin-business-portfolio-perso','Accesso admin al Business Portfolio Meta perso: cosa fare (2026)','Admin Business Portfolio perso',
  'Non sei più amministratore del tuo portfolio aziendale Meta? Chiedere a un admin, richiedere il controllo completo da Business Support Home, casi di hackeraggio e documenti.',
@@ -48,7 +48,7 @@ bp('it','accesso-admin-business-portfolio-perso','Accesso admin al Business Port
  [('Un admin rimasto?','La via più rapida.'),('Controllo completo','Richiesta a Meta.'),('Documenti','Identità e azienda.')],
  ('In ordine',['Scopri chi ha ancora accesso: email di invito, team, agenzia.','Accedi con il profilo personale invitato all’inizio.','Chiedi a un admin il controllo completo.','Altrimenti richiedilo a Meta.']),
  ('Documenti utili',['Documento che corrisponde al profilo.','Visura camerale o fattura intestata all’azienda.','Dominio del sito ed email aziendale.']),
- ('Da evitare',['Creare un nuovo portfolio per le stesse Pagine e account.','Pagare chi promette un “accesso interno”.']),'Link ufficiali',
+ ('Da evitare',['Creare un nuovo portfolio per le stesse Pagine e account.','Dare password o codici a sconosciuti.']),'Link ufficiali',
  [('Quanto ci vuole?','Da qualche giorno a qualche settimana, senza garanzia.')],[('/it/','Unbanz in italiano')])
 bp('ar','fuqdan-sallahiyat-business-portfolio','فقدت صلاحية المسؤول في Business Portfolio على ميتا: ماذا أفعل؟ (2026)','فقدان صلاحية المسؤول',
  'لم تعد مسؤولاً عن حساب Business Portfolio على ميتا؟ اطلب من مسؤول آخر، أو اطلب التحكم الكامل عبر Business Support Home، وحالات الاختراق والمستندات المطلوبة.',

@@ -36,10 +36,10 @@ T['twofa'] = dict(slug='instagram-hackeado-autenticacao-em-dois-fatores-ativada'
  h1='Invasor ativou a verificação em duas etapas no seu Instagram?',
  lead='Quando o invasor ativa a verificação com o número dele, os códigos deixam de chegar a você. A recuperação passa por outros caminhos oficiais.',
  answer='Se o invasor ativou a verificação em duas etapas, os códigos vão para o telefone dele, não para o seu. Procure o e-mail de segurança do Instagram e use o link de desfazer, se ainda valer. Senão, use o pedido oficial de conta hackeada e avise seus seguidores. A Unbanz prepara o pedido.',
- cards=[('Procure o e-mail de segurança','Ele às vezes traz um link para desfazer a alteração.'),('Avise seus seguidores','O invasor pode escrever a eles em seu nome.'),('Use o caminho oficial','Não pague quem promete um acesso especial.')],
+ cards=[('Procure o e-mail de segurança','Ele às vezes traz um link para desfazer a alteração.'),('Avise seus seguidores','O invasor pode escrever a eles em seu nome.'),('Use o caminho oficial','Não passe seus códigos para quem escreve primeiro.')],
  steps=['Procure no seu e-mail as mensagens de segurança do Instagram.','Use o link de desfazer se a mensagem for recente.','Avise seus contatos por outro canal.','Se não der, inicie a recuperação oficial de conta hackeada.'],
  send=['Seu nome de usuário do Instagram.','As mensagens de segurança recebidas, com as datas.','O que o invasor mudou: e-mail, número, nome.','O e-mail original da conta.'],
- faq=[('Dá para pular o código?','Não. Só existem caminhos oficiais, e todos passam pela verificação.'),('Meu e-mail antigo ajuda?','Sim. A mensagem de desfazer é enviada para ele.'),('Devo pagar quem diz entrar na conta?','Não. Em geral é golpe.')])
+ faq=[('Dá para pular o código?','Não. Só existem caminhos oficiais, e todos passam pela verificação.'),('Meu e-mail antigo ajuda?','Sim. A mensagem de desfazer é enviada para ele.'),('Devo pagar quem diz entrar na conta?','Não a um desconhecido que escreve primeiro: em geral é golpe. A Unbanz nunca pede seus códigos, informa o preço por escrito e reembolsa 100% se o caso não der certo.')])
 T['billing'] = dict(slug='conta-de-anuncios-desativada-mudanca-de-pais-de-cobranca', parent='ad',
  title='Conta de anúncios desativada: país de cobrança',
  desc='Sua conta de anúncios da Meta foi desativada após mudar o país de cobrança ou o endereço? Os comprovantes úteis e como seguir.',
