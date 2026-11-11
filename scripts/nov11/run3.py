@@ -1,7 +1,7 @@
 import sys,re,os,html; sys.path.insert(0,'/workspace/site/scripts/nov11')
 import gen, gen2
 from gen import ul,a
-import b2_en,b2_ar,b2_ittr
+import b2_en,b2_ar,b2_ittr,b3
 SITE='/workspace/site'
 built=[]
 for p in b2_en.PAGES:
