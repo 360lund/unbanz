@@ -1134,6 +1134,36 @@
       "source": "/meta-appeal-links-philippines/",
       "destination": "/meta-appeal-links-southeast-asia/",
       "permanent": true
+    },
+    {
+      "source": "/white-label",
+      "destination": "/white-label-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/white-label/",
+      "destination": "/white-label-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/partners",
+      "destination": "/white-label-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/partners/",
+      "destination": "/white-label-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/partner-program",
+      "destination": "/white-label-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/partner-program/",
+      "destination": "/white-label-agency/",
+      "permanent": true
     }
   ]
 }
