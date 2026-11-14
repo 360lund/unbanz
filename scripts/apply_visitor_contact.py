@@ -19,7 +19,7 @@ open(css_name, "w", encoding="utf-8").write(css)
 open(js_name, "w", encoding="utf-8").write(js)
 CSS_HREF = "/" + css_name
 JS_SRC = "/" + js_name
-MAIL = '<script src="/assets/mail-pick.b0ade601709f.js" defer></script>'
+MAIL = '<script src="/assets/mail-pick.904198892cc8.js" defer></script>'
 HEAR = '<script src="/assets/hear-source.5c7315a4962e.js" defer></script>'
 POLICY = '<link rel="stylesheet" href="%s"><script src="%s" defer></script>' % (CSS_HREF, JS_SRC)
 
