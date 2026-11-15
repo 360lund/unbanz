@@ -61,3 +61,8 @@ Our WhatsApp is restricted. Every wa.me link, the WhatsApp number and WhatsApp-c
 - Styles live in `assets/ecta.<hash>.css` (generated from `scripts/email_cta/ecta.css`; never delete old hashed files).
 - Generators: `scripts/cta_note.py` `with_cta_note()` / `write_page()` now also run the WhatsApp strip (`scripts/strip_whatsapp_contact/strip_one.py`) and this pass, so new pages get it automatically.
 - After any bulk build, also run: `python3 scripts/strip_whatsapp_contact/run_all.py . && python3 scripts/email_cta/run_ecta.py unbanz` (idempotent; `--check` reports without writing).
+
+## Email topic picker v3 (Nov 15 2026)
+- `assets/mail-pick.<hash>.js` is built from `scripts/nov15_picker/` (main.js + strings.js + picker.css; `python3 scripts/nov15_picker/build.py`). Two steps: grouped topic cards with icons, then username + optional "how did you hear" + sticky "Write the email". Bottom sheet with drag-to-close on mobile, centered modal on desktop, RTL, reduced motion, focus trap, scroll lock.
+- Same output as v2 (same topic values, subject/body template, "How I heard about Unbanz" line; the select keeps id `ubz-hear-mail` so hear-source.js leaves it alone). Tracking unchanged (.cm-dialog, .cm-pill[data-group=service][aria-pressed], data-service/data-platform on .mp-go).
+- Languages: en, fr, nl (v2 strings), plus es, pt, de, it, tr, ar, zh (new; v2 skipped these locales).
