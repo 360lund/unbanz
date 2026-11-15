@@ -6,7 +6,7 @@ for email there). Excluded: utility pages (404, /users/, /apply/, /leads).
 Country list (LOW) lives in the JS asset; edit it there and bump the hash in CTA_ASSET.
 The script itself is client-side only (country from /api/geo/, skipped for bots/automation), so indexable content never changes."""
 import re
-CTA_ASSET = '/assets/cta-note.e97d68bd7a10.js'
+CTA_ASSET = '/assets/cta-note.d3a1ba08f9c9.js'  # Nov 15 2026: synced to the file every page loads
 CTA_TAG = '<script src="%s" defer></script>' % CTA_ASSET
 _OLD = re.compile(r'<script src="/assets/cta-note\.[0-9a-f]+\.js" defer></script>')
 _HOME = re.compile(r'^(?:fr|es|nl|pt-br)?$', re.I)
@@ -22,6 +22,21 @@ def wants_cta_note(path):
     return True
 
 def with_cta_note(html, path):
+    """Return html with the current CTA tag plus the email-only contact pass (scripts/email_cta, Nov 15 2026). Idempotent."""
+    html = _with_cta_note_tag(html, path)
+    try:
+        import os, sys
+        here = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'email_cta')
+        if here not in sys.path: sys.path.insert(0, here)
+        import run_ecta
+        p = re.sub(r'^/+', '', (path or '').strip().replace('\\', '/'))
+        if not p.endswith('.html'): p = (p.rstrip('/') + '/index.html').lstrip('/')
+        html = run_ecta.apply_unbanz_page(html, p)
+    except Exception as e:  # never break a build; the post-build run (README) catches anything missed
+        import sys; print('email_cta hook skipped for %s: %s' % (path, e), file=sys.stderr)
+    return html
+
+def _with_cta_note_tag(html, path):
     """Return html with the current CTA tag (idempotent). Utility pages get any tag removed."""
     if not wants_cta_note(path) or 'name="robots" content="noindex' in html:
         return _OLD.sub('', html)

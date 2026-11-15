@@ -55,3 +55,9 @@ Never delete old hashed files in assets/ (site.*.css / site.*.js). Cached pages 
 
 ## Email-only contact (Nov 15 2026)
 Our WhatsApp is restricted. Every wa.me link, the WhatsApp number and WhatsApp-contact copy were removed; `assets/contact-policy.js` now sets `data-contact="email"` for every country. Older page generators in `scripts/` still emit wa.me links: after running any generator, run `python3 /workspace/nowa/run_all.py site` (or the copy in `scripts/strip_whatsapp_contact/`) before deploying.
+
+## Email CTA and email-only contact pass (Nov 15 2026)
+- `scripts/email_cta/` adds: a primary "Email us" button in every page header (`.ecta-hdr`; mobile-only `.ecta-m` on pages whose header already has an email link), an email-only statement under the H1 on contact/FAQ pages (`.ecta-only`), a visible and JSON-LD "How do I contact Unbanz?" Q&A on home/contact/FAQ pages, an email-only ContactPoint on our Organization/ProfessionalService JSON-LD, an end-of-page email band (`.ecta-band`) only on pages without an existing end CTA, a "How to contact" block at the top of llms.txt / llms-full.txt, and a prefilled subject+body on every `mailto:team@unbanz.com` link (the mail-pick topic picker still intercepts clicks; the href is the no-JS fallback).
+- Styles live in `assets/ecta.<hash>.css` (generated from `scripts/email_cta/ecta.css`; never delete old hashed files).
+- Generators: `scripts/cta_note.py` `with_cta_note()` / `write_page()` now also run the WhatsApp strip (`scripts/strip_whatsapp_contact/strip_one.py`) and this pass, so new pages get it automatically.
+- After any bulk build, also run: `python3 scripts/strip_whatsapp_contact/run_all.py . && python3 scripts/email_cta/run_ecta.py unbanz` (idempotent; `--check` reports without writing).

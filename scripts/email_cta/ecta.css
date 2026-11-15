@@ -1,0 +1,24 @@
+/* Email CTA (Nov 15 2026): email is the only contact channel. */
+.ecta-hdr{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:40px;padding:9px 18px;border-radius:999px;background:var(--ecta-bg,var(--blue,#2d719f));color:#fff!important;font-size:14px;font-weight:650;line-height:1.2;text-decoration:none!important;white-space:nowrap;box-shadow:0 1px 2px #0000001f;transition:filter .15s ease}
+.ecta-hdr:hover{filter:brightness(1.1)}
+.ecta-hdr:focus-visible,.ecta-btn:focus-visible,.mobile-contact a[href^="mailto:"]:focus-visible,.cta-pair a[href^="mailto:"]:focus-visible{outline:3px solid var(--accent,#8cc4f2);outline-offset:3px}
+.service-header .desktop-nav{margin-left:auto}
+.ecta-hdr.ecta-m{display:none}
+@media (max-width:650px){.ecta-hdr.ecta-m{display:inline-flex}.ecta-hdr{margin-left:auto;min-height:38px;padding:8px 14px;font-size:13px}}
+@media (max-width:360px){.ecta-hdr{padding:7px 10px;font-size:12px}}
+.ecta-only{margin:14px 0 0;max-width:46em;padding:12px 16px;border-left:4px solid var(--ecta-bg,var(--blue,#2d719f));border-radius:0 10px 10px 0;background:var(--ecta-card-bg,#fff);color:var(--ecta-card-ink,var(--ink,#25415d));box-shadow:0 1px 3px #00000014;font-size:15px;font-weight:600;line-height:1.5}
+.ecta-band{margin-top:48px;margin-bottom:48px}
+.ecta-card{padding:32px clamp(20px,4vw,44px);border:1px solid var(--line,#d7e3ee);border-radius:22px;background:var(--ecta-card-bg,#fff);color:var(--ecta-card-ink,var(--ink,#25415d))}
+.ecta-eye{margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted,inherit)}
+.ecta-card h2{margin:0 0 10px}
+.ecta-card p{max-width:44em}
+.ecta-btn{display:inline-flex;align-items:center;gap:8px;margin-top:8px;min-height:48px;padding:12px 24px;border-radius:999px;background:var(--ecta-bg,var(--blue,#2d719f));color:#fff!important;font-weight:650;text-decoration:none!important}
+.ecta-btn:hover{filter:brightness(1.1)}
+.ecta-note{margin:12px 0 0;font-size:14px;color:var(--muted,inherit)}
+.cta-pair a[href^="mailto:"]:first-child{font-weight:650}
+.mobile-contact a[href^="mailto:"]{background:var(--ecta-bg,var(--blue,#2d719f))!important;color:#fff!important;font-weight:650}
+.ecta-404{margin-top:20px}
+.service-proof .cta-pair a[href^="mailto:"]{background:var(--ecta-bg,var(--blue,#2d719f))!important;color:#fff!important;border-color:transparent!important;font-weight:650}
+.service-proof .cta-pair a[href^="mailto:"]:hover{filter:brightness(1.1)}
+a.header-contact[href^="mailto:"]{padding:9px 18px!important;border-radius:999px;background:var(--ecta-bg,var(--blue,#2d719f));color:#fff!important;font-weight:650;box-shadow:0 1px 2px #0000001f}
+a.header-contact[href^="mailto:"]:hover{filter:brightness(1.1)}
