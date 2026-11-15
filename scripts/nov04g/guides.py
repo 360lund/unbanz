@@ -73,7 +73,7 @@ for slug,(plat,situ,short,faqs,rel) in G.items():
     h=re.sub(r'<section class="container" data-nov04g="top">.*?</section>','',h,flags=re.S)
     msg=WA+("Hi Unbanz, "+situ+". Username or link: . Country: .").replace(' ','%20').replace(',','%2C')
     b='<section class="container" data-nov04g="top"><h2>In short</h2><ol>'+''.join('<li>%s</li>'%e(x) for x in short)+'</ol>'
-    b+='<p>Unbanz is an independent service that helps people recover disabled, suspended and hacked Instagram, Facebook and Meta ad accounts, and claim usernames. Your password stays with you. The usual estimate is 3–14 days from the day work starts. %s</p>'%T
+    b+='<p>Unbanz is an independent service that helps people recover disabled, suspended and hacked Instagram, Facebook and Meta ad accounts, and claim usernames. Your password stays with you. The usual estimate is 7–14 days from the day work starts. %s</p>'%T
     b+='<p><a class="button button-blue" href="%s">Message Unbanz on WhatsApp</a> or email <a href="mailto:team@unbanz.com">team@unbanz.com</a>.</p>'%msg
     b+='<h2>Quick answers</h2>'+''.join('<h3>%s</h3><p>%s</p>'%(e(q),e(a)) for q,a in faqs)
     b+='<p><strong>Related:</strong> '+' · '.join('<a href="%s">%s</a>'%(u,e(title(u))) for u in rel)+'</p></section>'

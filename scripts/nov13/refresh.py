@@ -51,17 +51,17 @@ def refresh_dates(s):
     return s
 
 # ---------- guarantee wording (EN only, timing) ----------
-GUAR = "Guaranteed 3–7 days from the day we start, with a 100% refund if it fails"
+GUAR = "Guaranteed 7–14 days from the day we start, with a 100% refund if not reinstated within 14 days"
 GUAR_SUBS = [
-    (re.compile(r"Work usually takes 3–7 days from the day we start(?:,| —|;)? (?:but )?(?:timing|that) is not guaranteed(?:,)? and [A-Z][A-Za-z]+ makes the final decision"), GUAR),
-    (re.compile(r"Work usually takes 3–7 days from the day we start(?:,|;) not guaranteed(?:,|;) (?:and )?[A-Z][A-Za-z]+ makes the final decision"), GUAR),
-    (re.compile(r"Work usually takes 3–7 days from the day we start, but timing is not guaranteed"), GUAR),
-    (re.compile(r"Work usually takes 3–7 days, not guaranteed"), "Guaranteed 3–7 days"),
-    (re.compile(r"Usually 3–7 days from the day we start; not guaranteed"), "Guaranteed 3–7 days from the day we start"),
-    (re.compile(r"(?:The platform|YouTube|TikTok|Meta) makes the final decision; usually 3–7 days, not guaranteed"), "Guaranteed 3–7 days, with a 100% refund if it fails"),
-    (re.compile(r"Most cases take 3–7 days, though that is not guaranteed, and Meta makes the final decision"), "Cases are guaranteed within 3–7 days, with a 100% refund if it fails"),
-    (re.compile(r"usually 3–7 days but no guarantee"), "guaranteed 3–7 days"),
-    (re.compile(r"Usually 3–7 days, not guaranteed"), "Guaranteed 3–7 days"),
+    (re.compile(r"Work usually takes 7–14 days from the day we start(?:,| —|;)? (?:but )?(?:timing|that) is not guaranteed(?:,)? and [A-Z][A-Za-z]+ makes the final decision"), GUAR),
+    (re.compile(r"Work usually takes 7–14 days from the day we start(?:,|;) not guaranteed(?:,|;) (?:and )?[A-Z][A-Za-z]+ makes the final decision"), GUAR),
+    (re.compile(r"Work usually takes 7–14 days from the day we start, but timing is not guaranteed"), GUAR),
+    (re.compile(r"Work usually takes 7–14 days, not guaranteed"), "Guaranteed 7–14 days"),
+    (re.compile(r"Usually 7–14 days from the day we start; not guaranteed"), "Guaranteed 7–14 days from the day we start"),
+    (re.compile(r"(?:The platform|YouTube|TikTok|Meta) makes the final decision; usually 7–14 days, not guaranteed"), "Guaranteed 7–14 days, with a 100% refund if not reinstated within 14 days"),
+    (re.compile(r"Most cases take 7–14 days, though that is not guaranteed, and Meta makes the final decision"), "Cases are guaranteed within 7–14 days, with a 100% refund if not reinstated within 14 days"),
+    (re.compile(r"usually 7–14 days but no guarantee"), "guaranteed 7–14 days"),
+    (re.compile(r"Usually 7–14 days, not guaranteed"), "Guaranteed 7–14 days"),
     (re.compile(r"Usual, not guaranteed"), "Guaranteed"),
 ]
 
@@ -112,22 +112,22 @@ def add_faq(s, url, qas):
     return s
 
 SIX = "6-month guarantee: if the account is banned again within 6 months, we recover it free or refund 100%."
-TERMS = "Paid upfront by card, guaranteed 3–7 days from the day we start, 100% refund if it fails, and we never need your password."
+TERMS = "Paid upfront by card, guaranteed 7–14 days from the day we start, 100% refund if not reinstated within 14 days, and we never need your password."
 
 PAGES = {
  "instagram-account-recovery": dict(
    title=("Instagram Account Recovery Service: Disabled &amp; Hacked", "Instagram Account Recovery Service 2026: Disabled &amp; Hacked"),
-   desc="Disabled, suspended or hacked Instagram account? Recovery for $800, guaranteed 3–7 days, 100% refund if it fails. Your password stays with you.",
+   desc="Disabled, suspended or hacked Instagram account? Recovery for $800, guaranteed 7–14 days, 100% refund if not reinstated within 14 days. Your password stays with you.",
    faq=[("How do I recover a disabled Instagram account in 2026?", "Request a review from the notice at login or in Account Status; Instagram does not take appeals by email or phone. If the appeal is rejected or never answered, Unbanz handles the case for $800. " + TERMS),
         ("How much does Instagram account recovery cost?", "$800 per Instagram account, or $1,500 for an Instagram and Facebook account together. " + TERMS + " " + SIX)]),
  "facebook-account-recovery": dict(
    title=("Facebook Account Recovery Service: Disabled &amp; Hacked", "Facebook Account Recovery Service 2026: Disabled &amp; Hacked"),
-   desc="Facebook account disabled, suspended or hacked? Profile recovery for $900, guaranteed 3–7 days, 100% refund if it fails. No passwords needed.",
+   desc="Facebook account disabled, suspended or hacked? Profile recovery for $900, guaranteed 7–14 days, 100% refund if not reinstated within 14 days. No passwords needed.",
    faq=[("How do I recover a disabled Facebook account in 2026?", "Open the notice Facebook shows at login (or Accounts Center) and request a review there within the window Meta gives. If the appeal is rejected or stuck, Unbanz handles the case for $900. " + TERMS),
         ("How much does Facebook account recovery cost?", "$900 per Facebook profile, $1,500 for Instagram and Facebook together, and $600 per Facebook Page. " + TERMS + " " + SIX)]),
  "ad-account-recovery": dict(
    title=("Meta Ad Account Disabled or Restricted? Recovery Service", "Meta Ad Account Disabled or Restricted? Recovery Service 2026"),
-   desc="Meta ad account disabled or restricted, or Business Portfolio blocked? Ad account recovery $1,200, Business Portfolio $1,500. Guaranteed 3–7 days.",
+   desc="Meta ad account disabled or restricted, or Business Portfolio blocked? Ad account recovery $1,200, Business Portfolio $1,500. Guaranteed 7–14 days.",
    faq=[("How do I get a disabled Meta ad account back in 2026?", "An admin requests a review in Business Support Home or Account Quality after fixing the cause (billing, domain, policy). If the review is rejected, Unbanz handles the case: $1,200 per ad account, $1,500 per Business Portfolio. " + TERMS),
         ("How much does ad account recovery cost?", "$1,200 for one Instagram or Facebook ad account and $1,500 for a Meta Business Portfolio. " + TERMS + " " + SIX)]),
  "username": dict(
@@ -136,7 +136,7 @@ PAGES = {
    faq=[("How do I get an inactive or taken Instagram username in 2026?", "Instagram does not sell usernames, and buying an account breaks its terms. Unbanz claims the handle onto your own profile through Instagram’s own processes for a flat $1,200 per handle, paid upfront, with a 100% refund if the claim fails. We never need your password.")]),
  "tiktok-unban-service": dict(
    title=("TikTok Unban Service: Banned TikTok Account Recovery ($900, 100% Refund)", "TikTok Unban Service 2026: Banned Account Recovery ($900)"),
-   desc="Unbanz recovers banned and permanently banned TikTok accounts for $900, paid upfront, 100% refund if it fails. No passwords. Guaranteed 3–7 days.",
+   desc="Unbanz recovers banned and permanently banned TikTok accounts for $900, paid upfront, 100% refund if not reinstated within 14 days. No passwords. Guaranteed 7–14 days.",
    faq=[("How do I get a banned TikTok account back in 2026?", "Appeal from the ban notice in the TikTok app (Inbox > System notifications) first. If the appeal is rejected or the ban is permanent, Unbanz handles the case for $900. " + TERMS)]),
  "tiktok-account-help": dict(
    title=("TikTok Account Banned or Suspended? Help, Guides and Recovery ($900)", "TikTok Account Banned? 2026 Help, Guides and Recovery ($900)"),
@@ -149,7 +149,7 @@ PAGES = {
         ("How much does WhatsApp ban recovery cost?", "$600 per WhatsApp number. " + TERMS + " " + SIX)]),
  "youtube-channel-recovery-service": dict(
    title=("YouTube Channel Recovery Service: Terminated Channels ($1,200, 100% Refund)", "YouTube Channel Recovery Service 2026: Terminated ($1,200)"),
-   desc="Unbanz recovers terminated and hacked YouTube channels for $1,200, paid upfront, 100% refund if it fails. No passwords. Guaranteed 3–7 days.",
+   desc="Unbanz recovers terminated and hacked YouTube channels for $1,200, paid upfront, 100% refund if not reinstated within 14 days. No passwords. Guaranteed 7–14 days.",
    faq=[("How do I recover a terminated YouTube channel in 2026?", "Submit the termination appeal from YouTube Studio or the appeal form linked in the termination email. If it is rejected, Unbanz handles the case for $1,200 per channel. " + TERMS + " " + SIX)]),
  "facebook-page-recovery": dict(
    title=("Facebook Page Recovery: Lost Admin or Page Held by Another Business ($600)", "Facebook Page Recovery 2026: Lost Admin or Page Taken ($600)"),
@@ -159,7 +159,7 @@ PAGES = {
    title=("Pricing: Account Recovery and Username Claims | Unbanz", "Unbanz Pricing 2026: Account Recovery and Username Fees"),
    desc="Instagram $800, Facebook $900, both $1,500, ad account $1,200, Business Portfolio $1,500, username $1,200, TikTok $900, YouTube $1,200, WhatsApp $600.",
    faq=[("How much does it cost to recover a banned account in 2026?", "Instagram $800, Facebook $900, Instagram and Facebook together $1,500, Facebook Page $600, ad account $1,200, Business Portfolio $1,500, username claim $1,200, TikTok $900, YouTube $1,200, WhatsApp $600. " + TERMS),
-        ("Is there a guarantee?", "Yes. Every case is guaranteed within 3–7 days from the day we start, with a 100% refund if it fails. " + SIX),
+        ("Is there a guarantee?", "Yes. Every case is guaranteed within 7–14 days from the day we start, with a 100% refund if not reinstated within 14 days. " + SIX),
         ("Do I pay a deposit or the full price?", "The full fee upfront by card through a secure checkout link, once you agree. No deposits or split payments. Nothing is charged for asking.")]),
  "": dict(
    faq=[("How much does Unbanz cost in 2026?", "Instagram $800, Facebook $900, both $1,500, ad account $1,200, Business Portfolio $1,500, username $1,200, TikTok $900, YouTube $1,200, Facebook Page $600, WhatsApp $600. " + TERMS + " " + SIX)]),

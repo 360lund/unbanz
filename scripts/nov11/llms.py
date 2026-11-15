@@ -8,7 +8,7 @@ def meta(s):
     return ti,d
 SERV='''## What Unbanz does (services and fixed fees)
 
-All fees are in USD, fixed, and paid upfront by card. If a case fails, the client gets a full 100% refund. Usual timing is 3–7 days from the day work starts; this is not guaranteed and the platform makes the final decision. Unbanz is independent, not Meta, TikTok or Google, and never asks for passwords or login codes.
+All fees are in USD, fixed, and paid upfront by card. If a case fails, the client gets a full 100% refund. Usual timing is 7–14 days from the day work starts; this is not guaranteed and the platform makes the final decision. Unbanz is independent, not Meta, TikTok or Google, and never asks for passwords or login codes.
 
 1. Instagram disabled, suspended or hacked account: $800 per account. https://unbanz.com/instagram-account-recovery/
 2. Facebook profile hacked or disabled: $900 per profile. https://unbanz.com/facebook-account-recovery/

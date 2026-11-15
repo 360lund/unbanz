@@ -3,7 +3,7 @@ from gen import ul, ol, a, ext
 P=[]
 import b5
 b5.P.clear()
-HELP['ar']=('musaada','تفضّل أن نتولّى الأمر؟','<p>تتولّى Unbanz حسابات إنستغرام مقابل 800 دولار وفيسبوك مقابل 900 دولار، تُدفع مقدّماً بالبطاقة مع استرداد 100% إذا فشلت الحالة. عادةً 3 إلى 7 أيام من بدء العمل، دون ضمان؛ القرار النهائي لميتا. Unbanz مستقلة عن ميتا ولا تطلب أبداً كلمات المرور أو الرموز. راسلنا على <a href="mailto:team@unbanz.com">team@unbanz.com</a>.</p>')
+HELP['ar']=('musaada','تفضّل أن نتولّى الأمر؟','<p>تتولّى Unbanz حسابات إنستغرام مقابل 800 دولار وفيسبوك مقابل 900 دولار، تُدفع مقدّماً بالبطاقة مع استرداد 100% إذا فشلت الحالة. عادةً 7 إلى 14 يومًا من بدء العمل، دون ضمان؛ القرار النهائي لميتا. Unbanz مستقلة عن ميتا ولا تطلب أبداً كلمات المرور أو الرموز. راسلنا على <a href="mailto:team@unbanz.com">team@unbanz.com</a>.</p>')
 CR['ar']=(('الأدلة','/ar/'),'الرئيسية / الأدلة'); H['ar']=('الرابط','الغرض')
 LK='facebook-and-instagram-disabled-together-linked-accounts'; AC='https://accountscenter.instagram.com/'; AS='https://help.instagram.com/338481628002750'
 def linked(l,slug,title,short,desc,h1,lede,answer,cards,why,steps,lt,faqs,rel):

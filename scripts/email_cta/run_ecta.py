@@ -66,11 +66,12 @@ if __name__ == '__main__':
 def _strip(t, is_html=True):
     """Run the WhatsApp-contact strip (../strip_whatsapp_contact/strip_one.py) when it sits next to this folder."""
     d = os.path.join(os.path.dirname(HERE), 'strip_whatsapp_contact')
+    import timeframe  # Nov 15 2026: recovery time is guaranteed 7–14 days, refund if not reinstated within 14 days
     if not os.path.isfile(os.path.join(d, 'strip_one.py')):
-        return t
+        return timeframe.fix(t)
     if d not in sys.path: sys.path.insert(0, d)
     import strip_one
-    return strip_one.strip_one(t, is_html)
+    return timeframe.fix(strip_one.strip_one(t, is_html))
 
 def apply_unbanz_page(html, rel):
     """Generator hook for one Unbanz page (rel like 'about/index.html')."""

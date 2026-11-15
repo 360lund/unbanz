@@ -58,7 +58,7 @@ def build(p):
     if p.get('service'):
         nm,price,area=p['service']
         graph.append({"@type":"Service","@id":URL+"#service","name":nm,"serviceType":"Account recovery","provider":{"@id":"https://unbanz.com/#organization"},"url":URL,"areaServed":["US","GB","CA","AU","IE","NZ","AE","SA","QA","KW","DE","FR","NL","BE","CH","ES","PT","IT","SE","NO","DK"],
-          "offers":{"@type":"Offer","price":price,"priceCurrency":"USD","url":URL,"description":"Paid upfront by card. 100% refund if the case fails. Usually 3–7 days, not guaranteed."}})
+          "offers":{"@type":"Offer","price":price,"priceCurrency":"USD","url":URL,"description":"Paid upfront by card. 100% refund if the case fails. Usually 7–14 days, not guaranteed."}})
     if p.get('howto'):
         graph.append({"@type":"HowTo","@id":URL+"#howto","name":p['howto'][0],"step":[{"@type":"HowToStep","position":i+1,"name":s[:80],"text":s} for i,s in enumerate(p['howto'][1])]})
     head=head[:m.start(1)]+json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False)+head[m.end(1):]

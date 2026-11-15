@@ -17,7 +17,7 @@ P={
 'ad-account-recovery':('my Meta ad account is disabled or restricted','Meta ad account disabled or restricted: the short answer',
  'Open Meta Business Support Home, screenshot the exact notice, fix the cause it points to, then request one review as an admin. Most failed appeals argue the decision was wrong instead of showing what changed. Unbanz prepares the appeal and handles it through Meta’s official review. Meta makes the final decision.',
  [('What is the difference between a disabled and a restricted ad account?','Restricted usually means a limit you can request review on. Disabled means ads stopped at account level. The notice in Business Support Home says which one applies.'),
-  ('How long does Meta take to review an ad account?','Meta says many reviews finish in about 48 hours, but some take much longer. With Unbanz the usual estimate is 3–14 days from the day work starts.'),
+  ('How long does Meta take to review an ad account?','Meta says many reviews finish in about 48 hours, but some take much longer. With Unbanz the usual estimate is 7–14 days from the day work starts.'),
   ('What does Unbanz need to look at my ad account?','The ad account ID, the Business Portfolio ID, a screenshot of the notice, your country and whether business verification is done. Never a password or login code.'),
   ('Can I just open a new ad account?','Creating new accounts to get around a restriction can be treated as circumventing systems and make things worse. Deal with the original account first.')]),
 'facebook-ad-account-disabled':('my Facebook ad account is disabled','Disabled ad account: the short answer',
@@ -68,7 +68,7 @@ for slug,(situ,h2,ans,faqs) in P.items():
     h=re.sub(r'<section class="container" data-nov04i="ads">.*?</section>','',h,flags=re.S)
     msg='https://wa.me/19342012490?text='+U.quote('Hi Unbanz, %s. Ad account ID: . Business Portfolio ID: . Country: . I can send a screenshot of the notice.'%situ)
     b='<section class="container" data-nov04i="ads"><h2>%s</h2><p class="answer">%s</p>'%(e(h2),e(ans))
-    b+='<p><a class="button button-blue" href="%s">Send the ad account ID on WhatsApp</a> or email <a href="mailto:team@unbanz.com?subject=Ad%%20account%%20help">team@unbanz.com</a>. Your password stays with you. The usual estimate is 3–14 days from the day work starts. %s</p>'%(msg,T)
+    b+='<p><a class="button button-blue" href="%s">Send the ad account ID on WhatsApp</a> or email <a href="mailto:team@unbanz.com?subject=Ad%%20account%%20help">team@unbanz.com</a>. Your password stays with you. The usual estimate is 7–14 days from the day work starts. %s</p>'%(msg,T)
     b+=('<h3>What to send</h3><ul><li>A screenshot of the full notice from Business Support Home</li><li>The ad account ID and Business Portfolio ID</li>'
         '<li>The landing page and ads running when it happened</li><li>Whether business verification is complete, and your country</li></ul>'
         '<h3>What we never do</h3><ul><li>Ask for a password, login code or backup code</li><li>Rent, sell or supply ad accounts, or help anyone get around an enforcement decision</li>'

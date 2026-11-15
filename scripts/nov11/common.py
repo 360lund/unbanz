@@ -13,7 +13,7 @@ PER={'page':' per Page','user':' per handle'}
 def helpsec(k,extra=''):
     n,p,u,_,pl=SV[k]
     fee=f'a fixed ${int(p):,}{PER.get(k,"")}, paid upfront by card, with a 100% refund if the case fails' if p else 'a price confirmed before you pay, with a 100% refund if the case fails'
-    return ('want-it-handled','Want it handled for you?',f'<p>Unbanz handles <a href="{u}">{n.lower() if not n.startswith(("Instagram","Facebook","Meta","TikTok","YouTube","Snapchat","Business","WhatsApp")) else n}</a> for {fee}. Work usually takes 3–7 days from the day we start, but timing is not guaranteed and {pl} makes the final decision. {extra}We are independent, not {pl}, and we never ask for your password or login codes.</p><p>To start, send a screenshot of the full notice, the username or link, and your country to <a href="mailto:team@unbanz.com">team@unbanz.com</a>. See every fee on the <a href="/pricing/">pricing page</a>.</p>')
+    return ('want-it-handled','Want it handled for you?',f'<p>Unbanz handles <a href="{u}">{n.lower() if not n.startswith(("Instagram","Facebook","Meta","TikTok","YouTube","Snapchat","Business","WhatsApp")) else n}</a> for {fee}. Work usually takes 7–14 days from the day we start, but timing is not guaranteed and {pl} makes the final decision. {extra}We are independent, not {pl}, and we never ask for your password or login codes.</p><p>To start, send a screenshot of the full notice, the username or link, and your country to <a href="mailto:team@unbanz.com">team@unbanz.com</a>. See every fee on the <a href="/pricing/">pricing page</a>.</p>')
 def svc(k): n,p,u,sv,pl=SV[k]; return (n,p,'') if p else None
 def P(**k):
     s=k.pop('svc',None)

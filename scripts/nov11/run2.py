@@ -19,7 +19,7 @@ hub=dict(slug='de',lang='de',sv='unban',crumb=('Start','/de/'),crumbtxt='Start',
  cards=[('Festpreise','Vorher bekannt.'),('100 % zurück','Bei Misserfolg.'),('Keine Passwörter','Niemals.')],
  sections=[('ratgeber','Ratgeber auf Deutsch',ul([a('/'+s+'/',html.escape(t_of(s))) for s in de_pages])),
   ('kontakt','Kontakt','<p>Schick einen Screenshot der Meldung, den Nutzernamen oder Link und dein Land an <a href="mailto:team@unbanz.com">team@unbanz.com</a>. Wir antworten ehrlich, ob wir den Fall übernehmen können.</p>')],
- faqs=[('Ist Unbanz Meta oder TikTok?','Nein. Unbanz ist unabhängig.'),('Wie lange dauert es?','Meist 3–7 Tage ab Start, ohne Garantie.')])
+ faqs=[('Ist Unbanz Meta oder TikTok?','Nein. Unbanz ist unabhängig.'),('Wie lange dauert es?','Meist 7–14 Tage ab Start, ohne Garantie.')])
 gen.build(hub); built.append(('de','home'))
 # ---------- hreflang groups
 ALT=re.compile(r'<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*')

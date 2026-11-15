@@ -101,7 +101,7 @@ def process(slug, idx):
     # rule fixes
     if slug == 'how-long-does-meta-ad-account-review-take':
         s = drop_faq(s, 'How long does Unbanz take?')
-        s = s.replace(' Usual estimate is 3–14 days from the day work starts.', ' Meta sets the timing and nobody outside Meta can promise it.')
+        s = s.replace(' Usual estimate is 7–14 days from the day work starts.', ' Meta sets the timing and nobody outside Meta can promise it.')
     if slug == 'who-can-recover-a-disabled-facebook-ad-account':
         s = s.replace('Is Unbanz a Meta partner?', 'Is Unbanz affiliated with Meta?')
         s = s.replace('Anyone claiming to be a Meta employee or partner rep, renting', 'Anyone who says they can switch your account back on through a contact inside Meta, renting')
