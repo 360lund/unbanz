@@ -1,42 +1,4 @@
-// Mobile primary CTA: a direct WhatsApp link with a prefilled message about the page. The popup link stays as the secondary option.
-(() => {
-  try {
-    if (!/^en\b/i.test(document.documentElement.lang || '')) return;
-    if (/^\/(users|contact|apply|terms|privacy|reviews)(\/|$)/.test(location.pathname)) return;
-    const wrap = document.querySelector('.service-hero > .container');
-    if (!wrap) return;
-    const orig = wrap.querySelector('.hero-cta a[href^="https://wa.me/"], .guide-cta-top a[href^="https://wa.me/"]');
-    if (!orig || wrap.querySelector('.wa-direct')) return;
-    const u = new URL(orig.href);
-    let text = (u.searchParams.get('text') || '').trim();
-    if (!text || /^Hey Unbanz, I need help with an account\.?$/i.test(text)) {
-      const h = wrap.querySelector('h1');
-      let t = '';
-      if (h) { const c = h.cloneNode(true); c.querySelectorAll('br').forEach(b => b.replaceWith(' ')); t = c.textContent.replace(/\s+/g, ' ').trim().replace(/[.!?]+$/, ''); }
-      if (t.length > 90) t = t.slice(0, 90).replace(/\s+\S*$/, '');
-      text = t ? 'Hey Unbanz, I’m on your page “' + t + '” and need help with my account. Can you help?' : 'Hey Unbanz, I need help with my account. Can you help?';
-    }
-    const direct = document.createElement('a');
-    direct.className = orig.className.replace(/\bservice-chat\b/g, '').trim() + ' wa-direct';
-    if (!/\bbutton\b/.test(direct.className) && !orig.closest('.guide-cta-top')) direct.className += ' button button-light';
-    direct.href = 'https://wa.me/19342012490?text=' + encodeURIComponent(text);
-    direct.target = '_blank'; direct.rel = 'noopener';
-    direct.setAttribute('data-direct', '');
-    ['service', 'platform'].forEach(k => { if (orig.dataset[k]) direct.dataset[k] = orig.dataset[k]; });
-    direct.innerHTML = 'Message us on WhatsApp <span aria-hidden="true">↗︎</span>';
-    const note = document.createElement('span');
-    note.className = 'wa-direct-note';
-    note.textContent = 'Your message is already written. Just press send.';
-    const alt = document.createElement('span'); alt.className = 'wa-lbl-m'; alt.innerHTML = 'Choose your topic first <span aria-hidden="true">↗︎</span>';
-    const old = document.createElement('span'); old.className = 'wa-lbl-d';
-    while (orig.firstChild) old.appendChild(orig.firstChild);
-    orig.append(old, alt);
-    orig.classList.add('wa-alt');
-    orig.parentNode.insertBefore(direct, orig);
-    orig.parentNode.insertBefore(note, orig);
-    wrap.classList.add('wa-on');
-  } catch (e) {}
-})();
+// Mobile WhatsApp CTA removed (Nov 15 2026): contact is email only.
 // Unbanz first-party analytics: one row per browser session plus a persistent anonymous visitor id
 // (random, localStorage 'ubzv'), so returning visitors group together. No cookies, no IPs, no personal data.
 // Also builds the "(via ChatGPT)"-style source tag used in WhatsApp/email prefills.
@@ -330,118 +292,18 @@
   });
 })();
 
-// Contact modal: intercepts WhatsApp CTAs; plain wa.me href stays as no-JS fallback.
-(() => {
-  const WA = 'https://wa.me/19342012490', MAIL = 'team@unbanz.com';
-  const services = [['unban', 'Unban my account'], ['ban', 'Ban an account'], ['username', 'Username claim'], ['ad', 'Ad account'], ['other', 'Other']];
-  const platforms = ['Instagram', 'Facebook', 'Snapchat'];
-  const p = new URLSearchParams(location.search);
-  const campaign = ['utm_source', 'utm_campaign'].map(k => p.get(k)?.replace(/[\r\n]/g, ' ').slice(0, 100)).filter(Boolean).join(' / ');
-  let modal, lastFocus, state = { service: 'unban', platform: 'Instagram' };
-  const pills = (name, items) => items.map(([v, l], i) => `<button type="button" class="cm-pill" data-group="${name}" data-value="${v}" aria-pressed="${i === 0}">${l}</button>`).join('');
-  const sentence = () => {
-    const pl = state.platform, s = state.service;
-    const base = s === 'unban' ? `I want to unban my ${pl} account`
-      : s === 'ban' ? `I want to get a ${pl} account taken down`
-      : s === 'username' ? `I want to claim a ${pl} username`
-      : s === 'ad' ? (pl === 'Instagram' || pl === 'Facebook' ? `I need help with my Meta ad account (${pl})` : `I need help with an ad account on ${pl}`)
-      : `I need help with my ${pl} account`;
-    const reason = modal.querySelector('#cm-reason').value.replace(/\s+/g, ' ').trim();
-    return `Hey Unbanz, ${base}.` + (reason ? ` Reason: ${reason}` : '') + (window.unbanzViaTag ? ` ${window.unbanzViaTag}` : '');
-  };
-  // When a CTA carries no preset, guess service/platform from the page so the popup starts on the right answer.
-  const infer = () => {
-    const s = location.pathname.toLowerCase().replace(/^\/(fr|nl|es|pt|pt-br)\//, '/');
-    const platform = /snapchat/.test(s) ? 'Snapchat' : /facebook|meta-|business-manager/.test(s) ? 'Facebook' : 'Instagram';
-    const service = /^\/(ban|fake-account-takedown|harassment-account-removal|impersonation-account-removal|scammer-account-removal|report-)/.test(s) ? 'ban'
-      : /username|one-letter|\/og-|-og-/.test(s) ? 'username'
-      : /ad-account|ads-account|meta-ad|meta-business|business-manager|meta-agency|meta-special|ads-/.test(s) ? 'ad'
-      : /sextortion|scam|fake|harass|impersonat|copyright/.test(s) ? 'other' : 'unban';
-    return { service, platform };
-  };
-  const build = () => {
-    modal = document.createElement('div');
-    modal.className = 'cm-backdrop';
-    modal.hidden = true;
-    modal.innerHTML = `<div class="cm-dialog" role="dialog" aria-modal="true" aria-labelledby="cm-title" tabindex="-1">
-      <button type="button" class="cm-close" aria-label="Close">×</button>
-      <p class="eyebrow cm-eyebrow">MESSAGE US ON WHATSAPP</p>
-      <h2 id="cm-title">What do you need?</h2>
-      <p class="cm-hint">Everything here is optional. Tap Continue to open WhatsApp with your message ready.</p>
-      <fieldset class="cm-group"><legend>Service</legend><div class="cm-pills">${pills('service', services)}</div></fieldset>
-      <fieldset class="cm-group"><legend>Platform</legend><div class="cm-pills">${pills('platform', platforms.map(x => [x, x]))}</div></fieldset>
-      <label class="cm-label" for="cm-reason">Short reason <span>(optional)</span></label>
-      <textarea id="cm-reason" maxlength="200" rows="2" placeholder="e.g. disabled after a login from a new phone"></textarea>
-      <p class="cm-count" aria-live="polite"><span>0</span>/200</p>
-      <div class="cm-actions"><a class="button button-blue cm-wa" href="${WA}" target="_blank" rel="noopener">Continue on WhatsApp <span aria-hidden="true">↗︎</span></a><a class="button button-light cm-mail" href="mailto:${MAIL}">Email us instead</a></div>
-      <p class="cm-note">Never send passwords or login codes.</p></div>`;
-    document.body.appendChild(modal);
-    modal.addEventListener('click', e => {
-      const pill = e.target.closest('.cm-pill');
-      if (pill) {
-        state[pill.dataset.group] = pill.dataset.value;
-        modal.querySelectorAll(`.cm-pill[data-group="${pill.dataset.group}"]`).forEach(b => b.setAttribute('aria-pressed', b === pill));
-        update();
-      }
-      if (e.target === modal || e.target.closest('.cm-close')) close();
-    });
-    const ta = modal.querySelector('#cm-reason');
-    ta.addEventListener('input', () => { modal.querySelector('.cm-count span').textContent = ta.value.length; update(); });
-    modal.querySelector('.cm-wa').addEventListener('click', () => { update(); setTimeout(close, 50); });
-    modal.querySelector('.cm-mail').addEventListener('click', update);
-    modal.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { e.preventDefault(); close(); }
-      if (e.key === 'Tab') {
-        const f = [...modal.querySelectorAll('button, a[href], textarea')];
-        const first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  };
-  const update = () => {
-    const text = sentence();
-    modal.querySelector('.cm-wa').href = `${WA}?text=${encodeURIComponent(text)}`;
-    modal.querySelector('.cm-mail').href = `mailto:${MAIL}?subject=${encodeURIComponent('Account help')}&body=${encodeURIComponent(text)}`;
-  };
-  const open = (preset = {}) => {
-    if (!modal) build();
-    const guess = infer(), svc = preset.service || guess.service, plt = preset.platform || guess.platform;
-    if (services.some(([v]) => v === svc)) state.service = svc;
-    if (platforms.includes(plt)) state.platform = plt;
-    modal.querySelectorAll('.cm-pill').forEach(b => b.setAttribute('aria-pressed', String(state[b.dataset.group] === b.dataset.value)));
-    lastFocus = document.activeElement;
-    update();
-    modal.hidden = false;
-    document.documentElement.classList.add('cm-lock');
-    void modal.offsetWidth; modal.classList.add('is-open');
-    modal.querySelector('.cm-dialog').focus();
-  };
-  const close = () => {
-    if (!modal || modal.hidden) return;
-    modal.classList.remove('is-open');
-    document.documentElement.classList.remove('cm-lock');
-    setTimeout(() => { modal.hidden = true; }, 220);
-    lastFocus?.focus?.();
-  };
-  document.addEventListener('click', e => {
-    const a = e.target.closest('a[href^="https://wa.me/"]');
-    if (!a || a.closest('.cm-dialog') || a.hasAttribute('data-direct') || e.metaKey || e.ctrlKey || e.shiftKey) return;
-    e.preventDefault();
-    open({ service: a.dataset.service, platform: a.dataset.platform });
-  });
-  window.unbanzContact = { open, close };
-})();
+// WhatsApp contact modal removed (Nov 15 2026): contact is email only.
+window.unbanzContact = { open() {}, close() {} };
 
 // CTA helpers: trust line in the sticky bar, and one inline CTA after the first section of guides.
 (() => {
   const lang = (document.documentElement.lang || 'en').toLowerCase().slice(0, 2);
   const T = {
-    en: { sub: 'Nothing is charged for asking', subUser: '100% refund if a username claim fails', title: 'Want us to handle this for you?', btn: 'Message us on WhatsApp', note: 'Nothing is charged for asking. We’re an independent service, not affiliated with Meta, and we work through Meta’s official process.' },
-    fr: { sub: 'Poser la question ne coûte rien', subUser: 'Remboursé à 100 % si le pseudo échoue', title: 'Vous voulez qu’on s’en occupe pour vous ?', btn: 'Écrivez-nous sur WhatsApp', note: 'Poser la question ne coûte rien. Nous sommes un service indépendant, non affilié à Meta, et nous passons par le processus officiel de Meta.' },
-    nl: { sub: 'Vragen kost niets', subUser: '100% terug als je claim mislukt', title: 'Wil je dat wij dit voor je regelen?', btn: 'Stuur ons een bericht op WhatsApp', note: 'Vragen kost niets. We zijn een onafhankelijke dienst, niet verbonden aan Meta, en werken via het officiële proces van Meta.' },
-    es: { sub: 'Preguntar no cuesta nada', subUser: 'Reembolso del 100 % si el reclamo falla', title: '¿Quieres que nos encarguemos por ti?', btn: 'Escríbenos por WhatsApp', note: 'Preguntar no cuesta nada. Somos un servicio independiente, sin afiliación con Meta, y trabajamos por el proceso oficial de Meta.' },
-    pt: { sub: 'Perguntar não custa nada', subUser: '100% de reembolso se a solicitação falhar', title: 'Quer que a gente cuide disso para você?', btn: 'Mande uma mensagem no WhatsApp', note: 'Perguntar não custa nada. Somos um serviço independente, sem afiliação com a Meta, e trabalhamos pelo processo oficial da Meta.' }
+    en: { sub: 'Nothing is charged for asking', subUser: '100% refund if a username claim fails', title: 'Want us to handle this for you?', btn: 'Email us', note: 'Nothing is charged for asking. We’re an independent service, not affiliated with Meta, and we work through Meta’s official process.' },
+    fr: { sub: 'Poser la question ne coûte rien', subUser: 'Remboursé à 100 % si le pseudo échoue', title: 'Vous voulez qu’on s’en occupe pour vous ?', btn: 'Écrivez-nous par e-mail', note: 'Poser la question ne coûte rien. Nous sommes un service indépendant, non affilié à Meta, et nous passons par le processus officiel de Meta.' },
+    nl: { sub: 'Vragen kost niets', subUser: '100% terug als je claim mislukt', title: 'Wil je dat wij dit voor je regelen?', btn: 'Mail ons', note: 'Vragen kost niets. We zijn een onafhankelijke dienst, niet verbonden aan Meta, en werken via het officiële proces van Meta.' },
+    es: { sub: 'Preguntar no cuesta nada', subUser: 'Reembolso del 100 % si el reclamo falla', title: '¿Quieres que nos encarguemos por ti?', btn: 'Escríbenos por correo', note: 'Preguntar no cuesta nada. Somos un servicio independiente, sin afiliación con Meta, y trabajamos por el proceso oficial de Meta.' },
+    pt: { sub: 'Perguntar não custa nada', subUser: '100% de reembolso se a solicitação falhar', title: 'Quer que a gente cuide disso para você?', btn: 'Envie um e-mail', note: 'Perguntar não custa nada. Somos um serviço independente, sem afiliação com a Meta, e trabalhamos pelo processo oficial da Meta.' }
   }[lang] || null;
   if (!T) return;
   const isGuide = document.body.classList.contains('guide-page');
@@ -456,13 +318,13 @@
   // Inline CTA after the first section of a guide, written in the guide's own language.
   const h2s = isGuide ? Array.from(document.querySelectorAll('.guide-body h2')) : [];
   if (h2s.length >= 3 && !document.querySelector('.inline-cta')) {
-    const WA = 'https://wa.me/19342012490';
+    const WA = 'mailto:team@unbanz.com';
     const greet = { en: 'Hey Unbanz, I need help with an account', fr: 'Hey Unbanz, j’ai besoin d’aide avec un compte', nl: 'Hey Unbanz, ik heb hulp nodig met een account', es: 'Hola Unbanz, necesito ayuda con una cuenta', pt: 'Olá Unbanz, preciso de ajuda com uma conta' }[lang];
     const box = document.createElement('aside');
     box.className = 'inline-cta';
     box.setAttribute('aria-label', T.title);
     const tt = document.createElement('p'); tt.className = 'inline-cta-title'; tt.textContent = T.title;
-    const a = document.createElement('a'); a.className = 'button button-blue'; a.href = `${WA}?text=${encodeURIComponent(greet + (window.unbanzViaTag ? ' ' + window.unbanzViaTag : ''))}`;
+    const a = document.createElement('a'); a.className = 'button button-blue'; a.href = `${WA}?subject=Account%20help&body=${encodeURIComponent(greet + (window.unbanzViaTag ? ' ' + window.unbanzViaTag : ''))}`;
     a.append(T.btn + ' ');
     const ar = document.createElement('span'); ar.setAttribute('aria-hidden', 'true'); ar.textContent = '↗︎'; a.appendChild(ar);
     const nt = document.createElement('p'); nt.className = 'inline-cta-note'; nt.textContent = T.note;

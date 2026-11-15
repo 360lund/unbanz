@@ -1,6 +1,6 @@
 # Unbanz — static website
 
-One website. No React, Vite, Firebase, backend, npm install or build step. All enquiries use WhatsApp or email. No admin dashboard.
+One website. No React, Vite, Firebase, backend, npm install or build step. All enquiries use email (team@unbanz.com). WhatsApp contact was removed on Nov 15 2026. No admin dashboard.
 
 ## Upload this ZIP to GitHub / Vercel
 
@@ -15,10 +15,9 @@ Every exported HTML page references the same CSS and JavaScript files under asse
 
 ## Contact
 
-WhatsApp: +1 934 201 2490
-Email: team@unbanz.com
+Email: team@unbanz.com (only contact channel; our WhatsApp number was removed everywhere on Nov 15 2026 — do not re-add it).
 
-Visitors send messages in WhatsApp or email. Nothing is submitted to a website backend. No automatic delivery confirmation is shown. Contact numbers/mailbox deliverability must be checked by the owner before ads run.
+Visitors send messages by email. Nothing is submitted to a website backend. No automatic delivery confirmation is shown. Contact numbers/mailbox deliverability must be checked by the owner before ads run.
 
 ## Pages
 
@@ -53,3 +52,6 @@ Never delete old hashed files in assets/ (site.*.css / site.*.js). Cached pages 
 
 ## Paid-service note (human-only)
 `assets/cta-note.<hash>.js` shows a one-line note ("Unbanz is a paid professional service...", translated per page language) to human visitors from IN, PK, BD, NG, KE, NP, LK, GH, EG, IQ, DZ, MA, PH, ID (country from `/api/geo/`). Client-side only, skipped for bots/automation, never on the homepage or locale homes. Generators call `scripts/cta_note.py` (`write_page` / `with_cta_note`) so new pages get the tag; `scripts/apply_cta_note.py` re-applies it site-wide. If the JS changes, make a new hashed file, keep the old one, update `CTA_ASSET`, and re-run `apply_cta_note.py`.
+
+## Email-only contact (Nov 15 2026)
+Our WhatsApp is restricted. Every wa.me link, the WhatsApp number and WhatsApp-contact copy were removed; `assets/contact-policy.js` now sets `data-contact="email"` for every country. Older page generators in `scripts/` still emit wa.me links: after running any generator, run `python3 /workspace/nowa/run_all.py site` (or the copy in `scripts/strip_whatsapp_contact/`) before deploying.

@@ -1,9 +1,10 @@
-/* Automatic contact channel from the existing Vercel country header.
+/* Nov 15 2026: our WhatsApp is no longer offered; every visitor gets the email route.
+   Automatic contact channel from the existing Vercel country header.
    Same script for people and crawlers. No country picker and no saved override.
    /api/geo/ is private and no-store. This script does not keep the IP. */
 (function () {
   try {
-    var BOTH = { US: 1, CA: 1, GB: 1, FR: 1, NL: 1, AE: 1, IT: 1 };
+    var BOTH = {}; // Nov 15 2026: WhatsApp contact removed for every country; email only.
     try { sessionStorage.removeItem("ubz_cc"); } catch (e) {}
     var root = document.documentElement;
     function apply(code) {
