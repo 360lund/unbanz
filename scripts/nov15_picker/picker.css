@@ -86,3 +86,12 @@
 }
 @media (max-width:340px){.mp3 .mp-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mp3.cm-backdrop,.mp3 .mp-sheet.cm-dialog,.mp3 .mp-card.cm-pill,.mp3 .mp-ck,.mp3 .mp-prog i,.mp3 .mp-go.button,.mp3 .mp-sel,.mp3 .mp-back,.mp3 .mp-x{transition:none!important}.mp3 .mp-in{animation:none}.mp3 .mp-card.cm-pill:active,.mp3 .mp-go.button:active{transform:none}}
+
+.mp3 .mp-sheet[data-step="ok"] .mp-back,.mp3 .mp-sheet[data-step="ok"] .mp-prog,.mp3 .mp-sheet[data-step="ok"] .mp-act{display:none}
+.mp3 .mp-sheet[data-step="ok"] .mp-note.cm-note{display:none}
+.mp3 .mp-done{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 28px 48px;text-align:center}
+.mp3 .mp-done[hidden]{display:none}
+.mp3 .mp-ok-ic{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 0 18px;border-radius:50%;background:var(--blue,#2d719f);color:#fff}
+.mp3 .mp-ok-ic svg{width:28px;height:28px}
+.mp3 .mp-done h2{margin:0;font-size:22px;font-weight:400;line-height:1.45;letter-spacing:-.01em;color:var(--ink,#25415d);max-width:26em;outline:none}
+@media (max-width:640px){.mp3 .mp-done{padding:24px 18px 36px}.mp3 .mp-done h2{font-size:19px;line-height:1.4}}

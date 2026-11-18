@@ -4,6 +4,8 @@
 // "How I heard about Unbanz: …" appended to the body (what hear-source.js did). Tracking: the dialog keeps .cm-dialog,
 // the topic cards keep .cm-pill[data-group="service"][aria-pressed] and the final link keeps data-service/data-platform.
 // The plain mailto href stays as the no-JS fallback. Email is the only contact channel.
+// After a first "Write the email" click, show a success state and do not open mailto again for 6 hours on this
+// browser (localStorage: timestamp + username when present). There is no server lead-mail API to dedupe.
 (function () {
   try {
     if (document.body && document.body.classList.contains('cta-hold')) return;
@@ -34,7 +36,43 @@
     var BACK = '<svg class="mp-flip" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 6-6 6 6 6"/></svg>';
     var X = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>';
     var CSS = '/*CSS*/';
-    var modal, sheet, lastFocus, topic = null, input, hear, go, step = 1, busy = false, scrollY = 0;
+    var modal, sheet, lastFocus, topic = null, input, hear, go, step = 1, busy = false, scrollY = 0, sending = false;
+    var LS_KEY = 'unbanz_lead_submit_v1';
+    var WINDOW_MS = 6 * 60 * 60 * 1000;
+    var normUser = function (u) {
+      u = String(u || '').trim().toLowerCase();
+      u = u.replace(/^@+/, '');
+      u = u.replace(/^https?:\/\/(www\.)?(instagram\.com|instagr\.am)\//, '').replace(/[\/?#].*$/, '');
+      return u.slice(0, 120);
+    };
+    var normEmail = function (e) {
+      return String(e || '').trim().toLowerCase();
+    };
+    var readStore = function () {
+      try {
+        var s = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+        if (s && typeof s === 'object') return s;
+      } catch (err) {}
+      return { at: 0, emails: {}, users: {} };
+    };
+    var isRecent = function (email, user) {
+      var now = Date.now(), s = readStore();
+      if (s.at && (now - s.at) < WINDOW_MS) return true;
+      var em = normEmail(email), us = normUser(user);
+      if (em && s.emails && s.emails[em] && (now - s.emails[em]) < WINDOW_MS) return true;
+      if (us && s.users && s.users[us] && (now - s.users[us]) < WINDOW_MS) return true;
+      return false;
+    };
+    var record = function (email, user) {
+      var now = Date.now(), s = readStore();
+      s.at = now;
+      s.emails = s.emails || {};
+      s.users = s.users || {};
+      var em = normEmail(email), us = normUser(user);
+      if (em) s.emails[em] = now;
+      if (us) s.users[us] = now;
+      try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch (err) {}
+    };
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
     var find = function (k) { for (var i = 0; i < L.t.length; i++) if (L.t[i][0] === k) return L.t[i]; return null; };
@@ -99,6 +137,10 @@
         '<input id="mp-user" class="mp-input" type="text" maxlength="120" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" dir="auto" placeholder="' + esc(L.ph) + '">' +
         '<label class="mp-label" for="ubz-hear-mail">' + esc(L.hear[0]) + ' <span>' + esc(L.opt) + '</span></label>' +
         '<div class="mp-selwrap"><select id="ubz-hear-mail" class="mp-input mp-select">' + opts + '</select></div>' +
+        '</section>' +
+        '<section class="mp-step mp-done" hidden>' +
+        '<div class="mp-ok-ic" aria-hidden="true">' + CHECK + '</div>' +
+        '<h2 id="mp-ok-title" tabindex="-1">' + esc(L.ok) + '</h2>' +
         '</section></div></div>' +
         '<div class="mp-foot"><div class="cm-actions mp-act"><a class="button button-blue mp-go" href="mailto:' + MAIL + '">' + esc(L.go) + ' <span aria-hidden="true">↗︎</span></a></div>' +
         '<p class="cm-note mp-note">' + esc(L.note) + '</p></div></div>';
@@ -118,7 +160,16 @@
       input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); go.click(); } });
       go.addEventListener('click', function (e) {
         if (!find(topic)) { e.preventDefault(); e.stopImmediatePropagation(); show(1); return; }
-        update(); setTimeout(close, 60);
+        if (sending || isRecent(null, input.value)) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          showDone(true);
+          return;
+        }
+        sending = true;
+        update();
+        record(null, input.value);
+        showDone(false);
       }, true);
       modal.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') { e.preventDefault(); close(); return; }
@@ -198,16 +249,53 @@
         var se = de.style.scrollBehavior; de.style.scrollBehavior = 'auto'; window.scrollTo(0, scrollY); de.style.scrollBehavior = se;
       }
     };
+    var stripGo = function () {
+      go.removeAttribute('href');
+    };
+    var showDone = function (stripNow) {
+      if (!modal) build();
+      var s1 = modal.querySelector('.mp-s1'), s2 = modal.querySelector('.mp-s2'), ok = modal.querySelector('.mp-done');
+      if (s1) s1.hidden = true;
+      if (s2) s2.hidden = true;
+      if (ok) ok.hidden = false;
+      sheet.setAttribute('data-step', 'ok');
+      sheet.setAttribute('aria-labelledby', 'mp-ok-title');
+      go.setAttribute('aria-disabled', 'true');
+      go.classList.add('mp-off');
+      go.setAttribute('tabindex', '-1');
+      modal.querySelector('.mp-body').scrollTop = 0;
+      // Keep href during the first click so the mailto can open, then drop it so a
+      // later click cannot send again.
+      if (stripNow) stripGo();
+      else setTimeout(stripGo, 0);
+    };
+    var clearDone = function () {
+      var ok = modal.querySelector('.mp-done');
+      if (ok) ok.hidden = true;
+      sheet.setAttribute('aria-labelledby', 'mp-title');
+      go.removeAttribute('tabindex');
+      sending = false;
+    };
     var open = function (preset) {
       if (!modal) build();
       if (!modal.hidden && modal.classList.contains('is-open')) return;
+      lastFocus = document.activeElement;
+      if (isRecent(null, (input && input.value) || '')) {
+        showDone(true);
+        modal.hidden = false;
+        lock(true);
+        void modal.offsetWidth; modal.classList.add('is-open');
+        var okTitle = modal.querySelector('#mp-ok-title');
+        if (okTitle) try { okTitle.focus({ preventScroll: true }); } catch (err) {}
+        return;
+      }
+      clearDone();
       var pre = (preset && find(preset)) ? preset : null;
       topic = pre || infer();
       if (pre === 'other') pre = null; // a generic "Other" link still starts at the topic cards, with Other preselected
       input.value = ''; hear.value = '';
       update();
       step = pre ? 1 : 2; show(pre ? 2 : 1, true);
-      lastFocus = document.activeElement;
       modal.hidden = false;
       lock(true);
       void modal.offsetWidth; modal.classList.add('is-open');
