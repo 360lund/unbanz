@@ -45,3 +45,225 @@
     hyphens: none;
   }
 }
+
+/* ===== Nov 18 hero typography + layout fix ===== */
+@font-face {
+  font-family: 'Unbanz Sans';
+  src: url('/assets/unbanz-sans-latin.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Unbanz Sans';
+  src: url('/assets/unbanz-sans-bold-latin.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.ub-inner .service-hero {
+  margin: 8px 20px 0;
+  padding: 0;
+  border-radius: 28px;
+  background: #7eafd1;
+  color: #12364c;
+  overflow: hidden;
+  min-height: 0;
+}
+.ub-inner .service-hero > .container {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 240px !important;
+  gap: 28px 40px !important;
+  align-items: center !important;
+  min-height: 0 !important;
+  width: min(1120px, calc(100% - 64px)) !important;
+  max-width: 1120px;
+  padding: 36px 0 !important;
+}
+.ub-inner .ub-hero-copy {
+  min-width: 0;
+  width: auto;
+  max-width: 38rem;
+}
+.ub-inner .service-hero .crumb {
+  display: inline-block;
+  font-family: 'Unbanz Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: #2b5470;
+  padding: 0;
+  margin: 0 0 8px;
+}
+.ub-inner .service-hero h1 {
+  font-family: 'Unbanz Sans', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.15rem, 4.5vw, 3.5rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  color: #0f3044;
+  max-width: none;
+  margin: 0 0 12px !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+.ub-inner .service-hero .guide-meta {
+  font-family: 'Unbanz Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.8125rem !important;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #2b5470 !important;
+  opacity: 1 !important;
+  margin: 0 0 14px !important;
+}
+.ub-inner .service-hero .ub-hero-copy > p:not(.guide-meta):not(.crumb) {
+  font-family: 'Unbanz Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(1.05rem, 1.15vw, 1.15rem) !important;
+  font-weight: 400;
+  line-height: 1.55 !important;
+  color: #1a4158 !important;
+  max-width: 60ch !important;
+  margin: 0 0 22px !important;
+}
+.ub-inner .service-hero .hero-cta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.ub-inner .service-hero .hero-cta .button,
+.ub-inner .service-hero a.button.hx-start,
+.ub-inner .service-hero a.button {
+  font-family: 'Unbanz Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  width: auto !important;
+  margin: 0 !important;
+  align-self: flex-start;
+  background: #12364c;
+  color: #fff;
+}
+.ub-inner .service-hero .hero-email {
+  display: none !important;
+}
+.ub-inner .ub-hero-art {
+  width: 240px;
+  max-width: 240px;
+  height: auto;
+  margin: 0;
+  justify-self: end;
+  align-self: center;
+  pointer-events: none;
+}
+.ub-inner .ub-hero-art img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px #1e4d6620);
+  animation: none !important;
+}
+
+@media (max-width: 900px) {
+  .ub-inner .service-hero {
+    margin: 8px 16px 0;
+    border-radius: 24px;
+  }
+  .ub-inner .service-hero > .container {
+    grid-template-columns: minmax(0, 1fr) 200px !important;
+    gap: 20px 28px !important;
+    width: min(1120px, calc(100% - 40px)) !important;
+    padding: 28px 0 !important;
+  }
+  .ub-inner .ub-hero-art {
+    width: 200px;
+    max-width: 200px;
+  }
+  .ub-inner .ub-hero-art img {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ub-inner .service-hero {
+    margin: 4px 12px 0;
+    border-radius: 22px;
+  }
+  .ub-inner .service-hero > .container {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    width: calc(100% - 36px) !important;
+    max-width: none;
+    padding: 22px 0 20px !important;
+    min-height: 0 !important;
+  }
+  .ub-inner .ub-hero-copy {
+    width: 100%;
+    max-width: none;
+  }
+  .ub-inner .service-hero h1 {
+    font-size: clamp(1.95rem, 8.8vw, 2.1rem) !important;
+    max-width: none;
+    margin: 0 0 10px !important;
+  }
+  .ub-inner .service-hero .crumb {
+    margin-bottom: 6px;
+  }
+  .ub-inner .service-hero .guide-meta {
+    margin: 0 0 12px !important;
+  }
+  .ub-inner .service-hero .ub-hero-copy > p:not(.guide-meta):not(.crumb) {
+    font-size: 1.05rem !important;
+    margin: 0 0 18px !important;
+  }
+  .ub-inner .service-hero .hero-cta {
+    margin: 0 0 16px;
+    width: 100%;
+  }
+  .ub-inner .service-hero .hero-cta .button,
+  .ub-inner .service-hero a.button {
+    width: auto;
+    font-size: 0.9375rem;
+  }
+  /* Smaller art under the copy; keep the hero compact */
+  .ub-inner .ub-hero-art {
+    width: 112px;
+    max-width: 112px;
+    height: auto;
+    margin: 0 auto 0;
+    align-self: center;
+    justify-self: center;
+  }
+  .ub-inner .ub-hero-art img {
+    max-height: 112px;
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Hide decorative art on the narrowest phones so the title and CTA lead */
+  .ub-inner .ub-hero-art {
+    display: none;
+  }
+  .ub-inner .service-hero .hero-cta {
+    margin-bottom: 0;
+  }
+}
