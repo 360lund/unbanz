@@ -1,0 +1,7 @@
+
+/* Nov 19 2026: injected WhatsApp links (only for allowed countries, via /api/geo/). */
+.mobile-contact a.wa-direct{background:#25d366;color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;font-weight:600;flex:1 1 46%;min-height:46px}
+.hero-cta a.wa-direct{margin-left:4px}
+.footer-bottom a.wa-direct{display:inline-flex;align-items:center;min-height:44px;padding:10px 8px}
+.ub-inner .ecta-hdr.wa-hdr,.ecta-hdr.wa-hdr{background:#1f9d55;color:#fff;margin-left:8px}
+@media(max-width:650px){.ecta-hdr.wa-hdr{display:none!important}}

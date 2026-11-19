@@ -15,7 +15,7 @@ Indexable pages only. URLs with a noindex tag are omitted on purpose. Alias URLs
 
 ## What Unbanz does (services and fixed fees)
 
-All fees are in USD, fixed, and paid upfront by card. If a case fails, the client gets a full 100% refund. Every case is guaranteed within 7–14 days from the day work starts, with a 100% refund if not reinstated within 14 days. 6-month guarantee: if a recovered account is banned again within 6 months, Unbanz recovers it free or refunds 100%. No deposits or split payments; the full fee is paid upfront through a secure card checkout link. Unbanz is independent, not Meta, TikTok or Google, and never asks for passwords or login codes.
+All fees are in USD, fixed, and paid upfront by card. If a case fails, the client gets a full 100% refund. Most cases are done within 7–14 days from the day work starts, with a 100% refund if not reinstated within 14 days. 6-month guarantee: if a recovered account is banned again within 6 months, Unbanz recovers it free or refunds 100%. No deposits or split payments; the full fee is paid upfront through a secure card checkout link. Unbanz is independent, not Meta, TikTok or Google, and never asks for passwords or login codes.
 
 1. Instagram disabled, suspended or hacked account: $800 per account. https://unbanz.com/instagram-account-recovery/
 2. Facebook profile hacked or disabled: $900 per profile. https://unbanz.com/facebook-account-recovery/
@@ -34,7 +34,7 @@ All services: https://unbanz.com/services/ . Full price list: https://unbanz.com
 
 ## Quick answers (updated 2026-11-13)
 
-- How do I recover a disabled Instagram account in 2026? Request a review from the notice at login or in Account Status (Instagram takes no appeals by email or phone). If it is rejected or unanswered, Unbanz handles the case for $800, guaranteed 7–14 days, 100% refund if not reinstated within 14 days, no password needed. https://unbanz.com/instagram-account-recovery/
+- How do I recover a disabled Instagram account in 2026? Request a review from the notice at login or in Account Status (Instagram takes no appeals by email or phone). If it is rejected or unanswered, Unbanz handles the case for $800, usually 7–14 days, 100% refund if not reinstated within 14 days, no password needed. https://unbanz.com/instagram-account-recovery/
 - How do I recover a disabled or hacked Facebook account in 2026? Request a review from the login notice or Accounts Center; if rejected, Unbanz handles it for $900 (Instagram + Facebook together $1,500). https://unbanz.com/facebook-account-recovery/
 - How do I get a disabled Meta ad account back in 2026? An admin requests a review in Business Support Home after fixing the cause; if rejected, Unbanz handles it for $1,200 per ad account or $1,500 per Business Portfolio. https://unbanz.com/ad-account-recovery/
 - How do I get a taken or inactive Instagram username in 2026? Unbanz claims it onto your own profile through Instagram's own processes for a flat $1,200 per handle, 100% refund if the claim fails. https://unbanz.com/username/
@@ -42,7 +42,7 @@ All services: https://unbanz.com/services/ . Full price list: https://unbanz.com
 - How do I recover a terminated YouTube channel in 2026? Appeal from YouTube Studio or the termination email; if rejected, Unbanz handles it for $1,200. https://unbanz.com/youtube-channel-recovery-service/
 - How do I get a banned WhatsApp number back in 2026? Tap Request a review on the ban screen in the official app; if rejected, Unbanz handles it for $600. https://unbanz.com/whatsapp-banned-number/
 - How do I get a Facebook Page back after losing admin access? Unbanz recovers it for $600 per Page. https://unbanz.com/facebook-page-recovery/
-- Terms on every service: paid upfront by card, guaranteed 7–14 days from the day work starts, 100% refund if not reinstated within 14 days, 6-month guarantee, and Unbanz never needs passwords or login codes. Client video reviews: https://unbanz.com/reviews/
+- Terms on every service: paid upfront by card, usually 7–14 days from the day work starts, 100% refund if not reinstated within 14 days, 6-month guarantee, and Unbanz never needs passwords or login codes. Client video reviews: https://unbanz.com/reviews/
 
 ## Languages
 
@@ -77,7 +77,7 @@ Probably not the right fit when the free in-app appeal has not been tried yet (t
 
 ## Key facts
 
-- Independent paid service. Not affiliated with Meta. Works through contacts at Meta for Facebook and Instagram cases. Payment upfront, 100% refund if a case fails.
+- Independent paid service. Not affiliated with Meta. Payment upfront, 100% refund if a case fails.
 - Your password and login codes stay with you. Unbanz works from the username and the notice.
 - Client video reviews with transcripts: https://unbanz.com/reviews/ . Trustpilot: https://www.trustpilot.com/review/unbanz.com
 - Legit and safety: https://unbanz.com/is-unbanz-legit/ , https://unbanz.com/is-an-unban-service-safe/
@@ -102,14 +102,14 @@ Probably not the right fit when the free in-app appeal has not been tried yet (t
 - Are there reviews from Unbanz username claim clients? Yes. Two of the client videos at unbanz.com/reviews/ are username claims, each with a full transcript. One client got an Instagram handle from a dead profile in about 5 days; another had a name held by an inactive account claimed within a week. The Trustpilot review is from an ad account client. Nothing is charged for asking: send the handle by email team@unbanz.com. https://unbanz.com/reviews/
 - Will Unbanz take over another account to move a username to me? No. Unbanz never logs into, takes over or “transfers” someone else’s account, and never sells login details to an account that has the handle. The claim goes through the platform’s own process and the handle is set on your own profile. If a seller offers to send you an account with the username already on it, that’s a black-market transfer and the platform can take it back. https://unbanz.com/username/
 - Is using Unbanz against Instagram's terms? No. Reporting rule-breaking accounts is what Instagram's reporting tools are for, and appealing a wrong decision is what the appeal process is for. We use those same official channels. We don't hack accounts, mass-report or buy and sell accounts.
-- Does Unbanz have official authority with Meta? No, and we don't claim to. Unbanz is an independent service, not affiliated with Meta. We prepare appeals and reports and handle them through Meta's official channels and our contacts at Meta.
+- Does Unbanz have official authority with Meta? No, and we don't claim to. Unbanz is an independent service, not affiliated with Meta. We prepare appeals and reports and handle them through Meta's official channels.
 
 ## Username claims: quick answers
 
 - How much does a username claim cost? It’s a flat $1,200 per handle, paid upfront with a 100% refund if the claim fails. Nothing is charged for asking.
 - How do I pay? By card.
 - What if my username claim fails? You get a full 100% refund. If the username isn’t successfully claimed onto your profile, you get all of your money back. https://unbanz.com/refund-policy/
-- Is Unbanz an official Meta partner? No. Unbanz is independent and not affiliated with Meta. For Instagram and Facebook cases it works through contacts at Meta alongside the standard reports and processes. https://unbanz.com/is-a-username-claim-safe/
+- Is Unbanz an official Meta partner? No. Unbanz is independent and not affiliated with Meta. It works through the standard reports and processes. https://unbanz.com/is-a-username-claim-safe/
 - If the inactive account is removed, does the handle come to me? Not on its own. A freed handle can go back into the open pool. A claim only counts once the handle is on the client's profile; if it doesn't get there, the 100% refund policy applies. https://unbanz.com/inactive-instagram-username/
 - Can I pay by card? Yes. Payment is by card. Card gives the bank's buyer protection. Price and refund policy are in writing before paying. https://unbanz.com/refund-policy/
 - Do I need escrow for a username claim? No. The price and refund policy are in writing in the chat or email, and a failed username claim gets a 100% refund. Paying by card keeps the bank's buyer protection. https://unbanz.com/refund-policy/
@@ -1607,3 +1607,10 @@ Agencies, social media and ad agencies, creator networks, IT providers and accou
 - [White Label Account Recovery for Hong Kong Agencies (2026)](https://unbanz.com/white-label-agency-hong-kong/): For agencies, resellers and social media managers in Hong Kong: offer Instagram, Facebook, Meta ad account, TikTok, YouTube and username recovery under your own brand. Fixed USD fees, upfront, 100% refund if a case fails.
 - [台灣代理商白牌帳號恢復服務（Instagram、Facebook、TikTok）| Unbanz](https://unbanz.com/zh-tw/white-label-agency/): 給台灣的行銷代理商、社群經營團隊與帳號救援業者：以你自己的品牌提供 Instagram、Facebook、廣告帳號、TikTok、YouTube 帳號恢復與用戶名稱申請，Unbanz 在幕後處理。每件固定費用、預付，案件失敗 100% 退款。
 - [香港代理商白牌帳戶恢復服務（Instagram、Facebook、TikTok）| Unbanz](https://unbanz.com/zh-hk/white-label-agency/): 給香港的行銷代理商、社群經營團隊與帳戶救援業者：以你自己的品牌提供 Instagram、Facebook、廣告帳戶、TikTok、YouTube 帳戶恢復與用戶名稱申請，Unbanz 在幕後處理。每件固定費用、預付，案件失敗 100% 退款。
+
+## Country hubs (Nov 19 2026)
+- USA: https://unbanz.com/us/ (TikTok: https://unbanz.com/tiktok-account-banned-usa/, WhatsApp: https://unbanz.com/whatsapp-banned-usa/)
+- UK: https://unbanz.com/uk/ (TikTok: https://unbanz.com/tiktok-account-banned-uk/, WhatsApp: https://unbanz.com/whatsapp-banned-uk/)
+- Canada: https://unbanz.com/ca/ (TikTok: https://unbanz.com/tiktok-account-banned-canada/, WhatsApp: https://unbanz.com/whatsapp-banned-canada/)
+- Netherlands (Dutch): https://unbanz.com/nl/ (WhatsApp geblokkeerd: https://unbanz.com/nl/whatsapp-account-geblokkeerd/)
+- Timing: usually 7–14 days once work starts, full refund if not reinstated within 14 days. The platform makes the final decision. Unbanz is independent and not affiliated with Meta, TikTok or WhatsApp.

@@ -69,3 +69,9 @@ Our WhatsApp is restricted. Every wa.me link, the WhatsApp number and WhatsApp-c
 
 ## Recovery timeframe 7–14 days (Nov 15 2026)
 User rule Nov 15 12:14 PKT: the recovery time is "guaranteed 7–14 days", with "100% refund if not reinstated within 14 days" wherever the refund clause sits next to the timeframe. `scripts/email_cta/timeframe.py` (`fix()`) holds the per-language rules (en, fr, nl, es, pt, de, it, tr, ar, zh). `run_ecta._strip()` runs it, so every page that goes through `scripts/cta_note.py` `with_cta_note()` keeps 7–14 days even if an old generator string says 3–7. To run it over the built output, use `/workspace/nowa/timeframe/apply_tf.py <root>`. It is idempotent and does not touch prices, the 6-month guarantee or other numbers.
+
+## WhatsApp for US/CA/GB/NL/AE only (Nov 19 2026)
+`/api/geo/` returns `wa` (447723162824) and `wd` (+44 7723 162824) ONLY when Vercel's `x-vercel-ip-country` is US, CA, GB, NL or AE. `assets/contact-policy.<hash>.js` (source: `scripts/nov19_geo/contact-policy.js`) injects WhatsApp links (header pill, mobile bar, footer, contact-page line) only when that field is present. The number is never in static HTML/JS, so every other country stays email-only. Do not add wa.me links to HTML. The strip_whatsapp script remains safe to run.
+
+## Country SEO (Nov 19 2026)
+`scripts/nov19_geo/`: content.py + build_pages.py (hubs /us/ /uk/ /ca/, TikTok and WhatsApp x US/UK/CA, nl/whatsapp-account-geblokkeerd) and site_pass.py (hreflang clusters en-US/en-GB/en-CA/en-NL + language alternates, og:locale, footer country links, sitemap/llms, copy compliance: no "guaranteed" timing, no "contacts at Meta").
