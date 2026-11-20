@@ -88,3 +88,6 @@ IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone 
 - Homepage pricing card (en/fr/nl/es/pt-br) has the agency CTA (`.pn-agency`, `site_pass_agency.py`); contact-policy adds WhatsApp to `.pn-agency .pn-act` for the top tier.
 - Agency white-label rate shown: $1,200 per case.
 - Nov 20 (d): `agency_1200.py` sets $1,200 on all agency/white-label pages (consumer pages stay $1,000) and removes the Meta logo hero art there; `loc_hubs.py` gives fr/nl/es/pt-br agency hubs the localized onboarding hero (`onboard_ui.py` holds all strings; `onboard.js` reads `data-i18n`); `sitewide_links.py` adds "For agencies" to header/mobile nav + footer and one contextual line (`.ag-ctx`) on service/Q&A pages; `add_service.py` adds the Service node to agency pages lacking one. Order to rebuild: build_agency.py rebuild → hub.py → loc_hubs.py → agency_1200.py → add_service.py → sitewide_links.py → band.py → nov20_noc/inject.py.
+
+## Google tag (Nov 20 2026)
+- GTM-PGDPS7SK snippet sits immediately after `<head>` on every public HTML page (not `/users`). `scripts/nov20_gtm/gtm_tag.py` adds it idempotently (exactly one per page); run it last after any page build. No CSP on public pages (the only CSP is on `/users`), so nothing to allow-list.
