@@ -38,6 +38,8 @@
 .wl-pt dl{margin:0;border-top:1px solid #d6e5f0}.wl-pt dl div{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #d6e5f0}
 .wl-pt dt{font-weight:600;font-size:15px}.wl-pt dd{margin:0;font-size:15px;color:#3d5d78}
 .wl-disc{font-size:13px;color:#5b7690;margin:18px 0 0}.wl-disc a{color:#2d719f}
+.wl-faq{max-width:1080px;margin-top:56px}.wl-faq h2{font-size:clamp(24px,2.4vw,32px);font-weight:400;letter-spacing:-.03em;margin:0 0 14px}
+.wl-faq details{border-bottom:1px solid #d6e5f0;padding:14px 0}.wl-faq summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}.wl-faq summary::-webkit-details-marker{display:none}.wl-faq summary:after{content:"+";color:#5b7690;font-weight:400}.wl-faq details[open] summary:after{content:"–"}.wl-faq p{margin:10px 0 0;font-size:15px;line-height:1.55;color:#3d5d78}
 html[data-noc] .ob-out a,html[data-noc] .ob-fine{display:none!important}
 @media(max-width:900px){.wl-grid{grid-template-columns:1fr;gap:28px;padding-block:34px 24px}.wl-how ol{grid-template-columns:1fr}}
 @media(max-width:650px){.wl-hero{margin:4px 10px 0;border-radius:26px}.wl-grid{width:calc(100% - 28px)}.wl-hero h1{font-size:40px}.wl-hero .wl-lead{font-size:16px}

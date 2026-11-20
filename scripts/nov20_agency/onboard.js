@@ -9,6 +9,12 @@
   var steps = [].slice.call(card.querySelectorAll(".ob-step"));
   var bar = card.querySelector(".ob-bar i"), cnt = card.querySelector(".ob-count");
   var ans = {}, cur = 0, geo = null, geoP = null;
+  // Localized pages pass their strings in data-i18n (JSON); English defaults.
+  var S = { step: "Step {n} of {t}", wait: "One moment…", thanks: "Thanks for your answers.", na: "Direct agency onboarding is currently unavailable in your region.",
+    wa: "Send on WhatsApp", em: "Send by email", fineWa: "Your answers are pre-filled. We reply within one business day.", fineEm: "Your answers are pre-filled in the email. We reply within one business day.",
+    intro: "Hi Unbanz, I'd like to onboard as a white-label agency partner.", lType: "Agency type", lName: "Agency name", lVol: "Client cases per month", lSvc: "Services needed",
+    lPrice: "Pricing", lWeb: "Website", lReach: "Best way to reach me", subj: "Agency onboarding" };
+  try { var X = JSON.parse(card.getAttribute("data-i18n") || "{}"); for (var k in X) S[k] = X[k]; } catch (e) {}
   function tz() { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) { return ""; } }
   function getGeo() {
     if (geoP) return geoP;
@@ -22,36 +28,35 @@
     cur = Math.max(0, Math.min(steps.length - 1, i));
     steps.forEach(function (s, k) { s.classList.toggle("on", k === cur); s.setAttribute("aria-hidden", k === cur ? "false" : "true"); });
     if (bar) bar.style.width = ((cur + 1) / steps.length * 100) + "%";
-    if (cnt) cnt.textContent = "Step " + (cur + 1) + " of " + steps.length;
+    if (cnt) cnt.textContent = S.step.replace("{n}", cur + 1).replace("{t}", steps.length);
     if (cur === steps.length - 1) finish();
     var h = steps[cur].querySelector(".ob-q"); if (h && go.moved) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); }
     go.moved = true;
   }
   function msg() {
     var name = (card.querySelector("#ob-name") || {}).value || "";
-    return "Hi Unbanz, I'd like to onboard as a white-label agency partner.\n\n" +
-      "Agency type: " + (ans.type || "") + "\n" + "Agency name: " + name.trim() + "\n" +
-      "Client cases per month: " + (ans.volume || "") + "\n" + "Services needed: " + (ans.service || "") + "\n" +
-      "Pricing: " + (ans.pricing || "") + "\n\nWebsite: \nBest way to reach me: ";
+    return S.intro + "\n\n" + S.lType + ": " + (ans.type || "") + "\n" + S.lName + ": " + name.trim() + "\n" +
+      S.lVol + ": " + (ans.volume || "") + "\n" + S.lSvc + ": " + (ans.service || "") + "\n" +
+      S.lPrice + ": " + (ans.pricing || "") + "\n\n" + S.lWeb + ": \n" + S.lReach + ": ";
   }
   function finish() {
     var out = card.querySelector(".ob-out"); if (!out) return;
     var sum = card.querySelector(".ob-sum");
     if (sum) sum.innerHTML = ["type", "volume", "service", "pricing"].map(function (k) { return ans[k] ? "<li>" + ans[k].replace(/[<>&]/g, "") + "</li>" : ""; }).join("");
-    out.innerHTML = '<p class="ob-wait">One moment…</p>';
+    out.innerHTML = ""; var w = document.createElement("p"); w.className = "ob-wait"; w.textContent = S.wait; out.appendChild(w);
     getGeo().then(function (g) {
       out.innerHTML = "";
       if (!g || g.contactAllowed === false || root.hasAttribute("data-noc")) {
-        var q = steps[cur].querySelector(".ob-q"); if (q) q.textContent = "Thanks for your answers.";
-        out.innerHTML = '<p class="ob-na">Direct agency onboarding is currently unavailable in your region.</p>'; return;
+        var q = steps[cur].querySelector(".ob-q"); if (q) q.textContent = S.thanks;
+        var na = document.createElement("p"); na.className = "ob-na"; na.textContent = S.na; out.appendChild(na); return;
       }
-      var m = msg(), subj = "Agency onboarding: " + (ans.type || "agency") + ", " + (ans.volume || "");
+      var m = msg(), subj = S.subj + ": " + (ans.type || "agency") + ", " + (ans.volume || "");
       var wa = g.whatsapp && !navigator.webdriver ? String(g.whatsapp).replace(/\D/g, "") : "";
       var em = g.email && /^[^@\s]+@[^@\s]+$/.test(g.email) ? g.email : "";
-      if (wa) out.appendChild(btn("ob-wa", "https://wa.me/" + wa + "?text=" + encodeURIComponent(m), "Send on WhatsApp", true));
-      if (em) out.appendChild(btn(wa ? "ob-em ob-alt" : "ob-em", "mailto:" + em + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(m), "Send by email", false));
+      if (wa) out.appendChild(btn("ob-wa", "https://wa.me/" + wa + "?text=" + encodeURIComponent(m), S.wa, true));
+      if (em) out.appendChild(btn(wa ? "ob-em ob-alt" : "ob-em", "mailto:" + em + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(m), S.em, false));
       var n = document.createElement("p"); n.className = "ob-fine";
-      n.textContent = wa ? "Your answers are pre-filled. We reply within one business day." : "Your answers are pre-filled in the email. We reply within one business day.";
+      n.textContent = wa ? S.fineWa : S.fineEm;
       if (wa || em) out.appendChild(n);
     });
   }

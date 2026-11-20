@@ -8,7 +8,10 @@ from qa_agency import P
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')); os.chdir(ROOT)
 B = 'https://unbanz.com/'; HUB = B + 'white-label-agency/'; GU = HUB + 'guides/'; TODAY = '2026-11-20'
 esc = lambda t: html.escape(t, quote=True)
-src = subprocess.check_output(['git', 'show', 'HEAD:white-label-agency/index.html']).decode('utf8')
+# The long hub content (for /guides/) comes from the last commit before the rewrite; head/header/footer from the current file.
+OLDSRC = subprocess.check_output(['git', 'show', '7bc0e1a76:white-label-agency/index.html']).decode('utf8')
+src = open('white-label-agency/index.html', encoding='utf8').read()
+src = re.sub(r'<style id="wl-css">.*?</style><script defer src="/assets/agency-onboard\.[0-9a-f]+\.js"></script>', '', src, flags=re.S)
 # onboarding script asset (hashed)
 js = open('scripts/nov20_agency/onboard.js', 'rb').read(); hsh = hashlib.sha256(js).hexdigest()[:12]
 JS = f'/assets/agency-onboard.{hsh}.js'; shutil.copy('scripts/nov20_agency/onboard.js', 'assets/agency-onboard.' + hsh + '.js')
@@ -26,6 +29,7 @@ def set_meta(head, title, desc, url):
     return head
 hi = src.index('</head>'); mi = src.index('<main id="content">') + len('<main id="content">'); ti = src.index('</main>')
 head0, bodystart, main0, tail = src[:hi], src[hi:mi], src[mi:ti], src[ti:]
+main0 = OLDSRC[OLDSRC.index('<main id="content">') + len('<main id="content">'):OLDSRC.index('</main>')]
 g0 = json.loads(LD.search(head0).group(1))['@graph']
 base_nodes = [n for n in g0 if n.get('@type') in ('Organization', 'WebSite')]
 for n in base_nodes: n.pop('paymentAccepted', None)
@@ -36,7 +40,8 @@ gh = set_meta(head0, 'Agency Resources: White-Label Account Recovery Guides | Un
 gh = re.sub(r'<link href="[^"]*" hreflang="[^"]*" rel="alternate"/>', '', gh)
 gh = gh.replace(f'<link href="{GU}" rel="canonical"/>', f'<link href="{GU}" rel="canonical"/><link href="{GU}" hreflang="en" rel="alternate"/>')
 nodes = []
-for n in g0:
+g_old = json.loads(LD.search(OLDSRC).group(1))['@graph']
+for n in g_old:
     t = n.get('@type')
     if t in ('Organization', 'WebSite'): continue
     if t in ('Service', 'Product', 'Offer'): continue
@@ -50,6 +55,14 @@ for n in g0:
         n['itemListElement'] = [{"@type": "ListItem", "position": i + 1, "url": B + p['slug'] + '/', "name": p['q']} for i, p in enumerate(P)] + [dict(x, position=x['position'] + len(P)) for x in n['itemListElement']]
         n['numberOfItems'] = len(n['itemListElement'])
     nodes.append(n)
+SERVICE = lambda url: {"@type": "Service", "@id": url + "#service", "name": "White-label account recovery for agencies", "serviceType": "White-label social media account recovery and username claims", "provider": {"@id": B + "#organization"}, "areaServed": "Worldwide", "url": HUB,
+  "audience": {"@type": "BusinessAudience", "audienceType": "PR firms, talent management, SMMA, reputation management and legal agencies"},
+  "offers": {"@type": "Offer", "price": 1200, "priceCurrency": "USD", "description": "Per case (one account or one handle), paid upfront by bank transfer. Usually 7–14 days. 100% refund paid the same business day if not reinstated within 14 calendar days.", "url": HUB}}
+_qa = re.findall(r'<details><summary>(.*?)<span aria-hidden="true">\+</span></summary><p>(.*?)</p></details>', main0, re.S)
+_strip = lambda t: html.unescape(re.sub(r'<[^>]+>', '', t)).strip()
+nodes = [n for n in nodes if n.get('@type') != 'FAQPage']
+if _qa: nodes.append({"@type": "FAQPage", "@id": GU + "#faq", "url": GU, "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": _strip(q), "acceptedAnswer": {"@type": "Answer", "text": _strip(a)}} for q, a in _qa]})
+nodes.append(SERVICE(GU))
 ld = json.dumps({"@context": "https://schema.org", "@graph": base_nodes + nodes}, ensure_ascii=False, separators=(',', ':'))
 m = LD.search(gh); gh = gh[:m.start()] + '<script type="application/ld+json">' + ld + '</script>' + gh[m.end():]
 gm = ART.sub('', main0, count=1)
@@ -67,6 +80,10 @@ TITLE = 'White-Label Account Recovery for Agencies: $1,200 per Case | Unbanz'
 DESC = 'White-label Instagram, Facebook, TikTok and X account recovery and username claims for PR, talent, SMMA and reputation agencies. $1,200 per case, usually 7–14 days, full refund the same business day if not reinstated in 14 days.'
 hh = set_meta(head0, TITLE, DESC, HUB)
 hh = hh.replace('</head>', '')
+HUBFAQ = [("What does white-label account recovery cost?", "$1,200 per case (one account or one handle), paid upfront by bank transfer. Agencies with 5+ cases a month get volume pricing after a first test case."),
+ ("How long does a case take?", "Usually 7–14 days. We send plain updates you can forward to your client under your own brand."),
+ ("What if the account is not reinstated?", "You get a 100% refund, paid the same business day, if the account is not reinstated within 14 calendar days. The platform makes the final decision."),
+ ("Will my client know Unbanz is involved?", "No. We never contact your client and updates carry no Unbanz name. We never need passwords or login codes.")]
 nodes = base_nodes + [
  {"@type": "WebPage", "@id": HUB + "#webpage", "url": HUB, "name": TITLE, "description": DESC, "isPartOf": {"@id": B + "#website"}, "inLanguage": "en", "dateModified": TODAY, "breadcrumb": {"@id": HUB + "#breadcrumb"}, "mainEntity": {"@id": HUB + "#service"}},
  {"@type": "Service", "@id": HUB + "#service", "name": "White-label account recovery for agencies", "serviceType": "White-label social media account recovery and username claims", "description": "Agencies keep the client; Unbanz files the appeal or username claim through the platform's official process in the background. The platform makes the final decision.", "provider": {"@id": B + "#organization"}, "areaServed": "Worldwide", "url": HUB,
@@ -74,26 +91,14 @@ nodes = base_nodes + [
   "hasOfferCatalog": {"@type": "OfferCatalog", "name": "White-label services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}} for n in ("Instagram and Facebook account recovery", "Facebook ad account and Business Manager recovery", "TikTok and X account recovery", "Instagram username claims")]},
   "offers": {"@type": "Offer", "price": 1200, "priceCurrency": "USD", "description": "Per case (one account or one handle), paid upfront by bank transfer. Usually 7–14 days. 100% refund paid the same business day if not reinstated within 14 calendar days.", "url": HUB}},
  {"@type": "BreadcrumbList", "@id": HUB + "#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": B}, {"@type": "ListItem", "position": 2, "name": "White label for agencies", "item": HUB}]},
+ {"@type": "FAQPage", "@id": HUB + "#faq", "url": HUB, "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": t}} for q, t in HUBFAQ]},
 ]
 ld = json.dumps({"@context": "https://schema.org", "@graph": nodes}, ensure_ascii=False, separators=(',', ':'))
 m = LD.search(hh); hh = hh[:m.start()] + '<script type="application/ld+json">' + ld + '</script>' + hh[m.end():]
 CSS = open('scripts/nov20_agency/hub.css', encoding='utf8').read().strip()
 hh += f'<style id="wl-css">{CSS}</style><script defer src="{JS}"></script>'
-def opts(vals): return ''.join(f'<button type="button" class="ob-opt" aria-pressed="false" data-v="{esc(v)}">{esc(l)}</button>' for v, l in vals)
-back = '<button type="button" class="ob-back">← Back</button>'
-card = ('<div class="ob" id="ob" aria-label="Agency onboarding"><div class="ob-top"><p class="ob-t">Agency onboarding</p><p class="ob-count">5 quick questions</p></div><div class="ob-bar" aria-hidden="true"><i></i></div>'
- '<div class="ob-step" data-k="type"><p class="ob-q">What kind of agency are you?</p><div class="ob-opts">' + opts([(x, x) for x in ('PR', 'Talent management', 'SMMA', 'Reputation', 'Legal', 'Other')]) + '</div>'
- '<label class="ob-lab" for="ob-name">Agency name <span>(optional)</span></label><input class="ob-in" id="ob-name" type="text" autocomplete="organization" placeholder="e.g. Northside Talent" maxlength="80"/>'
- '<div class="ob-nav"><span></span><button type="button" class="ob-next" disabled>Continue →</button></div></div>'
- '<div class="ob-step" data-k="volume"><p class="ob-q">How many client cases do you handle per month?</p><div class="ob-opts ob-col">' + opts([(x, x) for x in ('1–3 / month', '4–10 / month', '10+ / month')]) + '</div><div class="ob-nav">' + back + '</div></div>'
- '<div class="ob-step" data-k="service"><p class="ob-q">What do you need most?</p><div class="ob-opts ob-col">' + opts([(x, x) for x in ('Instagram & Facebook bans', 'TikTok / X bans', 'Username claims', 'Mix of all')]) + '</div><div class="ob-nav">' + back + '</div></div>'
- '<div class="ob-step" data-k="pricing"><p class="ob-q">Our white-label rate is $1,200 per case via upfront bank transfer. Are you okay with that?</p><div class="ob-opts ob-col">' + opts([('Yes, $1,200/case works', 'Yes, $1,200/case works'), ('Yes, need 5+/mo volume pricing', 'Yes, I need 5+/mo volume pricing')]) + '</div><div class="ob-nav">' + back + '</div></div>'
- '<div class="ob-step" data-k="done"><p class="ob-q">You’re all set. Send us your answers.</p><ul class="ob-sum"></ul><div class="ob-out"></div><div class="ob-nav">' + back + '</div></div>'
- '</div>')
-hero = ('<section class="wl-hero"><div class="container wl-grid"><div class="wl-copy"><a class="crumb" href="/">Home / For agencies</a><p class="wl-eye">WHITE-LABEL PARTNER PROGRAM</p>'
- '<h1>White-label account recovery for agencies.</h1><p class="wl-lead">You keep the client. We file the appeal or username claim quietly in the background, with no Unbanz name in front of your client.</p>'
- '<ul class="wl-terms"><li><b>$1,200</b><span>per case</span></li><li><b>7–14</b><span>days, usually</span></li><li><b>100%</b><span>refund if not reinstated in 14 days</span></li></ul>'
- '<p class="wl-fine">Upfront bank transfer · no cards · no passwords needed · official platform processes only.</p></div>' + card + '</div></section>')
+from onboard_ui import hero as ob_hero
+hero = ob_hero('en', '<a class="crumb" href="/">Home / For agencies</a>', 'White-label account recovery for agencies.')
 how = ('<section class="wl-how container" aria-labelledby="wl-how-t"><h2 id="wl-how-t">How it works</h2><ol>'
  '<li><b>Send the case</b><p>Handle or profile link, a screenshot of the notice and the date it happened. No passwords or login codes.</p></li>'
  '<li><b>We file it, white-label</b><p>We use the platform’s official route. You get plain updates you can forward under your own brand. Usually 7–14 days.</p></li>'
@@ -107,5 +112,6 @@ terms = ('<section class="wl-pt container" aria-labelledby="wl-pt-t"><h2 id="wl-
  '<div><dt>Platforms</dt><dd>Instagram, Facebook and ad accounts, TikTok, X, username claims</dd></div>'
  '<div><dt>Confidentiality</dt><dd>We never contact your client. Signed agreement available.</dd></div></dl>'
  '<p class="wl-disc">Unbanz is independent and not affiliated with Meta, Instagram, Facebook, TikTok or X. The platform makes the final decision on every case. <a href="/white-label-agency/guides/">Agency resources</a></p></section>')
-open('white-label-agency/index.html', 'w', encoding='utf8').write(hh + bodystart + hero + how + terms + tail)
+faq = ('<section class="wl-faq container" aria-labelledby="wl-faq-t"><h2 id="wl-faq-t">Quick answers</h2>' + ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(t)}</p></details>' for q, t in HUBFAQ) + '</section>')
+open('white-label-agency/index.html', 'w', encoding='utf8').write(hh + bodystart + hero + how + terms + faq + tail)
 print('ok', JS)

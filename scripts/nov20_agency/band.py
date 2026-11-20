@@ -23,6 +23,7 @@ CSS = ('<style id="ag-band-css">.ag-band{margin:64px auto 8px}.ag-band .ag-in{po
        '.ag-band .ag-act a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;gap:6px;transition:background .2s,box-shadow .2s}'
        '.ag-band .ag-more{background:#fff;color:#10344c}.ag-band .ag-more:hover{background:#e5eff6}.ag-band .ag-mail{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.38)}.ag-band .ag-mail:hover{box-shadow:inset 0 0 0 1px #fff}'
        '.ag-band .ag-act a.wa-direct{background:#1f9d55;color:#fff}.ag-band .ag-res{flex-basis:100%;margin:2px 0 0;font-size:13px}.ag-band .ag-res a{color:#9fc9e6;text-decoration:underline;text-underline-offset:3px}'
+       '.ag-ctx a{color:#2d719f;text-decoration:underline;text-underline-offset:3px}'
        '@media(max-width:650px){.ag-band{margin-top:44px}.ag-band .ag-in{padding:26px 22px;border-radius:24px}.ag-band .ag-act{width:100%}.ag-band .ag-act a{flex:1 1 100%}}</style>')
 def band(lang):
     k = 'pt' if lang.lower().startswith('pt') else lang.lower()[:2]
@@ -42,7 +43,8 @@ for r, ds, fs in os.walk(ROOT):
         p = os.path.join(r, f); s = open(p, encoding='utf8').read()
         m = re.search(r'<html[^>]*\blang="([^"]+)"', s); lang = m.group(1) if m else 'en'
         b = band(lang)
-        if os.path.relpath(p, ROOT) == os.path.join('white-label-agency', 'index.html'): b = ''  # the closing page itself: no band
+        if os.path.relpath(p, ROOT) in ('white-label-agency/index.html', 'fr/white-label-agences/index.html', 'nl/white-label-bureau/index.html',
+                                        'es/white-label-agencias/index.html', 'pt-br/white-label-agencias/index.html'): b = ''  # onboarding pages themselves: no band
         if OLD.search(s): t = OLD.sub(lambda _: b, s, count=1)
         elif not b: t = s
         elif '<footer' in s: i = s.find('<footer'); t = s[:i] + b + s[i:]
