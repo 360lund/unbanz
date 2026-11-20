@@ -286,6 +286,16 @@
       "permanent": true
     },
     {
+      "source": "/recovery/instagram",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
+      "source": "/recovery/instagram/",
+      "destination": "/instagram-account-recovery/",
+      "permanent": true
+    },
+    {
       "source": "/guides/instagram-180-days-suspended",
       "destination": "/guides/instagram-account-suspended-appeal/",
       "permanent": true
