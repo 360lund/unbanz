@@ -1,7 +1,7 @@
 """Adds /assets/lead-events.<hash>.js (GTM lead_email / lead_whatsapp events) right after the contact-policy script tag on every public page. Idempotent; skips /users."""
 import re, pathlib, sys
 R = pathlib.Path(__file__).resolve().parents[2]
-SRC = "/assets/lead-events.b9f5f3dcdc41.js"
+SRC = "/assets/lead-events.5239e5549d08.js"
 TAG = '<script defer="" src="%s"></script>' % SRC
 n = 0
 for p in R.rglob("*.html"):
