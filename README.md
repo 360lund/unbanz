@@ -91,3 +91,7 @@ IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone 
 
 ## Google tag (Nov 20 2026)
 - GTM-PGDPS7SK snippet sits immediately after `<head>` on every public HTML page (not `/users`). `scripts/nov20_gtm/gtm_tag.py` adds it idempotently (exactly one per page); run it last after any page build. No CSP on public pages (the only CSP is on `/users`), so nothing to allow-list.
+
+## Nov 20 2026 CRO pass
+- Homepage: clearer hero copy, primary CTA "Get a free case review" (opens picker), hero trust chips, 3-step How it works (#how), 4 objection FAQs (+FAQPage JSON-LD), 3–14 -> 7–14 days. /contact/: trust row. Script: scripts/nov20_cro/cro.py
+- GTM events: /assets/lead-events.*.js on every public page (scripts/nov20_cro/lead_inject.py) pushes dataLayer {event: lead_email|lead_whatsapp, lead_source, lead_topic, page_path} when the picker or agency onboarding opens email / WhatsApp.
