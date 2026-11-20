@@ -72,6 +72,8 @@ gm = re.sub(r'(<h1>.*?</h1>)<p>.*?</p><div class="hero-cta">.*?</div>', lambda m
 gm = gm.replace('<a href="#agency-guides">', '<a href="#agency-questions">Agency questions answered</a><a href="#agency-guides">', 1)
 gm = gm.replace('<h2 id="agency-guides">', '<h2 id="agency-questions">Agency questions answered</h2><p>Direct answers to what agencies ask before handing a client account to a white-label partner.</p><ul>' + ''.join(f'<li><a href="/{p["slug"]}/">{esc(p["q"])}</a></li>' for p in P) + '</ul><h2 id="agency-guides">', 1)
 gm = re.sub(r'<section class="service-fees container" id="service-fees">.*?</section>', '<section class="service-fees container" id="service-fees"><p class="eyebrow">AGENCY RATE</p><h2>$1,200 per case.</h2><p>The white-label rate is $1,200 per case (one account or one handle), paid upfront by bank transfer, no cards. Most cases take 7 to 14 days. If the account is not reinstated within 14 calendar days, you get a 100% refund, paid the same business day. Volume pricing for 5+ cases a month after a first test case. The platform decides the outcome. <a href="/white-label-agency/">Start onboarding</a>.</p></section>', gm, count=1, flags=re.S)
+from agency_1200 import R as PRICE_R
+for _rx, _rep in PRICE_R: gm = _rx.sub(_rep, gm)
 os.makedirs('white-label-agency/guides', exist_ok=True)
 open('white-label-agency/guides/index.html', 'w', encoding='utf8').write(gh + bodystart + gm + tail)
 
