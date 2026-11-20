@@ -297,7 +297,7 @@ button,input,select{font:inherit;color:inherit}
       <section class="card"><div class="ch"><h2>Ad</h2><span class="sub">utm_content</span></div><div class="cb"><table class="at" id="aad"></table></div></section>
       <section class="card"><div class="ch"><h2>Landing page</h2></div><div class="cb"><table class="at" id="alanding"></table></div></section>
     </div>
-    <section class="card full"><div class="ch"><h2>Recent paid leads</h2><span class="sub">WhatsApp / email clicks from paid visits</span></div><div class="cb"><div class="scroll"><table class="at" id="aleads"></table></div></div></section>
+    <section class="card full"><div class="ch"><h2>Recent paid leads</h2><span class="sub">WhatsApp / email clicks from paid visits</span></div><div class="cb"><div class="scroll"><table class="at" id="aleads"></table></div></div></section><section class="card full" style="margin-top:16px" id="arec-card"><div class="ch"><h2>Ad visitor recordings</h2><span class="sub">Session replays of Google Ads visitors · Watch what they did after the click</span></div><div class="cb"><div id="arec"></div></div></section>
     <p class="foot">Paid = a click id (gclid, ttclid), utm_medium cpc/paid/ads, the tracker's Ads classification, or a Facebook/Instagram link-shim referrer (l./lm.facebook.com, l.instagram.com) with fbclid. Attribution is first-touch per session. Bots (automation, crawler user agents, no browser language) are excluded. Time windows are rolling: 24h = the last 24 hours.</p>
   </div>
   <div id="inbox" hidden>
@@ -556,9 +556,18 @@ button,input,select{font:inherit;color:inherit}
   const cr = (c, n) => (n ? (c / n * 100).toFixed(1) + '%' : '–');
   const tbl = (rows, lab, fn = esc) => rows.length ? `<tr><th>${lab}</th><th class="r">Paid visits</th><th class="r">Leads</th><th class="r">Conv.</th></tr>` + rows.map((x) => `<tr><td title="${esc(x.k)}">${fn(x.k)}</td><td class="r num">${fmt(x.n)}</td><td class="r num"><b>${fmt(x.c)}</b></td><td class="r num">${cr(x.c, x.n)}</td></tr>`).join('') : `<tr><td class="mut">No paid traffic in this range yet</td></tr>`;
   const tier = (c) => HV.has(c) ? '<span class="hv">High</span>' : LV.has(c) ? '<span class="lv">Low</span>' : '';
+  // ---- Ad visitor recordings (Ads tab): lazy player bundle, same /users auth ----
+  const RECJS = '/assets/adrv.de9cb722304d.js';
+  let recP = null;
+  const recLoad = () => recP || (recP = new Promise((ok, no) => { if (window.UbzAdRec) return ok(); const sc = document.createElement('script'); sc.src = RECJS; sc.onload = () => ok(); sc.onerror = () => { recP = null; no(); }; document.head.appendChild(sc); }));
+  const recCell = (id) => { const sid = id && window.UbzAdRec && window.UbzAdRec.byVisit.get(id); return sid ? `<button class="ghost" data-rec="${esc(sid)}">Watch</button>` : '<span class="mut">–</span>'; };
+  async function loadRec() { try { await recLoad(); await window.UbzAdRec.mount($('#arec'), { headers: H, onAuthFail: () => {} }); } catch { $('#arec').innerHTML = '<p class="mut">Could not load recordings</p>'; } }
+  document.addEventListener('click', (e) => { const b = e.target.closest && e.target.closest('[data-rec]'); if (b && window.UbzAdRec) window.UbzAdRec.open(b.dataset.rec); });
   async function loadAds() {
+    const recReady = loadRec();
     const p = new URLSearchParams({ range: ast.range }); if (/[?&]test=1/.test(location.search)) p.set('test', '1');
     let d; try { const r = await fetch('/api/users/ads/?' + p, { credentials: 'same-origin', cache: 'no-store', headers: H() }); if (!r.ok) throw 0; d = await r.json(); } catch { $('#alabel').textContent = 'Could not load ads data'; return; }
+    await recReady.catch(() => {});
     const T = d.tot;
     $('#alabel').textContent = { '24h': 'Last 24 hours', '7d': 'Last 7 days', '30d': 'Last 30 days' }[d.range] + ' (rolling)';
     $('#akpis').innerHTML = [['Paid visits', fmt(T.n)], ['Paid leads', fmt(T.c)], ['Conversion', cr(T.c, T.n)], ['WhatsApp / Email', fmt(T.wa) + ' / ' + fmt(T.em)], ['Engaged visits', fmt(T.engaged)]].map(([l, v]) => `<div class="kpi fade"><div class="l"><span>${l}</span></div><div class="v num">${v}</div></div>`).join('');
@@ -570,7 +579,7 @@ button,input,select{font:inherit;color:inherit}
     $('#acampaign').innerHTML = tbl(d.campaign, 'Campaign');
     $('#aad').innerHTML = tbl(d.ad, 'Ad');
     $('#alanding').innerHTML = tbl(d.landing, 'Page');
-    $('#aleads').innerHTML = d.leads.length ? `<tr><th>When</th><th>Platform</th><th>Campaign</th><th>Ad</th><th>Ad set</th><th>Landing</th><th>Country</th><th>Lead</th><th>Wants</th></tr>` + d.leads.map((x) => `<tr><td title="${fullTime(x.started_at)}">${ago(x.started_at)}</td><td>${esc(x.platform)}</td><td>${esc(x.utm_campaign || '–')}</td><td>${esc(x.utm_content || '–')}</td><td>${esc(x.utm_term || '–')}</td><td>${esc(x.landing)}</td><td>${flag(x.country)} ${esc(country(x.country))} ${tier(x.country)}</td><td>${x.wa ? '<span class="out wa">WhatsApp</span>' : '<span class="out em">Email</span>'}</td><td>${esc([x.acct, x.service].filter(Boolean).join(' · '))}</td></tr>`).join('') : `<tr><td class="mut">No paid leads in this range yet</td></tr>`;
+    $('#aleads').innerHTML = d.leads.length ? `<tr><th>When</th><th>Platform</th><th>Campaign</th><th>Ad</th><th>Ad set</th><th>Landing</th><th>Country</th><th>Lead</th><th>Wants</th><th>Recording</th></tr>` + d.leads.map((x) => `<tr><td title="${fullTime(x.started_at)}">${ago(x.started_at)}</td><td>${esc(x.platform)}</td><td>${esc(x.utm_campaign || '–')}</td><td>${esc(x.utm_content || '–')}</td><td>${esc(x.utm_term || '–')}</td><td>${esc(x.landing)}</td><td>${flag(x.country)} ${esc(country(x.country))} ${tier(x.country)}</td><td>${x.wa ? '<span class="out wa">WhatsApp</span>' : '<span class="out em">Email</span>'}</td><td>${esc([x.acct, x.service].filter(Boolean).join(' · '))}</td><td>${recCell(x.id)}</td></tr>`).join('') : `<tr><td class="mut">No paid leads in this range yet</td></tr>`;
   }
   const showView = (v) => { $('#ads').hidden = v !== 'ads'; $('#inbox').hidden = v !== 'inbox'; $('#ovw').hidden = v !== 'ovw'; press($('#vsw'), $(`#vsw [data-v="${v}"]`)); if (v === 'ads') loadAds(); if (v === 'inbox') loadInbox(); try { history.replaceState(null, '', v !== 'ovw' ? '#' + v : location.pathname + location.search); } catch {} };
   // ---------- Inbox (/api/users/mail/) ----------

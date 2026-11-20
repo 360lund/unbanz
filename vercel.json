@@ -86,6 +86,16 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/users/rec",
+      "destination": "/users/",
+      "permanent": false
+    },
+    {
+      "source": "/users/rec/:path*",
+      "destination": "/users/",
+      "permanent": false
+    },
+    {
       "source": "/home-services-contractor-facebook-page-restricted",
       "destination": "/contractor-home-services-facebook-page-disabled/",
       "permanent": true

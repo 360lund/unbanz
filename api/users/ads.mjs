@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       sql(g(PLAT)), sql(g(`coalesce(utm_campaign,'(none)')`)), sql(g(`coalesce(utm_content,'(none)')`)), sql(g(`landing`)),
       sql(`select coalesce(country,'??') as k, count(*)::int as n, count(*) filter (where ${LEAD})::int as c from visits where ${f} group by 1 order by c desc, n desc limit 60`),
       sql(`select to_char((started_at at time zone '${TZ}')::date,'YYYY-MM-DD') as d, count(*)::int as n, count(*) filter (where ${LEAD})::int as c from visits where ${f} group by 1 order by 1`),
-      sql(`select started_at, last_at, ${PLAT} as platform, utm_campaign, utm_content, utm_term, landing, country, city, device, clicked_whatsapp as wa, clicked_email as em, platform as acct, service from visits where ${f} and ${LEAD} order by started_at desc limit 50`),
+      sql(`select id, started_at, last_at, ${PLAT} as platform, utm_campaign, utm_content, utm_term, landing, country, city, device, clicked_whatsapp as wa, clicked_email as em, platform as acct, service from visits where ${f} and ${LEAD} order by started_at desc limit 50`),
       sql(`select count(*)::int as n from visits where started_at > now() - interval '${WIN[range]}' and ${NT} and is_bot and ${PAID}`),
     ]);
     return json(res, 200, { range, tot: tot[0], platform, campaign, ad, landing, country, daily, leads, bots: bots[0].n, now: new Date().toISOString() });

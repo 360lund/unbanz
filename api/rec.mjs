@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     if (q.get("f") === "1") {
       const H = (k) => { try { return decodeURIComponent(String(req.headers[k] || "")); } catch { return ""; } };
       const landing = (q.get("l") || "").slice(0, 400), ref = (q.get("r") || "").slice(0, 200);
-      const meta = { sid: s, t0: a, test: q.get("x") === "1", country: H("x-vercel-ip-country").slice(0, 2), region: H("x-vercel-ip-country-region").slice(0, 40), city: H("x-vercel-ip-city").slice(0, 60), ...uaInfo(ua), landing: landing.split("?")[0], src: adSource(landing), ref };
+      const meta = { sid: s, t0: a, test: q.get("x") === "1", country: H("x-vercel-ip-country").slice(0, 2), region: H("x-vercel-ip-country-region").slice(0, 40), city: H("x-vercel-ip-city").slice(0, 60), ...uaInfo(ua), visit: /^[a-z0-9]{8,40}$/i.test(q.get("v") || "") ? q.get("v") : "", landing: landing.split("?")[0], src: adSource(landing), ref };
       await put(`${PREFIX}${s}/meta.json`, JSON.stringify(meta), { ...opts, contentType: "application/json" });
     }
   } catch (e) { res.statusCode = 500; return res.end(); }

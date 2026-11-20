@@ -26,7 +26,7 @@ import { record } from "@rrweb/record";
   const gzip = async (s) => new Uint8Array(await new Response(new Blob([s]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer());
   const qs = (evs, z) => {
     let u = `${EP}?s=${st.sid}&g=${pg}&i=${idx++}&z=${z}&x=${test}&a=${evs[0].timestamp}&b=${evs[evs.length - 1].timestamp}&c=${cta}`;
-    if (first && idx === 1) { u += "&f=1&l=" + encodeURIComponent((st.l || location.pathname).slice(0, 400)) + "&r=" + encodeURIComponent((st.r || "").slice(0, 200)); st.m = 1; save(); }
+    if (first && idx === 1) { let v = ""; try { v = (JSON.parse(ss("ubz1") || "{}") || {}).id || ""; } catch {} u += "&f=1&v=" + encodeURIComponent(String(v).slice(0, 40)) + "&l=" + encodeURIComponent((st.l || location.pathname).slice(0, 400)) + "&r=" + encodeURIComponent((st.r || "").slice(0, 200)); st.m = 1; save(); }
     return u;
   };
   // privacy: pre-filled mailto / WhatsApp links carry what the visitor typed (username, note) -> strip their query

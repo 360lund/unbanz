@@ -102,4 +102,4 @@ IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone 
 ## Nov 20 2026: Google Ads visitor replays
 - Inline #ubz-adrec loader (scripts/adrec/inject_loader.py) before </body> on every public page; loads /assets/adrec.<hash>.js only for visits that land with gclid/gbraid/wbraid/gad_source or utm_source=google+paid medium (kept in sessionStorage ubzad). Inputs masked, mailto/WhatsApp prefill stripped.
 - Ingest /api/rec/ -> private Vercel Blob store unbanz-ad-replays (rec/<sid>/...). Neon DB untouched.
-- Viewer /users/rec/ (noindex), API /api/users/rec/ requires X-Rec-Token = ADREC_VIEW_TOKEN env. Build: cd scripts/adrec && npm i && node build.mjs && python3 ../../scripts/adrec/inject_loader.py (from repo root).
+- Recordings live in the /users Ads tab ("Ad visitor recordings" card + "Recording" column in Recent paid leads); API /api/users/rec/ uses the normal /users auth. /users/rec/ redirects to /users/. Build: cd scripts/adrec && npm i && node build.mjs && python3 ../../scripts/adrec/inject_loader.py (from repo root).
