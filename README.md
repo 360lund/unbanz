@@ -75,3 +75,9 @@ User rule Nov 15 12:14 PKT: the recovery time is "guaranteed 7–14 days", with 
 
 ## Country SEO (Nov 19 2026)
 `scripts/nov19_geo/`: content.py + build_pages.py (hubs /us/ /uk/ /ca/, TikTok and WhatsApp x US/UK/CA, nl/whatsapp-account-geblokkeerd) and site_pass.py (hreflang clusters en-US/en-GB/en-CA/en-NL + language alternates, og:locale, footer country links, sitemap/llms, copy compliance: no "guaranteed" timing, no "contacts at Meta").
+
+## No contact for India, Pakistan, Iran (Nov 20 2026)
+IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone Asia/Karachi, Asia/Kolkata, Asia/Calcutta, Asia/Tehran, Iran (inline `#ubz-noc` script right after `<meta charset>`, source `scripts/nov20_noc/`, injector `inject.py`), or the `ubz_noc` cookie, which `middleware.js` sets on human page requests from IN/PK/IR IPs (bots never) and `/api/geo/` sets when it answers `contactAllowed:false`. The guard hides the body until it has removed mailto/WhatsApp links, contact sections, email text, JSON-LD with the email and email in meta attributes, then shows the page (/contact/ gets "Direct support is currently unavailable in your region."). Static HTML, JSON-LD, sitemaps and llms files are unchanged, all pages stay 200, so crawlers see the same content as before. New pages: run `python3 scripts/nov20_noc/inject.py` and `python3 scripts/nov20_agency/band.py` (both idempotent).
+
+## Agencies band on every page (Nov 20 2026)
+`scripts/nov20_agency/band.py` adds a localized "Agencies & white-label" band above the footer on every page, linking the agency hub for that language (/white-label-agency/, /fr/white-label-agences/, /nl/white-label-bureau/, /es/white-label-agencias/, /pt-br/white-label-agencias/; others link to English). It has an email button (removed for IN/PK/IR), and contact-policy.js adds WhatsApp there for US/CA/GB/NL/AE only.

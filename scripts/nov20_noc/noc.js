@@ -1,0 +1,17 @@
+(function(){try{var d=document.documentElement,B="|Asia/Karachi|Asia/Kolkata|Asia/Calcutta|Asia/Tehran|Iran|",t="",on=0,raf=0;
+try{t=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}
+var R=/team@unbanz\.com/gi,E=/team@unbanz\.com/i,MSG={en:"Direct support is currently unavailable in your region.",nl:"Directe ondersteuning is momenteel niet beschikbaar in jouw regio.",fr:"L’assistance directe n’est pas disponible dans votre région pour le moment.",es:"La asistencia directa no está disponible en tu región por ahora.",pt:"O suporte direto não está disponível na sua região no momento.",de:"Direkter Support ist in deiner Region derzeit nicht verfügbar.",it:"L’assistenza diretta al momento non è disponibile nella tua regione.",tr:"Doğrudan destek şu anda bölgenizde kullanılamıyor.",ar:"الدعم المباشر غير متاح حاليًا في منطقتك.",zh:"您所在的地区目前无法使用直接支持。"},M=MSG[(d.lang||"en").toLowerCase().slice(0,2)]||MSG.en;
+function strip(){var b=document.body;if(!b)return;if(!b.classList.contains("cta-hold"))b.classList.add("cta-hold");
+var q=b.querySelectorAll('a[href^="mailto:"],a[href*="wa.me"],a[href*="whatsapp.com/send"],a[data-wa],.wa-direct,.mobile-contact,.ecta-hdr,.hx-help,.hx-cta,.contact-options,.email-option,.inline-cta,.cta-pair,.cm-backdrop,form[action^="mailto:"]'),i;
+for(i=0;i<q.length;i++)q[i].parentNode&&q[i].parentNode.removeChild(q[i]);
+var w=document.createTreeWalker(b,4,null),n,L=[];while((n=w.nextNode()))if(E.test(n.nodeValue))L.push(n);
+for(i=0;i<L.length;i++){var p=L[i].parentNode;if(p&&/^(P|LI|SPAN|DD|TD|SMALL|STRONG|B|EM|H3|H4)$/.test(p.tagName)&&p.textContent.length<500&&!p.querySelector("h1,h2,section")){p.textContent=M}else L[i].nodeValue=L[i].nodeValue.replace(R,"")}
+var a=document.querySelectorAll('meta[content*="@unbanz"],[title*="@unbanz"],[aria-label*="@unbanz"],[data-email]');for(i=0;i<a.length;i++){["content","title","aria-label"].forEach(function(k){var v=a[i].getAttribute(k);if(v&&E.test(v))a[i].setAttribute(k,v.replace(R,""))});a[i].removeAttribute("data-email")}
+var s=document.querySelectorAll('script[type="application/ld+json"]');for(i=0;i<s.length;i++)if(E.test(s[i].textContent))s[i].parentNode.removeChild(s[i]);
+if(E.test(document.title))document.title=document.title.replace(R,"Unbanz");
+if(/^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?contact\/?$/i.test(location.pathname)&&!document.querySelector(".ubz-noc-msg")){var h=document.querySelector("main h1");if(h){var m=document.createElement("p");m.className="ubz-noc-msg";m.textContent=M;h.parentNode.insertBefore(m,h.nextSibling)}}}
+function go(){if(on)return;on=1;d.setAttribute("data-noc","1");try{document.cookie="ubz_noc=1; path=/; max-age=604800; samesite=lax"+(location.protocol==="https:"?"; secure":"")}catch(e){}
+var run=function(){if(document.readyState==="loading")return;try{strip()}catch(e){}d.setAttribute("data-noc","2");if(window.MutationObserver&&!d.__ubzMo){d.__ubzMo=1;new MutationObserver(function(){if(!raf)raf=(window.requestAnimationFrame||setTimeout)(function(){raf=0;try{strip()}catch(e){}})}).observe(document.body,{childList:true,subtree:true,characterData:true})}};
+if(document.readyState==="loading")document.addEventListener("readystatechange",run);else run()}
+window.__ubzNoc=go;
+if(B.indexOf("|"+t+"|")>=0||/(?:^|;\s*)ubz_noc=1/.test(document.cookie))go()}catch(e){}})();

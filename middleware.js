@@ -18,6 +18,7 @@ export const config = {
 // Known AI assistants and search crawlers: their fetchers can sit in (or be geolocated to)
 // blocked regions, so they are never geo-blocked. Human visitors are unaffected.
 const BOT_UA = /(ChatGPT-User|OAI-SearchBot|GPTBot|PerplexityBot|Perplexity-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|Google-Extended|Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|bingbot|BingPreview|msnbot|adidxbot|Applebot|DuckDuckBot|DuckAssistBot|YandexBot|Amazonbot|meta-externalagent|meta-externalfetcher|facebookexternalhit|MistralAI-User|cohere-ai|YouBot|PhindBot|xAI|Grok|Bravebot|CCBot|Diffbot)/i;
+const NO_CONTACT = new Set(['IN', 'PK', 'IR']);
 const SHORT = { '/testimonials': '/reviews/', '/review': '/reviews/' };
 
 const NAMES = ['OAI-SearchBot','ChatGPT-User','GPTBot','Claude-SearchBot','Claude-User','ClaudeBot','anthropic-ai','Perplexity-User','PerplexityBot','Google-Extended','Google-InspectionTool','GoogleOther','Googlebot','BingPreview','Applebot-Extended','Applebot','DuckAssistBot','DuckDuckBot','Amazonbot','meta-externalfetcher','meta-externalagent','facebookexternalhit','MistralAI-User','cohere-ai','YouBot','PhindBot','xAI-Bot','Grok','Bravebot','CCBot','YandexBot'];
@@ -44,6 +45,16 @@ export default function middleware(request, context) {
   if (SHORT[path]) {
     return new Response(null, { status: 301, headers: { Location: new URL(SHORT[path], request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
   }
+  // Nov 20 2026: India, Pakistan, Iran see NO contact (email or WhatsApp). Pages stay 200 and identical for everyone;
+  // for human page requests from those IPs we only add a ubz_noc cookie so the inline #ubz-noc guard removes contact
+  // UI before first paint. Crawlers/AI bots are never tagged. Assets/API untouched.
+  try {
+    const cc = (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
+    if (NO_CONTACT.has(cc) && !ASSET.test(url.pathname) && !/\.[a-z0-9]{2,5}$/i.test(url.pathname) && !BOT_UA.test(request.headers.get('user-agent') || '')) {
+      // x-middleware-next = continue to the normal response (what @vercel/functions next() does); extra headers are added to it.
+      return new Response(null, { headers: { 'x-middleware-next': '1', 'Set-Cookie': 'ubz_noc=1; Path=/; Max-Age=604800; SameSite=Lax; Secure' } });
+    }
+  } catch (e) {}
   // Geo-block disabled 2026-10-23: all countries and paths pass through.
   return;
 }
