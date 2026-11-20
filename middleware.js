@@ -19,6 +19,9 @@ export const config = {
 // blocked regions, so they are never geo-blocked. Human visitors are unaffected.
 const BOT_UA = /(ChatGPT-User|OAI-SearchBot|GPTBot|PerplexityBot|Perplexity-User|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|Google-Extended|Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|bingbot|BingPreview|msnbot|adidxbot|Applebot|DuckDuckBot|DuckAssistBot|YandexBot|Amazonbot|meta-externalagent|meta-externalfetcher|facebookexternalhit|MistralAI-User|cohere-ai|YouBot|PhindBot|xAI|Grok|Bravebot|CCBot|Diffbot)/i;
 const NO_CONTACT = new Set(['IN', 'PK', 'IR']);
+// Nov 20 2026: Google Ads final URL /recovery/instagram (and siblings) -> live pages in ONE 308 hop, query string kept
+// (gclid / gbraid / wbraid / gad_source / utm_*), so tracking and the ad-visitor recorder still see the ad click.
+const RECOVERY = { instagram: '/instagram-account-recovery/', ig: '/instagram-account-recovery/', facebook: '/facebook-account-recovery/', fb: '/facebook-account-recovery/', meta: '/facebook-account-recovery/', tiktok: '/tiktok-account-help/', youtube: '/youtube-channel-recovery-service/', snapchat: '/snapchat-unban-service/', whatsapp: '/whatsapp-banned-number/', threads: '/threads-account-suspended/', 'ad-account': '/ad-account-recovery/', 'ad-accounts': '/ad-account-recovery/', ads: '/ad-account-recovery/', 'facebook-page': '/facebook-page-recovery/', username: '/username/', usernames: '/username/' };
 const SHORT = { '/testimonials': '/reviews/', '/review': '/reviews/' };
 
 const NAMES = ['OAI-SearchBot','ChatGPT-User','GPTBot','Claude-SearchBot','Claude-User','ClaudeBot','anthropic-ai','Perplexity-User','PerplexityBot','Google-Extended','Google-InspectionTool','GoogleOther','Googlebot','BingPreview','Applebot-Extended','Applebot','DuckAssistBot','DuckDuckBot','Amazonbot','meta-externalfetcher','meta-externalagent','facebookexternalhit','MistralAI-User','cohere-ai','YouBot','PhindBot','xAI-Bot','Grok','Bravebot','CCBot','YandexBot'];
@@ -42,6 +45,11 @@ export default function middleware(request, context) {
   } catch (e) {}
   // Never serve installed packages or manifests as static files (outputDirectory is the repo root).
   if (/^\/(node_modules(\/|$)|package(-lock)?\.json$)/i.test(url.pathname)) return new Response('Not found', { status: 404, headers: { 'X-Robots-Tag': 'noindex' } });
+  const rm = path.match(/^\/recovery(?:\/([^/]+))?$/i);
+  if (rm) {
+    const dest = (rm[1] && RECOVERY[rm[1].toLowerCase()]) || '/services/';
+    return new Response(null, { status: 308, headers: { Location: new URL(dest + url.search, request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
+  }
   if (SHORT[path]) {
     return new Response(null, { status: 301, headers: { Location: new URL(SHORT[path], request.url).toString(), 'Cache-Control': 'public, max-age=3600' } });
   }
