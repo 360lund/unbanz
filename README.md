@@ -95,3 +95,6 @@ IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone 
 ## Nov 20 2026 CRO pass
 - Homepage: clearer hero copy, primary CTA "Get a free case review" (opens picker), hero trust chips, 3-step How it works (#how), 4 objection FAQs (+FAQPage JSON-LD), 3–14 -> 7–14 days. /contact/: trust row. Script: scripts/nov20_cro/cro.py
 - GTM events: /assets/lead-events.*.js on every public page (scripts/nov20_cro/lead_inject.py) pushes dataLayer {event: lead_email|lead_whatsapp, lead_source, lead_topic, page_path} when the picker or agency onboarding opens email / WhatsApp.
+
+## Nov 20 2026 rule: no agency prices
+- Agency / white-label pages, band, one-liner, pricing card and onboarding never show a price. Onboarding is 4 steps (type+name, volume, services, handoff). After running ANY agency build script (hub.py, build_agency.py, band.py, loc_hubs.py, sitewide_links.py) re-run scripts/nov20_agency/agency_noprice.py (idempotent). Direct-customer $1,000 is untouched.

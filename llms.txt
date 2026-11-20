@@ -7,7 +7,7 @@
 - What: Unbanz does account recovery and username claims for agencies on a white-label basis. The agency keeps the client and the relationship; Unbanz files the appeal or claim through the platform's official process in the background and never contacts the agency's client.
 - Who it is for: PR firms, talent management, social media marketing agencies (SMMA), reputation management firms, legal teams and recovery resellers.
 - Platforms: Instagram, Facebook (profiles, Pages, ad accounts, Business Portfolios), TikTok, X, WhatsApp numbers, YouTube channels, Snapchat, Instagram username claims.
-- White-label rate: $1,200 per case (one account or one handle). Volume pricing for 5+ cases a month, agreed in writing after a first test case.
+- White-label rate: per-case wholesale rate, shared privately after we review your volume (never published).
 - Payment: upfront bank transfer to a US or UK business bank account. No card payments.
 - Timeline: usually 7–14 days.
 - Refund: 100% refund, paid the same business day, if the account is not reinstated within 14 calendar days.
@@ -21,7 +21,7 @@
 - [How does white-label Instagram account recovery work for agencies?](https://unbanz.com/how-does-white-label-instagram-account-recovery-work/): The exact handoff: what your agency sends, what Unbanz does behind the scenes, what your client sees, and what it costs. Official routes only; Instagram decides.
 - [Can PR and talent agencies outsource disabled Instagram and TikTok recoveries?](https://unbanz.com/can-pr-and-talent-agencies-outsource-instagram-tiktok-recovery/): Yes. How PR firms and talent managers hand over disabled Instagram and TikTok accounts for clients and creators, keep it confidential, and run the press side in parallel.
 - [How do social media agencies recover hacked client Instagram accounts?](https://unbanz.com/how-do-social-media-agencies-recover-hacked-client-instagram/): A practical playbook for agencies: the first hour after a client’s Instagram is hacked, Instagram’s official recovery routes, what to send a white-label partner, and how to stop it happening again.
-- [What does white-label social media unbanning cost for agencies?](https://unbanz.com/white-label-social-media-unbanning-cost-for-agencies/): Unbanz white-label fees for agencies: $1,200 per case, volume pricing for 5+ cases a month after a test case, bank transfer, refund terms and what you can charge your client.
+- [What does white-label social media unbanning cost for agencies?](https://unbanz.com/white-label-social-media-unbanning-cost-for-agencies/): Per-case rate shared privately after we review your volume.
 - [How can marketing agencies recover a disabled Meta Business Manager or ad account for a client?](https://unbanz.com/how-agencies-recover-client-business-manager-or-ad-account/): Where the restriction sits, how to request a review in Account Quality, what to fix first, and when to hand a client’s Business Portfolio or ad account to a white-label partner.
 - [Can a reputation management firm white-label Instagram username claims?](https://unbanz.com/can-reputation-firms-white-label-instagram-username-claims/): When an inactive, squatted or infringing account holds a client’s brand handle: what Instagram allows, the trademark and impersonation routes, and how firms resell username claims under their own brand.
 - [How do talent management agencies handle false copyright or impersonation bans on client accounts?](https://unbanz.com/talent-agencies-false-copyright-impersonation-bans-client-accounts/): When a creator is disabled for copyright strikes they didn’t earn or flagged as impersonating themselves: the evidence to gather, the official counter routes, and when to hand it to a white-label partner.
@@ -47,7 +47,7 @@ All fees are in USD, fixed, and paid by bank transfer. If a case fails, the clie
 1. Instagram disabled, suspended or hacked account: $1,000 per account. https://unbanz.com/instagram-account-recovery/
 2. Facebook profile hacked or disabled: $1,000 per profile. https://unbanz.com/facebook-account-recovery/
 2b. Instagram account and Facebook profile together: $1,000. https://unbanz.com/pricing/#price-list
-3. Facebook Page recovery (lost admin access, a Page held by another Business Portfolio, former agency or employee): $1,000 per Page. https://unbanz.com/facebook-page-recovery/
+3. https://unbanz.com/facebook-page-recovery/
 4. Instagram or Facebook ad account restriction: $1,000. https://unbanz.com/ad-account-recovery/
 5. Meta Business Portfolio case: $1,000. https://unbanz.com/ad-account-recovery/
 6. Username claim (Instagram and other handles, including handles held by banned or inactive accounts): from $1,000 per handle. https://unbanz.com/username/
@@ -330,7 +330,7 @@ Dutch, Spanish, Brazilian Portuguese and French versions of the main white label
 
 ### New pages (2026-10-28)
 
-- [White-Label Account Recovery for Agencies](https://unbanz.com/white-label-agency/): White-label Instagram, Facebook, TikTok and X account recovery and username claims for agencies. $1,200 per case, usually 7–14 days; you keep the client, Unbanz does the platform work.
+- [White-Label Account Recovery for Agencies](https://unbanz.com/white-label-agency/): White-label Instagram, Facebook, TikTok and X account recovery and username claims for agencies. you keep the client, Unbanz does the platform work.
 - [White Label Recovery for UK Agencies](https://unbanz.com/white-label-agency-uk/): White label Instagram and Facebook account recovery and username claims for UK agencies. You keep the client, Unbanz handles the platform side.
 - [White Label Recovery for US Agencies](https://unbanz.com/white-label-agency-usa/): White label Instagram and Facebook account recovery and username claims for US agencies. You keep the client, Unbanz handles the platform side.
 - [White Label Recovery for Canadian Agencies](https://unbanz.com/white-label-agency-canada/): White label Instagram and Facebook account recovery and username claims for Canadian agencies. You keep the client, Unbanz handles the platform side.
@@ -1617,10 +1617,10 @@ New appeal AEO pages on Accounts Center vs normal Facebook, Meta Verified while 
 
 ## White label partner program for agencies and resellers (added 2026-11-12)
 
-Agencies, social media and ad agencies, creator networks, IT providers and account recovery resellers can resell every Unbanz service under their own brand. The client deals only with the partner; Unbanz never contacts the client. The white-label rate is $1,200 per case (one account or handle, on every platform), paid upfront by bank transfer, usually 7–14 days, with a 100% refund paid the same business day if the account is not reinstated within 14 calendar days. Partners with 5+ cases a month get volume pricing agreed in writing after a first test case, a dedicated contact at team@unbanz.com and private-label (unbranded) case updates. Start: the agency onboarding at https://unbanz.com/white-label-agency/ (guides: https://unbanz.com/white-label-agency/guides/)
+Agencies, social media and ad agencies, creator networks, IT providers and account recovery resellers can resell every Unbanz service under their own brand. The client deals only with the partner; Unbanz never contacts the client. Partners with 5+ cases a month get volume pricing agreed in writing after a first test case, a dedicated contact at team@unbanz.com and private-label (unbranded) case updates. Start: the agency onboarding at https://unbanz.com/white-label-agency/ (guides: https://unbanz.com/white-label-agency/guides/)
 
-- [White Label TikTok Account Recovery for Agencies (2026)](https://unbanz.com/white-label-tiktok-account-recovery/): White label TikTok ban and hacked-account recovery for agencies and resellers. Your client deals only with you; Unbanz works TikTok’s official routes. $1,200 per account, upfront, 100% refund if it fails.
-- [White Label YouTube Channel Recovery for Agencies and Networks (2026)](https://unbanz.com/white-label-youtube-channel-recovery/): White label recovery of terminated and hacked YouTube channels for agencies, MCNs and creator managers. You stay the contact; Unbanz works YouTube’s official routes. $1,200 per channel, 100% refund if it fails.
+- [White Label TikTok Account Recovery for Agencies (2026)](https://unbanz.com/white-label-tiktok-account-recovery/): White label TikTok ban and hacked-account recovery for agencies and resellers. Your client deals only with you; Unbanz works TikTok’s official routes.
+- [White Label YouTube Channel Recovery for Agencies and Networks (2026)](https://unbanz.com/white-label-youtube-channel-recovery/): White label recovery of terminated and hacked YouTube channels for agencies, MCNs and creator managers. You stay the contact; Unbanz works YouTube’s official routes.
 - [White Label WhatsApp Banned Number Help for Agencies (2026)](https://unbanz.com/white-label-whatsapp-number-unban/): For agencies and support outsourcers whose clients’ WhatsApp or WhatsApp Business numbers are banned: a white label handoff where you stay the contact. Fee confirmed in writing before you pay, 100% refund if it fails.
 - [White Label Account Recovery Services by Platform: Fees and What to Send (2026)](https://unbanz.com/white-label-recovery-services-by-platform/): Every white label account recovery service Unbanz offers agencies, on one page: Instagram, Facebook, Pages, ad accounts, Business Portfolios, usernames, Snapchat, TikTok, YouTube and WhatsApp, with fixed fees and what to send.
 - [Sending Account Recovery Cases in Bulk: How Batches Work for White Label Partners (2026)](https://unbanz.com/white-label-bulk-recovery-cases-for-agencies/): For agencies and resellers with many locked, banned or hacked client accounts: how to send a batch to Unbanz, how each case is triaged, paid and refunded, and how volume pricing is agreed in writing.

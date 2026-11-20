@@ -1,4 +1,4 @@
-/* Nov 20 2026: agency onboarding picker on /white-label-agency/. 5 steps; the last step hands off by the 3-tier rule:
+/* Nov 20 2026: agency onboarding picker on /white-label-agency/. 4 steps (no pricing step: agency prices are never shown, Nov 20 rule); the last step hands off by the 3-tier rule:
    /api/geo/ returns whatsapp only for US/CA/GB/NL/AE IP + time zone (both), email for everyone else (email only),
    and nothing for IN/PK/IR IP or time zone (no contact at all, html[data-noc]). No address or number is in the HTML. */
 (function () {
@@ -37,7 +37,7 @@
     var name = (card.querySelector("#ob-name") || {}).value || "";
     return S.intro + "\n\n" + S.lType + ": " + (ans.type || "") + "\n" + S.lName + ": " + name.trim() + "\n" +
       S.lVol + ": " + (ans.volume || "") + "\n" + S.lSvc + ": " + (ans.service || "") + "\n" +
-      S.lPrice + ": " + (ans.pricing || "") + "\n\n" + S.lWeb + ": \n" + S.lReach + ": ";
+      (ans.pricing ? S.lPrice + ": " + ans.pricing + "\n" : "") + "\n" + S.lWeb + ": \n" + S.lReach + ": ";
   }
   function finish() {
     var out = card.querySelector(".ob-out"); if (!out) return;

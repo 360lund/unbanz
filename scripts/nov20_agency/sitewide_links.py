@@ -8,14 +8,14 @@ from agency_1200 import agency_dirs, NEW
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')); os.chdir(ROOT)
 EN = '/white-label-agency/'; GU = '/white-label-agency/guides/'
 L = {
- 'en': (EN, 'For agencies', 'White-label for agencies', 'Handling this for a client? <a href="/white-label-agency/">White-label recovery for agencies</a> runs under your brand at $1,200 per case. <a href="/white-label-agency/guides/">Agency resources</a>'),
- 'fr': ('/fr/white-label-agences/', 'Agences', 'Marque blanche pour agences', 'Vous gérez ce dossier pour un client ? La <a href="/fr/white-label-agences/">récupération en marque blanche pour agences</a> se fait sous votre marque, à 1 200 $ par dossier.'),
- 'nl': ('/nl/white-label-bureau/', 'Bureaus', 'White-label voor bureaus', 'Regel je dit voor een klant? <a href="/nl/white-label-bureau/">White-label herstel voor bureaus</a> loopt onder jouw merk, voor $1.200 per zaak.'),
- 'es': ('/es/white-label-agencias/', 'Agencias', 'Marca blanca para agencias', '¿Gestionas esto para un cliente? La <a href="/es/white-label-agencias/">recuperación en marca blanca para agencias</a> funciona con tu marca, a 1.200 $ por caso.'),
- 'pt': ('/pt-br/white-label-agencias/', 'Agências', 'White-label para agências', 'Cuidando disso para um cliente? A <a href="/pt-br/white-label-agencias/">recuperação white-label para agências</a> funciona com a sua marca, por US$ 1.200 por caso.'),
- 'de': (EN, 'Agenturen', 'White-Label für Agenturen (EN)', 'Du kümmerst dich für einen Kunden darum? <a href="/white-label-agency/" hreflang="en">White-Label-Wiederherstellung für Agenturen</a> läuft unter deiner Marke, für 1.200 $ pro Fall (Seite auf Englisch).'),
- 'it': (EN, 'Agenzie', 'White-label per agenzie (EN)', 'Gestisci questo caso per un cliente? Il <a href="/white-label-agency/" hreflang="en">recupero white-label per agenzie</a> lavora con il tuo marchio, a 1.200 $ per caso (pagina in inglese).'),
- 'tr': (EN, 'Ajanslar', 'Ajanslar için white-label (EN)', 'Bunu bir müşteri için mi yürütüyorsunuz? <a href="/white-label-agency/" hreflang="en">Ajanslar için white-label kurtarma</a> sizin markanızla çalışır, vaka başına 1.200 $ (sayfa İngilizce).'),
+ 'en': (EN, 'For agencies', 'White-label for agencies', 'Handling this for a client? <a href="/white-label-agency/">White-label recovery for agencies</a> runs under your brand. <a href="/white-label-agency/guides/">Agency resources</a>'),
+ 'fr': ('/fr/white-label-agences/', 'Agences', 'Marque blanche pour agences', 'Vous gérez ce dossier pour un client ? La <a href="/fr/white-label-agences/">récupération en marque blanche pour agences</a> se fait sous votre marque.'),
+ 'nl': ('/nl/white-label-bureau/', 'Bureaus', 'White-label voor bureaus', 'Regel je dit voor een klant? <a href="/nl/white-label-bureau/">White-label herstel voor bureaus</a> loopt onder jouw merk.'),
+ 'es': ('/es/white-label-agencias/', 'Agencias', 'Marca blanca para agencias', '¿Gestionas esto para un cliente? La <a href="/es/white-label-agencias/">recuperación en marca blanca para agencias</a> funciona con tu marca.'),
+ 'pt': ('/pt-br/white-label-agencias/', 'Agências', 'White-label para agências', 'Cuidando disso para um cliente? A <a href="/pt-br/white-label-agencias/">recuperação white-label para agências</a> funciona com a sua marca.'),
+ 'de': (EN, 'Agenturen', 'White-Label für Agenturen (EN)', 'Du kümmerst dich für einen Kunden darum? <a href="/white-label-agency/" hreflang="en">White-Label-Wiederherstellung für Agenturen</a> läuft unter deiner Marke (Seite auf Englisch).'),
+ 'it': (EN, 'Agenzie', 'White-label per agenzie (EN)', 'Gestisci questo caso per un cliente? Il <a href="/white-label-agency/" hreflang="en">recupero white-label per agenzie</a> lavora con il tuo marchio (pagina in inglese).'),
+ 'tr': (EN, 'Ajanslar', 'Ajanslar için white-label (EN)', 'Bunu bir müşteri için mi yürütüyorsunuz? <a href="/white-label-agency/" hreflang="en">Ajanslar için white-label kurtarma</a> sizin markanızla çalışır (sayfa İngilizce).'),
  'ar': (EN, 'الوكالات', 'العلامة البيضاء للوكالات (EN)', 'تتولى هذه الحالة لصالح عميل؟ <a href="/white-label-agency/" hreflang="en">الاستعادة بالعلامة البيضاء للوكالات</a> تعمل باسم علامتك التجارية، بسعر 1,200 دولار لكل حالة (الصفحة بالإنجليزية).'),
 }
 SKIP_CTX = set(agency_dirs()) | NEW | {'white-label-agency', 'white-label-agency/guides', '.', 'fr', 'nl', 'es', 'pt-br', 'de', 'it', 'tr', 'ar', 'zh-tw', 'zh-hk'}
