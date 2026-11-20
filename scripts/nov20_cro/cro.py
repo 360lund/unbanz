@@ -6,9 +6,7 @@ CK = '<svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill=
 TRUST = ['No password needed', 'Usually 7–14 days', 'Full refund if not reinstated in 14 days', 'Signed agreement before you pay']
 def chips(cls): return f'<ul class="{cls}" aria-label="What you get">' + ''.join(f'<li>{CK}{t}</li>' for t in TRUST) + '</ul>'
 CSS = '''<style id="cro-css">
-.cro-trust{list-style:none;margin:22px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;max-width:900px}
-.cro-trust li{display:inline-flex;align-items:center;gap:6px;font-size:14px;line-height:1.2;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.28)}
-.cro-trust svg,.cro-trust-l svg{width:14px;height:14px;flex:none}
+.cro-trust-l svg{width:14px;height:14px;flex:none}
 .hero-cta .hero-button{font-weight:600}
 .cro-how{padding:56px 0 8px}
 .cro-how .eyebrow{margin:0 0 10px}
@@ -25,7 +23,7 @@ CSS = '''<style id="cro-css">
 .cro-trust-l svg{color:#1f9d55}
 .cro-fine{margin:12px 0 0;font-size:13px;color:#6a8195}
 .contact-trust{margin:14px 0 4px}
-@media (max-width:760px){.cro-trust{gap:6px;margin-top:16px}.cro-trust li{font-size:12.5px;padding:7px 11px}.cro-steps{grid-template-columns:1fr;gap:10px}.cro-steps li{padding:18px 18px 20px}.cro-how{padding:40px 0 0}.cro-row .button{width:100%;justify-content:center}}
+@media (max-width:760px){.cro-steps{grid-template-columns:1fr;gap:10px}.cro-steps li{padding:18px 18px 20px}.cro-how{padding:40px 0 0}.cro-row .button{width:100%;justify-content:center}}
 </style>'''
 HOW = f'''<section class="cro-how container" id="how" aria-labelledby="cro-how-t"><p class="eyebrow">HOW IT WORKS</p><h2 id="cro-how-t">Three steps. You stay in control.</h2><ol class="cro-steps"><li><h3>Tell us what happened</h3><p>Pick your issue and send your username plus a screenshot of the notice. Takes about two minutes. Asking is free.</p></li><li><h3>Get an honest answer</h3><p>We tell you straight if it’s doable. If you go ahead, you sign an agreement, then pay by bank transfer. From $1,000.</p></li><li><h3>We handle the appeal</h3><p>Through Meta’s official support and appeal process, usually 7–14 days. Not reinstated within 14 days? Full refund, paid the same business day.</p></li></ol><div class="cro-row"><a class="button button-blue cro-cta" href="{MAIL}">Get a free case review <span aria-hidden="true">↗︎</span></a>{chips("cro-trust-l")}</div><p class="cro-fine">Unbanz is independent and not affiliated with Meta, Instagram or Facebook. The platform makes the final decision.</p></section>'''
 FAQ = [
@@ -41,7 +39,9 @@ def home():
     s = s.replace('<p class="hero-description">Banned or disabled Instagram or Facebook account? We help you get it back through Meta’s official support and appeal process.</p>',
                   '<p class="hero-description">Banned, disabled or hacked Instagram or Facebook account? An independent team helps you get it back through Meta’s official support and appeal process.</p>')
     s = re.sub(r'(<div class="hero-cta"><a class="button button-light hero-button" href="[^"]*">)Email us( <span aria-hidden="true">↗︎</span></a></div>)', r'\1Get a free case review\2', s, 1)
-    if 'class="cro-trust"' not in s: s = re.sub(r'(<div class="hero-cta"><a class="button button-light hero-button"[^>]*>.*?</a></div>)', lambda m: m.group(1) + chips('cro-trust'), s, 1, flags=re.S)
+    # Nov 20 12:55: hero trust chips removed at user request; never re-add (strip if present)
+    s = re.sub(r'<ul class="cro-trust" aria-label="What you get">.*?</ul>', '', s, flags=re.S)
+    if False: s = re.sub(r'(<div class="hero-cta"><a class="button button-light hero-button"[^>]*>.*?</a></div>)', lambda m: m.group(1) + chips('cro-trust'), s, 1, flags=re.S)
     if 'id="how"' not in s: s = s.replace('<section class="recovery-intro container"', HOW + '<section class="recovery-intro container"', 1)
     s = s.replace('<p class="days">3–14<span>days</span></p><p class="timing-note">From the day we start.', '<p class="days">7–14<span>days</span></p><p class="timing-note">Usually, from the day we start.')
     if 'Is Unbanz part of Meta?' not in s:
