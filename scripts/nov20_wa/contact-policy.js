@@ -41,7 +41,7 @@
       if (hdr && hdr.parentNode && !document.querySelector(".wa-hdr")) hdr.parentNode.insertBefore(mk("ecta-hdr wa-hdr", "WhatsApp"), hdr.nextSibling);
       var heroes = document.querySelectorAll(".hero-cta");
       for (var i = 0; i < heroes.length; i++) if (!heroes[i].querySelector(".wa-direct")) heroes[i].appendChild(mk("hero-email", L + " ↗︎"));
-      var ag = document.querySelectorAll(".ag-band .ag-act");
+      var ag = document.querySelectorAll(".ag-band .ag-act, .pn-agency .pn-act");
       for (var g = 0; g < ag.length; g++) if (!ag[g].querySelector(".wa-direct")) { var w = mk("", "WhatsApp"); w.setAttribute("data-topic", "other"); ag[g].appendChild(w); }
       var fb = document.querySelector(".footer-bottom");
       if (fb && !fb.querySelector(".wa-direct")) fb.appendChild(mk("", "WhatsApp"));

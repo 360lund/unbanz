@@ -81,3 +81,9 @@ IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone 
 
 ## Agencies band on every page (Nov 20 2026)
 `scripts/nov20_agency/band.py` adds a localized "Agencies & white-label" band above the footer on every page, linking the agency hub for that language (/white-label-agency/, /fr/white-label-agences/, /nl/white-label-bureau/, /es/white-label-agencias/, /pt-br/white-label-agencias/; others link to English). It has an email button (removed for IN/PK/IR), and contact-policy.js adds WhatsApp there for US/CA/GB/NL/AE only.
+
+## Agency onboarding page and agency Q&A (Nov 20 2026)
+- `/white-label-agency/` is a short closing page: hero, 5-step onboarding picker (`scripts/nov20_agency/onboard.js` → `assets/agency-onboard.<hash>.js`), How it works, partner terms. Built by `scripts/nov20_agency/hub.py` (source = git HEAD hub, re-runnable; CSS in `hub.css`). The final step follows the 3-tier rule from `/api/geo/`: WhatsApp + email (US/CA/GB/NL/AE IP + tz), email only (others), nothing (IN/PK/IR IP or tz). No address or number in the HTML. No agency band on this page.
+- The old long hub moved to `/white-label-agency/guides/` (Agency resources), which also lists the 10 agency Q&A pages (`qa_agency.py` + `build_agency.py`, rebuild with `build_agency.py rebuild`).
+- Homepage pricing card (en/fr/nl/es/pt-br) has the agency CTA (`.pn-agency`, `site_pass_agency.py`); contact-policy adds WhatsApp to `.pn-agency .pn-act` for the top tier.
+- Agency white-label rate shown: $1,200 per case.
