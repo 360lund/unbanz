@@ -31,6 +31,6 @@ export default function handler(req, res) {
   const wa = !blocked && c && WA_COUNTRIES.has(c) && WA_TZ.has(tz);
   const body = { c, contactAllowed: !blocked, email: blocked ? null : EMAIL, whatsapp: wa ? WA_NUMBER : null };
   if (wa) body.wa = WA_NUMBER;
-  if (blocked) res.setHeader("Set-Cookie", "ubz_noc=1; Path=/; Max-Age=604800; SameSite=Lax; Secure");
+  if (blocked) res.setHeader("Set-Cookie", "ubz_noc=1; Path=/; Max-Age=2592000; SameSite=Lax; Secure");
   res.status(200).json(body);
 }

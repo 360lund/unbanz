@@ -11,7 +11,7 @@ var a=document.querySelectorAll('meta[content*="@unbanz"],[title*="@unbanz"],[ar
 var s=document.querySelectorAll('script[type="application/ld+json"]');for(i=0;i<s.length;i++)if(E.test(s[i].textContent))s[i].parentNode.removeChild(s[i]);
 if(E.test(document.title))document.title=document.title.replace(R,"Unbanz");
 if(/^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?contact\/?$/i.test(location.pathname)&&!document.querySelector(".ubz-noc-msg")){var h=document.querySelector("main h1");if(h){var m=document.createElement("p");m.className="ubz-noc-msg";m.textContent=M;h.parentNode.insertBefore(m,h.nextSibling)}}}
-function go(){if(on)return;on=1;d.setAttribute("data-noc","1");try{document.cookie="ubz_noc=1; path=/; max-age=604800; samesite=lax"+(location.protocol==="https:"?"; secure":"")}catch(e){}
+function go(){if(on)return;on=1;d.setAttribute("data-noc","1");try{document.cookie="ubz_noc=1; path=/; max-age=2592000; samesite=lax"+(location.protocol==="https:"?"; secure":"")}catch(e){}
 var run=function(){if(document.readyState==="loading")return;try{strip()}catch(e){}d.setAttribute("data-noc","2");if(window.MutationObserver&&!d.__ubzMo){d.__ubzMo=1;new MutationObserver(function(){if(!raf)raf=(window.requestAnimationFrame||setTimeout)(function(){raf=0;try{strip()}catch(e){}})}).observe(document.body,{childList:true,subtree:true,characterData:true})}};
 if(document.readyState==="loading")document.addEventListener("readystatechange",run);else run()}
 window.__ubzNoc=go;

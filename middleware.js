@@ -52,7 +52,8 @@ export default function middleware(request, context) {
     const cc = (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
     if (NO_CONTACT.has(cc) && !ASSET.test(url.pathname) && !/\.[a-z0-9]{2,5}$/i.test(url.pathname) && !BOT_UA.test(request.headers.get('user-agent') || '')) {
       // x-middleware-next = continue to the normal response (what @vercel/functions next() does); extra headers are added to it.
-      return new Response(null, { headers: { 'x-middleware-next': '1', 'Set-Cookie': 'ubz_noc=1; Path=/; Max-Age=604800; SameSite=Lax; Secure' } });
+      // private, no-store: their browser never revalidates (a 304 would drop the cookie), so every page view carries it.
+      return new Response(null, { headers: { 'x-middleware-next': '1', 'Set-Cookie': 'ubz_noc=1; Path=/; Max-Age=2592000; SameSite=Lax; Secure', 'Cache-Control': 'private, no-store' } });
     }
   } catch (e) {}
   // Geo-block disabled 2026-10-23: all countries and paths pass through.
