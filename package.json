@@ -2,6 +2,7 @@
   "name": "unbanz-site",
   "private": true,
   "dependencies": {
+    "@vercel/blob": "^2.9.0",
     "imapflow": "^1.0.190",
     "mailparser": "^3.7.4",
     "nodemailer": "^10.3.1"

@@ -98,3 +98,8 @@ IN/PK/IR visitors see zero email and zero WhatsApp. Triggers: browser time zone 
 
 ## Nov 20 2026 rule: no agency prices
 - Agency / white-label pages, band, one-liner, pricing card and onboarding never show a price. Onboarding is 4 steps (type+name, volume, services, handoff). After running ANY agency build script (hub.py, build_agency.py, band.py, loc_hubs.py, sitewide_links.py) re-run scripts/nov20_agency/agency_noprice.py (idempotent). Direct-customer $1,000 is untouched.
+
+## Nov 20 2026: Google Ads visitor replays
+- Inline #ubz-adrec loader (scripts/adrec/inject_loader.py) before </body> on every public page; loads /assets/adrec.<hash>.js only for visits that land with gclid/gbraid/wbraid/gad_source or utm_source=google+paid medium (kept in sessionStorage ubzad). Inputs masked, mailto/WhatsApp prefill stripped.
+- Ingest /api/rec/ -> private Vercel Blob store unbanz-ad-replays (rec/<sid>/...). Neon DB untouched.
+- Viewer /users/rec/ (noindex), API /api/users/rec/ requires X-Rec-Token = ADREC_VIEW_TOKEN env. Build: cd scripts/adrec && npm i && node build.mjs && python3 ../../scripts/adrec/inject_loader.py (from repo root).
