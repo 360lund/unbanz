@@ -87,12 +87,12 @@
   "redirects": [
     {
       "source": "/users/rec",
-      "destination": "/users/",
+      "destination": "/users/#ads",
       "permanent": false
     },
     {
-      "source": "/users/rec/:path*",
-      "destination": "/users/",
+      "source": "/users/rec/",
+      "destination": "/users/#ads",
       "permanent": false
     },
     {
