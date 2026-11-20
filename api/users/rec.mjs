@@ -42,6 +42,7 @@ export default async function handler(req, res) {
     for (const s of by.values()) {
       if ((s.tmin || s.t1) && (s.tmin || s.t1) < cutoff) { old.push(...s.urls); continue; }
       let meta = {}; if (s.meta) { try { meta = JSON.parse((await readBuf(s.meta)).toString("utf8")); } catch {} }
+      if (meta.test && Date.now() - (meta.t0 || s.t1) > 3600e3) { old.push(...s.urls); continue; } // test visits (?gclid=test) self-delete after 1 hour
       if (meta.test && q.get("test") !== "1") continue;
       out.push({ sid: s.sid, t0: meta.t0 || s.tmin, t1: s.t1, chunks: s.chunks, cta: s.cta, test: !!meta.test, country: meta.country || "", city: meta.city || "", device: meta.device || "", browser: meta.browser || "", os: meta.os || "", visit: meta.visit || "", landing: meta.landing || "", src: meta.src || "", ref: meta.ref || "" });
     }
