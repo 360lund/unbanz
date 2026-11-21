@@ -49,7 +49,7 @@ html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] {
   }
   html .mobile-contact a[href^="mailto:"] { background: #e5eff6; color: var(--ink, #10243a); }
   html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] { flex: 1 1 100%; width: 100%; }
-  .mobile-contact a:first-child > span { display: none; }
+  .mobile-contact a:first-child > span:not(.mc-sub) { display: none; }
   .mobile-contact .mc-sub { font-size: 10px; font-weight: 400; line-height: 1.15; opacity: .9; white-space: normal; }
   body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
 }
@@ -60,3 +60,84 @@ html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] {
 .ag-act .cta-reply,.cta-pair .cta-reply,.pn-act .cta-reply{margin-top:.4rem;}
 html[data-noc] .cta-reply,html[data-noc] .mc-sub{display:none!important;}
 .wa-direct,.wa-hdr,a[data-wa],a[href="#whatsapp"]{display:none!important;}
+
+/* Nov 21 2026: keep the 30-minute reply line visible on every main email CTA.
+   The older mobile-bar rule hid every first-child span (decorative arrows). */
+html .mobile-contact a:first-child > span:not(.mc-sub) { display: none; }
+html .mobile-contact a:first-child > span.mc-sub,
+html .mobile-contact a[href^="mailto:"] > span.mc-sub,
+html .mobile-contact .mc-sub {
+  display: block !important;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.2;
+  opacity: .9;
+  white-space: normal;
+  margin-top: 1px;
+  color: inherit;
+}
+.mp-reply {
+  display: block;
+  margin: .55rem 0 0;
+  font-size: .9rem;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--muted, #5b7690);
+  text-align: center;
+}
+.cta-reply-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  vertical-align: middle;
+}
+.cta-reply-wrap .cta-reply,
+.cta-reply-wrap .hdr-reply {
+  display: block;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--muted, #5b7690);
+  text-align: right;
+  white-space: nowrap;
+}
+.cta-reply-wrap:has(> .ecta-hdr) { margin-left: auto; }
+.contact-options + .cta-reply,
+.contact-reply {
+  display: block;
+  margin: .7rem 0 0;
+  font-size: .95rem;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--muted, #5b7690);
+}
+.email-option > .cta-reply {
+  display: block;
+  margin: .35rem 0 0;
+  font-size: .95rem;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--muted, #5b7690);
+}
+.cta-pair { align-items: flex-start; }
+.cta-pair > .cta-reply {
+  flex: 1 1 100%;
+  margin-top: .15rem;
+}
+html[data-noc] .cta-reply,
+html[data-noc] .mc-sub,
+html[data-noc] .mp-reply,
+html[data-noc] .cta-reply-wrap,
+html[data-noc] .contact-reply { display: none !important; }
+@media (max-width: 650px) {
+  .cta-reply-wrap:has(> .header-contact) { display: none !important; }
+  .cta-reply-wrap { align-items: center; }
+  .cta-reply-wrap .cta-reply,
+  .cta-reply-wrap .hdr-reply { text-align: center; }
+}
+@media (min-width: 651px) {
+  .cta-reply-wrap:has(> .ecta-hdr.ecta-m) { display: none !important; }
+}

@@ -28,6 +28,21 @@
       n.textContent = note;
       el.appendChild(n);
     }
+    function wrapNote(el, tag, cls) {
+      if (!el || root.hasAttribute("data-noc")) return;
+      var parent = el.parentNode;
+      if (!parent) return;
+      if (el.nextElementSibling && el.nextElementSibling.classList.contains(cls)) return;
+      if (parent.classList.contains("cta-reply-wrap") && parent.querySelector("." + cls)) return;
+      if (!parent.classList.contains("cta-reply-wrap")) {
+        var w = document.createElement("span");
+        w.className = "cta-reply-wrap";
+        parent.insertBefore(w, el);
+        w.appendChild(el);
+        parent = w;
+      }
+      addReply(parent, tag, cls);
+    }
     function notes() {
       if (root.hasAttribute("data-noc")) return;
       var heroes = document.querySelectorAll(".hero-cta");
@@ -44,6 +59,23 @@
       var acts = document.querySelectorAll(".ag-act, .pn-agency .pn-act, .cta-pair");
       for (var k = 0; k < acts.length; k++) {
         if (acts[k].querySelector("a[href^='mailto:']")) addReply(acts[k], "p", "cta-reply");
+      }
+      var hdrs = document.querySelectorAll("a.header-contact[href^='mailto:'], a.ecta-hdr[href^='mailto:']");
+      for (var h = 0; h < hdrs.length; h++) wrapNote(hdrs[h], "span", "cta-reply");
+      var boxes = document.querySelectorAll(".contact-options");
+      for (var b = 0; b < boxes.length; b++) {
+        var box = boxes[b];
+        if (box.nextElementSibling && box.nextElementSibling.classList.contains("cta-reply")) continue;
+        if (box.parentNode && box.parentNode.querySelector(":scope > .cta-reply")) continue;
+        var n = document.createElement("p");
+        n.className = "cta-reply contact-reply";
+        n.textContent = note;
+        if (box.nextSibling) box.parentNode.insertBefore(n, box.nextSibling);
+        else box.parentNode.appendChild(n);
+      }
+      var eos = document.querySelectorAll(".email-option");
+      for (var e = 0; e < eos.length; e++) {
+        if (eos[e].querySelector("a[href^='mailto:']")) addReply(eos[e], "p", "cta-reply");
       }
     }
     var tz = "";
