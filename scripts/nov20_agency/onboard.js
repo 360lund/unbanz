@@ -1,5 +1,5 @@
 /* Nov 20 2026: agency onboarding picker on /white-label-agency/. 4 steps (no pricing step: agency prices are never shown, Nov 20 rule); the last step hands off by the 3-tier rule:
-   /api/geo/ returns whatsapp only for US/CA/GB/NL/AE IP + time zone (both), email for everyone else (email only),
+   Nov 21 2026: WhatsApp contact removed. Email is the only send path. /api/geo/ still returns contactAllowed + email;
    and nothing for IN/PK/IR IP or time zone (no contact at all, html[data-noc]). No address or number is in the HTML. */
 (function () {
   var card = document.getElementById("ob");
@@ -11,7 +11,7 @@
   var ans = {}, cur = 0, geo = null, geoP = null;
   // Localized pages pass their strings in data-i18n (JSON); English defaults.
   var S = { step: "Step {n} of {t}", wait: "One moment…", thanks: "Thanks for your answers.", na: "Direct agency onboarding is currently unavailable in your region.",
-    wa: "Send on WhatsApp", em: "Send by email", fineWa: "Your answers are pre-filled. We reply within one business day.", fineEm: "Your answers are pre-filled in the email. We reply within one business day.",
+    em: "Send by email", fineEm: "Usually replies within 30 minutes.",
     intro: "Hi Unbanz, I'd like to onboard as a white-label agency partner.", lType: "Agency type", lName: "Agency name", lVol: "Client cases per month", lSvc: "Services needed",
     lPrice: "Pricing", lWeb: "Website", lReach: "Best way to reach me", subj: "Agency onboarding" };
   try { var X = JSON.parse(card.getAttribute("data-i18n") || "{}"); for (var k in X) S[k] = X[k]; } catch (e) {}
@@ -51,22 +51,20 @@
         var na = document.createElement("p"); na.className = "ob-na"; na.textContent = S.na; out.appendChild(na); return;
       }
       var m = msg(), subj = S.subj + ": " + (ans.type || "agency") + ", " + (ans.volume || "");
-      var wa = g.whatsapp && !navigator.webdriver ? String(g.whatsapp).replace(/\D/g, "") : "";
+      var wa = "";
       var em = g.email && /^[^@\s]+@[^@\s]+$/.test(g.email) ? g.email : "";
-      if (wa) out.appendChild(btn("ob-wa", "https://wa.me/" + wa + "?text=" + encodeURIComponent(m), S.wa, true));
-      if (em) out.appendChild(btn(wa ? "ob-em ob-alt" : "ob-em", "mailto:" + em + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(m), S.em, false));
+      if (em) out.appendChild(btn("ob-em", "mailto:" + em + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(m), S.em, false));
       var n = document.createElement("p"); n.className = "ob-fine";
-      n.textContent = wa ? S.fineWa : S.fineEm;
+      n.textContent = S.fineEm;
       if (wa || em) out.appendChild(n);
     });
   }
   function btn(cls, href, label, isWa) {
-    // Own click handling: the site-wide mail picker (team@ mailto) and cta-note (wa.me links) must not re-route these.
-    var a = document.createElement("a"); a.className = "ob-go " + cls; a.href = isWa ? "#whatsapp" : href;
+    // Own click handling: the site-wide mail picker (team@ mailto) must not re-route these.
+    var a = document.createElement("a"); a.className = "ob-go " + cls; a.href = href;
     a.setAttribute("data-ob", "1"); a.textContent = label;
     a.addEventListener("click", function (e) {
       e.stopPropagation();
-      if (isWa) { e.preventDefault(); window.open(href, "_blank", "noopener"); }
     });
     return a;
   }

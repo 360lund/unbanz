@@ -53,3 +53,10 @@ html:not([data-contact="both"]) .mobile-contact a[href^="mailto:"] {
   .mobile-contact .mc-sub { font-size: 10px; font-weight: 400; line-height: 1.15; opacity: .9; white-space: normal; }
   body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* Nov 21 2026: email-only contact; reply-time note under CTAs */
+.cta-reply{display:block;margin:.45rem 0 0;font-size:.9rem;line-height:1.35;font-weight:400;color:var(--muted,#5b7690);}
+.hero-cta .cta-reply{max-width:22em;}
+.ag-act .cta-reply,.cta-pair .cta-reply,.pn-act .cta-reply{margin-top:.4rem;}
+html[data-noc] .cta-reply,html[data-noc] .mc-sub{display:none!important;}
+.wa-direct,.wa-hdr,a[data-wa],a[href="#whatsapp"]{display:none!important;}

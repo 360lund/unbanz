@@ -32,7 +32,7 @@ CSS = ('<style id="pn-ag-css">.price-notes .pn-agency{position:relative;overflow
        '.price-notes .pn-agency p.pn-d{margin:10px 0 0;color:#c9dfee;font-size:15px;line-height:1.55}.pn-agency .pn-chips{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:6px}'
        '.pn-agency .pn-chips li{font-size:13px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.1);color:#e3eef6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}'
        '.pn-agency .pn-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.pn-agency .pn-act a{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:46px;padding:10px 20px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}'
-       '.pn-agency .pn-more{background:#fff;color:#10344c}.pn-agency .pn-mail{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.38)}.pn-agency .pn-act a.wa-direct{background:#1f9d55;color:#fff}'
+       '.pn-agency .pn-more{background:#fff;color:#10344c}.pn-agency .pn-mail{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.38)}'
        '@media(max-width:650px){.price-notes .pn-agency{padding:22px 20px}.pn-agency .pn-act a{flex:1 1 100%}}</style>')
 OLD = re.compile(r'<div class="pn-agency" data-ag="nov20">.*?</div></div><style id="pn-ag-css">.*?</style>', re.S)
 for pre, (e, h, d, more, mail, href, subj, body) in H.items():

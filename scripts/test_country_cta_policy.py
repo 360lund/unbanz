@@ -42,7 +42,7 @@ for rel in walk_html():
     kind = service_kind(rel, title.group(1) if title else "")
     if "cta-hold" in html:
         fail(rel + " still suppresses every contact control")
-    for needle in ("wa.me", "mailto:", "mobile-contact", "mail-pick", "contact-policy."):
+    for needle in ("mailto:", "mobile-contact", "mail-pick", "contact-policy."):
         if needle not in html:
             fail(rel + " missing " + needle)
     if 'href="/contact/"' not in html and "contato" not in html and "contact/" not in html:
@@ -127,8 +127,8 @@ KEEP = {
 }
 for rel, editorial_ok in KEEP.items():
     html = read(rel)
-    if "wa.me/19342012490" not in html:
-        fail(rel + " lost WhatsApp")
+    if "wa.me" in html:
+        fail(rel + " still has WhatsApp contact")
     if "mailto:team@unbanz.com" not in html:
         fail(rel + " lost email")
     if "cta-hold" in html:

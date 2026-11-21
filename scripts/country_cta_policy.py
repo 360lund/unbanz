@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 """Country-page CTA and published-fee rules.
 
-WhatsApp and email enquiries are removed from public landing pages whose
+Email enquiries are removed from public landing pages whose
 slug is specifically Brazil, Mexico, Saudi Arabia, Afghanistan, Iran, Iraq
 or Indonesia. The decision is the page, not the visitor's IP address.
 
-Priority pages keep enquiries: USA, Canada, UK, France, Netherlands, UAE,
+Priority pages keep email enquiries: USA, Canada, UK, France, Netherlands, UAE,
 Dubai and Italy, plus global hubs. Gulf pages that also cover the UAE keep
 enquiries.
 """
 import re
 
-# Segments that keep WhatsApp and email even on a country URL.
+# Segments that keep email enquiries even on a country URL.
 PRIORITY_SEGMENTS = {
     "usa", "uk", "canada", "france", "netherlands", "uae", "dubai", "italy",
 }
@@ -28,7 +28,7 @@ HOLD_FROM_SEGMENT = {
 }
 
 NO_ENQUIRY = (
-    "This page does not offer a WhatsApp or email enquiry. "
+    "This page does not offer an email enquiry. "
     "It explains the official steps. Unbanz is independent and is not affiliated with Meta."
 )
 

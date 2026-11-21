@@ -22,7 +22,7 @@ CSS = ('<style id="ag-band-css">.ag-band{margin:64px auto 8px}.ag-band .ag-in{po
        '.ag-band .ag-p{margin:0;font-size:15px;line-height:1.55;color:#c9dfee;max-width:44em}.ag-band .ag-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px}'
        '.ag-band .ag-act a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;gap:6px;transition:background .2s,box-shadow .2s}'
        '.ag-band .ag-more{background:#fff;color:#10344c}.ag-band .ag-more:hover{background:#e5eff6}.ag-band .ag-mail{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.38)}.ag-band .ag-mail:hover{box-shadow:inset 0 0 0 1px #fff}'
-       '.ag-band .ag-act a.wa-direct{background:#1f9d55;color:#fff}.ag-band .ag-res{flex-basis:100%;margin:2px 0 0;font-size:13px}.ag-band .ag-res a{color:#9fc9e6;text-decoration:underline;text-underline-offset:3px}'
+       '.ag-band .ag-res{flex-basis:100%;margin:2px 0 0;font-size:13px}.ag-band .ag-res a{color:#9fc9e6;text-decoration:underline;text-underline-offset:3px}'
        '.ag-ctx a{color:#2d719f;text-decoration:underline;text-underline-offset:3px}'
        '@media(max-width:650px){.ag-band{margin-top:44px}.ag-band .ag-in{padding:26px 22px;border-radius:24px}.ag-band .ag-act{width:100%}.ag-band .ag-act a{flex:1 1 100%}}</style>')
 def band(lang):

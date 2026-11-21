@@ -52,7 +52,7 @@ FEE_BLOCK = (
     'An Instagram username claim is priced after the handle is reviewed. For a standard claim assessment the indicative range is $800–$1,200. '
     'That range is not a fixed price and not a guarantee. Complex handles are quoted separately. '
     'None of these fees is a country discount. The platform decides the outcome. '
-    'WhatsApp is offered in the United States, Canada, the United Kingdom, France, the Netherlands, the United Arab Emirates and Italy. Elsewhere, use email.</p>'
+    'Email team@unbanz.com. There is no phone line and no WhatsApp contact.</p>'
     '</section>'
 )
 

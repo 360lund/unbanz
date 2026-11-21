@@ -1,10 +1,10 @@
-/* Nov 20 2026 CRO: lead clicks from the picker or agency onboarding.
-   lead_email    = the visitor opens their email app ("Write the email" or an onboarding mailto).
-   lead_whatsapp = the visitor opens WhatsApp (top-tier countries only).
+/* Nov 21 2026 CRO: lead clicks from the picker or agency onboarding.
+   lead_email = the visitor opens their email app ("Write the email" or an onboarding mailto).
+   WhatsApp contact was removed; WhatsApp contact events are not fired.
    Capture phase on window, so it runs before the picker/onboarding handlers. Keeps the dataLayer
    event and also fires Google Ads conversion AW-18585642552/B22SCPTisbwdELjMqZ5F via gtag
-   (beacon, no event_callback, so the mailto / wa.me navigation is not delayed). One click is one
-   conversion (800ms debounce). Never pushes the email address, the WhatsApp number or any typed text;
+   (beacon, no event_callback, so the mailto navigation is not delayed). One click is one
+   conversion (800ms debounce). Never pushes the email address or any typed text;
    only the event name, issue topic, source and page path. */
 (function () {
   var last = 0;
@@ -27,7 +27,6 @@
     if (!a) return;
     var href = a.getAttribute("href") || "";
     var src = a.classList.contains("ob-go") ? "agency_onboarding" : "picker";
-    if (a.classList.contains("ob-wa") || /^https:\/\/wa\.me\//.test(href)) push("lead_whatsapp", a, src);
-    else if (/^mailto:/i.test(href)) push("lead_email", a, src);
+    if (/^mailto:/i.test(href)) push("lead_email", a, src);
   }, true);
 })();
